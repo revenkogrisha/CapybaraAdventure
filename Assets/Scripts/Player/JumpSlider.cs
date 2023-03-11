@@ -1,6 +1,5 @@
 using UnityEngine.UI;
 using UnityEngine;
-using System.ComponentModel;
 
 namespace CapybaraAdventure.Player
 {
@@ -39,49 +38,32 @@ namespace CapybaraAdventure.Player
 
         private void LerpSliderValue()
         {
-            switch (_state)
-            {
-                case JumpSliderState.LerpingUp:
-                    LerpUp();
-                    break;
-
-                case JumpSliderState.LerpingDown:
-                    LerpDown();
-                    break;
-
-                default:
-                    throw new InvalidEnumArgumentException("Unknown JumpSliderState case has occured!");
-            }          
-        }
-
-        private void LerpDown()
-        {
+            var isLerpingUp = _state == JumpSliderState.LerpingUp;
             if (_timeElapsed < _lerpDuration)
             {
                 var progress = _timeElapsed / _lerpDuration;
-                _slider.value = Mathf.Lerp(_maxValue, _minValue, progress);
+                _slider.value = isLerpingUp
+                    ? LerpUp(progress) 
+                    : LerpDown(progress);
 
                 _timeElapsed += Time.deltaTime;
                 return;
             }
 
             _timeElapsed = 0f;
-            _state = JumpSliderState.LerpingUp;
+            _state = isLerpingUp
+                ? JumpSliderState.LerpingDown
+                : JumpSliderState.LerpingUp;
         }
 
-        private void LerpUp()
+        private float LerpDown(float progress)
         {
-            if (_timeElapsed < _lerpDuration)
-            {
-                var progress = _timeElapsed / _lerpDuration;
-                _slider.value = Mathf.Lerp(_minValue, _maxValue, progress);
+            return Mathf.Lerp(_maxValue, _minValue, progress);
+        }
 
-                _timeElapsed += Time.deltaTime;
-                return;
-            }
-
-            _timeElapsed = 0f;
-            _state = JumpSliderState.LerpingDown;
+        private float LerpUp(float progress)
+        {
+            return Mathf.Lerp(_minValue, _maxValue, progress);
         }
     }
 }
