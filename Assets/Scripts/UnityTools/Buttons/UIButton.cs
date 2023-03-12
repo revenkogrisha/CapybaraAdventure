@@ -4,8 +4,7 @@ using UnityEngine.UI;
 
 namespace UnityTools.Buttons
 {
-    [RequireComponent(typeof(Button))]
-    public sealed class UIButton : MonoBehaviour
+    public class UIButton : MonoBehaviour
     {
         [Header("Components")]
         [SerializeField] private Button _button;
