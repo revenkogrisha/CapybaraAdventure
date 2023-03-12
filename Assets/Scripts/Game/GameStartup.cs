@@ -5,6 +5,8 @@ namespace CapybaraAdventure
 {
     public class GameStartup : MonoBehaviour
     {
+        private PlayerJump _playerJump;
+
         #region MonoBehaviour
 
         private void Start()
@@ -12,11 +14,16 @@ namespace CapybaraAdventure
             InitPlayer();
         }
 
-        private void InitPlayer()
+        private void OnDisable()
         {
-            var playerJump = new PlayerJump();
+            _playerJump.Disable();
         }
 
         #endregion
+
+        private void InitPlayer()
+        {
+            _playerJump = new PlayerJump();
+        }
     }
 }
