@@ -1,11 +1,12 @@
-using UnityEngine;
 using Zenject;
 using CapybaraAdventure.Player;
 
-public class MyPlayerInstaller : MonoInstaller
+public class HeroInstaller : MonoInstaller
 {
     public override void InstallBindings()
     {
-        Container.BindInterfacesAndSelfTo<HeroJump>().AsSingle();
+        Container
+            .BindInterfacesAndSelfTo<HeroJump>()
+            .AsSingle();
     }
 }
