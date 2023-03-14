@@ -4,29 +4,33 @@ using CapybaraAdventure.Player.UI;
 
 namespace CapybaraAdventure.Player
 {
-    public class HeroJump : IInitializable, ILateDisposable
+    public class HeroJump : MonoBehaviour
     {
+        [SerializeField] private AnimationCurve _jumpCurve;
+
         private JumpSlider _jumpSlider;
         private JumpButton _jumpButton;
-        private AnimationCurve _jumpCurve;
+        private bool _shouldJump = false;
 
-        public HeroJump(AnimationCurve jumpCurve)
+        #region MonoBehaviour
+
+        public void OnEnable()
         {
-            _jumpCurve = jumpCurve;
+            _jumpButton.OnClicked += SayShouldJump;
         }
 
-        #region Zenject
-
-        public void Initialize()
+        public void OnDisable()
         {
-            _jumpButton.OnClicked += TryJump;
-        }
-
-        public void LateDispose()
-        {
-            _jumpButton.OnClicked -= TryJump;
+            _jumpButton.OnClicked -= SayShouldJump;
         }
         
+        private void Update()
+        {
+            TryJump();
+        }
+
+        #endregion
+
         [Inject]
         public void Construct(JumpButton button, JumpSlider slider)
         {
@@ -34,12 +38,22 @@ namespace CapybaraAdventure.Player
             _jumpButton = button;
         }
 
-        #endregion
+        private void SayShouldJump()
+        {
+            _shouldJump = true;
+        }
 
         private void TryJump()
         {
-            var jumpForce = _jumpSlider.Value;
-            //Via bool
+            if (_shouldJump)
+                PerformJump();
+        }
+
+        private void PerformJump()
+        {
+            Debug.Log("Jump!");
+
+            _shouldJump = false;
         }
     }
 }
