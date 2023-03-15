@@ -7,11 +7,12 @@ namespace CapybaraAdventure.Player
     public class HeroJump : MonoBehaviour
     {
         [SerializeField] private Rigidbody2D _rigidBody2D;
-        [SerializeField] private float _duration = 1.5f;
+        [SerializeField] private float _duration = 0.8f;
         [SerializeField] private AnimationCurve _jumpCurve;
 
         private JumpSlider _jumpSlider;
         private JumpButton _jumpButton;
+        private readonly float _jumpXDivider = 2f; 
         private bool _shouldJump = false;
         private float _expiredJumpTime = 0f;
         private float _jumpForce;
@@ -56,7 +57,10 @@ namespace CapybaraAdventure.Player
 
         private void TryJump()
         {
-            if (_shouldJump)
+            if (_expiredJumpTime > _duration)
+                EndJump();
+
+            if (_shouldJump == true)
                 PerformJump();
         }
 
@@ -64,14 +68,24 @@ namespace CapybaraAdventure.Player
         {
             _expiredJumpTime += Time.deltaTime;
 
-            if (_expiredJumpTime > _duration)
-                _shouldJump = false;
+            var jumpX = _jumpForce / _jumpXDivider;
+            float jumpY = GetYByCurve(_jumpCurve);
 
-            var progress = _expiredJumpTime / _duration;
-            var y = _jumpCurve.Evaluate(progress);
-
-            var jumpVelocity = new Vector2(_jumpForce, y * _jumpForce);
+            var jumpVelocity = new Vector2(jumpX, jumpY);
             _rigidBody2D.velocity = jumpVelocity;
+        }
+
+        private void EndJump()
+        {
+            _shouldJump = false;
+            _expiredJumpTime = 0f;
+        }
+
+        private float GetYByCurve(AnimationCurve jumpCurve)
+        {
+            var progress = _expiredJumpTime / _duration;
+            var curveValue = jumpCurve.Evaluate(progress);
+            return curveValue * _jumpForce;
         }
     }
 }
