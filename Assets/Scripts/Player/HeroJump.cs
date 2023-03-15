@@ -1,6 +1,7 @@
 using UnityEngine;
 using Zenject;
 using CapybaraAdventure.Player.UI;
+using System;
 
 namespace CapybaraAdventure.Player
 {
@@ -16,6 +17,10 @@ namespace CapybaraAdventure.Player
         private bool _shouldJump = false;
         private float _expiredJumpTime = 0f;
         private float _jumpForce;
+
+        public float XJumpAxis => _jumpForce / _jumpXDivider;
+
+        public event Action OnJumped;
 
         #region MonoBehaviour
 
@@ -68,10 +73,10 @@ namespace CapybaraAdventure.Player
         {
             _expiredJumpTime += Time.deltaTime;
 
-            var jumpX = _jumpForce / _jumpXDivider;
-            float jumpY = GetYByCurve(_jumpCurve);
+            var xAxis = XJumpAxis;
+            var yAxis = GetYByCurve(_jumpCurve);
 
-            var jumpVelocity = new Vector2(jumpX, jumpY);
+            var jumpVelocity = new Vector2(xAxis, yAxis);
             _rigidBody2D.velocity = jumpVelocity;
         }
 
