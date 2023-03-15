@@ -4,6 +4,6 @@ namespace CapybaraAdventure.Player
 {
     public class Hero : MonoBehaviour
     {
-        private HeroJump _jump;
+        [SerializeField] private HeroJump _jump;
     }
 }
