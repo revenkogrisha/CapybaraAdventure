@@ -183,27 +183,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rigidBody2D: {fileID: 7266856433574884408}
-  _duration: 0.5
+  _duration: 0.8
   _jumpCurve:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
       time: 0
       value: 0
-      inSlope: 2
-      outSlope: 2
+      inSlope: 4.4283395
+      outSlope: 4.4283395
       tangentMode: 0
       weightedMode: 0
       inWeight: 0
-      outWeight: 0
+      outWeight: 0.046078056
     - serializedVersion: 3
-      time: 0.5023979
-      value: 0.49016693
-      inSlope: -0.022000615
-      outSlope: -0.022000615
+      time: 0.29195926
+      value: 0.50243497
+      inSlope: 0.00063798163
+      outSlope: 0.00063798163
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.33333334
+      inWeight: 0.35196897
       outWeight: 0.33333334
     - serializedVersion: 3
       time: 1
