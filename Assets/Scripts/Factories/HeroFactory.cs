@@ -7,17 +7,21 @@ namespace CapybaraAdventure.Player
     {
         private readonly Hero _heroPrefab;
         private readonly Vector3 _spawnPosition;
+        private DiContainer _diContainer;
 
-        public HeroFactory(Hero prefab, Vector3 spawnPosition)
+        public HeroFactory(
+            DiContainer container,
+            Hero prefab,
+            Vector3 spawnPosition)
         {
+            _diContainer = container;
             _heroPrefab = prefab;
             _spawnPosition = spawnPosition;
         }
 
         public Hero Create()
         {
-            var diContainer = new DiContainer();
-            var hero = diContainer
+            var hero = _diContainer
                 .InstantiatePrefabForComponent<Hero>(_heroPrefab, _spawnPosition, Quaternion.identity, null);
 
             return hero;
