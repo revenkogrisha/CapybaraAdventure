@@ -1,7 +1,7 @@
 using UnityEngine.UI;
 using UnityEngine;
 
-namespace CapybaraAdventure.Player.UI
+namespace CapybaraAdventure.UI
 {
     public class JumpSlider : MonoBehaviour
     {

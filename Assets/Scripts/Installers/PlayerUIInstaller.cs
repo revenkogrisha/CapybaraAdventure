@@ -1,6 +1,6 @@
 using UnityEngine;
 using Zenject;
-using CapybaraAdventure.Player.UI;
+using CapybaraAdventure.UI;
 
 namespace CapybaraAdventure.Installers
 {

@@ -1,6 +1,6 @@
 using UnityTools.Buttons;
 
-namespace CapybaraAdventure.Player.UI
+namespace CapybaraAdventure.UI
 {
     public class JumpButton : UIButton { }
 }

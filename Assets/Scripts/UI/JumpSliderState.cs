@@ -1,4 +1,4 @@
-namespace CapybaraAdventure.Player
+namespace CapybaraAdventure.UI
 {
     public enum JumpSliderState
     {
