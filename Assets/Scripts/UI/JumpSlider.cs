@@ -5,12 +5,13 @@ namespace CapybaraAdventure.UI
 {
     public class JumpSlider : MonoBehaviour
     {
+        private const float DifficultyLerpDurationDecrease = 0.05f;
+        private const float MinLerpDuration = 0.3f;
+
         [SerializeField] private Slider _slider;
         [Tooltip("Put value in seconds")]
         [SerializeField] private float _startLerpDuration = 1f;
 
-        private readonly float _difficultyLerpDurationDecrease = 0.05f;
-        private readonly float _minLerpDuration = 0.3f;
         private JumpSliderState _state = JumpSliderState.LerpingUp;
         private float _timeElapsed = 0f;
         private float _minValue;
@@ -38,8 +39,8 @@ namespace CapybaraAdventure.UI
 
         public void TryDecreaseLerpDuration()
         {
-            var decreased = _lerpDuration - _difficultyLerpDurationDecrease;
-            if (decreased < _minLerpDuration)
+            var decreased = _lerpDuration - DifficultyLerpDurationDecrease;
+            if (decreased < MinLerpDuration)
                 return;
 
             _lerpDuration = decreased;

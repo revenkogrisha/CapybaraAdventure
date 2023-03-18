@@ -4,19 +4,20 @@ namespace CapybaraAdventure.Player
 {
     public class HeroJump
     {
+        private const float JumpXDivider = 2f;
+        private const float HeightTestRadius = 0.05f;
+
         private readonly Rigidbody2D _rigidBody2D;
         private readonly AnimationCurve _jumpCurve;
         private readonly LayerMask _ground;
-        private readonly float _duration;
-        private readonly float _jumpXDivider = 2f;
-        private readonly float _heightTest;
-        private readonly float _heightTestRadius = 0.05f;
         private readonly Collider2D _heroCollider;
+        private readonly float _duration;
+        private readonly float _heightTest;
         private bool _shouldJump = false;
         private float _expiredJumpTime = 0f;
         private float _jumpForce;
 
-        public float XJumpAxis => _jumpForce / _jumpXDivider;
+        public float XJumpAxis => _jumpForce / JumpXDivider;
 
         public bool IsNotGrounded
         {
@@ -42,7 +43,7 @@ namespace CapybaraAdventure.Player
             _ground = ground;
             _duration = duration;
 
-            _heightTest = _heroCollider.bounds.extents.y + _heightTestRadius;
+            _heightTest = _heroCollider.bounds.extents.y + HeightTestRadius;
         }
 
         public void TryJump()
