@@ -5,12 +5,10 @@ namespace CapybaraAdventure.Player
     public class HeroJump
     {
         private const float JumpXDivider = 2f;
-        private const float HeightTestRadius = 0.05f;
 
         private readonly Rigidbody2D _rigidBody2D;
         private readonly AnimationCurve _jumpCurve;
-        private readonly LayerMask _ground;
-        private readonly Collider2D _heroCollider;
+        private HeightCheckService _heightTestService;
         private readonly float _duration;
         private readonly float _heightTest;
         private bool _shouldJump = false;
@@ -19,31 +17,18 @@ namespace CapybaraAdventure.Player
 
         public float XJumpAxis => _jumpForce / JumpXDivider;
 
-        public bool IsNotGrounded
-        {
-            get
-            {
-                var heroCenter = _heroCollider.bounds.center;
-                var hit = Physics2D.Raycast(heroCenter, Vector2.down, _heightTest, _ground);
-
-                return hit.collider == null;
-            }
-        }
+        public bool IsNotGrounded => _heightTestService.IsNotGrounded;
 
         public HeroJump(
             Rigidbody2D rigidbody2D,
             AnimationCurve jumpCurve,
-            Collider2D heroCollider,
-            LayerMask ground,
+            HeightCheckService heightTestService,
             float duration)
         {
             _rigidBody2D = rigidbody2D;
             _jumpCurve = jumpCurve;
-            _heroCollider = heroCollider;
-            _ground = ground;
+            _heightTestService = heightTestService;
             _duration = duration;
-
-            _heightTest = _heroCollider.bounds.extents.y + HeightTestRadius;
         }
 
         public void TryJump()

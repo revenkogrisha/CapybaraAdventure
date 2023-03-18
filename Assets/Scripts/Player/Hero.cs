@@ -6,6 +6,8 @@ namespace CapybaraAdventure.Player
 {
     public class Hero : MonoBehaviour
     {
+        private const float HeightTestRadius = 0.05f;
+
         [SerializeField] private Rigidbody2D _rigidBody2D;
         [SerializeField] private float _duration = 0.8f;
         [SerializeField] private Collider2D _collider;
@@ -21,7 +23,8 @@ namespace CapybaraAdventure.Player
 
         private void Awake()
         {
-            _jump = new HeroJump(_rigidBody2D, _jumpCurve, _collider, _ground, _duration);
+            var heightTestService = new HeightCheckService(_collider, _ground, HeightTestRadius);
+            _jump = new HeroJump(_rigidBody2D, _jumpCurve, heightTestService,_duration);
             _presenter = new HeroPresenter(_jump, _jumpButton, _jumpSlider);
         }
 
