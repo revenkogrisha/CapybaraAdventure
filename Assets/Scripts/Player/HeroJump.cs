@@ -7,7 +7,7 @@ namespace CapybaraAdventure.Player
     {
         private readonly Rigidbody2D _rigidBody2D;
         private readonly AnimationCurve _jumpCurve;
-        private readonly float _duration = 0.8f;
+        private readonly float _duration;
         private readonly float _jumpXDivider = 2f;
         private bool _shouldJump = false;
         private float _expiredJumpTime = 0f;
@@ -19,12 +19,14 @@ namespace CapybaraAdventure.Player
 
         public HeroJump(
             Rigidbody2D rigidbody2D,
-            AnimationCurve jumpCurve)
+            AnimationCurve jumpCurve,
+            float duration)
         {
             _rigidBody2D = rigidbody2D;
             _jumpCurve = jumpCurve;
+            _duration = duration;
         }
-        
+
         public void TryJump()
         {
             if (_expiredJumpTime > _duration)

@@ -18,7 +18,7 @@ namespace CapybaraAdventure.Player
 
         private void Awake()
         {
-            _jump = new HeroJump(_rigidBody2D, _jumpCurve);
+            _jump = new HeroJump(_rigidBody2D, _jumpCurve, _duration);
             _presenter = new HeroPresenter(_jump, _jumpButton, _jumpSlider);
         }
 
@@ -40,7 +40,7 @@ namespace CapybaraAdventure.Player
         #endregion
 
         [Inject]
-        public void Construct(
+        private void Construct(
             JumpButton button,
             JumpSlider slider)
         {

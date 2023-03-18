@@ -23,7 +23,7 @@ namespace CapybaraAdventure
         #endregion
 
         [Inject]
-        public void Construct(
+        private void Construct(
             HeroSpawnMarker spawnMarker,
             DiContainer container)
         {
