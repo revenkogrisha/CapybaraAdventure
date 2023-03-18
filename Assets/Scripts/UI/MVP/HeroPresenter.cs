@@ -23,14 +23,19 @@ namespace CapybaraAdventure.UI
 
         public void Enable()
         {
-            _jumpButton.OnClicked += _heroJump.SayShouldJump;
-            _jumpButton.OnClicked += UpdateForceValue;
+            _jumpButton.OnClicked += OnClickHandler;
         }
 
         public void Disable()
         {
-            _jumpButton.OnClicked -= _heroJump.SayShouldJump;
-            _jumpButton.OnClicked -= UpdateForceValue;
+            _jumpButton.OnClicked -= OnClickHandler;
+        }
+
+        private void OnClickHandler()
+        {
+            _heroJump.SayShouldJump();
+            UpdateForceValue();
+            _jumpSlider.TryDecreaseLerpDuration();
         }
 
         private void UpdateForceValue()

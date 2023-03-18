@@ -15,8 +15,6 @@ namespace CapybaraAdventure.Player
 
         public float XJumpAxis => _jumpForce / _jumpXDivider;
 
-        public event Action OnJumped;
-
         public HeroJump(
             Rigidbody2D rigidbody2D,
             AnimationCurve jumpCurve,

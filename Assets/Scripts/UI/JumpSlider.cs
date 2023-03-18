@@ -9,6 +9,8 @@ namespace CapybaraAdventure.UI
         [Tooltip("Put value in seconds")]
         [SerializeField] private float _startLerpDuration = 1f;
 
+        private readonly float _difficultyLerpDurationDecrease = 0.05f;
+        private readonly float _minLerpDuration = 0.3f;
         private JumpSliderState _state = JumpSliderState.LerpingUp;
         private float _timeElapsed = 0f;
         private float _minValue;
@@ -33,6 +35,15 @@ namespace CapybaraAdventure.UI
         }
 
         #endregion
+
+        public void TryDecreaseLerpDuration()
+        {
+            var decreased = _lerpDuration - _difficultyLerpDurationDecrease;
+            if (decreased < _minLerpDuration)
+                return;
+
+            _lerpDuration = decreased;
+        }
 
         private void LerpSliderValue()
         {
