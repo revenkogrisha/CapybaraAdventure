@@ -170,6 +170,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _rigidBody2D: {fileID: 7266856433574884408}
   _duration: 0.8
+  _collider: {fileID: 7266856433574884422}
+  _ground:
+    serializedVersion: 2
+    m_Bits: 64
   _jumpCurve:
     serializedVersion: 2
     m_Curve:
