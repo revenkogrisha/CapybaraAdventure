@@ -96,7 +96,6 @@ GameObject:
   - component: {fileID: 7266856433574884422}
   - component: {fileID: 7266856433574884408}
   - component: {fileID: 7266856433574884409}
-  - component: {fileID: 7266856433574884423}
   m_Layer: 0
   m_Name: Hero
   m_TagString: Untagged
@@ -169,19 +168,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b765fdaaf70aa4ae08ad0d23f6f2f038, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _jump: {fileID: 7266856433574884423}
---- !u!114 &7266856433574884423
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7266856433574884410}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8b25b2ef743104538925b9c91a4fc9d6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
   _rigidBody2D: {fileID: 7266856433574884408}
   _duration: 0.8
   _jumpCurve:
@@ -190,29 +176,29 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 0
       value: 0
-      inSlope: 4.4283395
-      outSlope: 4.4283395
+      inSlope: 5.8438153
+      outSlope: 5.8438153
       tangentMode: 0
       weightedMode: 0
       inWeight: 0
-      outWeight: 0.046078056
+      outWeight: 0.07465921
     - serializedVersion: 3
-      time: 0.29195926
-      value: 0.50243497
-      inSlope: 0.00063798163
-      outSlope: 0.00063798163
+      time: 0.24114215
+      value: 0.50123584
+      inSlope: -0.3103332
+      outSlope: -0.3103332
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.35196897
-      outWeight: 0.33333334
+      inWeight: 0.5935221
+      outWeight: 0.12542628
     - serializedVersion: 3
       time: 1
-      value: -0.0070762634
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
+      value: -0.009433746
+      inSlope: -0.672945
+      outSlope: -0.672945
+      tangentMode: 34
       weightedMode: 0
-      inWeight: 0
+      inWeight: 0.33333334
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2

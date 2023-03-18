@@ -1,9 +1,51 @@
 using UnityEngine;
+using CapybaraAdventure.UI;
+using Zenject;
 
 namespace CapybaraAdventure.Player
 {
     public class Hero : MonoBehaviour
     {
-        [SerializeField] private HeroJump _jump;
+        [SerializeField] private Rigidbody2D _rigidBody2D;
+        [SerializeField] private float _duration = 0.8f;
+        [SerializeField] private AnimationCurve _jumpCurve;
+        private JumpButton _jumpButton;
+        private JumpSlider _jumpSlider;
+        private HeroJump _jump;
+        private HeroPresenter _presenter;
+
+        #region MonoBehaviour
+
+        private void Awake()
+        {
+            _jump = new HeroJump(_rigidBody2D, _jumpCurve);
+            _presenter = new HeroPresenter(_jump, _jumpButton, _jumpSlider);
+        }
+
+        private void OnEnable()
+        {
+            _presenter.Enable();
+        }
+
+        private void OnDisable()
+        {
+            _presenter.Disable();
+        }
+
+        private void Update()
+        {
+            _jump.TryJump();
+        }
+
+        #endregion
+
+        [Inject]
+        public void Construct(
+            JumpButton button,
+            JumpSlider slider)
+        {
+            _jumpButton = button;
+            _jumpSlider = slider;
+        }
     }
 }

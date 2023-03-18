@@ -38,6 +38,7 @@ namespace CapybaraAdventure
             
             var heroFactory = 
                 new HeroFactory(_diContainer, _heroPrefab, spawnPosition);
+                
             heroFactory.Create();
         }
     }

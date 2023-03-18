@@ -1,19 +1,14 @@
 using UnityEngine;
-using Zenject;
-using CapybaraAdventure.UI;
 using System;
 
 namespace CapybaraAdventure.Player
 {
-    public class HeroJump : MonoBehaviour
+    public class HeroJump
     {
-        [SerializeField] private Rigidbody2D _rigidBody2D;
-        [SerializeField] private float _duration = 0.8f;
-        [SerializeField] private AnimationCurve _jumpCurve;
-
-        private JumpSlider _jumpSlider;
-        private JumpButton _jumpButton;
-        private readonly float _jumpXDivider = 2f; 
+        private readonly Rigidbody2D _rigidBody2D;
+        private readonly AnimationCurve _jumpCurve;
+        private readonly float _duration = 0.8f;
+        private readonly float _jumpXDivider = 2f;
         private bool _shouldJump = false;
         private float _expiredJumpTime = 0f;
         private float _jumpForce;
@@ -22,51 +17,31 @@ namespace CapybaraAdventure.Player
 
         public event Action OnJumped;
 
-        #region MonoBehaviour
-
-        public void OnEnable()
+        public HeroJump(
+            Rigidbody2D rigidbody2D,
+            AnimationCurve jumpCurve)
         {
-            _jumpButton.OnClicked += SayShouldJump;
-            _jumpButton.OnClicked += UpdateForceValue;
-        }
-
-        public void OnDisable()
-        {
-            _jumpButton.OnClicked -= SayShouldJump;
-            _jumpButton.OnClicked -= UpdateForceValue;
+            _rigidBody2D = rigidbody2D;
+            _jumpCurve = jumpCurve;
         }
         
-        private void Update()
-        {
-            TryJump();
-        }
-
-        #endregion
-
-        [Inject]
-        public void Construct(JumpButton button, JumpSlider slider)
-        {
-            _jumpSlider = slider;
-            _jumpButton = button;
-        }
-
-        private void SayShouldJump()
-        {
-            _shouldJump = true;
-        }
-
-        private void UpdateForceValue()
-        {
-            _jumpForce = _jumpSlider.Value;
-        }
-
-        private void TryJump()
+        public void TryJump()
         {
             if (_expiredJumpTime > _duration)
                 EndJump();
 
             if (_shouldJump == true)
                 PerformJump();
+        }
+
+        public void SayShouldJump()
+        {
+            _shouldJump = true;
+        }
+
+        public void UpdateForceValue(float value)
+        {
+            _jumpForce = value;
         }
 
         private void PerformJump()
