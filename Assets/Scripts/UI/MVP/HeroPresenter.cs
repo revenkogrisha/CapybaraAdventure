@@ -33,6 +33,9 @@ namespace CapybaraAdventure.UI
 
         private void OnClickHandler()
         {
+            if (_heroJump.IsNotGrounded)
+                return;
+                
             _heroJump.SayShouldJump();
             UpdateForceValue();
             _jumpSlider.TryDecreaseLerpDuration();

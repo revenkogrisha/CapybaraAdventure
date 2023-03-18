@@ -8,7 +8,10 @@ namespace CapybaraAdventure.Player
     {
         [SerializeField] private Rigidbody2D _rigidBody2D;
         [SerializeField] private float _duration = 0.8f;
+        [SerializeField] private Collider2D _collider;
+        [SerializeField] private LayerMask _ground;
         [SerializeField] private AnimationCurve _jumpCurve;
+        
         private JumpButton _jumpButton;
         private JumpSlider _jumpSlider;
         private HeroJump _jump;
@@ -18,7 +21,7 @@ namespace CapybaraAdventure.Player
 
         private void Awake()
         {
-            _jump = new HeroJump(_rigidBody2D, _jumpCurve, _duration);
+            _jump = new HeroJump(_rigidBody2D, _jumpCurve, _collider, _ground, _duration);
             _presenter = new HeroPresenter(_jump, _jumpButton, _jumpSlider);
         }
 
