@@ -1,6 +1,7 @@
 using UnityEngine;
 using CapybaraAdventure.UI;
 using Zenject;
+using System;
 
 namespace CapybaraAdventure.Player
 {
@@ -18,6 +19,8 @@ namespace CapybaraAdventure.Player
         private JumpSlider _jumpSlider;
         private HeroJump _jump;
         private HeroPresenter _presenter;
+
+        public event Action OnDeath;
 
         #region MonoBehaviour
 
