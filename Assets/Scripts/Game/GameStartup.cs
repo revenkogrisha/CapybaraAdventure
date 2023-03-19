@@ -3,13 +3,14 @@ using UnityEngine;
 using Zenject;
 using Cinemachine;
 
-namespace CapybaraAdventure
+namespace CapybaraAdventure.Game
 {
+    [DisallowMultipleComponent]
     public class GameStartup : MonoBehaviour
     {
         [SerializeField] private Hero _heroPrefab;
         [SerializeField] private CinemachineVirtualCamera _mainCamera;
-
+        
         private HeroSpawnMarker _heroSpawnMarker;
         private DiContainer _diContainer;
 
@@ -18,11 +19,15 @@ namespace CapybaraAdventure
         private void Start()
         {
             //  generate level
-            var hero = CreateHero();
-            SetupCamera(hero);
         }
 
         #endregion
+
+        public void StartGame()
+        {
+            var hero = CreateHero();
+            SetupCamera(hero);
+        }
 
         [Inject]
         private void Construct(
