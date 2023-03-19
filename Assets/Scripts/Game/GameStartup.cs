@@ -1,12 +1,14 @@
 using CapybaraAdventure.Player;
 using UnityEngine;
 using Zenject;
+using Cinemachine;
 
 namespace CapybaraAdventure
 {
     public class GameStartup : MonoBehaviour
     {
         [SerializeField] private Hero _heroPrefab;
+        [SerializeField] private CinemachineVirtualCamera _mainCamera;
 
         private HeroSpawnMarker _heroSpawnMarker;
         private DiContainer _diContainer;
@@ -16,8 +18,8 @@ namespace CapybaraAdventure
         private void Start()
         {
             //  generate level
-
-            CreateHero();
+            var hero = CreateHero();
+            SetupCamera(hero);
         }
 
         #endregion
@@ -31,7 +33,7 @@ namespace CapybaraAdventure
             _diContainer = container;
         }
 
-        private void CreateHero()
+        private Hero CreateHero()
         {
             var spawnMarkerTransform = _heroSpawnMarker.transform;
             var spawnPosition = spawnMarkerTransform.position;
@@ -39,7 +41,14 @@ namespace CapybaraAdventure
             var heroFactory = 
                 new HeroFactory(_diContainer, _heroPrefab, spawnPosition);
                 
-            heroFactory.Create();
+            var hero = heroFactory.Create();
+            return hero;
+        }
+
+        private void SetupCamera(Hero hero)
+        {
+            var heroTransform = hero.transform;
+            _mainCamera.Follow = heroTransform;
         }
     }
 }
