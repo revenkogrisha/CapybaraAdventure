@@ -1,14 +1,16 @@
 using CapybaraAdventure.UI;
 using UnityEngine;
 using UnityTools.Buttons;
+using Zenject;
 
 namespace CapybaraAdventure.Game
 {
     public class GameMenu : UIBase
     {
-        [SerializeField] private GameStartup _gameStartup;
         [SerializeField] private UIButton _playButton;
-        [SerializeField] private GameUI _inGameUI;
+
+        private GameStartup _gameStartup;
+        private GameUI _inGameUI;
 
         #region MonoBehaviour
 
@@ -23,6 +25,12 @@ namespace CapybaraAdventure.Game
         }
 
         #endregion
+        
+        public void InjectFields(DiContainer diContainer)
+        {
+            _gameStartup = diContainer.Resolve<GameStartup>();
+            _inGameUI = diContainer.Resolve<GameUI>();
+        }
 
         private void StartGame()
         {
