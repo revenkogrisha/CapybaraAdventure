@@ -12,12 +12,16 @@ namespace CapybaraAdventure.Tools
         public bool IsCached => _cachedObject != null;
         public bool IsNotCached => _cachedObject = null;
 
-        protected async Task<T> LoadInternal<T>(string assetID)
+        protected async Task<T> LoadInternal<T>(
+            string assetID,
+            Transform parent = null)
         {
-            var handle = Addressables.InstantiateAsync(assetID);
+            var handle = Addressables.InstantiateAsync(assetID, parent);
             _cachedObject = await handle.Task;
 
-            var isGetOperationSucceeded = _cachedObject.TryGetComponent<T>(out T component);
+            var isGetOperationSucceeded = 
+                _cachedObject.TryGetComponent<T>(out T component);
+                
             if (isGetOperationSucceeded)
                 return component;
                 
