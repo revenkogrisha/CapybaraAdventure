@@ -2,7 +2,6 @@ using System;
 using CapybaraAdventure.UI;
 using UnityEngine;
 using UnityTools.Buttons;
-using Zenject;
 
 namespace CapybaraAdventure.Game
 {
@@ -13,7 +12,7 @@ namespace CapybaraAdventure.Game
         private GameStartup _gameStartup;
         private GameUI _inGameUI;
 
-        private bool _areFieldsInjected = false;
+        private bool _isInitialized = false;
 
         #region MonoBehaviour
 
@@ -29,20 +28,19 @@ namespace CapybaraAdventure.Game
 
         #endregion
         
-        public void InjectFields(DiContainer diContainer)
+        public void Init(
+            GameStartup gameStartup,
+            GameUI inGameUI)
         {
-            _gameStartup = diContainer.Resolve<GameStartup>();
-            _inGameUI = diContainer.Resolve<GameUI>();
+            _gameStartup = gameStartup;
+            _inGameUI = inGameUI;
 
-            if (_gameStartup == null && _inGameUI == null)
-                throw new ZenjectException("Fields weren't injected successfully!");
-
-            _areFieldsInjected = true;
+            _isInitialized = true;
         }
 
         private void StartGame()
         {
-            if (_areFieldsInjected == false)
+            if (_isInitialized == false)
                 throw new NullReferenceException("Fields weren't injected! Call InjectFields(...) first before calling StartGame()");
 
             _gameStartup.StartGame();

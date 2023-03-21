@@ -6,20 +6,17 @@ namespace CapybaraAdventure.Game
 {
     public class AppStartup : MonoBehaviour
     {
-        [SerializeField] private Canvas _canvas;
-
-        private DiContainer _diContainer;
+        private MenuProvider _menuProvider;
 
         private async void Start()
         {
-            var menuProvider = new MenuProvider(_canvas, _diContainer);
-            await menuProvider.Load();
+            await _menuProvider.Load();
         }
 
         [Inject]
-        private void Construct(DiContainer diContainer)
+        private void Construct(MenuProvider menuProvider)
         {
-            _diContainer = diContainer;
+            _menuProvider = menuProvider;
         } 
     }
 }
