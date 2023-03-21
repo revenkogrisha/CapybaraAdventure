@@ -20,6 +20,6 @@ namespace CapybaraAdventure.Game
         private void Construct(DiContainer diContainer)
         {
             _diContainer = diContainer;
-        }
+        } 
     }
 }
