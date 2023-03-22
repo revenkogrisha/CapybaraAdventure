@@ -21,6 +21,10 @@ MonoBehaviour:
     m_Address: GameMenu
     m_ReadOnly: 0
     m_SerializedLabels: []
+  - m_GUID: 44bb8f9e706024a3589908517c00536d
+    m_Address: GameOverScreen
+    m_ReadOnly: 0
+    m_SerializedLabels: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 8d06babe51c5d4018a46dea98910cd82, type: 2}
   m_SchemaSet:
