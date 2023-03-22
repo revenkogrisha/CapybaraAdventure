@@ -2,6 +2,8 @@ using CapybaraAdventure.Player;
 using UnityEngine;
 using Zenject;
 using Cinemachine;
+using CapybaraAdventure.UI;
+using System;
 
 namespace CapybaraAdventure.Game
 {
@@ -12,9 +14,18 @@ namespace CapybaraAdventure.Game
         [SerializeField] private CinemachineVirtualCamera _mainCamera;
         
         private HeroSpawnMarker _heroSpawnMarker;
+        private GameOverHandler _gameOverHandler;
+        private GameOverHandlerPresenter _gameOverHandlerPresenter;
+        private PauseManager _pauseManager;
         private DiContainer _diContainer;
 
         #region MonoBehaviour
+
+        private void OnDisable()
+        {
+            _gameOverHandler.Disable();
+            _gameOverHandlerPresenter.Disable();
+        }
 
         private void Start()
         {
@@ -23,19 +34,25 @@ namespace CapybaraAdventure.Game
 
         #endregion
 
+        [Inject]
+        private void Construct(
+            HeroSpawnMarker spawnMarker,
+            GameOverHandler gameOverHandler,
+            PauseManager pauseManager,
+            DiContainer diContainer)
+        {
+            _heroSpawnMarker = spawnMarker;
+            _gameOverHandler = gameOverHandler;
+            _pauseManager = pauseManager;
+            _diContainer = diContainer;
+        }
+
         public void StartGame()
         {
             var hero = CreateHero();
             SetupCamera(hero);
-        }
 
-        [Inject]
-        private void Construct(
-            HeroSpawnMarker spawnMarker,
-            DiContainer container)
-        {
-            _heroSpawnMarker = spawnMarker;
-            _diContainer = container;
+            SetupGameOverSystem(hero);
         }
 
         private Hero CreateHero()
@@ -54,6 +71,29 @@ namespace CapybaraAdventure.Game
         {
             var heroTransform = hero.transform;
             _mainCamera.Follow = heroTransform;
+        }
+
+        private void SetupGameOverSystem(Hero hero)
+        {
+            InitGameOverHandler(hero);
+            InitGameOverHandlerPresenter();
+        }
+
+        private void InitGameOverHandler(Hero hero)
+        {
+            _gameOverHandler = new GameOverHandler(hero, _pauseManager);
+            _gameOverHandler.Enable();
+        }
+
+        private void InitGameOverHandlerPresenter()
+        {
+            if (_gameOverHandler == null)
+                throw new NullReferenceException("GameOverHandler instance is null! Init it first because it's needed in GameOverHandlerPresenter initialization.");
+
+            _gameOverHandlerPresenter =
+                new GameOverHandlerPresenter(_gameOverHandler);
+
+            _gameOverHandler.Enable();
         }
     }
 }
