@@ -41,7 +41,7 @@ namespace CapybaraAdventure.Game
         private void StartGame()
         {
             if (_isInitialized == false)
-                throw new NullReferenceException("Fields weren't injected! Call InjectFields(...) first before calling StartGame()");
+                throw new NullReferenceException("The instance of the class haven't been initialized yet! Call Init(...) first before calling StartGame()");
 
             _gameStartup.StartGame();
             Conceal();
