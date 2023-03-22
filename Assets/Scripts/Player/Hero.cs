@@ -2,6 +2,7 @@ using UnityEngine;
 using CapybaraAdventure.UI;
 using Zenject;
 using System;
+using CapybaraAdventure.Game;
 
 namespace CapybaraAdventure.Player
 {
@@ -17,8 +18,11 @@ namespace CapybaraAdventure.Player
         
         private JumpButton _jumpButton;
         private JumpSlider _jumpSlider;
+        private PauseManager _pauseManager;
         private HeroJump _jump;
         private HeroPresenter _presenter;
+
+        public bool IsPaused => _pauseManager.IsPaused;
 
         public event Action OnDeath;
 
@@ -43,6 +47,9 @@ namespace CapybaraAdventure.Player
 
         private void Update()
         {
+            if (IsPaused)
+                return;
+                
             _jump.TryJump();
         }
 
@@ -51,10 +58,12 @@ namespace CapybaraAdventure.Player
         [Inject]
         private void Construct(
             JumpButton button,
-            JumpSlider slider)
+            JumpSlider slider,
+            PauseManager pauseManager)
         {
             _jumpButton = button;
             _jumpSlider = slider;
+            _pauseManager = pauseManager;
         }
     }
 }
