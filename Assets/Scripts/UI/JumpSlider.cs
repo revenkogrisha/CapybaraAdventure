@@ -1,5 +1,7 @@
 using UnityEngine.UI;
 using UnityEngine;
+using CapybaraAdventure.Game;
+using Zenject;
 
 namespace CapybaraAdventure.UI
 {
@@ -17,8 +19,10 @@ namespace CapybaraAdventure.UI
         private float _minValue;
         private float _maxValue;
         private float _lerpDuration;
+        private PauseManager _pauseManager;
 
         public float Value => _slider.value;
+        public bool IsPaused => _pauseManager.IsPaused;
 
         #region MonoBehaviour
 
@@ -32,10 +36,19 @@ namespace CapybaraAdventure.UI
 
         private void Update()
         {
+            if (IsPaused)
+                return;
+
             LerpSliderValue();
         }
 
         #endregion
+
+        [Inject]
+        private void Construct(PauseManager pauseManager)
+        {
+            _pauseManager = pauseManager;
+        }
 
         public void TryDecreaseLerpDuration()
         {
