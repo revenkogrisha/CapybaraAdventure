@@ -1,3 +1,4 @@
+using System;
 using CapybaraAdventure.Player;
 
 namespace CapybaraAdventure.Game
@@ -8,6 +9,8 @@ namespace CapybaraAdventure.Game
         private readonly PauseManager _pauseManager;
 
         public bool IsPaused => _pauseManager.IsPaused;
+
+        public event Action OnGameHasOver;
 
         public GameOverHandler(Hero hero, PauseManager pause)
         {
@@ -29,6 +32,8 @@ namespace CapybaraAdventure.Game
         {
             if (IsPaused == false)
                 _pauseManager.SetPaused(true);
+
+            OnGameHasOver?.Invoke();
         }
     }
 }
