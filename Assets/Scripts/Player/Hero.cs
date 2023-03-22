@@ -16,6 +16,7 @@ namespace CapybaraAdventure.Player
         [SerializeField] private LayerMask _ground;
         [SerializeField] private AnimationCurve _jumpCurve;
         
+        private bool _isDead;
         private JumpButton _jumpButton;
         private JumpSlider _jumpSlider;
         private PauseManager _pauseManager;
@@ -30,6 +31,8 @@ namespace CapybaraAdventure.Player
 
         private void Awake()
         {
+            _isDead = false;
+
             var heightTestService = new HeightCheckService(_collider, _ground, HeightTestRadius);
             _jump = new HeroJump(_rigidBody2D, _jumpCurve, heightTestService,_duration);
             _presenter = new HeroPresenter(_jump, _jumpButton, _jumpSlider);
@@ -57,10 +60,20 @@ namespace CapybaraAdventure.Player
         {
             if (IsPaused)
                 return;
+                
+            HandleCollisionWithDeadlyObject(other);
+        }
+
+        private void HandleCollisionWithDeadlyObject(Collider2D other)
+        {
+            if (_isDead)
+                return;
 
             UnityTools
                 .Tools
                 .InvokeIfNotNull<DeadlyForPlayerObject>(other, PerformDeath);
+
+            _isDead = true;
         }
 
         #endregion

@@ -17,14 +17,15 @@ namespace CapybaraAdventure.Game
         private GameOverHandler _gameOverHandler;
         private GameOverHandlerPresenter _gameOverHandlerPresenter;
         private PauseManager _pauseManager;
+        private GameOverScreenProvider _gameOverScreenProvider;
         private DiContainer _diContainer;
 
         #region MonoBehaviour
 
         private void OnDisable()
         {
-            _gameOverHandler.Disable();
-            _gameOverHandlerPresenter.Disable();
+            _gameOverHandler?.Disable();
+            _gameOverHandlerPresenter?.Disable();
         }
 
         private void Start()
@@ -37,18 +38,20 @@ namespace CapybaraAdventure.Game
         [Inject]
         private void Construct(
             HeroSpawnMarker spawnMarker,
-            GameOverHandler gameOverHandler,
             PauseManager pauseManager,
+            GameOverScreenProvider gameOverScreenProvider,
             DiContainer diContainer)
         {
             _heroSpawnMarker = spawnMarker;
-            _gameOverHandler = gameOverHandler;
             _pauseManager = pauseManager;
+            _gameOverScreenProvider = gameOverScreenProvider;
             _diContainer = diContainer;
         }
 
         public void StartGame()
         {
+            _pauseManager.SetPaused(false);
+
             var hero = CreateHero();
             SetupCamera(hero);
 
@@ -90,10 +93,11 @@ namespace CapybaraAdventure.Game
             if (_gameOverHandler == null)
                 throw new NullReferenceException("GameOverHandler instance is null! Init it first because it's needed in GameOverHandlerPresenter initialization.");
 
-            _gameOverHandlerPresenter =
-                new GameOverHandlerPresenter(_gameOverHandler);
+            _gameOverHandlerPresenter = new GameOverHandlerPresenter(
+                _gameOverHandler,
+                _gameOverScreenProvider);
 
-            _gameOverHandler.Enable();
+            _gameOverHandlerPresenter.Enable();
         }
     }
 }

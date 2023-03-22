@@ -1,5 +1,4 @@
 using CapybaraAdventure.Game;
-using Zenject;
 
 namespace CapybaraAdventure.UI
 {
@@ -8,9 +7,12 @@ namespace CapybaraAdventure.UI
         private GameOverHandler _gameOverHandler;
         private GameOverScreenProvider _screenProvider;
 
-        public GameOverHandlerPresenter(GameOverHandler handler)
+        public GameOverHandlerPresenter(
+            GameOverHandler handler,
+            GameOverScreenProvider provider)
         {
             _gameOverHandler = handler;
+            _screenProvider = provider;
         }
 
         public void Enable()
@@ -23,15 +25,10 @@ namespace CapybaraAdventure.UI
             _gameOverHandler.OnGameHasOver -= OnGameHasOverHandler;
         }
 
-        [Inject]
-        private void Construct(GameOverScreenProvider provider)
-        {
-            _screenProvider = provider;
-        }
-
         private async void OnGameHasOverHandler()
         {
-            await _screenProvider.Load();
+            var screen = await _screenProvider.Load();
+            screen.Reveal();
         }
     }
 }
