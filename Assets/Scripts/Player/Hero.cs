@@ -49,8 +49,18 @@ namespace CapybaraAdventure.Player
         {
             if (IsPaused)
                 return;
-                
+
             _jump.TryJump();
+        }
+
+        private void OnTriggerEnter2D(Collider2D other)
+        {
+            if (IsPaused)
+                return;
+
+            UnityTools
+                .Tools
+                .InvokeIfNotNull<DeadlyForPlayerObject>(other, PerformDeath);
         }
 
         #endregion
@@ -65,5 +75,7 @@ namespace CapybaraAdventure.Player
             _jumpSlider = slider;
             _pauseManager = pauseManager;
         }
+
+        private void PerformDeath() => OnDeath?.Invoke();
     }
 }
