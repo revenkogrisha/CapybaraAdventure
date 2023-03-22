@@ -1,6 +1,4 @@
-using System;
 using CapybaraAdventure.Player;
-using Zenject;
 
 namespace CapybaraAdventure.UI
 {
@@ -23,15 +21,15 @@ namespace CapybaraAdventure.UI
 
         public void Enable()
         {
-            _jumpButton.OnClicked += OnClickHandler;
+            _jumpButton.OnClicked += OnClickedHandler;
         }
 
         public void Disable()
         {
-            _jumpButton.OnClicked -= OnClickHandler;
+            _jumpButton.OnClicked -= OnClickedHandler;
         }
 
-        private void OnClickHandler()
+        private void OnClickedHandler()
         {
             if (_heroJump.IsNotGrounded)
                 return;

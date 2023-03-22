@@ -10,7 +10,7 @@ namespace CapybaraAdventure.Tools
         private GameObject _cachedObject;
 
         public bool IsCached => _cachedObject != null;
-        public bool IsNotCached => _cachedObject = null;
+        public bool IsNotCached => _cachedObject == null;
 
         protected async Task<T> LoadInternal<T>(
             string assetID,

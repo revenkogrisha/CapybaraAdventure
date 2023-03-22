@@ -11,7 +11,6 @@ namespace CapybaraAdventure.UI
         public const string GameMenu = nameof(GameMenu);
         
         private readonly Canvas _canvas;
-        private readonly DiContainer _diContainer;
         private readonly GameStartup _gameStartup;
         private readonly GameUI _inGameUI;
 
@@ -34,9 +33,6 @@ namespace CapybaraAdventure.UI
             return menu;
         }
 
-        public void Unload()
-        {
-            UnlodadInternalIfCached();
-        }
+        public void Unload() => UnlodadInternalIfCached();
     }
 }
