@@ -11,8 +11,9 @@ namespace CapybaraAdventure.Game
 
         private GameStartup _gameStartup;
         private GameUI _inGameUI;
-
         private bool _isInitialized = false;
+
+        public event Action OnMenuWorkHasOver;
 
         #region MonoBehaviour
 
@@ -34,7 +35,6 @@ namespace CapybaraAdventure.Game
         {
             _gameStartup = gameStartup;
             _inGameUI = inGameUI;
-
             _isInitialized = true;
         }
 
@@ -46,6 +46,8 @@ namespace CapybaraAdventure.Game
             _gameStartup.StartGame();
             Conceal();
             _inGameUI.Reveal();
+
+            OnMenuWorkHasOver?.Invoke();
         }
     }
 }
