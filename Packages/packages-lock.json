@@ -1,5 +1,12 @@
 {
   "dependencies": {
+    "com.pixelsparkstudio.parallaxer": {
+      "version": "git@github.com:PixelSparkStudio/Parallaxer.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "b6d50b72d807ae0ac21e6aa4bd5d6a610d5aa89f"
+    },
     "com.unity.2d.animation": {
       "version": "7.0.9",
       "depth": 1,
