@@ -1096,6 +1096,7 @@ MonoBehaviour:
   _platformParent: {fileID: 1524486398}
   _platforms:
   - {fileID: -2216271765511400605, guid: ee9e3c04efa744b2d81ed82032a8c4ad, type: 3}
+  - {fileID: -2216271765511400605, guid: 3710e2168a6a245639748f90e321a68f, type: 3}
 --- !u!1 &1262779069
 GameObject:
   m_ObjectHideFlags: 0
@@ -1577,6 +1578,7 @@ GameObject:
   - component: {fileID: 1897825024}
   - component: {fileID: 1897825026}
   - component: {fileID: 1897825025}
+  - component: {fileID: 1897825027}
   m_Layer: 0
   m_Name: Startup
   m_TagString: Untagged
@@ -1626,3 +1628,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ffe5348217944632839a8afdaae1b0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1897825027
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1897825023}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d58c21a484474f0d91c5558a07eac68, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  poolPreset: {fileID: 0}

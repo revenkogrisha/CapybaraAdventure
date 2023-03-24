@@ -57,6 +57,8 @@ namespace CapybaraAdventure.Game
             var hero = CreateHero();
             SetupCamera(hero);
 
+            _levelGenerator.InitHeroTransform(hero);
+
             SetupGameOverSystem(hero);
         }
 
