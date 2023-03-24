@@ -4,6 +4,7 @@ using Zenject;
 using Cinemachine;
 using CapybaraAdventure.UI;
 using System;
+using CapybaraAdventure.Level;
 
 namespace CapybaraAdventure.Game
 {
@@ -12,6 +13,7 @@ namespace CapybaraAdventure.Game
     {
         [SerializeField] private Hero _heroPrefab;
         [SerializeField] private CinemachineVirtualCamera _mainCamera;
+        [SerializeField] private LevelGenerator _levelGenerator;
         
         private HeroSpawnMarker _heroSpawnMarker;
         private GameOverHandler _gameOverHandler;
@@ -30,7 +32,7 @@ namespace CapybaraAdventure.Game
 
         private void Start()
         {
-            //  generate level
+            _levelGenerator.Generate();
         }
 
         #endregion
