@@ -32,7 +32,7 @@ namespace CapybaraAdventure.Game
 
         private void Start()
         {
-            _levelGenerator.Generate();
+            _levelGenerator.GenerateDefaultAmount();
         }
 
         #endregion
