@@ -26,6 +26,18 @@ namespace CapybaraAdventure.Level
 
         private string PlatformName => $"Platform №{_lastGeneratedPlatformX / PlatformLength}";
 
+        private bool IsLevelMidPointXLessHeroX
+        {
+            get
+            {
+                var heroPosition = _heroTransform.position;
+                var heroX = heroPosition.x;
+                var midPointX = GetLevelMidPointX(heroX);
+
+                return midPointX < heroX;
+            }
+        }
+
         private void Awake()
         {
             _lastGeneratedPlatformX = _startPoint.y;
@@ -56,14 +68,7 @@ namespace CapybaraAdventure.Level
                     yield return 
                         new WaitUntil(() => _heroIsInitialized == true);
 
-                var heroPosition = _heroTransform.position;
-                var heroX = heroPosition.x;
-
-                var oldestPlatform = _platformsOnLevel.Peek();
-                var oldestPlatformX = oldestPlatform.transform.position.x;
-
-                var midPointX = (_lastGeneratedPlatformX + oldestPlatformX) / 2f;
-                if (midPointX < heroX)
+                if (IsLevelMidPointXLessHeroX)
                 {
                     DespawnOldestPlatform();
                     SpawnRandomPlatform();
@@ -71,7 +76,14 @@ namespace CapybaraAdventure.Level
 
                 yield return new WaitForSeconds(HeroPositionCheckFrequencyInSeconds);
             }
+        }
 
+        private float GetLevelMidPointX(float heroX)
+        {
+            var oldestPlatform = _platformsOnLevel.Peek();
+            var oldestPlatformX = oldestPlatform.transform.position.x;
+
+            return (_lastGeneratedPlatformX + oldestPlatformX) / 2f;
         }
 
         private void SpawnRandomPlatform()
