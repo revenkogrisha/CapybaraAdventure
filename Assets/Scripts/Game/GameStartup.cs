@@ -13,8 +13,8 @@ namespace CapybaraAdventure.Game
     {
         [SerializeField] private Hero _heroPrefab;
         [SerializeField] private CinemachineVirtualCamera _mainCamera;
-        [SerializeField] private LevelGenerator _levelGenerator;
         
+        private LevelGenerator _levelGenerator;
         private HeroSpawnMarker _heroSpawnMarker;
         private GameOverHandler _gameOverHandler;
         private GameOverHandlerPresenter _gameOverHandlerPresenter;
@@ -39,11 +39,13 @@ namespace CapybaraAdventure.Game
 
         [Inject]
         private void Construct(
+            LevelGenerator levelGenerator,
             HeroSpawnMarker spawnMarker,
             PauseManager pauseManager,
             GameOverScreenProvider gameOverScreenProvider,
             DiContainer diContainer)
         {
+            _levelGenerator = levelGenerator; 
             _heroSpawnMarker = spawnMarker;
             _pauseManager = pauseManager;
             _gameOverScreenProvider = gameOverScreenProvider;

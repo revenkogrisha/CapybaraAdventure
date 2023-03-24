@@ -33,7 +33,6 @@ namespace CapybaraAdventure.Level
                 var heroPosition = _heroTransform.position;
                 var heroX = heroPosition.x;
                 var midPointX = GetLevelMidPointX(heroX);
-
                 return midPointX < heroX;
             }
         }
@@ -64,9 +63,9 @@ namespace CapybaraAdventure.Level
         {
             while (true)
             {
-                if (_heroIsInitialized == false)
-                    yield return 
-                        new WaitUntil(() => _heroIsInitialized == true);
+                yield return new WaitUntil(
+                    () => _heroIsInitialized == true
+                    );
 
                 if (IsLevelMidPointXLessHeroX)
                 {
@@ -82,7 +81,6 @@ namespace CapybaraAdventure.Level
         {
             var oldestPlatform = _platformsOnLevel.Peek();
             var oldestPlatformX = oldestPlatform.transform.position.x;
-
             return (_lastGeneratedPlatformX + oldestPlatformX) / 2f;
         }
 
@@ -110,7 +108,6 @@ namespace CapybaraAdventure.Level
             platformInGame.name = PlatformName; 
 
             _lastGeneratedPlatformX += PlatformLength;
-
             _platformsOnLevel.Enqueue(platformInGame);
         }
 
