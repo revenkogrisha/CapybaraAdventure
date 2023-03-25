@@ -14,7 +14,9 @@ namespace CapybaraAdventure.Game
         [SerializeField] private Hero _heroPrefab;
         [SerializeField] private CinemachineVirtualCamera _mainCamera;
         [SerializeField] private FollowerObject _deadlyYBorder;
+        [SerializeField] private ScoreText _scoreText;
         
+        private Score _score;
         private LevelGenerator _levelGenerator;
         private HeroSpawnMarker _heroSpawnMarker;
         private GameOverHandler _gameOverHandler;
@@ -22,6 +24,7 @@ namespace CapybaraAdventure.Game
         private PauseManager _pauseManager;
         private GameOverScreenProvider _gameOverScreenProvider;
         private DiContainer _diContainer;
+        private ScorePresenter _scorePresenter;
 
         #region MonoBehaviour
 
@@ -29,6 +32,7 @@ namespace CapybaraAdventure.Game
         {
             _gameOverHandler?.Disable();
             _gameOverHandlerPresenter?.Disable();
+            _scorePresenter?.Disable();
         }
 
         private void Start()
@@ -40,12 +44,14 @@ namespace CapybaraAdventure.Game
 
         [Inject]
         private void Construct(
+            Score score,
             LevelGenerator levelGenerator,
             HeroSpawnMarker spawnMarker,
             PauseManager pauseManager,
             GameOverScreenProvider gameOverScreenProvider,
             DiContainer diContainer)
         {
+            _score = score;
             _levelGenerator = levelGenerator; 
             _heroSpawnMarker = spawnMarker;
             _pauseManager = pauseManager;
@@ -59,6 +65,7 @@ namespace CapybaraAdventure.Game
 
             var hero = CreateHero();
             SetupCamera(hero);
+            SetupScore(hero);
 
             SetupDeadlyYBorder(hero);
 
@@ -83,6 +90,15 @@ namespace CapybaraAdventure.Game
         {
             var heroTransform = hero.transform;
             _mainCamera.Follow = heroTransform;
+        }
+
+        private void SetupScore(Hero hero)
+        {
+            _score.Init(hero);
+            _score.StartCount();
+
+            _scorePresenter = new ScorePresenter(_score, _scoreText);
+            _scorePresenter.Enable();
         }
 
         private void SetupDeadlyYBorder(Hero hero)
@@ -110,7 +126,8 @@ namespace CapybaraAdventure.Game
 
             _gameOverHandlerPresenter = new GameOverHandlerPresenter(
                 _gameOverHandler,
-                _gameOverScreenProvider);
+                _gameOverScreenProvider,
+                _score);
 
             _gameOverHandlerPresenter.Enable();
         }
