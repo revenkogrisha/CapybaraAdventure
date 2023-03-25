@@ -1,26 +1,27 @@
-using IEnumerator = System.Collections.IEnumerator;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using NTC.Global.Pool;
-using System;
 using CapybaraAdventure.Player;
 using Random = UnityEngine.Random;
+using IEnumerator = System.Collections.IEnumerator;
 
 namespace CapybaraAdventure.Level
 {
     public class LevelGenerator : MonoBehaviour
     {
-        public const float PlatformLength = 20f;
-        private const int PlatformsAmountToGenerate = 5;
-        private const float PlatformY = -3f;
-        public const float HeroPositionCheckFrequencyInSeconds = 1.5f;
+        private const float PlatformLength = 30f;
+        private const float HeroPositionCheckFrequencyInSeconds = 1.5f;
 
         [SerializeField] private Transform _platformParent;
+        [SerializeField] private int _platformsAmountToGenerate = 5;
+        [SerializeField] private float _XstartPoint = 0f;
+        [SerializeField] private float _platformsY = -2f;
+        [SerializeField] private bool _startPlatformAlreadyOnLevel = false;
         [SerializeField] private Platform[] _platforms;
 
         private Transform _heroTransform;
         private bool _heroIsInitialized = false;
-        private readonly Vector2 _startPoint = Vector2.zero;
         private readonly Queue<Platform> _platformsOnLevel = new();
         private float _lastGeneratedPlatformX = 0f;
 
@@ -39,14 +40,17 @@ namespace CapybaraAdventure.Level
 
         private void Awake()
         {
-            _lastGeneratedPlatformX = _startPoint.y;
+            if (_startPlatformAlreadyOnLevel)
+                _XstartPoint += PlatformLength;
+
+            _lastGeneratedPlatformX = _XstartPoint;
 
             StartCoroutine(CheckPlayerPosition());
         }
         
         public void GenerateDefaultAmount()
         {
-            for (var i = 0; i < PlatformsAmountToGenerate; i++)
+            for (var i = 0; i < _platformsAmountToGenerate; i++)
                 SpawnRandomPlatform();
         }
 
@@ -98,7 +102,7 @@ namespace CapybaraAdventure.Level
 
         private void SpawnPlatform(Platform platform)
         {
-            var position = new Vector3((float)_lastGeneratedPlatformX, PlatformY);
+            var position = new Vector3(_lastGeneratedPlatformX, _platformsY);
             var platformInGame = NightPool.Spawn(
                 platform,
                 position,
