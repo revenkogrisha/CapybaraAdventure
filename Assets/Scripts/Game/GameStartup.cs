@@ -13,6 +13,7 @@ namespace CapybaraAdventure.Game
     {
         [SerializeField] private Hero _heroPrefab;
         [SerializeField] private CinemachineVirtualCamera _mainCamera;
+        [SerializeField] private FollowerObject _deadlyYBorder;
         
         private LevelGenerator _levelGenerator;
         private HeroSpawnMarker _heroSpawnMarker;
@@ -59,6 +60,8 @@ namespace CapybaraAdventure.Game
             var hero = CreateHero();
             SetupCamera(hero);
 
+            SetupDeadlyYBorder(hero);
+
             _levelGenerator.InitHeroTransform(hero);
 
             SetupGameOverSystem(hero);
@@ -80,6 +83,12 @@ namespace CapybaraAdventure.Game
         {
             var heroTransform = hero.transform;
             _mainCamera.Follow = heroTransform;
+        }
+
+        private void SetupDeadlyYBorder(Hero hero)
+        {
+            var heroObject = hero.gameObject;
+            _deadlyYBorder.Init(heroObject);
         }
 
         private void SetupGameOverSystem(Hero hero)
