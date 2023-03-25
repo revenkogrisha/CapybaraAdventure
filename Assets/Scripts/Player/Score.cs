@@ -9,17 +9,14 @@ namespace CapybaraAdventure.Player
         private const float _scoreUpdateIntervalInSeconds = 0.5f;
         
         private Transform _heroTransform;
+        private IEnumerator _countCoroutine;
 
         public bool IsInitialized => _heroTransform != null;
 
         public int ScoreCount { get; private set; }
+        private bool HasCountCoroutineInitialized => _countCoroutine != null;
 
         public event Action<int> OnScoreChanged;
-
-        private void Start()
-        {
-            StartCoroutine(CountScore());
-        }
 
         public void Init(Hero hero)
         {
@@ -30,18 +27,37 @@ namespace CapybaraAdventure.Player
             _heroTransform = heroObject.transform;
         }
 
+        public void StartCount()
+        {
+            if (HasCountCoroutineInitialized == true)
+                throw new InvalidOperationException("Count coroutine has already started! You cannot start it more than once");
+
+            _countCoroutine = CountScore();
+            StartCoroutine(_countCoroutine);
+        }
+        
+        public void StopCount()
+        {
+            if (HasCountCoroutineInitialized == false)
+                return;
+
+            StopCoroutine(_countCoroutine);
+            _countCoroutine = null;
+        }
+
         private IEnumerator CountScore()
         {
             while (true)
             {
-                yield return new WaitUntil(
-                    () => IsInitialized == true
-                    );
+                if (IsInitialized == false)
+                    throw new NullReferenceException("The class hasn't been initialized! Call Init(Hero) first");
 
-                var heroY = _heroTransform.position.y;
-                var heroYRounded = (int)Mathf.Round(heroY);
+                var heroX = _heroTransform.position.x;
+                if (heroX < 0f || heroX < ScoreCount)
+                    yield return null;
 
-                ScoreCount = heroYRounded;
+                var heroXRounded = (int)Mathf.Round(heroX);
+                ScoreCount = heroXRounded;
 
                 OnScoreChanged?.Invoke(ScoreCount);
 
