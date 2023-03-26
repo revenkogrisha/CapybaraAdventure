@@ -17,23 +17,9 @@ namespace CapybaraAdventure.Game
                 _menu.OnMenuWorkHasOver -= UnloadMenu;
         }
 
-        #region MonoBehaviour
-
-        private void Awake()
-        {
-            SetupEditorSettings();
-        }
-
         private async void Start()
         {
             await LoadAndRevealMenu();
-        }
-
-        #endregion
-
-        private void SetupEditorSettings()
-        {
-            PlayerSettings.accelerometerFrequency = 0;
         }
 
         private async Task LoadAndRevealMenu()
