@@ -134,7 +134,7 @@ TextureImporter:
         serializedVersion: 2
         x: 23
         y: 26
-        width: 645
+        width: 592
         height: 740
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -153,9 +153,9 @@ TextureImporter:
       name: Tree_1
       rect:
         serializedVersion: 2
-        x: 663
+        x: 668
         y: 26
-        width: 641
+        width: 639
         height: 719
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
