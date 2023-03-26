@@ -22,6 +22,7 @@ namespace CapybaraAdventure.Game
         private GameOverHandler _gameOverHandler;
         private GameOverHandlerPresenter _gameOverHandlerPresenter;
         private PauseManager _pauseManager;
+        private GameUI _inGameUI;
         private GameOverScreenProvider _gameOverScreenProvider;
         private DiContainer _diContainer;
         private ScorePresenter _scorePresenter;
@@ -48,6 +49,7 @@ namespace CapybaraAdventure.Game
             LevelGenerator levelGenerator,
             HeroSpawnMarker spawnMarker,
             PauseManager pauseManager,
+            GameUI inGameUI,
             GameOverScreenProvider gameOverScreenProvider,
             DiContainer diContainer)
         {
@@ -55,6 +57,7 @@ namespace CapybaraAdventure.Game
             _levelGenerator = levelGenerator; 
             _heroSpawnMarker = spawnMarker;
             _pauseManager = pauseManager;
+            _inGameUI = inGameUI;
             _gameOverScreenProvider = gameOverScreenProvider;
             _diContainer = diContainer;
         }
@@ -126,6 +129,7 @@ namespace CapybaraAdventure.Game
 
             _gameOverHandlerPresenter = new GameOverHandlerPresenter(
                 _gameOverHandler,
+                _inGameUI,
                 _gameOverScreenProvider,
                 _score);
 

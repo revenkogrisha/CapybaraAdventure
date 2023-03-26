@@ -6,17 +6,20 @@ namespace CapybaraAdventure.UI
 {
     public class GameOverHandlerPresenter
     {
-        private GameOverHandler _gameOverHandler;
-        private GameOverScreenProvider _screenProvider;
+        private readonly GameOverHandler _gameOverHandler;
+        private readonly GameUI _inGameUI;
+        private readonly GameOverScreenProvider _screenProvider;
         private readonly Score _score;
 
         public GameOverHandlerPresenter(
             GameOverHandler handler,
-            GameOverScreenProvider provider,
+            GameUI inGameUI,
+            GameOverScreenProvider screenProvider,
             Score score)
         {
             _gameOverHandler = handler;
-            _screenProvider = provider;
+            _inGameUI = inGameUI;
+            _screenProvider = screenProvider;
             _score = score;
         }
 
@@ -32,8 +35,9 @@ namespace CapybaraAdventure.UI
 
         private async void OnGameHasOverHandler()
         {
-            await LoadScreen();
+            _inGameUI.Conceal();
             _score.StopCount();
+            await LoadScreen();
         }
 
         private async Task LoadScreen()
