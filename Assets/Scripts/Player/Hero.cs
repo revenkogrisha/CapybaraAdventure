@@ -89,6 +89,10 @@ namespace CapybaraAdventure.Player
             _pauseManager = pauseManager;
         }
 
-        private void PerformDeath() => OnDeath?.Invoke();
+        private void PerformDeath()
+        {
+            _rigidBody2D.simulated = false;
+            OnDeath?.Invoke();
+        }
     }
 }
