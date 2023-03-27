@@ -17,18 +17,21 @@ namespace CapybaraAdventure.Game
         [SerializeField] private FollowerObject _deadlyYBorder;
         [SerializeField] private ScoreText _scoreText;
 
+        #region Injected Variables
         private MenuProvider _menuProvider;
         private GameMenu _menu;
         private Score _score;
         private LevelGenerator _levelGenerator;
         private HeroSpawnMarker _heroSpawnMarker;
-        private GameOverHandler _gameOverHandler;
-        private GameOverHandlerPresenter _gameOverHandlerPresenter;
         private PauseManager _pauseManager;
         private GameUI _inGameUI;
-        private GameOverScreenProvider _gameOverScreenProvider;
         private DiContainer _diContainer;
+        #endregion
+
+        private GameOverScreenProvider _gameOverScreenProvider;
         private ScorePresenter _scorePresenter;
+        private GameOverHandler _gameOverHandler;
+        private GameOverHandlerPresenter _gameOverHandlerPresenter;
 
         #region MonoBehaviour
 
