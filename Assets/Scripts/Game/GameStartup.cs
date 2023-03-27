@@ -5,6 +5,7 @@ using Cinemachine;
 using CapybaraAdventure.UI;
 using System;
 using CapybaraAdventure.Level;
+using System.Threading.Tasks;
 
 namespace CapybaraAdventure.Game
 {
@@ -15,7 +16,9 @@ namespace CapybaraAdventure.Game
         [SerializeField] private CinemachineVirtualCamera _mainCamera;
         [SerializeField] private FollowerObject _deadlyYBorder;
         [SerializeField] private ScoreText _scoreText;
-        
+
+        private MenuProvider _menuProvider;
+        private GameMenu _menu;
         private Score _score;
         private LevelGenerator _levelGenerator;
         private HeroSpawnMarker _heroSpawnMarker;
@@ -31,13 +34,16 @@ namespace CapybaraAdventure.Game
 
         private void OnDisable()
         {
+            _menu.OnMenuWorkHasOver -= UnloadMenu;
             _gameOverHandler?.Disable();
             _gameOverHandlerPresenter?.Disable();
             _scorePresenter?.Disable();
         }
 
-        private void Start()
+        private async void Start()
         {
+            await LoadAndRevealMenu();
+
             _levelGenerator.GenerateDefaultAmount();
         }
 
@@ -45,6 +51,7 @@ namespace CapybaraAdventure.Game
 
         [Inject]
         private void Construct(
+            MenuProvider menuProvider,
             Score score,
             LevelGenerator levelGenerator,
             HeroSpawnMarker spawnMarker,
@@ -53,6 +60,7 @@ namespace CapybaraAdventure.Game
             GameOverScreenProvider gameOverScreenProvider,
             DiContainer diContainer)
         {
+            _menuProvider = menuProvider;
             _score = score;
             _levelGenerator = levelGenerator; 
             _heroSpawnMarker = spawnMarker;
@@ -76,6 +84,16 @@ namespace CapybaraAdventure.Game
 
             SetupGameOverSystem(hero);
         }
+
+        private async Task LoadAndRevealMenu()
+        {
+            _menu = await _menuProvider.Load();
+            _menu.OnMenuWorkHasOver += UnloadMenu;
+
+            _menu.Reveal();
+        }
+
+        private void UnloadMenu() => _menuProvider.Unload();
 
         private Hero CreateHero()
         {

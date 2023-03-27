@@ -1981,7 +1981,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1897825024}
-  - component: {fileID: 1897825026}
   - component: {fileID: 1897825025}
   - component: {fileID: 1897825027}
   m_Layer: 0
@@ -2022,18 +2021,6 @@ MonoBehaviour:
   _mainCamera: {fileID: 445784920}
   _deadlyYBorder: {fileID: 181085798}
   _scoreText: {fileID: 1360570706}
---- !u!114 &1897825026
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1897825023}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9ffe5348217944632839a8afdaae1b0a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1897825027
 MonoBehaviour:
   m_ObjectHideFlags: 0
