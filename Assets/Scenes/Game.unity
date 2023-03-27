@@ -1129,10 +1129,13 @@ MonoBehaviour:
   _platformsAmountToGenerate: 5
   _XstartPoint: 0
   _platformsY: -2
+  _specialPlatformSequentialNumber: 4
   _startPlatformAlreadyOnLevel: 1
-  _platforms:
-  - {fileID: -2216271765511400605, guid: d9ccda69bb470453682e6dd4faa62089, type: 3}
-  - {fileID: -2216271765511400605, guid: e6cdb5e39ef524b4e8efc37728d03629, type: 3}
+  _simplePlatforms:
+  - {fileID: -7841068184548764235, guid: d9ccda69bb470453682e6dd4faa62089, type: 3}
+  - {fileID: 3154565652104204545, guid: e6cdb5e39ef524b4e8efc37728d03629, type: 3}
+  _specialPlatforms:
+  - {fileID: -6293920189038187168, guid: 7be7cadc280064703b863fae1b2fc661, type: 3}
 --- !u!1001 &1173666243
 PrefabInstance:
   m_ObjectHideFlags: 0

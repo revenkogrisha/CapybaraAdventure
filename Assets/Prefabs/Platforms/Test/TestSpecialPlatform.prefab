@@ -177,9 +177,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3508101966133755882}
-  - component: {fileID: 2883049585238784193}
+  - component: {fileID: -6293920189038187168}
   m_Layer: 6
-  m_Name: StartPlatform
+  m_Name: TestSpecialPlatform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -207,7 +207,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2883049585238784193
+--- !u!114 &-6293920189038187168
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -216,7 +216,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3508101966133755884}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a5cbf0f8d6dbe4bddb0a5b2f09174331, type: 3}
+  m_Script: {fileID: 11500000, guid: 10806325b3e4445d0b8d589785d3ac76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &6917006809438255019

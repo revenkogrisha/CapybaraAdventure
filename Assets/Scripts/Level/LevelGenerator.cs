@@ -17,15 +17,22 @@ namespace CapybaraAdventure.Level
         [SerializeField] private int _platformsAmountToGenerate = 5;
         [SerializeField] private float _XstartPoint = 0f;
         [SerializeField] private float _platformsY = -2f;
+        [SerializeField] private int _specialPlatformSequentialNumber = 4;
         [SerializeField] private bool _startPlatformAlreadyOnLevel = false;
-        [SerializeField] private Platform[] _platforms;
+        [SerializeField] private SimplePlatform[] _simplePlatforms;
+        [SerializeField] private SpecialPlatform[] _specialPlatforms;
 
         private Transform _heroTransform;
         private bool _heroIsInitialized = false;
         private readonly Queue<Platform> _platformsOnLevel = new();
+        private int _platformNumber = 0;
         private float _lastGeneratedPlatformX = 0f;
 
-        private string PlatformName => $"Platform №{_lastGeneratedPlatformX / PlatformLength}";
+        private string PlatformName => $"Platform №{_platformNumber}";
+
+        private bool IsNowSpecialPlatformTurn => 
+            _platformNumber % _specialPlatformSequentialNumber == 0
+            && _platformNumber > 0;
 
         private bool IsLevelMidPointXLessHeroX
         {
@@ -90,14 +97,18 @@ namespace CapybaraAdventure.Level
 
         private void SpawnRandomPlatform()
         {
-            var randomPlatform = GetRandomPlatform();
+            Platform randomPlatform = IsNowSpecialPlatformTurn
+                ? GetRandomPlatform(_specialPlatforms)
+                : GetRandomPlatform(_simplePlatforms);
+
             SpawnPlatform(randomPlatform);
         }
 
-        private Platform GetRandomPlatform()
+        private T GetRandomPlatform<T>(T[] platforms)
+            where T : Platform
         {
-            var random = Random.Range(0, _platforms.Length);
-            return _platforms[random];
+            var random = Random.Range(0, platforms.Length);
+            return platforms[random];
         }
 
         private void SpawnPlatform(Platform platform)
@@ -112,6 +123,7 @@ namespace CapybaraAdventure.Level
             platformInGame.name = PlatformName; 
 
             _lastGeneratedPlatformX += PlatformLength;
+            _platformNumber++;
             _platformsOnLevel.Enqueue(platformInGame);
         }
 
