@@ -18,7 +18,7 @@ namespace CapybaraAdventure.Level
         [SerializeField] private float _XstartPoint = 0f;
         [SerializeField] private float _platformsY = -2f;
         [SerializeField] private int _specialPlatformSequentialNumber = 4;
-        [SerializeField] private bool _startPlatformAlreadyOnLevel = false;
+        [SerializeField] private SimplePlatform _startPlatform;
         [SerializeField] private SimplePlatform[] _simplePlatforms;
         [SerializeField] private SpecialPlatform[] _specialPlatforms;
 
@@ -47,13 +47,12 @@ namespace CapybaraAdventure.Level
 
         private void Awake()
         {
-            if (_startPlatformAlreadyOnLevel)
-                _XstartPoint += PlatformLength;
-
             _lastGeneratedPlatformX = _XstartPoint;
 
             StartCoroutine(CheckPlayerPosition());
         }
+
+        public void SpawnStartPlatform() => SpawnPlatform(_startPlatform);
         
         public void GenerateDefaultAmount()
         {

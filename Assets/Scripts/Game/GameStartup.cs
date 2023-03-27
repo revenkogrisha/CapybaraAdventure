@@ -47,6 +47,7 @@ namespace CapybaraAdventure.Game
         {
             await LoadAndRevealMenu();
 
+            _levelGenerator.SpawnStartPlatform();
             _levelGenerator.GenerateDefaultAmount();
         }
 
