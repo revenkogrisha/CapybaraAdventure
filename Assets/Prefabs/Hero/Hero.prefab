@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1158999582092598504
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4148465564835750813}
+  m_Layer: 0
+  m_Name: JumpParticlesSpawnMarker
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4148465564835750813
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1158999582092598504}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.74, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7266856433574884411}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!1 &2468240815080725844
 GameObject:
   m_ObjectHideFlags: 0
@@ -691,8 +722,9 @@ GameObject:
   - component: {fileID: 7266856433574884411}
   - component: {fileID: 7266856433574884422}
   - component: {fileID: 7266856433574884408}
-  - component: {fileID: 7266856433574884409}
   - component: {fileID: 3047663082457012303}
+  - component: {fileID: 7266856433574884409}
+  - component: {fileID: -8462858369482034409}
   m_Layer: 0
   m_Name: Hero
   m_TagString: Untagged
@@ -719,6 +751,7 @@ Transform:
   - {fileID: 6679723835881516403}
   - {fileID: 271826110050219741}
   - {fileID: 268484404056518972}
+  - {fileID: 4148465564835750813}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -759,57 +792,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &7266856433574884409
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7266856433574884410}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b765fdaaf70aa4ae08ad0d23f6f2f038, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _rigidBody2D: {fileID: 7266856433574884408}
-  _duration: 0.6
-  _collider: {fileID: 7266856433574884422}
-  _ground:
-    serializedVersion: 2
-    m_Bits: 64
-  _jumpCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 5.8438153
-      outSlope: 5.8438153
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0.07465921
-    - serializedVersion: 3
-      time: 0.24114215
-      value: 0.50123584
-      inSlope: -0.3103332
-      outSlope: -0.3103332
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.5935221
-      outWeight: 0.12542628
-    - serializedVersion: 3
-      time: 1
-      value: -0.009433746
-      inSlope: -0.672945
-      outSlope: -0.672945
-      tangentMode: 34
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
 --- !u!96 &3047663082457012303
 TrailRenderer:
   serializedVersion: 2
@@ -909,6 +891,72 @@ TrailRenderer:
   m_MinVertexDistance: 0.1
   m_Autodestruct: 0
   m_Emitting: 1
+--- !u!114 &7266856433574884409
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7266856433574884410}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b765fdaaf70aa4ae08ad0d23f6f2f038, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _rigidBody2D: {fileID: 7266856433574884408}
+  _duration: 0.6
+  _collider: {fileID: 7266856433574884422}
+  _ground:
+    serializedVersion: 2
+    m_Bits: 64
+  _jumpCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 5.8438153
+      outSlope: 5.8438153
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.07465921
+    - serializedVersion: 3
+      time: 0.24114215
+      value: 0.50123584
+      inSlope: -0.3103332
+      outSlope: -0.3103332
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.5935221
+      outWeight: 0.12542628
+    - serializedVersion: 3
+      time: 1
+      value: -0.009433746
+      inSlope: -0.672945
+      outSlope: -0.672945
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  _jumpParticlesPlayer: {fileID: -8462858369482034409}
+--- !u!114 &-8462858369482034409
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7266856433574884410}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 002bfa323d7ce47979372c032948c1cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _particlesPrefab: {fileID: 3955791022282053891, guid: 43454ed550c994801a6c84078a71d7db, type: 3}
+  _spawnTransform: {fileID: 4148465564835750813}
 --- !u!1 &7924778119946500217
 GameObject:
   m_ObjectHideFlags: 0

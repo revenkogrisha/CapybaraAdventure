@@ -15,15 +15,22 @@ namespace CapybaraAdventure.Player
         [SerializeField] private Collider2D _collider;
         [SerializeField] private LayerMask _ground;
         [SerializeField] private AnimationCurve _jumpCurve;
+        [Tooltip("Optional")]
+        [SerializeField] private HeroJumpParticlesPlayer _jumpParticlesPlayer;
         
-        private bool _isDead;
+        #region Injected Variables
         private JumpButton _jumpButton;
         private JumpSlider _jumpSlider;
         private PauseManager _pauseManager;
+        #endregion
+
+        private bool _isDead;
         private HeroJump _jump;
         private HeroPresenter _presenter;
+        private ParticleSystem _particles;
 
         public bool IsPaused => _pauseManager.IsPaused;
+        public bool ShouldPlayParticles => _jumpParticlesPlayer != null;
 
         public event Action OnDeath;
 
@@ -41,11 +48,17 @@ namespace CapybaraAdventure.Player
         private void OnEnable()
         {
             _presenter.Enable();
+
+            if (ShouldPlayParticles == true)
+                _jump.OnJumped += SpawnParticles;
         }
 
         private void OnDisable()
         {
             _presenter.Disable();
+
+            if (ShouldPlayParticles == true)
+                _jump.OnJumped -= SpawnParticles;
         }
 
         private void Update()
@@ -64,6 +77,11 @@ namespace CapybaraAdventure.Player
             HandleCollisionWithDeadlyObject(other);
         }
 
+        #endregion
+
+        private void SpawnParticles() =>
+             _jumpParticlesPlayer.SpawnTillDuration();
+
         private void HandleCollisionWithDeadlyObject(Collider2D other)
         {
             if (_isDead)
@@ -75,8 +93,6 @@ namespace CapybaraAdventure.Player
 
             _isDead = true;
         }
-
-        #endregion
 
         [Inject]
         private void Construct(

@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace CapybaraAdventure.Player
@@ -18,6 +19,8 @@ namespace CapybaraAdventure.Player
         public float XJumpAxis => _jumpForce / JumpXDivider;
 
         public bool IsNotGrounded => _heightTestService.IsNotGrounded;
+
+        public event Action OnJumped;
 
         public HeroJump(
             Rigidbody2D rigidbody2D,
@@ -52,6 +55,8 @@ namespace CapybaraAdventure.Player
 
         private void PerformJump()
         {
+            OnJumped?.Invoke();
+
             _expiredJumpTime += Time.deltaTime;
 
             var xAxis = XJumpAxis;
