@@ -18,6 +18,8 @@ namespace CapybaraAdventure.Game
         [SerializeField] private ScoreText _scoreText;
 
         #region Injected Variables
+        private JumpButton _jumpButton;
+        private JumpSlider _jumpSlider;
         private MenuProvider _menuProvider;
         private GameMenu _menu;
         private Score _score;
@@ -32,6 +34,7 @@ namespace CapybaraAdventure.Game
         private ScorePresenter _scorePresenter;
         private GameOverHandler _gameOverHandler;
         private GameOverHandlerPresenter _gameOverHandlerPresenter;
+        private HeroPresenter _heroPresenter;
 
         #region MonoBehaviour
 
@@ -39,6 +42,7 @@ namespace CapybaraAdventure.Game
         {
             _menu.OnMenuWorkHasOver -= UnloadMenu;
             _gameOverHandler?.Disable();
+            _heroPresenter?.Disable();
             _gameOverHandlerPresenter?.Disable();
             _scorePresenter?.Disable();
         }
@@ -46,7 +50,6 @@ namespace CapybaraAdventure.Game
         private async void Start()
         {
             await LoadAndRevealMenu();
-
             _levelGenerator.SpawnStartPlatform();
             _levelGenerator.GenerateDefaultAmount();
         }
@@ -55,6 +58,8 @@ namespace CapybaraAdventure.Game
 
         [Inject]
         private void Construct(
+            JumpButton button,
+            JumpSlider slider,
             MenuProvider menuProvider,
             Score score,
             LevelGenerator levelGenerator,
@@ -64,6 +69,8 @@ namespace CapybaraAdventure.Game
             GameOverScreenProvider gameOverScreenProvider,
             DiContainer diContainer)
         {
+            _jumpButton = button;
+            _jumpSlider = slider;
             _menuProvider = menuProvider;
             _score = score;
             _levelGenerator = levelGenerator; 
@@ -79,6 +86,10 @@ namespace CapybaraAdventure.Game
             _pauseManager.SetPaused(false);
 
             var hero = CreateHero();
+
+            _heroPresenter = new HeroPresenter(hero, _jumpButton, _jumpSlider);
+            _heroPresenter.Enable();
+
             SetupCamera(hero);
             SetupScore(hero);
 
@@ -107,8 +118,7 @@ namespace CapybaraAdventure.Game
             var heroFactory = 
                 new HeroFactory(_diContainer, _heroPrefab, spawnPosition);
                 
-            var hero = heroFactory.Create();
-            return hero;
+            return heroFactory.Create();
         }
 
         private void SetupCamera(Hero hero)

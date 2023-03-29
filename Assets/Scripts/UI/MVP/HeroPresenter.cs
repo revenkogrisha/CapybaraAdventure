@@ -4,19 +4,21 @@ namespace CapybaraAdventure.UI
 {
     public class HeroPresenter
     {
+        private readonly Hero _hero;
         private readonly HeroJump _heroJump;
         private readonly JumpButton _jumpButton;
         private readonly JumpSlider _jumpSlider;
 
         public HeroPresenter(
-            HeroJump jump,
+            Hero hero,
             JumpButton button,
-            JumpSlider slider
-            )
+            JumpSlider slider)
         {
-            _heroJump = jump;
+            _hero = hero;
             _jumpButton = button;
             _jumpSlider = slider;
+
+            _heroJump = _hero.Jump;
         }
 
         public void Enable()

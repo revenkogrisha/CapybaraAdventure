@@ -1,5 +1,4 @@
 using UnityEngine;
-using CapybaraAdventure.UI;
 using Zenject;
 using System;
 using CapybaraAdventure.Game;
@@ -18,21 +17,16 @@ namespace CapybaraAdventure.Player
         [Tooltip("Optional")]
         [SerializeField] private HeroJumpParticlesPlayer _jumpParticlesPlayer;
         
-        #region Injected Variables
-        private JumpButton _jumpButton;
-        private JumpSlider _jumpSlider;
         private PauseManager _pauseManager;
-        #endregion
-
         private bool _isDead;
-        private HeroJump _jump;
-        private HeroPresenter _presenter;
         private ParticleSystem _particles;
 
+        public HeroJump Jump { get; private set; }
         public bool IsPaused => _pauseManager.IsPaused;
         public bool ShouldPlayParticles => _jumpParticlesPlayer != null;
 
         public event Action OnDeath;
+        public event Action OnFoodEaten;
 
         #region MonoBehaviour
 
@@ -41,24 +35,19 @@ namespace CapybaraAdventure.Player
             _isDead = false;
 
             var heightTestService = new HeightCheckService(_collider, _ground, HeightTestRadius);
-            _jump = new HeroJump(_rigidBody2D, _jumpCurve, heightTestService,_duration);
-            _presenter = new HeroPresenter(_jump, _jumpButton, _jumpSlider);
+            Jump = new HeroJump(_rigidBody2D, _jumpCurve, heightTestService,_duration);
         }
 
         private void OnEnable()
         {
-            _presenter.Enable();
-
             if (ShouldPlayParticles == true)
-                _jump.OnJumped += SpawnParticles;
+                Jump.OnJumped += SpawnParticles;
         }
 
         private void OnDisable()
         {
-            _presenter.Disable();
-
             if (ShouldPlayParticles == true)
-                _jump.OnJumped -= SpawnParticles;
+                Jump.OnJumped -= SpawnParticles;
         }
 
         private void Update()
@@ -66,43 +55,42 @@ namespace CapybaraAdventure.Player
             if (IsPaused)
                 return;
 
-            _jump.TryJump();
+            Jump.TryJump();
         }
 
         private void OnTriggerEnter2D(Collider2D other)
         {
-            if (IsPaused)
+            if (IsPaused
+                || _isDead)
                 return;
                 
-            HandleCollisionWithDeadlyObject(other);
+            HandleDeadlyObjectCollision(other);
+            HandleFoodCollision(other);
         }
 
         #endregion
 
+        [Inject]
+        private void Construct(PauseManager pauseManager)
+        {
+            _pauseManager = pauseManager;
+        }
+
         private void SpawnParticles() =>
              _jumpParticlesPlayer.SpawnTillDuration();
 
-        private void HandleCollisionWithDeadlyObject(Collider2D other)
+        private void HandleDeadlyObjectCollision(Collider2D other)
         {
-            if (_isDead)
-                return;
-
-            UnityTools
-                .Tools
+            UnityTools.Tools
                 .InvokeIfNotNull<DeadlyForPlayerObject>(other, PerformDeath);
 
             _isDead = true;
         }
 
-        [Inject]
-        private void Construct(
-            JumpButton button,
-            JumpSlider slider,
-            PauseManager pauseManager)
+        private void HandleFoodCollision(Collider2D other)
         {
-            _jumpButton = button;
-            _jumpSlider = slider;
-            _pauseManager = pauseManager;
+            UnityTools.Tools
+                .InvokeIfNotNull<Food>(other, EatFood);
         }
 
         private void PerformDeath()
@@ -110,5 +98,7 @@ namespace CapybaraAdventure.Player
             _rigidBody2D.simulated = false;
             OnDeath?.Invoke();
         }
+
+        private void EatFood() => OnFoodEaten?.Invoke();
     }
 }
