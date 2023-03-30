@@ -10,11 +10,11 @@ namespace CapybaraAdventure.UI
     {
         private const float LerpDirectionChangeIntervalInSeconds = 1.2f;
         private const int ChangeDirectionChanceIncrease = 3;
-        private const int ChangeDirectionChanceDecrease = 6;
+        private const int ChangeDirectionChanceDecrease = 7;
         private const int MaxChangeLerpDirectionChance = 40;
-        private const float MaxLerpSpeed = 0.043f;
-        private const float LerpSpeedIncrease = 0.001f;
-        private const float LerpSpeedDecrease = 0.002f;
+        private const float MaxLerpSpeed = 0.05f;
+        private const float LerpSpeedIncrease = 0.002f;
+        private const float LerpSpeedDecrease = 0.005f;
 
         [SerializeField] private Slider _slider;
         [Tooltip("Put value in seconds")]
@@ -79,16 +79,16 @@ namespace CapybaraAdventure.UI
         public void TryIncreaseLerpSpeed()
         {
             var increased = _lerpSpeed + LerpSpeedIncrease;
-            if (increased > _startLerpSpeed)
+            if (increased > MaxLerpSpeed)
                 return;
-
+            print($"Increase: {_lerpSpeed} -> {increased}");
             _lerpSpeed = increased;
         }
 
         public void TryDecreaseLerpSpeed()
         {
             var decreased = _lerpSpeed - LerpSpeedDecrease;
-            if (decreased < MaxLerpSpeed)
+            if (decreased < _startLerpSpeed)
                 return;
 
             _lerpSpeed = decreased;
