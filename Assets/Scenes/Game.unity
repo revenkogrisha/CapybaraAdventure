@@ -1230,7 +1230,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _slider: {fileID: 1262779071}
-  _startLerpDuration: 1
+  _startLerpSpeed: 0.02
 --- !u!1 &1265179377
 GameObject:
   m_ObjectHideFlags: 0

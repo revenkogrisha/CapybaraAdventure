@@ -8,11 +8,11 @@ namespace CapybaraAdventure.UI
 {
     public class JumpSlider : MonoBehaviour
     {
-        private const float LerpDirectionChangeIntervalInSeconds = 1f;
+        private const float LerpDirectionChangeIntervalInSeconds = 1.2f;
         private const int ChangeDirectionChanceIncrease = 3;
         private const int ChangeDirectionChanceDecrease = 6;
-        private const int MaxChangeLerpDirectionChance = 50;
-        private const float MaxLerpSpeed = 0.038f;
+        private const int MaxChangeLerpDirectionChance = 40;
+        private const float MaxLerpSpeed = 0.043f;
         private const float LerpSpeedIncrease = 0.001f;
         private const float LerpSpeedDecrease = 0.002f;
 
