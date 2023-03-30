@@ -23,12 +23,20 @@ namespace CapybaraAdventure.UI
 
         public void Enable()
         {
+            _hero.OnFoodEaten += OnFoodEatenHandler;
             _jumpButton.OnClicked += OnClickedHandler;
         }
 
         public void Disable()
         {
+            _hero.OnFoodEaten -= OnFoodEatenHandler;
             _jumpButton.OnClicked -= OnClickedHandler;
+        }
+
+        private void OnFoodEatenHandler()
+        {
+            _jumpSlider.TryDecreaseLerpSpeed();
+            _jumpSlider.DecreaseLerpDirectionChangeChance();
         }
 
         private void OnClickedHandler()
@@ -36,9 +44,11 @@ namespace CapybaraAdventure.UI
             if (_heroJump.IsNotGrounded)
                 return;
                 
-            _heroJump.SayShouldJump();
             UpdateForceValue();
-            _jumpSlider.TryDecreaseLerpDuration();
+            _heroJump.SayShouldJump();
+
+            _jumpSlider.TryIncreaseLerpSpeed();
+            _jumpSlider.IncreaseLerpDirectionChangeChance();
         }
 
         private void UpdateForceValue()
