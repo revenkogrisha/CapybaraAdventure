@@ -9,19 +9,19 @@ namespace CapybaraAdventure.UI
     public class JumpSlider : MonoBehaviour
     {
         private const float LerpDirectionChangeIntervalInSeconds = 1f;
-        private const int ChangeDirectionChanceIncrease = 5;
-        private const int ChangeDirectionChanceDecrease = 7;
-        private const int MaxChangeLerpDirectionChance = 70;
-        private const float MaxLerpSpeed = 0.035f;
-        private const float LerpSpeedIncrease = 0.0005f;
-        private const float LerpSpeedDecrease = 0.001f;
+        private const int ChangeDirectionChanceIncrease = 3;
+        private const int ChangeDirectionChanceDecrease = 6;
+        private const int MaxChangeLerpDirectionChance = 50;
+        private const float MaxLerpSpeed = 0.038f;
+        private const float LerpSpeedIncrease = 0.001f;
+        private const float LerpSpeedDecrease = 0.002f;
 
         [SerializeField] private Slider _slider;
         [Tooltip("Put value in seconds")]
-        [SerializeField] private float _startLerpDuration = 1f;
+        [SerializeField] private float _startLerpSpeed = 0.02f;
 
-        private float _lerpSpeed = 0.02f;
-        private int _lerpDirectionChangeChance = 30;
+        private float _lerpSpeed;
+        private int _lerpDirectionChangeChance = 10;
         private JumpSliderState _state = JumpSliderState.LerpingUp;
         private float _minValue;
         private float _maxValue;
@@ -38,19 +38,18 @@ namespace CapybaraAdventure.UI
 
         private void Awake()
         {
+            _lerpSpeed = _startLerpSpeed;
             _minValue = _slider.minValue;
             _maxValue = _slider.maxValue;
             _slider.value = _slider.minValue;
 
-            //StartCoroutine(RandomlyChangeLerpDirection());
+            StartCoroutine(RandomlyChangeLerpDirection());
         }
 
         private void Update()
         {
             if (IsPaused)
                 return;
-
-            //LerpSliderValue();
 
             LerpValue();
         }
@@ -80,7 +79,7 @@ namespace CapybaraAdventure.UI
         public void TryIncreaseLerpSpeed()
         {
             var increased = _lerpSpeed + LerpSpeedIncrease;
-            if (increased > _startLerpDuration)
+            if (increased > _startLerpSpeed)
                 return;
 
             _lerpSpeed = increased;
@@ -110,7 +109,7 @@ namespace CapybaraAdventure.UI
 
                 int randomPercentageChance = Random.Range(0, 100);
                 if (_lerpDirectionChangeChance < randomPercentageChance)
-                    yield return null;
+                    continue;
 
                 ChangeLerpDirection();
             }
