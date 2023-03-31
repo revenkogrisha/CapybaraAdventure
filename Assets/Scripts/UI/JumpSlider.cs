@@ -81,7 +81,7 @@ namespace CapybaraAdventure.UI
             var increased = _lerpSpeed + LerpSpeedIncrease;
             if (increased > MaxLerpSpeed)
                 return;
-            print($"Increase: {_lerpSpeed} -> {increased}");
+                
             _lerpSpeed = increased;
         }
 
