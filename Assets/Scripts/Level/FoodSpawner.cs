@@ -25,6 +25,11 @@ namespace CapybaraAdventure.Level
 
         public void SpawnFoodOnMarker(FoodSpawnMarker marker)
         {
+            var chance = marker.SpawnChance;
+            int randomChance = Random.Range(0, 101);
+            if (chance < randomChance)
+                return;
+
             var position = marker.Position;
             var food = NightPool.Spawn(_foodPrefab, position, Quaternion.identity);
 
