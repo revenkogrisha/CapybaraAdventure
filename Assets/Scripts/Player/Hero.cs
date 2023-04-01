@@ -2,6 +2,7 @@ using UnityEngine;
 using Zenject;
 using System;
 using CapybaraAdventure.Game;
+using NTC.Global.Pool;
 
 namespace CapybaraAdventure.Player
 {
@@ -83,8 +84,6 @@ namespace CapybaraAdventure.Player
         {
             UnityTools.Tools
                 .InvokeIfNotNull<DeadlyForPlayerObject>(other, PerformDeath);
-
-            _isDead = true;
         }
 
         private void HandleFoodCollision(Collider2D other)
@@ -96,9 +95,14 @@ namespace CapybaraAdventure.Player
         private void PerformDeath()
         {
             _rigidBody2D.simulated = false;
+            _isDead = true;
             OnDeath?.Invoke();
         }
 
-        private void EatFood() => OnFoodEaten?.Invoke();
+        private void EatFood(Food food)
+        {
+            OnFoodEaten?.Invoke();
+            NightPool.Despawn(food);
+        }
     }
 }
