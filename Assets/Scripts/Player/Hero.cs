@@ -10,6 +10,7 @@ namespace CapybaraAdventure.Player
     {
         private const float HeightTestRadius = 0.05f;
 
+        [SerializeField] private Animator _animator;
         [SerializeField] private Rigidbody2D _rigidBody2D;
         [SerializeField] private float _duration = 0.8f;
         [SerializeField] private Collider2D _collider;
@@ -18,6 +19,7 @@ namespace CapybaraAdventure.Player
         [Tooltip("Optional")]
         [SerializeField] private HeroJumpParticlesPlayer _jumpParticlesPlayer;
         
+        private HeroAnimator _heroAnimator;
         private PauseManager _pauseManager;
         private bool _isDead;
         private ParticleSystem _particles;
@@ -37,16 +39,23 @@ namespace CapybaraAdventure.Player
 
             var heightTestService = new HeightCheckService(_collider, _ground, HeightTestRadius);
             Jump = new HeroJump(_rigidBody2D, _jumpCurve, heightTestService,_duration);
+            _heroAnimator = new HeroAnimator(_animator);
         }
 
         private void OnEnable()
         {
+            Jump.OnJumped += AnimateJump;
+            Jump.OnLanded += AnimateJumpEnd;
+
             if (ShouldPlayParticles == true)
                 Jump.OnJumped += SpawnParticles;
         }
 
         private void OnDisable()
         {
+            Jump.OnJumped -= AnimateJump;
+            Jump.OnLanded -= AnimateJumpEnd;
+
             if (ShouldPlayParticles == true)
                 Jump.OnJumped -= SpawnParticles;
         }
@@ -76,6 +85,10 @@ namespace CapybaraAdventure.Player
         {
             _pauseManager = pauseManager;
         }
+
+        private void AnimateJump() => _heroAnimator.SetAsJumping();
+        
+        private void AnimateJumpEnd() => _heroAnimator.EndJumping();
 
         private void SpawnParticles() =>
              _jumpParticlesPlayer.SpawnTillDuration();

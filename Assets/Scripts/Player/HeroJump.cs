@@ -21,6 +21,7 @@ namespace CapybaraAdventure.Player
         public bool IsNotGrounded => _heightTestService.IsNotGrounded;
 
         public event Action OnJumped;
+        public event Action OnLanded;
 
         public HeroJump(
             Rigidbody2D rigidbody2D,
@@ -68,6 +69,8 @@ namespace CapybaraAdventure.Player
 
         private void EndJump()
         {
+            OnLanded?.Invoke();
+            
             _shouldJump = false;
             _expiredJumpTime = 0f;
         }
