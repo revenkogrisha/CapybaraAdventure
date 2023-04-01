@@ -1115,6 +1115,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe425db1ff36046aca0ebb941ad3055c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _foodPrefab: {fileID: 8408874472059896616, guid: 74018d65fd7574a568d87aa61bf6e4fc, type: 3}
   _platformParent: {fileID: 1524486398}
   _platformsAmountToGenerate: 5
   _XstartPoint: 0
@@ -1230,7 +1231,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _slider: {fileID: 1262779071}
-  _startLerpSpeed: 0.02
+  _startLerpSpeed: 0.3
 --- !u!1 &1265179377
 GameObject:
   m_ObjectHideFlags: 0
