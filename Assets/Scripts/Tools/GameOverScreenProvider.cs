@@ -26,11 +26,10 @@ namespace CapybaraAdventure.UI
 
         public async Task<GameOverScreen> Load()
         {
-            var canvasTransform = _canvas.transform;
-            var gameOverScreen = await 
+            Transform canvasTransform = _canvas.transform;
+            GameOverScreen gameOverScreen = await 
                 LoadInternal<GameOverScreen>(GameOverScreen, canvasTransform);
 
-            //  init
             return gameOverScreen;
         }
 

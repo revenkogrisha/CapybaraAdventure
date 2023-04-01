@@ -60,8 +60,8 @@ namespace CapybaraAdventure.Player
 
             _expiredJumpTime += Time.deltaTime;
 
-            var xAxis = XJumpAxis;
-            var yAxis = GetYByCurve(_jumpCurve);
+            float xAxis = XJumpAxis;
+            float yAxis = GetYByCurve(_jumpCurve);
 
             var jumpVelocity = new Vector2(xAxis, yAxis);
             _rigidBody2D.velocity = jumpVelocity;
@@ -77,8 +77,8 @@ namespace CapybaraAdventure.Player
 
         private float GetYByCurve(AnimationCurve jumpCurve)
         {
-            var progress = _expiredJumpTime / _duration;
-            var curveValue = jumpCurve.Evaluate(progress);
+            float progress = _expiredJumpTime / _duration;
+            float curveValue = jumpCurve.Evaluate(progress);
             return curveValue * _jumpForce;
         }
     }

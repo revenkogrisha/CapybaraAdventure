@@ -19,7 +19,7 @@ namespace CapybaraAdventure.Tools
             var handle = Addressables.InstantiateAsync(assetID, parent);
             _cachedObject = await handle.Task;
 
-            var isGetOperationSucceeded = 
+            bool isGetOperationSucceeded = 
                 _cachedObject.TryGetComponent<T>(out T component);
                 
             if (isGetOperationSucceeded)

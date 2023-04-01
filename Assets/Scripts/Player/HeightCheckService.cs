@@ -23,8 +23,8 @@ namespace CapybaraAdventure.Player
         {
             get
             {
-                var colliderCenter = _collider.bounds.center;
-                var hit = Physics2D.Raycast(colliderCenter, Vector2.down, _heightTest, _testLayer);
+                Vector3 colliderCenter = _collider.bounds.center;
+                RaycastHit2D hit = Physics2D.Raycast(colliderCenter, Vector2.down, _heightTest, _testLayer);
 
                 return hit.collider == null;
             }

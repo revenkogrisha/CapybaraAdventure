@@ -42,7 +42,7 @@ namespace CapybaraAdventure.UI
 
         private async Task LoadScreen()
         {
-            var screen = await _screenProvider.Load();
+            GameOverScreen screen = await _screenProvider.Load();
             screen.Reveal();
         }
     }

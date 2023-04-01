@@ -53,7 +53,7 @@ namespace CapybaraAdventure.UI
 
         private void UpdateForceValue()
         {
-            var value = _jumpSlider.Value;
+            float value = _jumpSlider.Value;
             _heroJump.UpdateForceValue(value);
         }
     }

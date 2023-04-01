@@ -85,7 +85,7 @@ namespace CapybaraAdventure.Game
         {
             _pauseManager.SetPaused(false);
 
-            var hero = CreateHero();
+            Hero hero = CreateHero();
 
             _heroPresenter = new HeroPresenter(hero, _jumpButton, _jumpSlider);
             _heroPresenter.Enable();
@@ -112,8 +112,8 @@ namespace CapybaraAdventure.Game
 
         private Hero CreateHero()
         {
-            var spawnMarkerTransform = _heroSpawnMarker.transform;
-            var spawnPosition = spawnMarkerTransform.position;
+            Transform spawnMarkerTransform = _heroSpawnMarker.transform;
+            Vector3 spawnPosition = spawnMarkerTransform.position;
             
             var heroFactory = 
                 new HeroFactory(_diContainer, _heroPrefab, spawnPosition);
@@ -123,7 +123,7 @@ namespace CapybaraAdventure.Game
 
         private void SetupCamera(Hero hero)
         {
-            var heroTransform = hero.transform;
+            Transform heroTransform = hero.transform;
             _mainCamera.Follow = heroTransform;
         }
 
@@ -138,7 +138,7 @@ namespace CapybaraAdventure.Game
 
         private void SetupDeadlyYBorder(Hero hero)
         {
-            var heroObject = hero.gameObject;
+            GameObject heroObject = hero.gameObject;
             _deadlyYBorder.Init(heroObject);
         }
 

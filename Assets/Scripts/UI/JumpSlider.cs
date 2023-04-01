@@ -78,7 +78,7 @@ namespace CapybaraAdventure.UI
 
         public void TryIncreaseLerpSpeed()
         {
-            var increased = _lerpSpeed + LerpSpeedIncrease;
+            float increased = _lerpSpeed + LerpSpeedIncrease;
             if (increased > MaxLerpSpeed)
                 return;
                 
@@ -87,7 +87,7 @@ namespace CapybaraAdventure.UI
 
         public void TryDecreaseLerpSpeed()
         {
-            var decreased = _lerpSpeed - LerpSpeedDecrease;
+            float decreased = _lerpSpeed - LerpSpeedDecrease;
             if (decreased < _startLerpSpeed)
                 return;
 

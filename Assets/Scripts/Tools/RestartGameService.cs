@@ -8,7 +8,7 @@ namespace CapybaraAdventure.Tools
 
         public void Restart()
         {
-            var buildIndex = SceneManager.GetActiveScene().buildIndex;
+            int buildIndex = SceneManager.GetActiveScene().buildIndex;
             SceneManager.LoadScene(buildIndex);
         }
     }

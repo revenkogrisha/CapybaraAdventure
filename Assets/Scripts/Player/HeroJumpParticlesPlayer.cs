@@ -20,7 +20,7 @@ namespace CapybaraAdventure.Player
 
             _areParticlesPlaying = true;
 
-            var spawnPosition = _spawnTransform.position;
+            Vector3 spawnPosition = _spawnTransform.position;
             _particles = NightPool.Spawn(_particlesPrefab, spawnPosition);
 
             _particles.Play();

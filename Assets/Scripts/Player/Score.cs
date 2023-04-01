@@ -23,7 +23,7 @@ namespace CapybaraAdventure.Player
             if (IsInitialized == true)
                 throw new InvalidOperationException("Score cannot be initialized more than once!");
 
-            var heroObject = hero.gameObject;
+            GameObject heroObject = hero.gameObject;
             _heroTransform = heroObject.transform;
         }
 
@@ -52,11 +52,11 @@ namespace CapybaraAdventure.Player
                 if (IsInitialized == false)
                     throw new NullReferenceException("The class hasn't been initialized! Call Init(Hero) first");
 
-                var heroX = _heroTransform.position.x;
+                float heroX = _heroTransform.position.x;
                 if (heroX < 0f || heroX < ScoreCount)
                     yield return null;
 
-                var heroXRounded = (int)Mathf.Round(heroX);
+                int heroXRounded = (int)Mathf.Round(heroX);
                 ScoreCount = heroXRounded;
 
                 OnScoreChanged?.Invoke(ScoreCount);

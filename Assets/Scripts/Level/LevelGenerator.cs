@@ -40,9 +40,9 @@ namespace CapybaraAdventure.Level
         {
             get
             {
-                var heroPosition = _heroTransform.position;
-                var heroX = heroPosition.x;
-                var midPointX = GetLevelMidPointX(heroX);
+                Vector3 heroPosition = _heroTransform.position;
+                float heroX = heroPosition.x;
+                float midPointX = GetLevelMidPointX(heroX);
                 return midPointX < heroX;
             }
         }
@@ -92,8 +92,8 @@ namespace CapybaraAdventure.Level
 
         private float GetLevelMidPointX(float heroX)
         {
-            var oldestPlatform = _platformsOnLevel.Peek();
-            var oldestPlatformX = oldestPlatform.transform.position.x;
+            Platform oldestPlatform = _platformsOnLevel.Peek();
+            float oldestPlatformX = oldestPlatform.transform.position.x;
             return (_lastGeneratedPlatformX + oldestPlatformX) / 2f;
         }
 
@@ -109,32 +109,37 @@ namespace CapybaraAdventure.Level
         private T GetRandomPlatform<T>(T[] platforms)
             where T : Platform
         {
-            var random = Random.Range(0, platforms.Length);
+            int random = Random.Range(0, platforms.Length);
             return platforms[random];
         }
 
         private void SpawnPlatform(Platform platform)
         {
             var position = new Vector3(_lastGeneratedPlatformX, _platformsY);
-            var platformInGame = NightPool.Spawn(
+            Platform platformInGame = NightPool.Spawn(
                 platform,
                 position,
                 Quaternion.identity);
-            
-            platformInGame.transform.SetParent(_parent);
-            platformInGame.name = PlatformName; 
 
-            var markers = platformInGame.FoodMarkers;
-            _foodSpawner.SpawnFoodOnMarkers(markers);
+            platformInGame.transform.SetParent(_parent);
+            platformInGame.name = PlatformName;
+
+            SpawnFood(platformInGame);
 
             _lastGeneratedPlatformX += PlatformLength;
             _platformNumber++;
             _platformsOnLevel.Enqueue(platformInGame);
         }
 
+        private void SpawnFood(Platform platformInGame)
+        {
+            FoodSpawnMarker[] markers = platformInGame.FoodMarkers;
+            _foodSpawner.SpawnFoodOnMarkers(markers);
+        }
+
         private void DespawnOldestPlatform()
         {
-            var oldestPlatformInGame = _platformsOnLevel.Dequeue();
+            Platform oldestPlatformInGame = _platformsOnLevel.Dequeue();
             NightPool.Despawn(oldestPlatformInGame);
         }
     }

@@ -26,8 +26,8 @@ namespace CapybaraAdventure.UI
 
         public async Task<GameMenu> Load()
         {
-            var canvasTransform = _canvas.transform;
-            var menu = await LoadInternal<GameMenu>(GameMenu, canvasTransform);
+            Transform canvasTransform = _canvas.transform;
+            GameMenu menu = await LoadInternal<GameMenu>(GameMenu, canvasTransform);
 
             menu.Init(_gameStartup, _inGameUI);
             return menu;

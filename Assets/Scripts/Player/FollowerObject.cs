@@ -50,7 +50,7 @@ namespace CapybaraAdventure.Player
                     () => IsFollowObjectInitialized == true
                     );
 
-                var movedPosition = GetMovedPosition();
+                Vector3 movedPosition = GetMovedPosition();
                 _transform.position = movedPosition;
 
                 yield return new WaitForSeconds(_updateIntervalInSeconds);
@@ -59,7 +59,7 @@ namespace CapybaraAdventure.Player
 
         private Vector3 GetMovedPosition()
         {
-            var movedPosition = _transform.position;
+            Vector3 movedPosition = _transform.position;
             if (_ignoreXMovement == false)
                 movedPosition = MoveX(movedPosition);
 
@@ -71,7 +71,7 @@ namespace CapybaraAdventure.Player
 
         private Vector2 MoveX(Vector2 movedPosition)
         {
-            var toFollowPosition = _toFollow.position;
+            Vector3 toFollowPosition = _toFollow.position;
             movedPosition.x = toFollowPosition.x;
 
             return movedPosition;
@@ -79,7 +79,7 @@ namespace CapybaraAdventure.Player
 
         private Vector2 MoveY(Vector2 movedPosition)
         {
-            var toFollowPosition = _toFollow.position;
+            Vector3 toFollowPosition = _toFollow.position;
             movedPosition.y = toFollowPosition.y;
 
             return movedPosition;
