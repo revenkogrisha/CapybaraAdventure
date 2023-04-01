@@ -13,12 +13,12 @@ namespace CapybaraAdventure.UI
         private const int ChangeDirectionChanceDecrease = 7;
         private const int MaxChangeLerpDirectionChance = 40;
         private const float MaxLerpSpeed = 0.05f;
-        private const float LerpSpeedIncrease = 0.002f;
-        private const float LerpSpeedDecrease = 0.005f;
+        private const float LerpSpeedIncrease = 0.03f;
+        private const float LerpSpeedDecrease = 0.07f;
 
         [SerializeField] private Slider _slider;
         [Tooltip("Put value in seconds")]
-        [SerializeField] private float _startLerpSpeed = 0.02f;
+        [SerializeField] private float _startLerpSpeed = 0.03f;
 
         private float _lerpSpeed;
         private int _lerpDirectionChangeChance = 10;
@@ -46,7 +46,7 @@ namespace CapybaraAdventure.UI
             StartCoroutine(RandomlyChangeLerpDirection());
         }
 
-        private void Update()
+        private void FixedUpdate()
         {
             if (IsPaused)
                 return;
