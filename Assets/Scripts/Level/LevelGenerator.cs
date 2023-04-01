@@ -14,7 +14,7 @@ namespace CapybaraAdventure.Level
         private const float HeroPositionCheckFrequencyInSeconds = 1.5f;
 
         [SerializeField] private Food _foodPrefab;
-        [SerializeField] private Transform _platformParent;
+        [SerializeField] private Transform _parent;
         [SerializeField] private int _platformsAmountToGenerate = 5;
         [SerializeField] private float _XstartPoint = 0f;
         [SerializeField] private float _platformsY = -2f;
@@ -49,7 +49,7 @@ namespace CapybaraAdventure.Level
 
         private void Awake()
         {
-            _foodSpawner = new(_foodPrefab);
+            _foodSpawner = new(_foodPrefab, _parent);
             _lastGeneratedPlatformX = _XstartPoint;
 
             StartCoroutine(CheckPlayerPosition());
@@ -121,7 +121,7 @@ namespace CapybaraAdventure.Level
                 position,
                 Quaternion.identity);
             
-            platformInGame.transform.parent = _platformParent;
+            platformInGame.transform.SetParent(_parent);
             platformInGame.name = PlatformName; 
 
             var markers = platformInGame.FoodMarkers;

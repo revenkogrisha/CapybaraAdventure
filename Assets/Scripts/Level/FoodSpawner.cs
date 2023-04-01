@@ -7,10 +7,12 @@ namespace CapybaraAdventure.Level
     public class FoodSpawner
     {
         private Food _foodPrefab;
+        private Transform _parent;
 
-        public FoodSpawner(Food foodPrefab)
+        public FoodSpawner(Food foodPrefab, Transform parent)
         {
             _foodPrefab = foodPrefab;
+            _parent = parent;
         }
 
         public void SpawnFoodOnMarkers(FoodSpawnMarker[] markers)
@@ -24,7 +26,9 @@ namespace CapybaraAdventure.Level
         public void SpawnFoodOnMarker(FoodSpawnMarker marker)
         {
             var position = marker.Position;
-            NightPool.Spawn(_foodPrefab, position, Quaternion.identity);
+            var food = NightPool.Spawn(_foodPrefab, position, Quaternion.identity);
+
+            food.transform.SetParent(_parent);
         }
     }
 }
