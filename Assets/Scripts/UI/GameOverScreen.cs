@@ -4,7 +4,7 @@ using CapybaraAdventure.Tools;
 
 namespace CapybaraAdventure.UI
 {
-    public class GameOverScreen : MonoBehaviour
+    public class GameOverScreen : UIBase
     {
         [SerializeField] private UIButton _restartButton;
 
@@ -23,12 +23,6 @@ namespace CapybaraAdventure.UI
         }
 
         #endregion
-
-        public void Reveal()
-        {
-            gameObject.SetActive(true);
-            //  tweening...
-        }
 
         private void RestartGame() => _restartService.Restart();
     }
