@@ -83,8 +83,6 @@ namespace CapybaraAdventure.Game
 
         public void StartGame()
         {
-            _pauseManager.SetPaused(false);
-
             Hero hero = CreateHero();
 
             _heroPresenter = new HeroPresenter(hero, _jumpButton, _jumpSlider);
@@ -98,6 +96,8 @@ namespace CapybaraAdventure.Game
             _levelGenerator.InitHeroTransform(hero);
 
             SetupGameOverSystem(hero);
+
+            _pauseManager.SetPaused(false);
         }
 
         private async Task LoadAndRevealMenu()
