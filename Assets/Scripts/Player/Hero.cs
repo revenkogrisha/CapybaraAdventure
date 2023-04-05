@@ -6,7 +6,7 @@ using NTC.Global.Pool;
 
 namespace CapybaraAdventure.Player
 {
-    public class Hero : MonoBehaviour
+    public class Hero : MonoBehaviour, IPauseHandler
     {
         private const float HeightTestRadius = 0.05f;
 
@@ -44,6 +44,7 @@ namespace CapybaraAdventure.Player
 
         private void OnEnable()
         {
+            _pauseManager.Register(this);
             Jump.OnJumped += AnimateJump;
             Jump.OnLanded += AnimateJumpEnd;
 
@@ -53,6 +54,7 @@ namespace CapybaraAdventure.Player
 
         private void OnDisable()
         {
+            _pauseManager.Unregister(this);
             Jump.OnJumped -= AnimateJump;
             Jump.OnLanded -= AnimateJumpEnd;
 
@@ -79,13 +81,21 @@ namespace CapybaraAdventure.Player
         }
 
         #endregion
-
+        
         [Inject]
         private void Construct(PauseManager pauseManager)
         {
             _pauseManager = pauseManager;
         }
 
+        public void SetPaused(bool isPaused)
+        {
+            if (isPaused == true)
+                DisableRigidbody();
+            else
+                EnableRigidbody();
+        }
+        
         private void AnimateJump() => _heroAnimator.SetAsJumping();
         
         private void AnimateJumpEnd() => _heroAnimator.EndJumping();
@@ -107,7 +117,7 @@ namespace CapybaraAdventure.Player
 
         private void PerformDeath()
         {
-            _rigidBody2D.simulated = false;
+            DisableRigidbody();
             _isDead = true;
             OnDeath?.Invoke();
         }
@@ -116,6 +126,16 @@ namespace CapybaraAdventure.Player
         {
             OnFoodEaten?.Invoke();
             NightPool.Despawn(food);
+        }
+
+        private void EnableRigidbody()
+        {
+            _rigidBody2D.simulated = true;
+        }
+
+        private void DisableRigidbody()
+        {
+            _rigidBody2D.simulated = false;
         }
     }
 }

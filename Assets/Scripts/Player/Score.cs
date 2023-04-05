@@ -1,15 +1,18 @@
 using System;
 using System.Collections;
+using CapybaraAdventure.Game;
 using UnityEngine;
+using Zenject;
 
 namespace CapybaraAdventure.Player
 {
-    public class Score : MonoBehaviour
+    public class Score : MonoBehaviour, IPauseHandler
     {
         private const float _scoreUpdateIntervalInSeconds = 0.5f;
         
         private Transform _heroTransform;
         private IEnumerator _countCoroutine;
+        private PauseManager _pauseManager;
 
         public bool IsInitialized => _heroTransform != null;
 
@@ -17,6 +20,17 @@ namespace CapybaraAdventure.Player
         private bool HasCountCoroutineInitialized => _countCoroutine != null;
 
         public event Action<int> OnScoreChanged;
+
+        private void Awake()
+        {
+            _pauseManager.Register(this);
+        }
+
+        [Inject]
+        private void Construct(PauseManager pauseManager)
+        {
+            _pauseManager = pauseManager;
+        }
 
         public void Init(Hero hero)
         {
@@ -30,7 +44,7 @@ namespace CapybaraAdventure.Player
         public void StartCount()
         {
             if (HasCountCoroutineInitialized == true)
-                throw new InvalidOperationException("Count coroutine has already started! You cannot start it more than once");
+                return;
 
             _countCoroutine = CountScore();
             StartCoroutine(_countCoroutine);
@@ -43,6 +57,14 @@ namespace CapybaraAdventure.Player
 
             StopCoroutine(_countCoroutine);
             _countCoroutine = null;
+        }
+
+        public void SetPaused(bool isPaused)
+        {
+            if (isPaused == true)
+                StopCount();
+            else
+                StartCount();
         }
 
         private IEnumerator CountScore()
