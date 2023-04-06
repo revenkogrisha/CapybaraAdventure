@@ -2,7 +2,7 @@ using UnityEngine;
 using Zenject;
 using CapybaraAdventure.Save;
 
-namespace CapybaraAdventure
+namespace CapybaraAdventure.Installers
 {
     public class SaveServiceInstaller : MonoInstaller
     {

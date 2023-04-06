@@ -26,9 +26,17 @@ namespace CapybaraAdventure.Player
 
         private void Awake()
         {
-            HighScore = _saveService.HighScoreValue;
-
             _pauseManager.Register(this);
+        }
+
+        private void OnEnable()
+        {
+            _saveService.OnHighScoreLoaded += LoadHighScore;
+        }
+
+        private void OnDisable()
+        {
+            _saveService.OnHighScoreLoaded -= LoadHighScore;
         }
 
         [Inject]
@@ -81,7 +89,7 @@ namespace CapybaraAdventure.Player
             {
                 if (IsInitialized == false)
                     throw new NullReferenceException("The class hasn't been initialized! Call Init(Hero) first");
-
+                    
                 float heroX = _heroTransform.position.x;
                 if (heroX < 0f || heroX < ScoreCount)
                     yield return null;
@@ -89,7 +97,7 @@ namespace CapybaraAdventure.Player
                 int heroXRounded = (int)Mathf.Round(heroX);
                 ScoreCount = heroXRounded;
 
-                TrySaveRecordScore();
+                TrySaveHighScore();
 
                 OnScoreChanged?.Invoke(ScoreCount);
 
@@ -97,7 +105,9 @@ namespace CapybaraAdventure.Player
             }
         }
 
-        private void TrySaveRecordScore()
+        private void LoadHighScore() => HighScore = _saveService.HighScoreValue;
+
+        private void TrySaveHighScore()
         {
             if (ScoreCount <= HighScore)
                 return;

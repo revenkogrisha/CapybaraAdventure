@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace CapybaraAdventure.Save
@@ -9,6 +10,8 @@ namespace CapybaraAdventure.Save
         private ISaveSystem _saveSystem;
 
         public int HighScoreValue { get; private set; } = 0;
+
+        public event Action OnHighScoreLoaded;
 
         #region MonoBehaviour
 
@@ -40,7 +43,6 @@ namespace CapybaraAdventure.Save
             data.HighScore = PlayerPrefs.GetInt(HighScore);
 
             _saveSystem.Save(data);
-            print("Saved " + data.HighScore);
         }
 
         private void Load()
@@ -48,7 +50,7 @@ namespace CapybaraAdventure.Save
             var data = _saveSystem.Load();
 
             HighScoreValue = data.HighScore;
-            print("Loaded " + HighScoreValue);
+            OnHighScoreLoaded?.Invoke();
         }
     }
 }
