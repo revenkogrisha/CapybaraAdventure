@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using CapybaraAdventure.Game;
+using CapybaraAdventure.Save;
 using UnityEngine;
 using Zenject;
 
@@ -13,23 +14,30 @@ namespace CapybaraAdventure.Player
         private Transform _heroTransform;
         private IEnumerator _countCoroutine;
         private PauseManager _pauseManager;
+        private SaveService _saveService;
 
         public bool IsInitialized => _heroTransform != null;
 
-        public int ScoreCount { get; private set; }
+        public int ScoreCount { get; private set; } = 0;
+        public int HighScore { get; private set; } = 0;
         private bool HasCountCoroutineInitialized => _countCoroutine != null;
 
         public event Action<int> OnScoreChanged;
 
         private void Awake()
         {
+            HighScore = _saveService.HighScoreValue;
+
             _pauseManager.Register(this);
         }
 
         [Inject]
-        private void Construct(PauseManager pauseManager)
+        private void Construct(
+            PauseManager pauseManager,
+            SaveService saveService)
         {
             _pauseManager = pauseManager;
+            _saveService = saveService;
         }
 
         public void Init(Hero hero)
@@ -81,10 +89,21 @@ namespace CapybaraAdventure.Player
                 int heroXRounded = (int)Mathf.Round(heroX);
                 ScoreCount = heroXRounded;
 
+                TrySaveRecordScore();
+
                 OnScoreChanged?.Invoke(ScoreCount);
 
                 yield return new WaitForSeconds(_scoreUpdateIntervalInSeconds);
             }
+        }
+
+        private void TrySaveRecordScore()
+        {
+            if (ScoreCount <= HighScore)
+                return;
+
+            HighScore = ScoreCount;
+            PlayerPrefs.SetInt(SaveService.HighScore, HighScore);
         }
     }
 }
