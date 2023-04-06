@@ -2,12 +2,17 @@ using System;
 using CapybaraAdventure.UI;
 using UnityEngine;
 using UnityTools.Buttons;
+using TMPro;
+using CapybaraAdventure.Player;
 
 namespace CapybaraAdventure.Game
 {
     public class GameMenu : UIBase
     {
+        private const string HighScoreOriginalText = "HighScore:";
+
         [SerializeField] private UIButton _playButton;
+        [SerializeField] private TextMeshProUGUI _highScoreText;
 
         private GameStartup _gameStartup;
         private GameUI _inGameUI;
@@ -31,11 +36,15 @@ namespace CapybaraAdventure.Game
         
         public void Init(
             GameStartup gameStartup,
-            GameUI inGameUI)
+            GameUI inGameUI,
+            Score score)
         {
             _gameStartup = gameStartup;
             _inGameUI = inGameUI;
             _isInitialized = true;
+
+            var highScore = score.HighScore;
+            _highScoreText.text = $"{HighScoreOriginalText} {highScore}";
         }
 
         private void StartGame()
