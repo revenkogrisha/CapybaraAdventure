@@ -22,7 +22,7 @@ namespace CapybaraAdventure.Level
         [SerializeField] private SimplePlatform _startPlatform;
         [SerializeField] private SimplePlatform[] _simplePlatforms;
         [SerializeField] private SpecialPlatform[] _specialPlatforms;
-
+[Zenject.Inject] private Zenject.DiContainer diContainer;
         private FoodSpawner _foodSpawner;
         private Transform _heroTransform;
         private bool _heroIsInitialized = false;
@@ -120,6 +120,9 @@ namespace CapybaraAdventure.Level
                 platform,
                 position,
                 Quaternion.identity);
+
+            // var platformInGame = diContainer
+            //     .InstantiatePrefabForComponent<Platform>(platform);
 
             platformInGame.transform.SetParent(_parent);
             platformInGame.name = PlatformName;
