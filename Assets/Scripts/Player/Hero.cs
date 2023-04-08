@@ -17,7 +17,7 @@ namespace CapybaraAdventure.Player
         [SerializeField] private LayerMask _ground;
         [SerializeField] private AnimationCurve _jumpCurve;
         [Tooltip("Optional")]
-        [SerializeField] private HeroJumpParticlesPlayer _jumpParticlesPlayer;
+        [SerializeField] private ParticlesPlayer _jumpParticlesPlayer;
         
         private HeroAnimator _heroAnimator;
         private PauseManager _pauseManager;
@@ -75,9 +75,10 @@ namespace CapybaraAdventure.Player
             if (IsPaused
                 || _isDead)
                 return;
-                
+            
             HandleDeadlyObjectCollision(other);
             HandleFoodCollision(other);
+            HandleChestCollision(other);
         }
 
         #endregion
@@ -115,6 +116,12 @@ namespace CapybaraAdventure.Player
                 .InvokeIfNotNull<Food>(other, EatFood);
         }
 
+        private void HandleChestCollision(Collider2D other)
+        {
+            UnityTools.Tools
+                .InvokeIfNotNull<Chest>(other, OpenChest);
+        }
+
         private void PerformDeath()
         {
             DisableRigidbody();
@@ -137,5 +144,7 @@ namespace CapybaraAdventure.Player
         {
             _rigidBody2D.simulated = false;
         }
+
+        private void OpenChest<T>(T chest) where T : Chest => chest.Open();
     }
 }
