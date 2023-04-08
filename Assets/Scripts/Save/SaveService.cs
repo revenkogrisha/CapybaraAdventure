@@ -6,10 +6,12 @@ namespace CapybaraAdventure.Save
     public class SaveService : MonoBehaviour
     {
         public const string HighScore = nameof(HighScore);
+        public const string Coins = nameof(Coins);
 
         private ISaveSystem _saveSystem;
 
         public int HighScoreValue { get; private set; } = 0;
+        public int CoinsValue { get; private set; } = 0;
 
         public event Action OnHighScoreLoaded;
 
@@ -41,8 +43,10 @@ namespace CapybaraAdventure.Save
             var data = new SaveData();
 
             data.HighScore = PlayerPrefs.GetInt(HighScore);
+            data.Coins = PlayerPrefs.GetInt(Coins);
 
             _saveSystem.Save(data);
+            print("Saved: " + data.Coins);
         }
 
         private void Load()
@@ -50,7 +54,10 @@ namespace CapybaraAdventure.Save
             var data = _saveSystem.Load();
 
             HighScoreValue = data.HighScore;
+            CoinsValue = data.Coins;
+
             OnHighScoreLoaded?.Invoke();
+            print("Loaded: " + CoinsValue);
         }
     }
 }
