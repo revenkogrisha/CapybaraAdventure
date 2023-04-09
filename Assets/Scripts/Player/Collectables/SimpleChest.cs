@@ -11,7 +11,6 @@ namespace CapybaraAdventure.Player
         protected override void ReleaseContent()
         {
             _playerData.AddSimpleChestCoins();
-            print("Added: " + _playerData.Coins);
         }
 
         [Inject]

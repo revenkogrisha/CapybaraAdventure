@@ -26,7 +26,7 @@ namespace CapybaraAdventure.Level
         [SerializeField] private SpecialPlatform[] _specialPlatforms;
 
         private DiContainer _diContainer;
-        private FoodSpawner _foodSpawner;
+        private CollectablesSpawner _collectablesSpawner;
         private Transform _heroTransform;
         private bool _heroIsInitialized = false;
         private readonly Queue<Platform> _platformsOnLevel = new();
@@ -47,12 +47,24 @@ namespace CapybaraAdventure.Level
                 float heroX = heroPosition.x;
                 float midPointX = GetLevelMidPointX(heroX);
                 return midPointX < heroX;
+
+                float GetLevelMidPointX(float heroX)
+                {
+                    Platform oldestPlatform = _platformsOnLevel.Peek();
+                    float oldestPlatformX = oldestPlatform.transform.position.x;
+                    return (_lastGeneratedPlatformX + oldestPlatformX) / 2f;
+                }
             }
         }
 
         private void Awake()
         {
-            _foodSpawner = new(_foodPrefab, _parent);
+            _collectablesSpawner = new(
+                _diContainer,
+                _foodPrefab,
+                _chestPrefab,
+                _parent);
+
             _lastGeneratedPlatformX = _XstartPoint;
 
             StartCoroutine(CheckPlayerPosition());
@@ -64,12 +76,12 @@ namespace CapybaraAdventure.Level
             _diContainer = diContainer;
         }
 
-        public void SpawnStartPlatform() => SpawnPlatform(_startPlatform);
+        public void SpawnStartPlatform() => GeneratePlatform(_startPlatform);
         
         public void GenerateDefaultAmount()
         {
             for (var i = 0; i < _platformsAmountToGenerate; i++)
-                SpawnRandomPlatform();
+                GenerateRandomPlatform();
         }
 
         public void InitHeroTransform(Hero hero)
@@ -92,71 +104,57 @@ namespace CapybaraAdventure.Level
                 if (IsLevelMidPointXLessHeroX)
                 {
                     DespawnOldestPlatform();
-                    SpawnRandomPlatform();
+                    GenerateRandomPlatform();
                 }
 
                 yield return new WaitForSeconds(HeroPositionCheckFrequencyInSeconds);
             }
         }
 
-        private float GetLevelMidPointX(float heroX)
-        {
-            Platform oldestPlatform = _platformsOnLevel.Peek();
-            float oldestPlatformX = oldestPlatform.transform.position.x;
-            return (_lastGeneratedPlatformX + oldestPlatformX) / 2f;
-        }
-
-        private void SpawnRandomPlatform()
+        private void GenerateRandomPlatform()
         {
             Platform randomPlatform = IsNowSpecialPlatformTurn
                 ? GetRandomPlatform(_specialPlatforms)
                 : GetRandomPlatform(_simplePlatforms);
 
-            SpawnPlatform(randomPlatform);
+            GeneratePlatform(randomPlatform);
         }
 
-        private T GetRandomPlatform<T>(T[] platforms)
+        private T GetRandomPlatform<T>(T[] platformPrefabs)
             where T : Platform
         {
-            int random = Random.Range(0, platforms.Length);
-            return platforms[random];
+            int random = Random.Range(0, platformPrefabs.Length);
+            return platformPrefabs[random];
         }
 
-        private void SpawnPlatform(Platform platform)
+        private void GeneratePlatform(Platform platformPrefab)
         {
-            var position = new Vector3(_lastGeneratedPlatformX, _platformsY);
-            Platform platformInGame = NightPool.Spawn(
-                platform,
-                position,
-                Quaternion.identity);
+            Platform platform = SpawnPlatform(platformPrefab);
+            platform.transform.SetParent(_parent);
+            platform.name = PlatformName;
 
-            platformInGame.transform.SetParent(_parent);
-            platformInGame.name = PlatformName;
-
-            SpawnFood(platformInGame);
-            SpawnChests(platformInGame);
+            SpawnCollectables(platform);
 
             _lastGeneratedPlatformX += PlatformLength;
             _platformNumber++;
-            _platformsOnLevel.Enqueue(platformInGame);
+            _platformsOnLevel.Enqueue(platform);
         }
 
-        private void SpawnFood(Platform platformInGame)
+        private Platform SpawnPlatform(Platform platformPrefab)
         {
-            FoodSpawnMarker[] markers = platformInGame.FoodMarkers;
-            _foodSpawner.SpawnFoodOnMarkers(markers);
+            var position = new Vector3(_lastGeneratedPlatformX, _platformsY);
+            Platform platform = NightPool.Spawn(
+                platformPrefab,
+                position,
+                Quaternion.identity);
+            
+            return platform;
         }
 
-        private void SpawnChests(Platform platformInGame)
+        private void SpawnCollectables(Platform platform)
         {
-            ChestSpawnMarker[] markers = platformInGame.ChestMarkers;
-            foreach (var marker in markers)
-            {
-                Chest chest = _diContainer
-                    .InstantiatePrefabForComponent<Chest>(_chestPrefab);
-
-                chest.transform.position = marker.Position;
-            }
+            _collectablesSpawner.SpawnFood(platform);
+            _collectablesSpawner.SpawnChests(platform);
         }
 
         private void DespawnOldestPlatform()
