@@ -16,7 +16,7 @@ namespace CapybaraAdventure.Game
         [SerializeField] private CinemachineVirtualCamera _mainCamera;
         [SerializeField] private FollowerObject _deadlyYBorder;
         [SerializeField] private UIText _scoreText;
-        [SerializeField] private UIText _coinsText;
+        [SerializeField] private CoinsUIContainer _coinsUIContainer;
 
         #region Injected Variables
         private JumpButton _jumpButton;
@@ -53,10 +53,10 @@ namespace CapybaraAdventure.Game
 
         private async void Start()
         {
-            SetupCoins();
             await LoadAndRevealMenu();
-            _levelGenerator.SpawnStartPlatform();
-            _levelGenerator.GenerateDefaultAmount();
+            SetupCoins();
+
+            GenerateLevel();
         }
 
         #endregion
@@ -115,6 +115,12 @@ namespace CapybaraAdventure.Game
             _menu.Reveal();
         }
 
+        private void GenerateLevel()
+        {
+            _levelGenerator.SpawnStartPlatform();
+            _levelGenerator.GenerateDefaultAmount();
+        }
+
         private void UnloadMenu() => _menuProvider.Unload();
 
         private Hero CreateHero()
@@ -145,7 +151,7 @@ namespace CapybaraAdventure.Game
 
         private void SetupCoins()
         {
-            _coinsPresenter = new(_playerData, _coinsText);
+            _coinsPresenter = new(_playerData, _coinsUIContainer);
             _coinsPresenter.Init();
             _coinsPresenter.Enable();
         }

@@ -5,16 +5,21 @@ namespace CapybaraAdventure.UI
     public class CoinsPresenter
     {
         private readonly PlayerData _playerData;
+        private readonly CoinsUIContainer _container;
         private readonly UIText _coinsText;
 
-        public CoinsPresenter(PlayerData playerData, UIText coinsText)
+        public CoinsPresenter(PlayerData playerData, CoinsUIContainer container)
         {
             _playerData = playerData;
-            _coinsText = coinsText;
+            _container = container;
+
+            _coinsText = _container.Text;
         }
 
         public void Init()
         {
+            _container.transform.SetAsLastSibling();
+
             int coins = _playerData.Coins;
             UpdateCoinsText(coins);
         }
