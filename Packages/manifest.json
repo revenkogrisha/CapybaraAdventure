@@ -1,6 +1,12 @@
 {
   "dependencies": {
     "com.pixelsparkstudio.parallaxer": "git@github.com:PixelSparkStudio/Parallaxer.git",
+    "com.unity.2d.animation": "7.0.9",
+    "com.unity.2d.pixel-perfect": "5.0.3",
+    "com.unity.2d.psdimporter": "6.0.6",
+    "com.unity.2d.sprite": "1.0.0",
+    "com.unity.2d.spriteshape": "7.0.6",
+    "com.unity.2d.tilemap": "1.0.0",
     "com.unity.addressables": "1.19.19",
     "com.unity.cinemachine": "2.8.9",
     "com.unity.collab-proxy": "1.17.7",
