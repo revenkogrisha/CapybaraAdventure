@@ -1,5 +1,5 @@
 using Zenject;
-using CapybaraAdventure.Tools;
+using CapybaraAdventure.Other;
 using UnityEngine;
 using UnityTools.Buttons;
 using CapybaraAdventure.Game;

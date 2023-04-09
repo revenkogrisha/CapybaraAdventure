@@ -1,6 +1,6 @@
 using System.Threading.Tasks;
 using CapybaraAdventure.Game;
-using CapybaraAdventure.Tools;
+using CapybaraAdventure.Other;
 using UnityEngine;
 using Zenject;
 

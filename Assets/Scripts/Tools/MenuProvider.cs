@@ -1,4 +1,4 @@
-using CapybaraAdventure.Tools;
+using CapybaraAdventure.Other;
 using CapybaraAdventure.Game;
 using System.Threading.Tasks;
 using UnityEngine;

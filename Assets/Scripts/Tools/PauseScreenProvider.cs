@@ -2,7 +2,7 @@ using System.Threading.Tasks;
 using UnityEngine;
 using CapybaraAdventure.UI;
 
-namespace CapybaraAdventure.Tools
+namespace CapybaraAdventure.Other
 {
     public class PauseScreenProvider : LocalAssetLoader
     {

@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 
-namespace CapybaraAdventure.Tools
+namespace CapybaraAdventure.Other
 {
     public class LocalAssetLoader : MonoBehaviour
     {

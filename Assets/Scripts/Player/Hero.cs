@@ -3,6 +3,7 @@ using Zenject;
 using System;
 using CapybaraAdventure.Game;
 using NTC.Global.Pool;
+using UnityTools;
 
 namespace CapybaraAdventure.Player
 {
@@ -106,20 +107,17 @@ namespace CapybaraAdventure.Player
 
         private void HandleDeadlyObjectCollision(Collider2D other)
         {
-            UnityTools.Tools
-                .InvokeIfNotNull<DeadlyForPlayerObject>(other, PerformDeath);
+            Tools.InvokeIfNotNull<DeadlyForPlayerObject>(other, PerformDeath);
         }
 
         private void HandleFoodCollision(Collider2D other)
         {
-            UnityTools.Tools
-                .InvokeIfNotNull<Food>(other, EatFood);
+            Tools.InvokeIfNotNull<Food>(other, EatFood);
         }
 
         private void HandleChestCollision(Collider2D other)
         {
-            UnityTools.Tools
-                .InvokeIfNotNull<Chest>(other, OpenChest);
+            Tools.InvokeIfNotNull<Chest>(other, OpenChest);
         }
 
         private void PerformDeath()

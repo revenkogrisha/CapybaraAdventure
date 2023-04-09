@@ -1,6 +1,6 @@
 using UnityEngine.SceneManagement;
 
-namespace CapybaraAdventure.Tools
+namespace CapybaraAdventure.Other
 {
     public class RestartGameService
     {

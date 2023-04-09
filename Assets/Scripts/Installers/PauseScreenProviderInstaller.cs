@@ -1,4 +1,4 @@
-using CapybaraAdventure.Tools;
+using CapybaraAdventure.Other;
 using UnityEngine;
 using Zenject;
 

@@ -1,6 +1,6 @@
 using UnityEngine;
 using UnityTools.Buttons;
-using CapybaraAdventure.Tools;
+using CapybaraAdventure.Other;
 
 namespace CapybaraAdventure.UI
 {
