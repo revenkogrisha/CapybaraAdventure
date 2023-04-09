@@ -31,12 +31,12 @@ namespace CapybaraAdventure.Player
 
         private void OnEnable()
         {
-            _saveService.OnHighScoreLoaded += LoadHighScore;
+            _saveService.OnDataLoaded += LoadHighScore;
         }
 
         private void OnDisable()
         {
-            _saveService.OnHighScoreLoaded -= LoadHighScore;
+            _saveService.OnDataLoaded -= LoadHighScore;
         }
 
         [Inject]

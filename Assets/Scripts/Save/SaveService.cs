@@ -13,7 +13,7 @@ namespace CapybaraAdventure.Save
         public int HighScoreValue { get; private set; } = 0;
         public int CoinsValue { get; private set; } = 0;
 
-        public event Action OnHighScoreLoaded;
+        public event Action OnDataLoaded;
 
         #region MonoBehaviour
 
@@ -46,7 +46,6 @@ namespace CapybaraAdventure.Save
             data.Coins = PlayerPrefs.GetInt(Coins);
 
             _saveSystem.Save(data);
-            print("Saved: " + data.Coins);
         }
 
         private void Load()
@@ -56,8 +55,7 @@ namespace CapybaraAdventure.Save
             HighScoreValue = data.HighScore;
             CoinsValue = data.Coins;
 
-            OnHighScoreLoaded?.Invoke();
-            print("Loaded: " + CoinsValue);
+            OnDataLoaded?.Invoke();
         }
     }
 }
