@@ -15,7 +15,8 @@ namespace CapybaraAdventure.Game
         [SerializeField] private Hero _heroPrefab;
         [SerializeField] private CinemachineVirtualCamera _mainCamera;
         [SerializeField] private FollowerObject _deadlyYBorder;
-        [SerializeField] private ScoreText _scoreText;
+        [SerializeField] private UIText _scoreText;
+        [SerializeField] private UIText _coinsText;
 
         #region Injected Variables
         private JumpButton _jumpButton;
@@ -27,14 +28,16 @@ namespace CapybaraAdventure.Game
         private HeroSpawnMarker _heroSpawnMarker;
         private PauseManager _pauseManager;
         private GameUI _inGameUI;
+        private GameOverScreenProvider _gameOverScreenProvider;
+        private PlayerData _playerData;
         private DiContainer _diContainer;
         #endregion
 
-        private GameOverScreenProvider _gameOverScreenProvider;
         private ScorePresenter _scorePresenter;
         private GameOverHandler _gameOverHandler;
         private GameOverHandlerPresenter _gameOverHandlerPresenter;
         private HeroPresenter _heroPresenter;
+        private CoinsPresenter _coinsPresenter;
 
         #region MonoBehaviour
 
@@ -45,10 +48,12 @@ namespace CapybaraAdventure.Game
             _heroPresenter?.Disable();
             _gameOverHandlerPresenter?.Disable();
             _scorePresenter?.Disable();
+            _coinsPresenter?.Disable();
         }
 
         private async void Start()
         {
+            SetupCoins();
             await LoadAndRevealMenu();
             _levelGenerator.SpawnStartPlatform();
             _levelGenerator.GenerateDefaultAmount();
@@ -67,6 +72,7 @@ namespace CapybaraAdventure.Game
             PauseManager pauseManager,
             GameUI inGameUI,
             GameOverScreenProvider gameOverScreenProvider,
+            PlayerData playerData,
             DiContainer diContainer)
         {
             _jumpButton = button;
@@ -78,6 +84,7 @@ namespace CapybaraAdventure.Game
             _pauseManager = pauseManager;
             _inGameUI = inGameUI;
             _gameOverScreenProvider = gameOverScreenProvider;
+            _playerData = playerData;
             _diContainer = diContainer;
         }
 
@@ -134,6 +141,13 @@ namespace CapybaraAdventure.Game
 
             _scorePresenter = new ScorePresenter(_score, _scoreText);
             _scorePresenter.Enable();
+        }
+
+        private void SetupCoins()
+        {
+            _coinsPresenter = new(_playerData, _coinsText);
+            _coinsPresenter.Init();
+            _coinsPresenter.Enable();
         }
 
         private void SetupDeadlyYBorder(Hero hero)

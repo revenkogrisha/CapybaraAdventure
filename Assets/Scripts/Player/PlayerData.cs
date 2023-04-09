@@ -10,6 +10,8 @@ namespace CapybaraAdventure.Player
 
         public int Coins { get; private set; } = 0;
 
+        public event Action<int> OnCoinsChanged;
+
         public PlayerData(SaveService saveService)
         {
             _saveService = saveService;
@@ -30,6 +32,8 @@ namespace CapybaraAdventure.Player
 
             Coins += amount;
             PlayerPrefs.SetInt(SaveService.Coins, Coins);
+
+            OnCoinsChanged?.Invoke(Coins);
         }
 
         private void Init()

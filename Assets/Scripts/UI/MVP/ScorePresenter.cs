@@ -5,9 +5,9 @@ namespace CapybaraAdventure.UI
     public class ScorePresenter
     {
         private readonly Score _score;
-        private readonly ScoreText _scoreText;
+        private readonly UIText _scoreText;
 
-        public ScorePresenter(Score score, ScoreText scoreText)
+        public ScorePresenter(Score score, UIText scoreText)
         {
             _score = score;
             _scoreText = scoreText;
@@ -23,6 +23,10 @@ namespace CapybaraAdventure.UI
             _score.OnScoreChanged -= UpdateScoreText;
         }
 
-        private void UpdateScoreText(int count) => _scoreText.UpdateText(count);
+        private void UpdateScoreText(int count)
+        {
+            string text = $"{count}";
+            _scoreText.UpdateText(text);
+        }
     }
 }
