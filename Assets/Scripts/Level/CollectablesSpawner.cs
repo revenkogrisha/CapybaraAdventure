@@ -18,7 +18,9 @@ namespace CapybaraAdventure.Level
             Chest chestPrefab,
             Transform parent)
         {
+            _diContainer = diContainer;
             _foodPrefab = foodPrefab;
+            _chestPrefab = chestPrefab;
             _parent = parent;
         }
 
