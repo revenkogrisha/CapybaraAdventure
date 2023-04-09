@@ -13,8 +13,12 @@ namespace CapybaraAdventure.Player
         public PlayerData(SaveService saveService)
         {
             _saveService = saveService;
+            _saveService.OnDataLoaded += Init;
+        }
 
-            Init();
+        public void Disable()
+        {
+            _saveService.OnDataLoaded -= Init;
         }
 
         public void AddSimpleChestCoins()
