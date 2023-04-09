@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using Zenject;
 using NTC.Global.Pool;
 using CapybaraAdventure.Player;
 using Random = UnityEngine.Random;
@@ -14,6 +15,7 @@ namespace CapybaraAdventure.Level
         private const float HeroPositionCheckFrequencyInSeconds = 1.5f;
 
         [SerializeField] private Food _foodPrefab;
+        [SerializeField] private Chest _chestPrefab;
         [SerializeField] private Transform _parent;
         [SerializeField] private int _platformsAmountToGenerate = 5;
         [SerializeField] private float _XstartPoint = 0f;
@@ -22,7 +24,8 @@ namespace CapybaraAdventure.Level
         [SerializeField] private SimplePlatform _startPlatform;
         [SerializeField] private SimplePlatform[] _simplePlatforms;
         [SerializeField] private SpecialPlatform[] _specialPlatforms;
-[Zenject.Inject] private Zenject.DiContainer diContainer;
+
+        private DiContainer _diContainer;
         private FoodSpawner _foodSpawner;
         private Transform _heroTransform;
         private bool _heroIsInitialized = false;
@@ -53,6 +56,12 @@ namespace CapybaraAdventure.Level
             _lastGeneratedPlatformX = _XstartPoint;
 
             StartCoroutine(CheckPlayerPosition());
+        }
+
+        [Inject]
+        private void Construct(DiContainer diContainer)
+        {
+            _diContainer = diContainer;
         }
 
         public void SpawnStartPlatform() => SpawnPlatform(_startPlatform);
@@ -121,13 +130,11 @@ namespace CapybaraAdventure.Level
                 position,
                 Quaternion.identity);
 
-            // var platformInGame = diContainer
-            //     .InstantiatePrefabForComponent<Platform>(platform);
-
             platformInGame.transform.SetParent(_parent);
             platformInGame.name = PlatformName;
 
             SpawnFood(platformInGame);
+            SpawnChests(platformInGame);
 
             _lastGeneratedPlatformX += PlatformLength;
             _platformNumber++;
@@ -138,6 +145,18 @@ namespace CapybaraAdventure.Level
         {
             FoodSpawnMarker[] markers = platformInGame.FoodMarkers;
             _foodSpawner.SpawnFoodOnMarkers(markers);
+        }
+
+        private void SpawnChests(Platform platformInGame)
+        {
+            ChestSpawnMarker[] markers = platformInGame.ChestMarkers;
+            foreach (var marker in markers)
+            {
+                Chest chest = _diContainer
+                    .InstantiatePrefabForComponent<Chest>(_chestPrefab);
+
+                chest.transform.position = marker.Position;
+            }
         }
 
         private void DespawnOldestPlatform()
