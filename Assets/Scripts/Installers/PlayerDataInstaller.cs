@@ -7,14 +7,20 @@ namespace CapybaraAdventure.Installers
     public class PlayerDataInstaller : MonoInstaller
     {
         private SaveService _saveService;
+        private PlayerData _instance;
+
+        private void OnDisable()
+        {
+            _instance.Disable();
+        }
 
         public override void InstallBindings()
         {
-            var data = new PlayerData(_saveService);
+            _instance = new(_saveService);
 
             Container
                 .Bind<PlayerData>()
-                .FromInstance(data)
+                .FromInstance(_instance)
                 .AsSingle();
         }
 
