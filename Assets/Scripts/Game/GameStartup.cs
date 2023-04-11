@@ -54,6 +54,8 @@ namespace CapybaraAdventure.Game
         private async void Start()
         {
             await LoadAndRevealMenu();
+            _menu.OnMenuWorkHasOver += UnloadMenu;
+            
             SetupCoins();
 
             GenerateLevel();
@@ -110,8 +112,6 @@ namespace CapybaraAdventure.Game
         private async Task LoadAndRevealMenu()
         {
             _menu = await _menuProvider.Load();
-            _menu.OnMenuWorkHasOver += UnloadMenu;
-
             _menu.Reveal();
         }
 

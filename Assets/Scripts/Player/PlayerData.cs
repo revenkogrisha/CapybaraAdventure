@@ -28,7 +28,7 @@ namespace CapybaraAdventure.Player
             var amount = SimpleChest.CoinsInsideAmount;
 
             if (amount <= 0)
-                throw new ArgumentException("Wrong amoint was given!");
+                throw new ArgumentException("Wrong amount was given!");
 
             Coins += amount;
             PlayerPrefs.SetInt(SaveService.Coins, Coins);
