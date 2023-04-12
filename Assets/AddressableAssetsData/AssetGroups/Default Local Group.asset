@@ -29,6 +29,10 @@ MonoBehaviour:
     m_Address: PauseScreen
     m_ReadOnly: 0
     m_SerializedLabels: []
+  - m_GUID: 67816e13b815f4a44add4e46f37df08d
+    m_Address: UpgradeScreen
+    m_ReadOnly: 0
+    m_SerializedLabels: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 8d06babe51c5d4018a46dea98910cd82, type: 2}
   m_SchemaSet:
