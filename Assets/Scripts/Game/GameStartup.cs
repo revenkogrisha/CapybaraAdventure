@@ -6,6 +6,7 @@ using CapybaraAdventure.UI;
 using System;
 using CapybaraAdventure.Level;
 using System.Threading.Tasks;
+using CapybaraAdventure.Other;
 
 namespace CapybaraAdventure.Game
 {
@@ -55,7 +56,7 @@ namespace CapybaraAdventure.Game
         {
             await LoadAndRevealMenu();
             _menu.OnMenuWorkHasOver += UnloadMenu;
-            
+
             SetupCoins();
 
             GenerateLevel();
@@ -75,6 +76,7 @@ namespace CapybaraAdventure.Game
             GameUI inGameUI,
             GameOverScreenProvider gameOverScreenProvider,
             PlayerData playerData,
+            UpgradeScreenProvider upgradeScreenProvider,
             DiContainer diContainer)
         {
             _jumpButton = button;
@@ -88,6 +90,8 @@ namespace CapybaraAdventure.Game
             _gameOverScreenProvider = gameOverScreenProvider;
             _playerData = playerData;
             _diContainer = diContainer;
+
+            _menuProvider.Init(upgradeScreenProvider);
         }
 
         public void StartGame()

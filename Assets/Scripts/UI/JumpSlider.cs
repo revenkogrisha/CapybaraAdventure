@@ -3,18 +3,18 @@ using UnityEngine;
 using CapybaraAdventure.Game;
 using Zenject;
 using System.Collections;
+using CapybaraAdventure.Player;
 
 namespace CapybaraAdventure.UI
 {
     public class JumpSlider : MonoBehaviour
     {
-        private const float LerpDirectionChangeIntervalInSeconds = 1.2f;
-        private const int ChangeDirectionChanceIncrease = 3;
-        private const int ChangeDirectionChanceDecrease = 7;
-        private const int MaxChangeLerpDirectionChance = 40;
-        private const float MaxLerpSpeed = 0.05f;
-        private const float LerpSpeedIncrease = 0.03f;
-        private const float LerpSpeedDecrease = 0.07f;
+        public const float LerpSpeedIncrease = 0.03f;
+        public const float LerpDirectionChangeIntervalInSeconds = 1.2f;
+        public const int ChangeDirectionChanceIncrease = 3;
+        public const int MaxChangeLerpDirectionChance = 40;
+        public const float MaxLerpSpeed = 0.05f;
+        private const float MinValue = 0f;
 
         [SerializeField] private Slider _slider;
         [Tooltip("Put value in seconds")]
@@ -23,25 +23,27 @@ namespace CapybaraAdventure.UI
         private float _lerpSpeed;
         private int _lerpDirectionChangeChance = 10;
         private JumpSliderState _state = JumpSliderState.LerpingUp;
-        private float _minValue;
-        private float _maxValue;
         private PauseManager _pauseManager;
+        private PlayerData _playerData;
 
+        public int ChangeDirectionChanceDecrease => 
+            _playerData.ChangeDirectionChanceDecrease;
+
+        public float LerpSpeedDecrease => _playerData.LerpSpeedDecrease;
         public float Value => _slider.value;
         public bool IsPaused => _pauseManager.IsPaused;
         public bool IsLerpingUp => _state == JumpSliderState.LerpingUp;
         public bool IsValueOutOfMaxOrMin => 
-            _slider.value >= _maxValue 
-            || _slider.value <= _minValue;
+            _slider.value >= _playerData.MaxDistance 
+            || _slider.value <= MinValue;
 
         #region MonoBehaviour
 
         private void Awake()
         {
             _lerpSpeed = _startLerpSpeed;
-            _minValue = _slider.minValue;
-            _maxValue = _slider.maxValue;
             _slider.value = _slider.minValue;
+            UpdateSliderProperties();
 
             StartCoroutine(RandomlyChangeLerpDirection());
         }
@@ -54,20 +56,15 @@ namespace CapybaraAdventure.UI
             LerpValue();
         }
 
-        private void LerpValue()
-        {
-            LerpValueByDirection();
-
-            if (IsValueOutOfMaxOrMin)
-                ChangeLerpDirection();
-        }
-
         #endregion
 
         [Inject]
-        private void Construct(PauseManager pauseManager)
+        private void Construct(
+            PauseManager pauseManager,
+            PlayerData playerData)
         {
             _pauseManager = pauseManager;
+            _playerData = playerData;
         }
 
         public void IncreaseLerpDirectionChangeChance() =>
@@ -92,6 +89,20 @@ namespace CapybaraAdventure.UI
                 return;
 
             _lerpSpeed = decreased;
+        }
+
+        private void UpdateSliderProperties()
+        {
+            _slider.maxValue = _playerData.MaxDistance;
+            _slider.minValue = MinValue;
+        }
+
+        private void LerpValue()
+        {
+            LerpValueByDirection();
+
+            if (IsValueOutOfMaxOrMin)
+                ChangeLerpDirection();
         }
 
         private void LerpValueByDirection()

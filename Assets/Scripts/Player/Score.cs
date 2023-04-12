@@ -105,7 +105,7 @@ namespace CapybaraAdventure.Player
             }
         }
 
-        private void LoadHighScore() => HighScore = _saveService.HighScoreValue;
+        private void LoadHighScore() => HighScore = _saveService.Data.HighScore;
 
         private void TrySaveHighScore()
         {

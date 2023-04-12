@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityTools.Buttons;
 using TMPro;
 using CapybaraAdventure.Player;
+using CapybaraAdventure.Other;
 
 namespace CapybaraAdventure.Game
 {
@@ -12,10 +13,13 @@ namespace CapybaraAdventure.Game
         private const string HighScoreOriginalText = "HighScore:";
 
         [SerializeField] private UIButton _playButton;
+        [SerializeField] private UIButton _updgradeButton;
         [SerializeField] private TextMeshProUGUI _highScoreText;
 
         private GameStartup _gameStartup;
         private GameUI _inGameUI;
+        private UpgradeScreenProvider _upgradeScreenProvider;
+        private UpgradeScreen _upgradeScreen;
         private bool _isInitialized = false;
 
         public event Action OnMenuWorkHasOver;
@@ -25,26 +29,45 @@ namespace CapybaraAdventure.Game
         private void OnEnable()
         {
             _playButton.OnClicked += StartGame;
+            _updgradeButton.OnClicked += LoadAndRevealUpgradeScreen;
         }
 
         private void OnDisable()
         {
             _playButton.OnClicked -= StartGame;
+            _updgradeButton.OnClicked -= LoadAndRevealUpgradeScreen;
         }
 
         #endregion
         
         public void Init(
             GameStartup gameStartup,
+            UpgradeScreenProvider upgradeScreenProvider,
             GameUI inGameUI,
             Score score)
         {
             _gameStartup = gameStartup;
+            _upgradeScreenProvider = upgradeScreenProvider;
             _inGameUI = inGameUI;
             _isInitialized = true;
 
             var highScore = score.HighScore;
             _highScoreText.text = $"{HighScoreOriginalText} {highScore}";
+        }
+
+        private async void LoadAndRevealUpgradeScreen()
+        {
+            _upgradeScreen = await _upgradeScreenProvider.Load();
+            _upgradeScreen.OnScreenClosed += OnUpgradeScreenClosedHandler;
+
+            Conceal();
+        }
+
+        private void OnUpgradeScreenClosedHandler()
+        {
+            _upgradeScreen.OnScreenClosed -= OnUpgradeScreenClosedHandler;
+            _upgradeScreenProvider.Unload();
+            Reveal();
         }
 
         private void StartGame()
