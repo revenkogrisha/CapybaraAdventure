@@ -7,11 +7,12 @@ namespace CapybaraAdventure.Save
     {
         public const string HighScore = nameof(HighScore);
         public const string Coins = nameof(Coins);
+        public const string MaxDistance = nameof(MaxDistance);
+        public const string DistanceUpgradeCost = nameof(DistanceUpgradeCost);
 
         private ISaveSystem _saveSystem;
 
-        public int HighScoreValue { get; private set; } = 0;
-        public int CoinsValue { get; private set; } = 0;
+        public SaveData Data { get; private set; } = new();
 
         public event Action OnDataLoaded;
 
@@ -38,24 +39,25 @@ namespace CapybaraAdventure.Save
             Load();
         }
 
-        private void Save()
+        public void Save()
         {
             var data = new SaveData();
 
             data.HighScore = PlayerPrefs.GetInt(HighScore);
             data.Coins = PlayerPrefs.GetInt(Coins);
+            data.MaxDistance = PlayerPrefs.GetFloat(MaxDistance);
+            data.DistanceUpgradeCost = PlayerPrefs.GetInt(DistanceUpgradeCost);
 
+            Data = data;
             _saveSystem.Save(data);
         }
 
         private void Load()
         {
-            var data = _saveSystem.Load();
-
-            HighScoreValue = data.HighScore;
-            CoinsValue = data.Coins;
-
+            Data = _saveSystem.Load();
             OnDataLoaded?.Invoke();
+            print(Data.MaxDistance);
+            print(Data.DistanceUpgradeCost);
         }
     }
 }
