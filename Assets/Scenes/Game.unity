@@ -1357,10 +1357,11 @@ MonoBehaviour:
   _specialPlatformSequentialNumber: 4
   _startPlatform: {fileID: 2883049585238784193, guid: 7d8832a9aacf248aca9b5135e6f660b7, type: 3}
   _simplePlatforms:
-  - {fileID: -7841068184548764235, guid: d9ccda69bb470453682e6dd4faa62089, type: 3}
+  - {fileID: -7841068184548764235, guid: faf8218739d6c4e688811592da06e509, type: 3}
   - {fileID: 3154565652104204545, guid: e6cdb5e39ef524b4e8efc37728d03629, type: 3}
+  - {fileID: -7841068184548764235, guid: d9ccda69bb470453682e6dd4faa62089, type: 3}
   _specialPlatforms:
-  - {fileID: -6293920189038187168, guid: 7be7cadc280064703b863fae1b2fc661, type: 3}
+  - {fileID: -6293920189038187168, guid: 21db26adf15df4746aa4a65099e8dcd0, type: 3}
 --- !u!1 &1262779069
 GameObject:
   m_ObjectHideFlags: 0
