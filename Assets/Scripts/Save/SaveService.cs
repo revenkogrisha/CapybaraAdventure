@@ -56,8 +56,6 @@ namespace CapybaraAdventure.Save
         {
             Data = _saveSystem.Load();
             OnDataLoaded?.Invoke();
-            print(Data.MaxDistance);
-            print(Data.DistanceUpgradeCost);
         }
     }
 }
