@@ -53,16 +53,12 @@ namespace CapybaraAdventure.Save
             data.FoodUpgradeCost = PlayerPrefs.GetInt(FoodUpgradeCost);
             Data = data;
             _saveSystem.Save(data);
-print("Saved " + data.FoodBonus);
-print("Saved " + data.FoodUpgradeCost);
         }
 
         private void Load()
         {
             Data = _saveSystem.Load();
             OnDataLoaded?.Invoke();
-print("Loaded " + Data.FoodBonus);
-print("Loaded " + Data.FoodUpgradeCost);
         }
     }
 }

@@ -9,6 +9,7 @@ namespace CapybaraAdventure.UI
     public class UpgradeScreen : UIBase
     {
         [SerializeField] private UIButton _backButton;
+        [SerializeField] private ResetProgressService _resetService;
         [SerializeField] private UpgradeBlock _jumpDistanceUpgrade;
         [SerializeField] private UpgradeBlock _foodBonusUpgrade;
 
@@ -44,6 +45,7 @@ namespace CapybaraAdventure.UI
 
             _jumpDistanceUpgrade.Init(_saveService.Data.DistanceUpgradeCost);
             _foodBonusUpgrade.Init(_saveService.Data.FoodUpgradeCost);
+            _resetService.Init(_saveService);
         }
 
         private void OnBackButtonClickedHandler()
