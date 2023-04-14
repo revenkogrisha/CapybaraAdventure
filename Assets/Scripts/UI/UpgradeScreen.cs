@@ -20,6 +20,11 @@ namespace CapybaraAdventure.UI
 
         #region MonoBehaviour
 
+        private void Awake()
+        {
+            transform.SetAsFirstSibling();
+        }
+
         private void OnEnable()
         {
             _backButton.OnClicked += OnBackButtonClickedHandler;
