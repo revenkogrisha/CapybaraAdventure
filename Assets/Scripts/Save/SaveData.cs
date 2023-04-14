@@ -9,5 +9,7 @@ namespace CapybaraAdventure.Save
         public int Coins = 0;
         public float MaxDistance = 15f;
         public int DistanceUpgradeCost = 15;
+        public float FoodBonus = 0;
+        public int FoodUpgradeCost = 15;
     }
 }

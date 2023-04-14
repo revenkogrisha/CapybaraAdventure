@@ -8,15 +8,32 @@ namespace CapybaraAdventure.Player
     public class PlayerData
     {
         public const string DistanceUpgradeCost = nameof(DistanceUpgradeCost);
+        public const string FoodUpgradeCost = nameof(FoodUpgradeCost);
         private const float MaxDistanceUpgradeLimit = 25f;
         private const float MaxDistanceUpgradeIncrease = 1f;
+        private const float FoodBonusIncrease = 0.25f;
 
         private readonly SaveService _saveService;
+        private float _changeDirectionChanceDecrease = 7;
+        private float _lerpSpeedDecrease = 0.07f;
 
+        public SaveData Data => _saveService.Data;
         public int Coins { get; private set; } = 0;
-        public int ChangeDirectionChanceDecrease { get; private set; } = 7;
-        public float LerpSpeedDecrease { get; private set; } = 0.07f;
         public float MaxDistance { get; private set; } = 15f;
+        public float FoodBonus { get; private set; } = 0f;
+        public float FoodBonusLimit { get; private set; } = 1.5f;
+
+        public float ChangeDirectionChanceDecrease
+        {
+            get => _changeDirectionChanceDecrease + (_changeDirectionChanceDecrease * FoodBonus);
+            private set => _changeDirectionChanceDecrease = value;
+        }
+
+        public float LerpSpeedDecrease
+        {
+            get => _lerpSpeedDecrease + (_lerpSpeedDecrease * FoodBonus);
+            private set => _lerpSpeedDecrease = value;
+        }
 
         public event Action<int> OnCoinsChanged;
 
@@ -66,10 +83,27 @@ namespace CapybaraAdventure.Player
             PlayerPrefs.SetFloat(nameof(MaxDistance), MaxDistance);
         }
 
+        public void UpgradeFoodBonus(UpgradeBlock block)
+        {
+            //  It is supposed to work like this.
+            //  It makes illusion of unlimited upgrading for player
+
+            int cost = block.Cost;
+            PlayerPrefs.SetInt(FoodUpgradeCost, cost);
+
+            float increased = FoodBonus += FoodBonusIncrease;
+            if (increased > FoodBonusLimit)
+                return;
+
+            FoodBonus = increased;
+            PlayerPrefs.SetFloat(nameof(FoodBonus), FoodBonus);
+        }
+
         private void Init()
         {
-            Coins = _saveService.Data.Coins;
-            MaxDistance = _saveService.Data.MaxDistance;
+            Coins = Data.Coins;
+            MaxDistance = Data.MaxDistance;
+            FoodBonus = Data.FoodBonus;
         }
 
         private bool TrySubstractCoins(int amount)
