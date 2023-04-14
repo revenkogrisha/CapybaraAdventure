@@ -10,6 +10,7 @@ namespace CapybaraAdventure.UI
     {
         [SerializeField] private UIButton _backButton;
         [SerializeField] private UpgradeBlock _jumpDistanceUpgrade;
+        [SerializeField] private UpgradeBlock _foodBonusUpgrade;
 
         private PlayerData _playerData;
         private SaveService _saveService;
@@ -23,6 +24,7 @@ namespace CapybaraAdventure.UI
             _backButton.OnClicked += OnBackButtonClickedHandler;
 
             _jumpDistanceUpgrade.Button.OnClicked += TryUpdgradeJumpDistance;
+            _foodBonusUpgrade.Button.OnClicked += TryUpgradeFoodBonus;
         }
 
         private void OnDisable()
@@ -30,6 +32,7 @@ namespace CapybaraAdventure.UI
             _backButton.OnClicked -= OnBackButtonClickedHandler;
 
             _jumpDistanceUpgrade.Button.OnClicked -= TryUpdgradeJumpDistance;
+            _foodBonusUpgrade.Button.OnClicked -= TryUpgradeFoodBonus;
         }
 
         #endregion
@@ -40,6 +43,7 @@ namespace CapybaraAdventure.UI
             _saveService = saveService;
 
             _jumpDistanceUpgrade.Init(_saveService.Data.DistanceUpgradeCost);
+            _foodBonusUpgrade.Init(_saveService.Data.FoodUpgradeCost);
         }
 
         private void OnBackButtonClickedHandler()
@@ -57,6 +61,20 @@ namespace CapybaraAdventure.UI
 
             _jumpDistanceUpgrade.HandleUpgrade();
             _playerData.UpgradeJumpDistance(_jumpDistanceUpgrade);
+
+            _saveService.Save();
+        }
+
+        private void TryUpgradeFoodBonus()
+        {
+            bool isOperationSucceeded = _playerData
+                .TrySubstractCoins(_foodBonusUpgrade);
+
+            if (isOperationSucceeded == false)
+                return;
+
+            _foodBonusUpgrade.HandleUpgrade();
+            _playerData.UpgradeFoodBonus(_foodBonusUpgrade);
 
             _saveService.Save();
         }
