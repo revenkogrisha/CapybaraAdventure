@@ -53,6 +53,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _restartButton: {fileID: 2660487268912814494}
+  _logoText: {fileID: 2660487269680322940}
 --- !u!1 &2660487268082393622
 GameObject:
   m_ObjectHideFlags: 0

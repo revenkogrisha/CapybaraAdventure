@@ -56,6 +56,7 @@ MonoBehaviour:
   _playButton: {fileID: 707559120714049000}
   _updgradeButton: {fileID: 616575188257481629}
   _highScoreText: {fileID: 8903894321127541643}
+  _logo: {fileID: 445153461296672191}
 --- !u!1 &422289749915961943
 GameObject:
   m_ObjectHideFlags: 0
@@ -438,8 +439,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 8.063477, y: 248}
-  m_SizeDelta: {x: 1866, y: 195}
+  m_AnchoredPosition: {x: 7.5, y: 1449.5}
+  m_SizeDelta: {x: 1865, y: 195}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6447031481882777728
 CanvasRenderer:

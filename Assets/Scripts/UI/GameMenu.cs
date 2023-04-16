@@ -15,6 +15,7 @@ namespace CapybaraAdventure.Game
         [SerializeField] private UIButton _playButton;
         [SerializeField] private UIButton _updgradeButton;
         [SerializeField] private TextMeshProUGUI _highScoreText;
+        [SerializeField] private Transform _logo;
 
         private GameStartup _gameStartup;
         private GameUI _inGameUI;
@@ -53,6 +54,16 @@ namespace CapybaraAdventure.Game
 
             var highScore = score.HighScore;
             _highScoreText.text = $"{HighScoreOriginalText} {highScore}";
+        }
+
+        public override void Reveal()
+        {
+            base.Reveal();
+
+            var tweener = new ScreenTweener();
+            tweener.TweenLogo(_logo);
+            tweener.TweenButton(_playButton.transform);
+            tweener.TweenButton(_updgradeButton.transform);
         }
 
         private async void LoadAndRevealUpgradeScreen()

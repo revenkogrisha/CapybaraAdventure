@@ -5,12 +5,12 @@ namespace CapybaraAdventure.UI
     [DisallowMultipleComponent]
     public class UIBase : MonoBehaviour
     {
-        public void Reveal()
+        public virtual void Reveal()
         {
             gameObject.SetActive(true);       
         }
 
-        public void Conceal()
+        public virtual void Conceal()
         {
             gameObject.SetActive(false);
         }
