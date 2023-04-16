@@ -1466,7 +1466,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _slider: {fileID: 1262779071}
-  _startLerpSpeed: 0.3
+  _startLerpSpeed: 0.4
 --- !u!1 &1334937653
 GameObject:
   m_ObjectHideFlags: 0

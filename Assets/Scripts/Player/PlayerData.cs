@@ -12,6 +12,7 @@ namespace CapybaraAdventure.Player
         private const float MaxDistanceUpgradeLimit = 25f;
         private const float MaxDistanceUpgradeIncrease = 1f;
         private const float FoodBonusIncrease = 0.25f;
+        public const float FoodBonusLimit = 1f;
 
         private readonly SaveService _saveService;
         private float _changeDirectionChanceDecrease = 7;
@@ -21,7 +22,6 @@ namespace CapybaraAdventure.Player
         public int Coins { get; private set; } = 0;
         public float MaxDistance { get; private set; } = 15f;
         public float FoodBonus { get; private set; } = 0f;
-        public float FoodBonusLimit { get; private set; } = 1.5f;
 
         public float ChangeDirectionChanceDecrease
         {
