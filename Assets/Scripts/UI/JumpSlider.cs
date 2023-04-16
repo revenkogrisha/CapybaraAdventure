@@ -9,17 +9,17 @@ namespace CapybaraAdventure.UI
 {
     public class JumpSlider : MonoBehaviour
     {
-        public const float LerpSpeedIncrease = 0.03f;
+        public const float LerpSpeedIncrease = 0.05f;
         public const float LerpDirectionChangeIntervalInSeconds = 1.2f;
         public const int ChangeDirectionChanceIncrease = 3;
         public const float MaxLerpDirectionChangeChance = 40;
         private const float MinLerpDirectionChangeChance = 0;
-        public const float MaxLerpSpeed = 0.05f;
+        public const float MaxLerpSpeed = 0.8f;
         private const float MinValue = 0f;
 
         [SerializeField] private Slider _slider;
         [Tooltip("Put value in seconds")]
-        [SerializeField] private float _startLerpSpeed = 0.03f;
+        [SerializeField] private float _startLerpSpeed = 0.4f;
 
         private float _lerpSpeed;
         private float _lerpDirectionChangeChance = 10;
@@ -70,7 +70,7 @@ namespace CapybaraAdventure.UI
 
         public void IncreaseLerpDirectionChangeChance() 
         {
-            float increased =  _lerpDirectionChangeChance + ChangeDirectionChanceIncrease;
+            float increased = _lerpDirectionChangeChance + ChangeDirectionChanceIncrease;
 
             if (increased > MaxLerpDirectionChangeChance)
                 return;
