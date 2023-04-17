@@ -9,13 +9,19 @@ namespace CapybaraAdventure.Installers
     public class UpgradeScreenProviderInstaller : MonoInstaller
     {
         [SerializeField] private Canvas _canvas;
+        [SerializeField] private LoadingScreenProvider _loadingScreenProvider;
 
         private PlayerData _playerData;
         private SaveService _saveService;
 
         public override void InstallBindings()
         {
-            var instance = new UpgradeScreenProvider(_canvas, _playerData, _saveService);
+            var instance = new UpgradeScreenProvider(
+                _canvas,
+                _playerData,
+                _saveService,
+                _loadingScreenProvider);
+                
             Container
                 .Bind<UpgradeScreenProvider>()
                 .FromInstance(instance)

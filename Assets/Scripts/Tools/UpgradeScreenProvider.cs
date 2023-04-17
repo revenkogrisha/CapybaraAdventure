@@ -13,15 +13,18 @@ namespace CapybaraAdventure.Other
         private readonly Canvas _canvas;
         private readonly PlayerData _playerData;
         private readonly SaveService _saveService;
+        private readonly LoadingScreenProvider _loadingScreenProvider;
 
         public UpgradeScreenProvider(
             Canvas canvas,
             PlayerData playerData,
-            SaveService saveService)
+            SaveService saveService,
+            LoadingScreenProvider loadingScreenProvider)
         {
             _canvas = canvas;
             _playerData = playerData;
             _saveService = saveService;
+            _loadingScreenProvider = loadingScreenProvider;
         }
 
         public async Task<UpgradeScreen> Load()
@@ -29,7 +32,7 @@ namespace CapybaraAdventure.Other
             Transform canvasTransform = _canvas.transform;
             UpgradeScreen screen = await LoadInternal<UpgradeScreen>(UpgradeScreen, canvasTransform);
 
-            screen.Init(_playerData, _saveService);
+            screen.Init(_playerData, _saveService, _loadingScreenProvider);
             return screen;
         }
 

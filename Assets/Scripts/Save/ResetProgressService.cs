@@ -9,6 +9,7 @@ namespace CapybaraAdventure.Save
         [SerializeField] private UIButton _button;
 
         private SaveService _saveService;
+        private LoadingScreenProvider _loadingScreenProvider;
 
         #region MonoBehaviour
 
@@ -24,17 +25,17 @@ namespace CapybaraAdventure.Save
 
         #endregion
 
-        public void Init(SaveService saveService)
+        public void Init(SaveService saveService, LoadingScreenProvider loadingScreenProvider)
         {
             _saveService = saveService;
+            _loadingScreenProvider = loadingScreenProvider;
         }
 
-        private void ResetProgress()
+        private async void ResetProgress()
         {
             _saveService.ResetProcess();
 
-            var restartService = new RestartGameService();
-            restartService.Restart();
+            await _loadingScreenProvider.LoadSceneAsync();
         }
     }
 }

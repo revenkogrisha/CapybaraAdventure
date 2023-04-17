@@ -1354,6 +1354,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _canvas: {fileID: 1363624442}
+  _loadingScreenProvider: {fileID: 281805773}
 --- !u!114 &1093666438
 MonoBehaviour:
   m_ObjectHideFlags: 0

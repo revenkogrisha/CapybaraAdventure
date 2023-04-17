@@ -3,6 +3,7 @@ using UnityTools.Buttons;
 using CapybaraAdventure.Player;
 using System;
 using CapybaraAdventure.Save;
+using CapybaraAdventure.Other;
 
 namespace CapybaraAdventure.UI
 {
@@ -43,14 +44,19 @@ namespace CapybaraAdventure.UI
 
         #endregion
 
-        public void Init(PlayerData playerData, SaveService saveService)
+        public void Init(
+            PlayerData playerData,
+            SaveService saveService,
+            LoadingScreenProvider loadingScreenProvider)
         {
             _playerData = playerData;
             _saveService = saveService;
 
             _jumpDistanceUpgrade.Init(_saveService.Data.DistanceUpgradeCost);
             _foodBonusUpgrade.Init(_saveService.Data.FoodUpgradeCost);
-            _resetService.Init(_saveService);
+            _resetService.Init(
+                _saveService,
+                loadingScreenProvider);
         }
 
         private void OnBackButtonClickedHandler()
