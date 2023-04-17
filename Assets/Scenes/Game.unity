@@ -1339,6 +1339,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _canvas: {fileID: 1363624442}
+  _inGameUI: {fileID: 1684789820}
+  _loadingScreenProvider: {fileID: 281805773}
 --- !u!114 &1093666437
 MonoBehaviour:
   m_ObjectHideFlags: 0

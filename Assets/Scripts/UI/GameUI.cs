@@ -40,8 +40,7 @@ namespace CapybaraAdventure.UI
         {
             _pauseManager.SetPaused(true);
 
-            var screen = await _pauseScreenProvider.Load();
-            screen.Init(_pauseManager, this);
+            await _pauseScreenProvider.Load();
 
             Conceal();
         }

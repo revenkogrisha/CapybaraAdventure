@@ -13,8 +13,7 @@ namespace CapybaraAdventure.UI
 
         private PauseManager _pauseManager;
         private GameUI _gameUI;
-        private RestartGameService _restartService = new();
-
+        private LoadingScreenProvider _loadingScreenProvider;
         private bool isInitialized = false;
 
         #region MonoBehaviour
@@ -35,10 +34,12 @@ namespace CapybaraAdventure.UI
         
         public void Init(
             PauseManager pauseManager,
-            GameUI gameUI)
+            GameUI gameUI,
+            LoadingScreenProvider loadingScreenProvider)
         {
             _pauseManager = pauseManager;
             _gameUI = gameUI;
+            _loadingScreenProvider = loadingScreenProvider;
 
             isInitialized = true;
         }
@@ -54,6 +55,7 @@ namespace CapybaraAdventure.UI
             _gameUI.Reveal();
         }
 
-        private void RestartGame() => _restartService.Restart();
+        private async void RestartGame() =>
+            await _loadingScreenProvider.LoadSceneAsync();
     }
 }
