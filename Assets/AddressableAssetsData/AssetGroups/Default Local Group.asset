@@ -33,7 +33,7 @@ MonoBehaviour:
     m_Address: UpgradeScreen
     m_ReadOnly: 0
     m_SerializedLabels: []
-  - m_GUID: e2faa36d6f71841e0ac21a43369725e7
+  - m_GUID: 74e0f081117c1406082c9545afbc3699
     m_Address: LoadingScreen
     m_ReadOnly: 0
     m_SerializedLabels: []
