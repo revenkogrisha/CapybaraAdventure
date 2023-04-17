@@ -3,7 +3,6 @@ using UnityEngine;
 using CapybaraAdventure.Game;
 using CapybaraAdventure.UI;
 using CapybaraAdventure.Player;
-using CapybaraAdventure.Other;
 
 namespace CapybaraAdventure.Installers
 {
@@ -12,7 +11,6 @@ namespace CapybaraAdventure.Installers
         [SerializeField] private Canvas _canvas;
         [SerializeField] private GameStartup _gameStartup;
         [SerializeField] private GameUI _inGameUI;
-        [SerializeField] private UpgradeScreenProvider _upgradeScreenProvider;
         
         private Score _score;
 
