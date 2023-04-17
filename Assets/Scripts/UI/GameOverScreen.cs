@@ -10,7 +10,7 @@ namespace CapybaraAdventure.UI
         [SerializeField] private Transform _logoText;
         [SerializeField] private float _UIShowDuration = 0.3f;
 
-        private RestartGameService _restartService = new RestartGameService();
+        private LoadingScreenProvider _loadingScreenProvider;
 
         #region MonoBehaviour
 
@@ -26,6 +26,11 @@ namespace CapybaraAdventure.UI
 
         #endregion
 
+        public void Init(LoadingScreenProvider loadingScreenProvider)
+        {
+            _loadingScreenProvider = loadingScreenProvider;
+        }
+
         public override void Reveal()
         {
             base.Reveal();
@@ -35,6 +40,6 @@ namespace CapybaraAdventure.UI
             tweener.TweenButtonWithoutDelay(_restartButton.transform);
         }
 
-        private void RestartGame() => _restartService.Restart();
+        private async void RestartGame() => await _loadingScreenProvider.LoadSceneAsync();
     }
 }

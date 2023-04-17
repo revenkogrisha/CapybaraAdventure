@@ -235,6 +235,51 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &281805771
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 281805772}
+  - component: {fileID: 281805773}
+  m_Layer: 0
+  m_Name: LoadingScreenProvider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &281805772
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 281805771}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1093666427}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &281805773
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 281805771}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1314a699d3fff4cadba6a5c2749720dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _canvas: {fileID: 1363624442}
 --- !u!1 &385646203
 GameObject:
   m_ObjectHideFlags: 3
@@ -1134,6 +1179,7 @@ GameObject:
   - component: {fileID: 1093666435}
   - component: {fileID: 1093666436}
   - component: {fileID: 1093666437}
+  - component: {fileID: 1093666438}
   m_Layer: 0
   m_Name: SceneContext
   m_TagString: Untagged
@@ -1152,7 +1198,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 281805772}
   m_Father: {fileID: 228641344}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1178,6 +1225,7 @@ MonoBehaviour:
   - {fileID: 1093666435}
   - {fileID: 1093666436}
   - {fileID: 1093666437}
+  - {fileID: 1093666438}
   _installerPrefabs: []
   _autoRun: 1
   OnPreInstall:
@@ -1251,7 +1299,6 @@ MonoBehaviour:
   _canvas: {fileID: 1363624442}
   _gameStartup: {fileID: 1897825025}
   _inGameUI: {fileID: 1684789820}
-  _upgradeScreenProvider: {fileID: 0}
 --- !u!114 &1093666434
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1265,6 +1312,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _canvas: {fileID: 1363624442}
+  _loadingScreenProvider: {fileID: 281805773}
 --- !u!114 &1093666435
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1304,6 +1352,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _canvas: {fileID: 1363624442}
+--- !u!114 &1093666438
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1093666426}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ddaf89c44471841e68ff2b65d8edf010, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _provider: {fileID: 281805773}
 --- !u!1 &1168720909
 GameObject:
   m_ObjectHideFlags: 0
@@ -1466,7 +1527,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _slider: {fileID: 1262779071}
-  _startLerpSpeed: 0.4
 --- !u!1 &1334937653
 GameObject:
   m_ObjectHideFlags: 0

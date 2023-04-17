@@ -12,16 +12,14 @@ namespace CapybaraAdventure.UI
 
         private readonly Canvas _canvas;
         private  GameMenu _gameMenu;
+        private LoadingScreenProvider _loadingScreenProvider;
 
-        public GameOverScreenProvider(Canvas canvas)
+        public GameOverScreenProvider(
+            Canvas canvas,
+            LoadingScreenProvider loadingScreenProvider)
         {
             _canvas = canvas;
-        }
-
-        [Inject]
-        private void Construct(GameMenu gameMenu)
-        {
-            _gameMenu = gameMenu;
+            _loadingScreenProvider = loadingScreenProvider;
         }
 
         public async Task<GameOverScreen> Load()
@@ -29,6 +27,8 @@ namespace CapybaraAdventure.UI
             Transform canvasTransform = _canvas.transform;
             GameOverScreen gameOverScreen = await 
                 LoadInternal<GameOverScreen>(GameOverScreen, canvasTransform);
+
+            gameOverScreen.Init(_loadingScreenProvider);
 
             return gameOverScreen;
         }
