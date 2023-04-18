@@ -5,7 +5,7 @@ namespace CapybaraAdventure.Save
 {
     public class JsonSaveSystem : ISaveSystem
     {
-        public const string FileName = "/Data.json";
+        public const string FileName = "/CapySave.json";
 
         private readonly string _filePath;
 

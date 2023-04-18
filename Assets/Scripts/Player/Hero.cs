@@ -19,10 +19,12 @@ namespace CapybaraAdventure.Player
         [SerializeField] private AnimationCurve _jumpCurve;
         [Tooltip("Optional")]
         [SerializeField] private ParticlesPlayer _jumpParticlesPlayer;
+        [SerializeField] private HeroAudioPlayer _audioPlayer;
         
         private HeroAnimator _heroAnimator;
         private PauseManager _pauseManager;
         private bool _isDead;
+        private bool _hasJumped;
         private ParticleSystem _particles;
 
         public HeroJump Jump { get; private set; }
@@ -37,6 +39,7 @@ namespace CapybaraAdventure.Player
         private void Awake()
         {
             _isDead = false;
+            _hasJumped = false;
 
             var heightTestService = new HeightCheckService(_collider, _ground, HeightTestRadius);
             Jump = new HeroJump(_rigidBody2D, _jumpCurve, heightTestService,_duration);
@@ -47,7 +50,9 @@ namespace CapybaraAdventure.Player
         {
             _pauseManager.Register(this);
             Jump.OnJumped += AnimateJump;
+            Jump.OnJumped += PlayJumpSound;
             Jump.OnLanded += AnimateJumpEnd;
+            Jump.OnLanded += HasLanded;
 
             if (ShouldPlayParticles == true)
                 Jump.OnJumped += SpawnParticles;
@@ -57,7 +62,9 @@ namespace CapybaraAdventure.Player
         {
             _pauseManager.Unregister(this);
             Jump.OnJumped -= AnimateJump;
+            Jump.OnJumped -= PlayJumpSound;
             Jump.OnLanded -= AnimateJumpEnd;
+            Jump.OnLanded -= HasLanded;
 
             if (ShouldPlayParticles == true)
                 Jump.OnJumped -= SpawnParticles;
@@ -97,7 +104,18 @@ namespace CapybaraAdventure.Player
             else
                 EnableRigidbody();
         }
+
+        private void HasLanded() => _hasJumped = false;
         
+        private void PlayJumpSound()
+        {
+            if (_hasJumped == true)
+                return;
+
+            _hasJumped = true;
+            _audioPlayer.PlayJump();
+        }
+
         private void AnimateJump() => _heroAnimator.SetAsJumping();
         
         private void AnimateJumpEnd() => _heroAnimator.EndJumping();
@@ -129,6 +147,7 @@ namespace CapybaraAdventure.Player
 
         private void EatFood(Food food)
         {
+            _audioPlayer.PlayEat();
             OnFoodEaten?.Invoke();
             NightPool.Despawn(food);
         }

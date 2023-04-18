@@ -17,8 +17,8 @@ namespace CapybaraAdventure.Player
         private float _jumpForce;
 
         public float XJumpAxis => _jumpForce / JumpXDivider;
-
         public bool IsNotGrounded => _heightTestService.IsNotGrounded;
+        public bool HasJumped { get; private set; } = false;
 
         public event Action OnJumped;
         public event Action OnLanded;
