@@ -140,6 +140,7 @@ namespace CapybaraAdventure.Player
 
         private void PerformDeath()
         {
+            _audioPlayer.PlayGameOver();
             DisableRigidbody();
             _isDead = true;
             OnDeath?.Invoke();
@@ -162,6 +163,11 @@ namespace CapybaraAdventure.Player
             _rigidBody2D.simulated = false;
         }
 
-        private void OpenChest<T>(T chest) where T : Chest => chest.Open();
+        private void OpenChest<T>(T chest)
+            where T : Chest
+        {
+            _audioPlayer.PlayCollected();
+            chest.Open();
+        }
     }
 }
