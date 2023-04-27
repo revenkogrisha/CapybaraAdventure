@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dependencies>
+    <iosPods>
+        <iosPod name="Appodeal" version="3.0.2" minTargetSdk="11.0" />
+    </iosPods>
+    <androidPackages>
+        <androidPackage spec="com.appodeal.ads.sdk:core:3.0.2" />
+        <androidPackage spec="com.appodeal.ads.sdk.core:public:3.0.2" />
+        <androidPackage spec="com.appodeal.ads.sdk.core:internal:3.0.2" />
+        <androidPackage spec="com.appodeal.ads.sdk.networks:vast:3.0.2.0" />
+        <androidPackage spec="com.appodeal.ads.sdk.networks:nast:3.0.2.0" />
+        <androidPackage spec="com.appodeal.ads.sdk.networks:mraid:3.0.2.0" />
+        <androidPackage spec="com.appodeal.ads.sdk.networks:appodeal:3.0.2.0" />
+        <androidPackage spec="com.appodeal.ads:network:3.0.2" />     
+        <androidPackage spec="com.appodeal.ads:consent:3.0.2" />
+        <androidPackage spec="com.appodeal.ads:advertising:3.0.2" />
+        <androidPackage spec="com.explorestack:iab:1.4.1" />
+        <androidPackage spec="org.jetbrains.kotlin:kotlin-stdlib:1.7.10" />
+        <androidPackage spec="org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4" />
+        <androidPackage spec="org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4" />
+        <repositories>
+            <repository>https://artifactory.appodeal.com/appodeal</repository>
+        </repositories>
+    </androidPackages>
+</dependencies>

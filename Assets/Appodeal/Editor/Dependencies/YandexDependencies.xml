@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dependencies>
+    <androidPackages>
+        <androidPackage spec="com.appodeal.ads.sdk.networks:yandex:3.0.2.0" />
+        <androidPackage spec="com.appodeal.ads.sdk:core:3.0.2" />
+        <androidPackage spec="com.yandex.android:mobileads:5.5.0" />
+        <androidPackage spec="com.yandex.android:mobmetricalib:5.2.0" />
+        <androidPackage spec="org.jetbrains.kotlin:kotlin-stdlib:1.7.10" />
+        <androidPackage spec="org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4" />
+        <androidPackage spec="org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4" />
+        <repositories>
+            <repository>https://artifactory.appodeal.com/appodeal</repository>
+        </repositories>
+    </androidPackages>
+</dependencies>

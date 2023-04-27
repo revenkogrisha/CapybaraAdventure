@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dependencies>
+    <androidPackages>
+        <androidPackage spec="com.appodeal.ads.sdk.networks:ironsource:3.0.2.0" />
+        <androidPackage spec="com.appodeal.ads.sdk:core:3.0.2" />
+        <androidPackage spec="com.ironsource.sdk:mediationsdk:7.2.6" />
+        <androidPackage spec="com.google.android.gms:play-services-base:18.0.1" />
+        <androidPackage spec="com.google.android.gms:play-services-ads-identifier:18.0.1" />
+        <androidPackage spec="org.jetbrains.kotlin:kotlin-stdlib:1.7.10" />
+        <androidPackage spec="org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4" />
+        <androidPackage spec="org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4" />
+        <repositories>
+            <repository>https://artifactory.appodeal.com/appodeal</repository>
+        </repositories>
+    </androidPackages>
+</dependencies>

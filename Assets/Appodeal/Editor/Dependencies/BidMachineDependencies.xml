@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dependencies>
+    <androidPackages>
+        <androidPackage spec="com.appodeal.ads.sdk.networks:bidmachine:3.0.2.0" />
+        <androidPackage spec="com.appodeal.ads.sdk:core:3.0.2" />
+        <androidPackage spec="io.bidmachine:ads:2.1.5" />
+        <androidPackage spec="io.bidmachine:ads.networks.amazon:2.1.5.7" />
+        <androidPackage spec="io.bidmachine:ads.networks.criteo:2.1.5.10" />
+        <androidPackage spec="io.bidmachine:ads.networks.pangle:2.1.5.4" />
+        <androidPackage spec="org.jetbrains.kotlin:kotlin-stdlib:1.7.10" />
+        <androidPackage spec="org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4" />
+        <androidPackage spec="org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4" />
+        <repositories>
+            <repository>https://artifactory.appodeal.com/appodeal</repository>
+        </repositories>
+    </androidPackages>
+</dependencies>

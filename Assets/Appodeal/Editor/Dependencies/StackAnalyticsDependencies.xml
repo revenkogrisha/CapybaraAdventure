@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dependencies>
+    <iosPods>
+        <iosPod name="APDStackAnalyticsAdapter" version="3.0.2.1" minTargetSdk="11.0" />
+    </iosPods>
+</dependencies>
