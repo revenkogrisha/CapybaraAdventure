@@ -1,0 +1,69 @@
+<dependencies>
+  <packages>
+    <package>androidx.core:core:1.7.0</package>
+    <package>com.adcolony:sdk:4.8.0</package>
+    <package>com.applovin:applovin-sdk:11.6.1</package>
+    <package>com.appodeal.ads.sdk.core:internal:3.0.2</package>
+    <package>com.appodeal.ads.sdk.core:public:3.0.2</package>
+    <package>com.appodeal.ads.sdk.networks:a4g:3.0.2.0</package>
+    <package>com.appodeal.ads.sdk.networks:adcolony:3.0.2.0</package>
+    <package>com.appodeal.ads.sdk.networks:admob:3.0.2.0</package>
+    <package>com.appodeal.ads.sdk.networks:applovin:3.0.2.0</package>
+    <package>com.appodeal.ads.sdk.networks:appodeal:3.0.2.0</package>
+    <package>com.appodeal.ads.sdk.networks:bidmachine:3.0.2.0</package>
+    <package>com.appodeal.ads.sdk.networks:facebook:3.0.2.0</package>
+    <package>com.appodeal.ads.sdk.networks:ironsource:3.0.2.0</package>
+    <package>com.appodeal.ads.sdk.networks:mraid:3.0.2.0</package>
+    <package>com.appodeal.ads.sdk.networks:my_target:3.0.2.0</package>
+    <package>com.appodeal.ads.sdk.networks:nast:3.0.2.0</package>
+    <package>com.appodeal.ads.sdk.networks:notsy:3.0.2.0</package>
+    <package>com.appodeal.ads.sdk.networks:unity_ads:3.0.2.0</package>
+    <package>com.appodeal.ads.sdk.networks:vast:3.0.2.0</package>
+    <package>com.appodeal.ads.sdk.networks:vungle:3.0.2.0</package>
+    <package>com.appodeal.ads.sdk.networks:yandex:3.0.2.0</package>
+    <package>com.appodeal.ads.sdk:core:3.0.2</package>
+    <package>com.appodeal.ads:advertising:3.0.2</package>
+    <package>com.appodeal.ads:consent:3.0.2</package>
+    <package>com.appodeal.ads:network:3.0.2</package>
+    <package>com.explorestack:iab:1.4.1</package>
+    <package>com.facebook.android:audience-network-sdk:6.11.0</package>
+    <package>com.google.android.exoplayer:exoplayer:2.17.1</package>
+    <package>com.google.android.gms:play-services-ads:21.4.0</package>
+    <package>com.google.android.gms:play-services-ads-identifier:18.0.1</package>
+    <package>com.google.android.gms:play-services-base:18.0.1</package>
+    <package>com.google.android.gms:play-services-basement:18.1.0</package>
+    <package>com.ironsource.sdk:mediationsdk:7.2.6</package>
+    <package>com.my.target:mytarget-sdk:5.16.3</package>
+    <package>com.unity3d.ads:unity-ads:4.5.0</package>
+    <package>com.vungle:publisher-sdk-android:6.12.0</package>
+    <package>com.yandex.android:mobileads:5.5.0</package>
+    <package>com.yandex.android:mobmetricalib:5.2.0</package>
+    <package>io.bidmachine:ads.networks.adcolony:2.1.5.11</package>
+    <package>io.bidmachine:ads.networks.amazon:2.1.5.7</package>
+    <package>io.bidmachine:ads.networks.criteo:2.1.5.10</package>
+    <package>io.bidmachine:ads.networks.meta_audience:2.1.5.12</package>
+    <package>io.bidmachine:ads.networks.my_target:2.1.5.9</package>
+    <package>io.bidmachine:ads.networks.pangle:2.1.5.4</package>
+    <package>io.bidmachine:ads.networks.vungle:2.1.5.2</package>
+    <package>io.bidmachine:ads:2.1.5</package>
+    <package>org.jetbrains.kotlin:kotlin-stdlib:1.7.10</package>
+    <package>org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4</package>
+    <package>org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4</package>
+  </packages>
+  <files />
+  <settings>
+    <setting name="androidAbis" value="arm64-v8a,armeabi-v7a" />
+    <setting name="bundleId" value="com.Revenko.org.CapybaraAdventure" />
+    <setting name="explodeAars" value="True" />
+    <setting name="gradleBuildEnabled" value="True" />
+    <setting name="gradlePropertiesTemplateEnabled" value="True" />
+    <setting name="gradleTemplateEnabled" value="True" />
+    <setting name="installAndroidPackages" value="True" />
+    <setting name="localMavenRepoDir" value="Assets/GeneratedLocalRepo" />
+    <setting name="packageDir" value="Assets/Plugins/Android" />
+    <setting name="patchAndroidManifest" value="True" />
+    <setting name="patchMainTemplateGradle" value="True" />
+    <setting name="projectExportEnabled" value="False" />
+    <setting name="useJetifier" value="True" />
+  </settings>
+</dependencies>
