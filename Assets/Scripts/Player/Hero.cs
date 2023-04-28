@@ -143,6 +143,7 @@ namespace CapybaraAdventure.Player
             _audioPlayer.PlayGameOver();
             DisableRigidbody();
             _isDead = true;
+
             OnDeath?.Invoke();
         }
 
