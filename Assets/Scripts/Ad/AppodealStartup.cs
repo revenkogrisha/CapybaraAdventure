@@ -6,7 +6,8 @@ namespace CapybaraAdventure.Ad
 {
     public class AppodealStartup : MonoBehaviour
     {
-        public const string AppKey = "ca-app-pub-1842740529238552~7359360435";
+        public const string AppKey = "cb70e6b4651b54597e44e198317394a4450217379007e016";
+        public const bool TestMode = true;
 
         private void Start() 
         { 
@@ -18,6 +19,7 @@ namespace CapybaraAdventure.Ad
             AppodealCallbacks.Sdk.OnInitialized += OnInitializationFinished;
 
             Appodeal.Initialize(appKey, adTypes);
+            Appodeal.SetTesting(TestMode);
         } 
         
         #region Initialization Callback
