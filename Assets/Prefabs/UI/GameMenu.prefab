@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 422289749642706785}
   - component: {fileID: 422289749642706784}
+  - component: {fileID: 70793784434629463}
   m_Layer: 5
   m_Name: GameMenu
   m_TagString: Untagged
@@ -57,6 +58,20 @@ MonoBehaviour:
   _updgradeButton: {fileID: 616575188257481629}
   _highScoreText: {fileID: 8903894321127541643}
   _logo: {fileID: 445153461296672191}
+  _interstitialAd: {fileID: 70793784434629463}
+--- !u!114 &70793784434629463
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 422289749642706790}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 872fb12229d5b4360bea7db7bf165865, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _showChance: 40
 --- !u!1 &422289749915961943
 GameObject:
   m_ObjectHideFlags: 0

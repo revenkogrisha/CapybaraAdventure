@@ -875,6 +875,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2660487267901704428}
   - component: {fileID: 2962085532256094537}
+  - component: {fileID: 6214101468028628617}
   m_Layer: 5
   m_Name: UpgradeScreen
   m_TagString: Untagged
@@ -925,6 +926,20 @@ MonoBehaviour:
   _resetService: {fileID: 8614150904273148640}
   _jumpDistanceUpgrade: {fileID: 4435996206964688259}
   _foodBonusUpgrade: {fileID: 4875462189767796406}
+  _interstitialAd: {fileID: 6214101468028628617}
+--- !u!114 &6214101468028628617
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2660487267901704431}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 872fb12229d5b4360bea7db7bf165865, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _showChance: 30
 --- !u!1 &2660487269598813082
 GameObject:
   m_ObjectHideFlags: 0
