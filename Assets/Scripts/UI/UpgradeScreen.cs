@@ -4,6 +4,7 @@ using CapybaraAdventure.Player;
 using System;
 using CapybaraAdventure.Save;
 using CapybaraAdventure.Other;
+using CapybaraAdventure.Ad;
 
 namespace CapybaraAdventure.UI
 {
@@ -13,6 +14,7 @@ namespace CapybaraAdventure.UI
         [SerializeField] private ResetProgressService _resetService;
         [SerializeField] private UpgradeBlock _jumpDistanceUpgrade;
         [SerializeField] private UpgradeBlock _foodBonusUpgrade;
+        [SerializeField] private AppodealInterstitial _interstitialAd;
 
         private PlayerData _playerData;
         private SaveService _saveService;
@@ -76,6 +78,8 @@ namespace CapybaraAdventure.UI
             _playerData.UpgradeJumpDistance(_jumpDistanceUpgrade);
 
             _saveService.Save();
+
+            _interstitialAd.TryShowWithChance();
         }
 
         private void TryUpgradeFoodBonus()
@@ -90,6 +94,8 @@ namespace CapybaraAdventure.UI
             _playerData.UpgradeFoodBonus(_foodBonusUpgrade);
 
             _saveService.Save();
+
+            _interstitialAd.TryShowWithChance();
         }
     }
 }
