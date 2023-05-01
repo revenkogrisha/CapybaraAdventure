@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91231c530a82d4be6a47916a15fa89e3, type: 3}
   m_Name: AppodealSettings
   m_EditorClassIdentifier: 
-  adMobAndroidAppId: ca-app-pub-7731302246376466~1426083881
+  adMobAndroidAppId: ca-app-pub-1842740529238552~7359360435
   adMobIosAppId: 
   accessCoarseLocationPermission: 0
   writeExternalStoragePermission: 1
