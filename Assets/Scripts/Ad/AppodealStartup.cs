@@ -7,7 +7,7 @@ namespace CapybaraAdventure.Ad
     public class AppodealStartup : MonoBehaviour
     {
         public const string AppKey = "cb70e6b4651b54597e44e198317394a4450217379007e016";
-        public const bool TestMode = false;
+        public const bool TestMode = true;
 
         private void Start() 
         { 
@@ -33,7 +33,7 @@ namespace CapybaraAdventure.Ad
 
             var errors = args.Errors;
             if (errors == null)
-                print("No errors were ocurred");
+                print("No errors were occurred");
             else
                 print("Errors: " + errors.Count);
 
