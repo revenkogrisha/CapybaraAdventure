@@ -7,30 +7,30 @@ namespace CapybaraAdventure.Save
     {
         public const string FileName = "/CapySave.json";
 
-        private readonly string _filePath;
+        public string FilePath { get; private set; }
 
         public JsonSaveSystem()
         {
-            _filePath = Application.persistentDataPath + FileName;
+            FilePath = Application.persistentDataPath + FileName;
         }
 
         public void Save(SaveData data)
         {
             string json = JsonUtility.ToJson(data);
 
-            var writer = new StreamWriter(_filePath);
+            var writer = new StreamWriter(FilePath);
             using (writer)
                 writer.Write(json);
         }
 
         public SaveData Load()
         {
-            if (File.Exists(_filePath) == false)
+            if (File.Exists(FilePath) == false)
                 return new SaveData();
 
             string json = "";
 
-            var reader = new StreamReader(_filePath);
+            var reader = new StreamReader(FilePath);
             using (reader)
             {
                 string line;

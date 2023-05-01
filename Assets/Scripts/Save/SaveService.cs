@@ -14,7 +14,7 @@ namespace CapybaraAdventure.Save
 
         private ISaveSystem _saveSystem;
 
-        public SaveData Data { get; private set; } = new();
+        public SaveData Data { get; private set; }
 
         public event Action OnDataLoaded;
 
