@@ -13,6 +13,8 @@ namespace UnityTools.Buttons
         [Tooltip("If required (Can be null; no exception)")]
         [SerializeField] private AudioSource _audio;
 
+        public Button OriginalButton => _button;
+
         public event Action OnClicked;
 
         #region MonoBehaviour
