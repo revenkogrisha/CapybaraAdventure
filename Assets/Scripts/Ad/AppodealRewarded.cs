@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using AppodealStack.Monetization.Api;
@@ -17,6 +18,8 @@ namespace CapybaraAdventure.Ad
 
         public bool IsLoaded => Appodeal.IsLoaded(AppodealAdType.RewardedVideo) == true;
 
+        public event Action OnRewardGotten;
+
         #region MonoBehavior
 
         private void Awake()
@@ -29,11 +32,13 @@ namespace CapybaraAdventure.Ad
         private void OnEnable()
         {
             _showButton.OnClicked += Show;
+            AppodealCallbacks.RewardedVideo.OnFinished += OnRewardedVideoFinished;
         }
 
         private void OnDisable()
         {
             _showButton.OnClicked -= Show;
+            AppodealCallbacks.RewardedVideo.OnFinished -= OnRewardedVideoFinished;
         }
 
         #endregion
@@ -58,6 +63,11 @@ namespace CapybaraAdventure.Ad
         }
 
         #region Callbacks
+
+        private void OnRewardedVideoFinished(object sender, RewardedVideoFinishedEventArgs args)
+        {
+            OnRewardGotten?.Invoke();
+        }
 
         public void OnInitializationFinished(List<string> errors) {  }
 
