@@ -9,7 +9,7 @@ namespace CapybaraAdventure.Ad
         public const string AppKey = "cb70e6b4651b54597e44e198317394a4450217379007e016";
         public const bool TestMode = true;
 
-        private void Start() 
+        private void Awake()
         { 
             int adTypes = AppodealAdType.Interstitial 
             | AppodealAdType.RewardedVideo; 

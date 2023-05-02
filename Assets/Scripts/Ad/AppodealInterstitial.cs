@@ -28,7 +28,7 @@ namespace CapybaraAdventure.Ad
         public void Show()
         {
             if (IsLoaded == true)
-                Appodeal.Show(AppodealAdType.Interstitial);
+                Appodeal.Show(AppodealShowStyle.Interstitial);
         }
 
         public void OnInitializationFinished(List<string> errors) {  }
