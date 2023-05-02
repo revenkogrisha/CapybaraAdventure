@@ -79,6 +79,6 @@
     <setting name="patchAndroidManifest" value="True" />
     <setting name="patchMainTemplateGradle" value="True" />
     <setting name="projectExportEnabled" value="False" />
-    <setting name="useJetifier" value="True" />
+    <setting name="useJetifier" value="False" />
   </settings>
 </dependencies>
