@@ -8,6 +8,7 @@ namespace CapybaraAdventure.UI
     public class GameOverScreen : UIBase
     {
         [SerializeField] private UIButton _restartButton;
+        [SerializeField] private UIButton _continueButton;
         [SerializeField] private Transform _logoText;
         [SerializeField] private float _UIShowDuration = 0.3f;
         [SerializeField] private AppodealInterstitial _interstitialAd;
@@ -42,6 +43,7 @@ namespace CapybaraAdventure.UI
             var tweener = new ScreenTweener(_UIShowDuration);
             tweener.ScaleTweenLogo(_logoText);
             tweener.TweenButtonWithoutDelay(_restartButton.transform);
+            tweener.TweenButtonWithoutDelay(_continueButton.transform);
         }
 
         private async void RestartGame() => await _loadingScreenProvider.LoadSceneAsync();
