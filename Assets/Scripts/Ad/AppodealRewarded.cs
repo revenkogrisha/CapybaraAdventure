@@ -24,7 +24,7 @@ namespace CapybaraAdventure.Ad
 
         private void Awake()
         {
-            _showButton.OriginalButton.interactable = false;
+            SwitchButtonStatus(false);
 
             StartCoroutine(CheckForAd());
         }
@@ -52,6 +52,8 @@ namespace CapybaraAdventure.Ad
         {
             if (IsLoaded == true)
                 Appodeal.Show(AppodealShowStyle.RewardedVideo);
+
+            SwitchButtonStatus(false);
         }
 
         private IEnumerator CheckForAd()
@@ -59,8 +61,10 @@ namespace CapybaraAdventure.Ad
             if (IsLoaded == false)
                 yield return new WaitForSeconds(CheckForAdInterval);
 
-            _showButton.OriginalButton.interactable = true;
+            SwitchButtonStatus(true);
         }
+
+        private void SwitchButtonStatus(bool value) => _showButton.OriginalButton.interactable = value;
 
         #region Callbacks
 
