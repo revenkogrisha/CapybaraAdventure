@@ -1,11 +1,14 @@
 using UnityEngine;
 using CapybaraAdventure.Ad;
+using System;
 
 namespace CapybaraAdventure.UI
 {
-    public abstract class AdRewardGranter : MonoBehaviour
+    public class AdRewardGranter : MonoBehaviour
     {
         [SerializeField] private AppodealRewarded _rewardedAd;
+
+        public event Action OnRewardGranted;
 
         #region MonoBehaviour
 
@@ -21,6 +24,6 @@ namespace CapybaraAdventure.UI
 
         #endregion
 
-        protected abstract void GrantReward();
+        private void GrantReward() => OnRewardGranted?.Invoke();
     }
 }
