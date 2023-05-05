@@ -15,7 +15,7 @@ namespace CapybaraAdventure.UI
         [SerializeField] private UpgradeBlock _jumpDistanceUpgrade;
         [SerializeField] private UpgradeBlock _foodBonusUpgrade;
         [SerializeField] private AppodealInterstitial _interstitialAd;
-        [SerializeField] private AdRewardGranter _rewardedCoins;
+        [SerializeField] private AppodealRewarded _rewardedCoins;
 
         private PlayerData _playerData;
         private SaveService _saveService;
@@ -32,7 +32,7 @@ namespace CapybaraAdventure.UI
         private void OnEnable()
         {
             _backButton.OnClicked += OnBackButtonClickedHandler;
-            _rewardedCoins.OnRewardGranted += AddRewardedCoins;
+            _rewardedCoins.OnRewardGotten += AddRewardedCoins;
 
             _jumpDistanceUpgrade.Button.OnClicked += TryUpdgradeJumpDistance;
             _foodBonusUpgrade.Button.OnClicked += TryUpgradeFoodBonus;
@@ -41,7 +41,7 @@ namespace CapybaraAdventure.UI
         private void OnDisable()
         {
             _backButton.OnClicked -= OnBackButtonClickedHandler;
-            _rewardedCoins.OnRewardGranted -= AddRewardedCoins;
+            _rewardedCoins.OnRewardGotten -= AddRewardedCoins;
 
             _jumpDistanceUpgrade.Button.OnClicked -= TryUpdgradeJumpDistance;
             _foodBonusUpgrade.Button.OnClicked -= TryUpgradeFoodBonus;

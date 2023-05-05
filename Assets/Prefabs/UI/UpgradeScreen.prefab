@@ -834,6 +834,7 @@ MonoBehaviour:
   _jumpDistanceUpgrade: {fileID: 5535412511629223778}
   _foodBonusUpgrade: {fileID: 4875462189767796406}
   _interstitialAd: {fileID: 6214101468028628617}
+  _rewardedCoins: {fileID: 1999024865187337601}
 --- !u!114 &6214101468028628617
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1813,7 +1814,6 @@ GameObject:
   - component: {fileID: 5267522733626384450}
   - component: {fileID: 3519278885816154780}
   - component: {fileID: 4006380040224303530}
-  - component: {fileID: 5921202265960325401}
   - component: {fileID: 1999024865187337601}
   m_Layer: 5
   m_Name: GetCoinsButton
@@ -1941,19 +1941,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _button: {fileID: 3519278885816154780}
   _audio: {fileID: 0}
---- !u!114 &5921202265960325401
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6958440959152672300}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d7fa99247a30d4590b59b6a0dc349990, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _rewardedAd: {fileID: 1999024865187337601}
 --- !u!114 &1999024865187337601
 MonoBehaviour:
   m_ObjectHideFlags: 0
