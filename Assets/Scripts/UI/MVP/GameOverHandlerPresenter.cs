@@ -10,6 +10,9 @@ namespace CapybaraAdventure.UI
         private readonly GameUI _inGameUI;
         private readonly GameOverScreenProvider _screenProvider;
         private readonly Score _score;
+        private GameOverScreen _screen;
+
+        private bool WasGameContinuedBefore => _gameOverHandler.WasGameContinuedBefore;
 
         public GameOverHandlerPresenter(
             GameOverHandler handler,
@@ -31,6 +34,9 @@ namespace CapybaraAdventure.UI
         public void Disable()
         {
             _gameOverHandler.OnGameHasOver -= OnGameHasOverHandler;
+
+            if (_screen != null)
+                _screen.OnGameContinued -= OnGameHasContinuedHandler;
         }
 
         private async void OnGameHasOverHandler()
@@ -38,12 +44,30 @@ namespace CapybaraAdventure.UI
             _inGameUI.Conceal();
             _score.StopCount();
             await LoadScreen();
+
+            if (WasGameContinuedBefore)
+                _screen.BlockContinuing();
         }
 
         private async Task LoadScreen()
         {
-            GameOverScreen screen = await _screenProvider.Load();
-            screen.Reveal();
+            _screen = await _screenProvider.Load();
+            _screen.Reveal();
+
+            _screen.OnGameContinued += OnGameHasContinuedHandler;
+        }
+
+        private void OnGameHasContinuedHandler()
+        {
+            if (WasGameContinuedBefore == true)
+                return;
+
+            _inGameUI.Reveal();
+            _score.StartCount();
+            _screenProvider.Unload();
+            _gameOverHandler.HandleHeroRevival();
+
+            _screen.OnGameContinued -= OnGameHasContinuedHandler;
         }
     }
 }

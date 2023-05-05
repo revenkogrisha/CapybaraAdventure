@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1447709927015565667}
   - component: {fileID: 9172325998623135816}
   - component: {fileID: 4530117193839094271}
+  - component: {fileID: 2809010873875153453}
   m_Layer: 5
   m_Name: ContinueButton (1)
   m_TagString: Untagged
@@ -137,6 +138,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _button: {fileID: 9172325998623135816}
   _audio: {fileID: 0}
+--- !u!114 &2809010873875153453
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2266628454494954166}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c9f1d0f2a9024701adb19e9667024ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _showButton: {fileID: 4530117193839094271}
 --- !u!1 &2660487267901704431
 GameObject:
   m_ObjectHideFlags: 0
@@ -196,6 +210,7 @@ MonoBehaviour:
   _logoText: {fileID: 2660487269680322940}
   _UIShowDuration: 0.3
   _interstitialAd: {fileID: 5719466777131685920}
+  _rewardedHeroRevival: {fileID: 2809010873875153453}
 --- !u!114 &5719466777131685920
 MonoBehaviour:
   m_ObjectHideFlags: 0

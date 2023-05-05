@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityTools.Buttons;
 using CapybaraAdventure.Other;
 using CapybaraAdventure.Ad;
+using System;
 
 namespace CapybaraAdventure.UI
 {
@@ -12,19 +13,24 @@ namespace CapybaraAdventure.UI
         [SerializeField] private Transform _logoText;
         [SerializeField] private float _UIShowDuration = 0.3f;
         [SerializeField] private AppodealInterstitial _interstitialAd;
+        [SerializeField] private AppodealRewarded _rewardedHeroRevival;
 
         private LoadingScreenProvider _loadingScreenProvider;
+
+        public event Action OnGameContinued;
 
         #region MonoBehaviour
 
         private void OnEnable()
         {
             _restartButton.OnClicked += RestartGame;
+            _rewardedHeroRevival.OnRewardGotten += InvokeGameContinuing;
         }
 
         private void OnDisable()
         {
             _restartButton.OnClicked -= RestartGame;
+            _rewardedHeroRevival.OnRewardGotten -= InvokeGameContinuing;
         }
 
         #endregion
@@ -46,6 +52,11 @@ namespace CapybaraAdventure.UI
             tweener.TweenButtonWithoutDelay(_continueButton.transform);
         }
 
+        public void BlockContinuing() => 
+            _continueButton.OriginalButton.interactable = false;
+
         private async void RestartGame() => await _loadingScreenProvider.LoadSceneAsync();
+
+        private void InvokeGameContinuing() => OnGameContinued?.Invoke();
     }
 }
