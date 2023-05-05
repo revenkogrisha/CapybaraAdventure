@@ -48,6 +48,7 @@ namespace CapybaraAdventure.Player
                 heightTestService,
                 transform,
                 _duration);
+
             _heroAnimator = new HeroAnimator(_animator);
         }
 
@@ -108,6 +109,13 @@ namespace CapybaraAdventure.Player
                 DisableRigidbody();
             else
                 EnableRigidbody();
+        }
+
+        public void Revive()
+        {
+            transform.position = Jump.LastJump;
+            _isDead = false;
+            EnableRigidbody();
         }
 
         private void HasLanded() => _hasJumped = false;
