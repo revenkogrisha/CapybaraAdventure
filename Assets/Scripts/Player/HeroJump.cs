@@ -49,15 +49,9 @@ namespace CapybaraAdventure.Player
                 PerformJump();
         }
 
-        public void SayShouldJump()
-        {
-            _shouldJump = true;
-        }
+        public void SayShouldJump() => _shouldJump = true;
 
-        public void UpdateForceValue(float value)
-        {
-            _jumpForce = value;
-        }
+        public void UpdateForceValue(float value) => _jumpForce = value;
 
         private void PerformJump()
         {
