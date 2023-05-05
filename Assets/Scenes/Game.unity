@@ -2572,7 +2572,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4cb613fa7f8eff4b8b22a8126121240, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _preventMovingBelowInitialPosition: 1
+  _preventMovingBelowInitialPosition: 0
   _plane: 0
   _relativeSpeed: 0.027
   _cacheSpeed: 1
