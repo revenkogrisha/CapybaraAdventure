@@ -10,15 +10,18 @@ namespace CapybaraAdventure.Player
         private readonly Rigidbody2D _rigidBody2D;
         private readonly AnimationCurve _jumpCurve;
         private HeightCheckService _heightTestService;
+        private readonly Transform _transform;
         private readonly float _duration;
         private readonly float _heightTest;
         private bool _shouldJump = false;
         private float _expiredJumpTime = 0f;
         private float _jumpForce;
+        private bool _shouldSaveLastJump = true;
 
         public float XJumpAxis => _jumpForce / JumpXDivider;
         public bool IsNotGrounded => _heightTestService.IsNotGrounded;
         public bool HasJumped { get; private set; } = false;
+        public Vector2 LastJump { get; private set; } = new();
 
         public event Action OnJumped;
         public event Action OnLanded;
@@ -27,11 +30,13 @@ namespace CapybaraAdventure.Player
             Rigidbody2D rigidbody2D,
             AnimationCurve jumpCurve,
             HeightCheckService heightTestService,
+            Transform transform,
             float duration)
         {
             _rigidBody2D = rigidbody2D;
             _jumpCurve = jumpCurve;
             _heightTestService = heightTestService;
+            _transform = transform;
             _duration = duration;
         }
 
@@ -58,6 +63,12 @@ namespace CapybaraAdventure.Player
         {
             OnJumped?.Invoke();
 
+            if (_shouldSaveLastJump == true)
+            {
+                LastJump = _transform.position;
+                _shouldSaveLastJump = false;
+            }
+
             _expiredJumpTime += Time.deltaTime;
 
             float xAxis = XJumpAxis;
@@ -72,6 +83,7 @@ namespace CapybaraAdventure.Player
             OnLanded?.Invoke();
             
             _shouldJump = false;
+            _shouldSaveLastJump = true;
             _expiredJumpTime = 0f;
         }
 

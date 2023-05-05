@@ -42,7 +42,12 @@ namespace CapybaraAdventure.Player
             _hasJumped = false;
 
             var heightTestService = new HeightCheckService(_collider, _ground, HeightTestRadius);
-            Jump = new HeroJump(_rigidBody2D, _jumpCurve, heightTestService,_duration);
+            Jump = new HeroJump(
+                _rigidBody2D,
+                _jumpCurve,
+                heightTestService,
+                transform,
+                _duration);
             _heroAnimator = new HeroAnimator(_animator);
         }
 
