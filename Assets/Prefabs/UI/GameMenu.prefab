@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 422289749642706785}
   - component: {fileID: 422289749642706784}
   - component: {fileID: 70793784434629463}
+  - component: {fileID: 8659481709430681348}
   m_Layer: 5
   m_Name: GameMenu
   m_TagString: Untagged
@@ -34,8 +35,8 @@ RectTransform:
   - {fileID: 445153461296672191}
   - {fileID: 6716486294698960757}
   - {fileID: 7506905493331905739}
-  - {fileID: 8114939145102606590}
   - {fileID: 2782737898400290129}
+  - {fileID: 8114939145102606590}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -74,6 +75,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _showChance: 40
+--- !u!114 &8659481709430681348
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 422289749642706790}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 025cb1e45347e4e6699cc2b92d335355, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _telegramButton: {fileID: 6109662495728867947}
+  _youtubeButton: {fileID: 915414062399452056}
 --- !u!1 &422289749915961943
 GameObject:
   m_ObjectHideFlags: 0
@@ -162,6 +177,7 @@ GameObject:
   - component: {fileID: 1135844492375567197}
   - component: {fileID: 1459398812045237432}
   - component: {fileID: 6081855325795099936}
+  - component: {fileID: 6109662495728867947}
   m_Layer: 5
   m_Name: TelegramLink
   m_TagString: Untagged
@@ -182,7 +198,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 422289749642706785}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
@@ -271,6 +287,20 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &6109662495728867947
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2654122519274328938}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ab1f9b4956c6ae4888d0a318be777b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _button: {fileID: 6081855325795099936}
+  _audio: {fileID: 0}
 --- !u!1 &3806554113240083126
 GameObject:
   m_ObjectHideFlags: 0
@@ -283,6 +313,7 @@ GameObject:
   - component: {fileID: 8501993946602937825}
   - component: {fileID: 7900898409861176132}
   - component: {fileID: 3056577759375720702}
+  - component: {fileID: 915414062399452056}
   m_Layer: 5
   m_Name: YouTubeLink
   m_TagString: Untagged
@@ -303,7 +334,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 422289749642706785}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
@@ -392,6 +423,20 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &915414062399452056
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3806554113240083126}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ab1f9b4956c6ae4888d0a318be777b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _button: {fileID: 3056577759375720702}
+  _audio: {fileID: 0}
 --- !u!1 &4958424372959750392
 GameObject:
   m_ObjectHideFlags: 0
