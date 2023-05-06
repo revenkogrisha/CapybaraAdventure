@@ -420,6 +420,7 @@ GameObject:
   - component: {fileID: 4738807647937099607}
   - component: {fileID: 5858068199341375470}
   - component: {fileID: 3989559062496477223}
+  - component: {fileID: 1942100339392344435}
   m_Layer: 6
   m_Name: Tap To Jump!
   m_TagString: Untagged
@@ -544,6 +545,26 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!95 &1942100339392344435
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5668249581350683569}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 02731b61ed0c54126b18b41e1147a4d1, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!1 &6917006809438255019
 GameObject:
   m_ObjectHideFlags: 0
