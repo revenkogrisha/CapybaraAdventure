@@ -12,7 +12,7 @@ namespace CapybaraAdventure.Ad
     {
         public const float CheckForAdInterval = 0.5f;
 
-        private readonly string appKey = AppodealStartup.AppKey;
+        private readonly string _appKey = AppodealStartup.AppKey;
 
         [SerializeField] private UIButton _showButton;
 
@@ -45,7 +45,7 @@ namespace CapybaraAdventure.Ad
 
         private void Start()
         {
-            Appodeal.Initialize(appKey, AppodealAdType.RewardedVideo, this);
+            Appodeal.Initialize(_appKey, AppodealAdType.RewardedVideo, this);
         }
 
         public void Show()

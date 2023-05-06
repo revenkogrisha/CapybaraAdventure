@@ -7,7 +7,7 @@ namespace CapybaraAdventure.Ad
 {
     public class AppodealInterstitial : MonoBehaviour, IAppodealInitializationListener
     {
-        private readonly string appKey = AppodealStartup.AppKey;
+        private readonly string _appKey = AppodealStartup.AppKey;
 
         [SerializeField] private int _showChance = 40;
 
@@ -15,7 +15,7 @@ namespace CapybaraAdventure.Ad
 
         private void Start()
         {
-            Appodeal.Initialize(appKey, AppodealAdType.Interstitial, this);
+            Appodeal.Initialize(_appKey, AppodealAdType.Interstitial, this);
         }
 
         public void TryShowWithChance()

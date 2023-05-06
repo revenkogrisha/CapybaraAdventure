@@ -7,7 +7,7 @@ namespace CapybaraAdventure.Ad
     public class AppodealStartup : MonoBehaviour
     {
         public const string AppKey = "cb70e6b4651b54597e44e198317394a4450217379007e016";
-        public const bool TestMode = true;
+        public const bool TestMode = false;
 
         private void Awake()
         { 
@@ -20,7 +20,7 @@ namespace CapybaraAdventure.Ad
 
             Appodeal.Initialize(appKey, adTypes);
             Appodeal.SetTesting(TestMode);
-            Appodeal.SetLogLevel(AppodealLogLevel.Verbose);
+            //Appodeal.SetLogLevel(AppodealLogLevel.Verbose);
         } 
         
         #region Initialization Callback
