@@ -2,6 +2,7 @@ using System;
 using CapybaraAdventure.Save;
 using UnityEngine;
 using CapybaraAdventure.UI;
+using Random = UnityEngine.Random;
 
 namespace CapybaraAdventure.Player
 {
@@ -50,7 +51,20 @@ namespace CapybaraAdventure.Player
 
         public void AddSimpleChestCoins()
         { 
-            var amount = SimpleChest.CoinsInsideAmount;
+            int amount = SimpleChest.CoinsInsideAmount;
+
+            if (amount <= 0)
+                throw new ArgumentException("Wrong amount was given!");
+
+            Coins += amount;
+            PlayerPrefs.SetInt(SaveService.Coins, Coins);
+
+            OnCoinsChanged?.Invoke(Coins);
+        }
+
+        public void AddRandomAdCoins(int minInclusive, int maxExclusive)
+        {
+            int amount = Random.Range(minInclusive, maxExclusive);
 
             if (amount <= 0)
                 throw new ArgumentException("Wrong amount was given!");

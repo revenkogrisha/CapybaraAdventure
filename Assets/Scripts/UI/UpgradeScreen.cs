@@ -16,6 +16,7 @@ namespace CapybaraAdventure.UI
         [SerializeField] private UpgradeBlock _foodBonusUpgrade;
         [SerializeField] private AppodealInterstitial _interstitialAd;
         [SerializeField] private AppodealRewarded _rewardedCoins;
+        [SerializeField] private Vector2Int _minMaxRewardedCoins = new(5, 31);
 
         private PlayerData _playerData;
         private SaveService _saveService;
@@ -71,7 +72,10 @@ namespace CapybaraAdventure.UI
 
         private void AddRewardedCoins()
         {
-            _playerData.AddSimpleChestCoins();
+            int minInclusive = _minMaxRewardedCoins.x;
+            int maxExclusive = _minMaxRewardedCoins.y;
+
+            _playerData.AddRandomAdCoins(minInclusive, maxExclusive);
         }
 
         private void TryUpdgradeJumpDistance()
