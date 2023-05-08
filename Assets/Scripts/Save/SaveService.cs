@@ -1,10 +1,13 @@
 using UnityEngine;
 using CapybaraAdventure.Player;
+using System.Collections;
 
 namespace CapybaraAdventure.Save
 {
     public class SaveService : MonoBehaviour
     {
+        private const float AutoSaveInterval = 5f;
+
         [SerializeField] private Score _score;
         [SerializeField] private PlayerData _playerData;
 
@@ -17,6 +20,8 @@ namespace CapybaraAdventure.Save
             _saveSystem = new JsonSaveSystem();
 
             Load();
+
+            StartCoroutine(AutoSave());
         }
 
         private void OnApplicationQuit()
@@ -53,6 +58,12 @@ namespace CapybaraAdventure.Save
 
             _playerData.LoadData(data);
             _score.LoadHighScore(data);
+        }
+        
+        private IEnumerator AutoSave()
+        {
+            Save();
+            yield return new WaitForSeconds(AutoSaveInterval);
         }
     }
 }
