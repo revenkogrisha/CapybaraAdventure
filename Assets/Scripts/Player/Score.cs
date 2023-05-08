@@ -100,7 +100,6 @@ namespace CapybaraAdventure.Player
                 return;
 
             HighScore = ScoreCount;
-            PlayerPrefs.SetInt(SaveService.HighScore, HighScore);
         }
     }
 }

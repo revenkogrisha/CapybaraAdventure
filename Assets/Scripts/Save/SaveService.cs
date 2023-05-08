@@ -5,13 +5,6 @@ namespace CapybaraAdventure.Save
 {
     public class SaveService : MonoBehaviour
     {
-        public const string HighScore = nameof(HighScore);
-        public const string Coins = nameof(Coins);
-        public const string MaxDistance = nameof(MaxDistance);
-        public const string DistanceUpgradeCost = nameof(DistanceUpgradeCost);
-        public const string FoodBonus = nameof(FoodBonus);
-        public const string FoodUpgradeCost = nameof(FoodUpgradeCost);
-
         [SerializeField] private Score _score;
         [SerializeField] private PlayerData _playerData;
 
@@ -44,12 +37,12 @@ namespace CapybaraAdventure.Save
         {
             var data = new SaveData();
 
-            data.HighScore = PlayerPrefs.GetInt(HighScore);
-            data.Coins = PlayerPrefs.GetInt(Coins);
-            data.MaxDistance = PlayerPrefs.GetFloat(MaxDistance);
-            data.DistanceUpgradeCost = PlayerPrefs.GetInt(DistanceUpgradeCost);
-            data.FoodBonus = PlayerPrefs.GetFloat(FoodBonus);
-            data.FoodUpgradeCost = PlayerPrefs.GetInt(FoodUpgradeCost);
+            data.HighScore = _score.HighScore;
+            data.Coins = _playerData.Coins;
+            data.MaxDistance = _playerData.MaxDistance;
+            data.DistanceUpgradeCost = _playerData.DistanceUpgradeCost;
+            data.FoodBonus = _playerData.FoodBonus;
+            data.FoodUpgradeCost = _playerData.FoodUpgradeCost;
             
             _saveSystem.Save(data);
         }
