@@ -14,7 +14,6 @@ namespace CapybaraAdventure.Player
         private Transform _heroTransform;
         private IEnumerator _countCoroutine;
         private PauseManager _pauseManager;
-        private SaveService _saveService;
 
         public bool IsInitialized => _heroTransform != null;
 
@@ -29,23 +28,11 @@ namespace CapybaraAdventure.Player
             _pauseManager.Register(this);
         }
 
-        private void OnEnable()
-        {
-            _saveService.OnDataLoaded += LoadHighScore;
-        }
-
-        private void OnDisable()
-        {
-            _saveService.OnDataLoaded -= LoadHighScore;
-        }
-
         [Inject]
         private void Construct(
-            PauseManager pauseManager,
-            SaveService saveService)
+            PauseManager pauseManager)
         {
             _pauseManager = pauseManager;
-            _saveService = saveService;
         }
 
         public void Init(Hero hero)
@@ -56,6 +43,8 @@ namespace CapybaraAdventure.Player
             GameObject heroObject = hero.gameObject;
             _heroTransform = heroObject.transform;
         }
+
+        public void LoadHighScore(SaveData data) => HighScore = data.HighScore;
 
         public void StartCount()
         {
@@ -104,8 +93,6 @@ namespace CapybaraAdventure.Player
                 yield return new WaitForSeconds(_scoreUpdateIntervalInSeconds);
             }
         }
-
-        private void LoadHighScore() => HighScore = _saveService.Data.HighScore;
 
         private void TrySaveHighScore()
         {
