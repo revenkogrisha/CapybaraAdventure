@@ -56,6 +56,7 @@ namespace CapybaraAdventure.UI
             LoadingScreenProvider loadingScreenProvider)
         {
             _playerData = playerData;
+            _saveService = saveService;
 
             _jumpDistanceUpgrade.Init(_playerData.DistanceUpgradeCost);
             _foodBonusUpgrade.Init(_playerData.FoodUpgradeCost);
