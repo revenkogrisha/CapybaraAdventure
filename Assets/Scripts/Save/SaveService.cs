@@ -1,5 +1,5 @@
-using System;
 using UnityEngine;
+using CapybaraAdventure.Player;
 
 namespace CapybaraAdventure.Save
 {
@@ -12,11 +12,10 @@ namespace CapybaraAdventure.Save
         public const string FoodBonus = nameof(FoodBonus);
         public const string FoodUpgradeCost = nameof(FoodUpgradeCost);
 
+        [SerializeField] private Score _score;
+        [SerializeField] private PlayerData _playerData;
+
         private ISaveSystem _saveSystem;
-
-        public SaveData Data { get; private set; }
-
-        public event Action OnDataLoaded;
 
         #region MonoBehaviour
 
@@ -51,14 +50,16 @@ namespace CapybaraAdventure.Save
             data.DistanceUpgradeCost = PlayerPrefs.GetInt(DistanceUpgradeCost);
             data.FoodBonus = PlayerPrefs.GetFloat(FoodBonus);
             data.FoodUpgradeCost = PlayerPrefs.GetInt(FoodUpgradeCost);
-            Data = data;
+            
             _saveSystem.Save(data);
         }
 
         private void Load()
         {
-            Data = _saveSystem.Load();
-            OnDataLoaded?.Invoke();
+            SaveData data = _saveSystem.Load();
+
+            _playerData.LoadData(data);
+            _score.LoadHighScore(data);
         }
     }
 }
