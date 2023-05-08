@@ -6,23 +6,22 @@ using Random = UnityEngine.Random;
 
 namespace CapybaraAdventure.Player
 {
-    public class PlayerData
+    public class PlayerData : MonoBehaviour
     {
-        public const string DistanceUpgradeCost = nameof(DistanceUpgradeCost);
-        public const string FoodUpgradeCost = nameof(FoodUpgradeCost);
         private const float MaxDistanceUpgradeLimit = 25f;
         private const float MaxDistanceUpgradeIncrease = 1f;
         private const float FoodBonusIncrease = 0.25f;
         public const float FoodBonusLimit = 1f;
+        private const int DefaultUpgradeCost = 15;
 
-        private readonly SaveService _saveService;
         private float _changeDirectionChanceDecrease = 7;
         private float _lerpSpeedDecrease = 0.07f;
 
-        public SaveData Data => _saveService.Data;
         public int Coins { get; private set; } = 0;
         public float MaxDistance { get; private set; } = 15f;
         public float FoodBonus { get; private set; } = 0f;
+        public int FoodUpgradeCost { get; private set; } = DefaultUpgradeCost;
+        public int DistanceUpgradeCost { get; private set; } = DefaultUpgradeCost;
 
         public float ChangeDirectionChanceDecrease
         {
@@ -38,15 +37,13 @@ namespace CapybaraAdventure.Player
 
         public event Action<int> OnCoinsChanged;
 
-        public PlayerData(SaveService saveService)
+        public void LoadData(SaveData data)
         {
-            _saveService = saveService;
-            _saveService.OnDataLoaded += Init;
-        }
-
-        public void Disable()
-        {
-            _saveService.OnDataLoaded -= Init;
+            Coins = data.Coins;
+            MaxDistance = data.MaxDistance;
+            FoodBonus = data.FoodBonus;
+            DistanceUpgradeCost = data.DistanceUpgradeCost;
+            FoodUpgradeCost = data.FoodUpgradeCost;
         }
 
         public void AddSimpleChestCoins()
@@ -57,7 +54,6 @@ namespace CapybaraAdventure.Player
                 throw new ArgumentException("Wrong amount was given!");
 
             Coins += amount;
-            PlayerPrefs.SetInt(SaveService.Coins, Coins);
 
             OnCoinsChanged?.Invoke(Coins);
         }
@@ -70,7 +66,6 @@ namespace CapybaraAdventure.Player
                 throw new ArgumentException("Wrong amount was given!");
 
             Coins += amount;
-            PlayerPrefs.SetInt(SaveService.Coins, Coins);
 
             OnCoinsChanged?.Invoke(Coins);
         }
@@ -86,15 +81,13 @@ namespace CapybaraAdventure.Player
             //  It is supposed to work like this.
             //  It makes illusion of unlimited upgrading for player
 
-            int cost = block.Cost;
-            PlayerPrefs.SetInt(DistanceUpgradeCost, cost);
+            DistanceUpgradeCost = block.Cost;
 
             float increased = MaxDistance += MaxDistanceUpgradeIncrease;
             if (increased > MaxDistanceUpgradeLimit)
                 return;
 
             MaxDistance = increased;
-            PlayerPrefs.SetFloat(nameof(MaxDistance), MaxDistance);
         }
 
         public void UpgradeFoodBonus(UpgradeBlock block)
@@ -102,22 +95,13 @@ namespace CapybaraAdventure.Player
             //  It is supposed to work like this.
             //  It makes illusion of unlimited upgrading for player
 
-            int cost = block.Cost;
-            PlayerPrefs.SetInt(FoodUpgradeCost, cost);
+            FoodUpgradeCost = block.Cost;
 
             float increased = FoodBonus += FoodBonusIncrease;
             if (increased > FoodBonusLimit)
                 return;
 
             FoodBonus = increased;
-            PlayerPrefs.SetFloat(nameof(FoodBonus), FoodBonus);
-        }
-
-        private void Init()
-        {
-            Coins = Data.Coins;
-            MaxDistance = Data.MaxDistance;
-            FoodBonus = Data.FoodBonus;
         }
 
         private bool TrySubstractCoins(int amount)
@@ -126,7 +110,6 @@ namespace CapybaraAdventure.Player
                 return false;
 
             Coins -= amount;
-            PlayerPrefs.SetInt(SaveService.Coins, Coins);
 
             OnCoinsChanged?.Invoke(Coins);
             return true;
