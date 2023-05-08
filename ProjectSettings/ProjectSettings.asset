@@ -739,11 +739,11 @@ PlayerSettings:
   apiCompatibilityLevel: 6
   activeInputHandler: 0
   windowsGamepadBackendHint: 0
-  cloudProjectId: 
+  cloudProjectId: 682f5e4a-a509-4dfa-94eb-16692bf81e3e
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: 
-  organizationId: 
+  projectName: CapybaraAdventure
+  organizationId: grisharevenko
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   playerDataPath: 
