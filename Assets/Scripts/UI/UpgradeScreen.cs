@@ -56,12 +56,11 @@ namespace CapybaraAdventure.UI
             LoadingScreenProvider loadingScreenProvider)
         {
             _playerData = playerData;
-            _saveService = saveService;
 
-            _jumpDistanceUpgrade.Init(_saveService.Data.DistanceUpgradeCost);
-            _foodBonusUpgrade.Init(_saveService.Data.FoodUpgradeCost);
+            _jumpDistanceUpgrade.Init(_playerData.DistanceUpgradeCost);
+            _foodBonusUpgrade.Init(_playerData.FoodUpgradeCost);
             _resetService.Init(
-                _saveService,
+                saveService,
                 loadingScreenProvider);
         }
 
@@ -89,9 +88,7 @@ namespace CapybaraAdventure.UI
             _jumpDistanceUpgrade.HandleUpgrade();
             _playerData.UpgradeJumpDistance(_jumpDistanceUpgrade);
 
-            _saveService.Save();
-
-            _interstitialAd.TryShowWithChance();
+            HandleUpgrade();
         }
 
         private void TryUpgradeFoodBonus()
@@ -105,8 +102,12 @@ namespace CapybaraAdventure.UI
             _foodBonusUpgrade.HandleUpgrade();
             _playerData.UpgradeFoodBonus(_foodBonusUpgrade);
 
-            _saveService.Save();
+            HandleUpgrade();
+        }
 
+        private void HandleUpgrade()
+        {
+            _saveService.Save();
             _interstitialAd.TryShowWithChance();
         }
     }
