@@ -62,8 +62,11 @@ namespace CapybaraAdventure.Save
         
         private IEnumerator AutoSave()
         {
-            Save();
-            yield return new WaitForSeconds(AutoSaveInterval);
+            while (true)
+            {
+                Save();
+                yield return new WaitForSeconds(AutoSaveInterval);
+            }
         }
     }
 }
