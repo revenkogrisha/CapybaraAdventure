@@ -1,3 +1,4 @@
+using System;
 using System.IO;
 using UnityEngine;
 
@@ -11,7 +12,7 @@ namespace CapybaraAdventure.Save
 
         public JsonSaveSystem()
         {
-            FilePath = Path.Combine(Application.persistentDataPath, FileName);
+            FilePath = Application.persistentDataPath + FileName;
         }
 
         public void Save(SaveData data)

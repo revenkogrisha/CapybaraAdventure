@@ -34,7 +34,7 @@ namespace CapybaraAdventure.Ad
 
             var errors = args.Errors;
             if (errors == null)
-                print("No errors were occurred");
+                print("No errors have occurred");
             else
                 print("Errors: " + errors.Count);
 
