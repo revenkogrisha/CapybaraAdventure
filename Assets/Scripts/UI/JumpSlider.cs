@@ -12,7 +12,7 @@ namespace CapybaraAdventure.UI
         private const float LerpSpeedIncrease = 0.05f;
         private const float LerpDirectionChangeIntervalInSeconds = 1.2f;
         private const int ChangeDirectionChanceIncrease = 3;
-        private const float MaxLerpDirectionChangeChance = 40;
+        private const float MaxLerpDirectionChangeChance = 35;
         private const float MinLerpDirectionChangeChance = 0;
         private const float MaxLerpSpeed = 0.75f;
         private const float MinValue = 0f;
