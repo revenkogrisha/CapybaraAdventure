@@ -3,6 +3,7 @@ using UnityTools.Buttons;
 using CapybaraAdventure.Other;
 using CapybaraAdventure.Ad;
 using System;
+using CapybaraAdventure.Save;
 
 namespace CapybaraAdventure.UI
 {
@@ -14,7 +15,7 @@ namespace CapybaraAdventure.UI
         [SerializeField] private float _UIShowDuration = 0.3f;
         [SerializeField] private AppodealInterstitial _interstitialAd;
         [SerializeField] private AppodealRewarded _rewardedHeroRevival;
-
+        private SaveService _saveService;
         private LoadingScreenProvider _loadingScreenProvider;
 
         public event Action OnGameContinued;
@@ -35,8 +36,11 @@ namespace CapybaraAdventure.UI
 
         #endregion
 
-        public void Init(LoadingScreenProvider loadingScreenProvider)
+        public void Init(
+            SaveService saveService,
+            LoadingScreenProvider loadingScreenProvider)
         {
+            _saveService = saveService;
             _loadingScreenProvider = loadingScreenProvider;
         }
 
@@ -55,8 +59,16 @@ namespace CapybaraAdventure.UI
         public void BlockContinuing() => 
             _continueButton.OriginalButton.interactable = false;
 
-        private async void RestartGame() => await _loadingScreenProvider.LoadSceneAsync();
+        private async void RestartGame()
+        {
+            _saveService.Save();
+            await _loadingScreenProvider.LoadSceneAsync();
+        }
 
-        private void InvokeGameContinuing() => OnGameContinued?.Invoke();
+        private void InvokeGameContinuing()
+        {
+            _saveService.Save();
+            OnGameContinued?.Invoke();
+        }
     }
 }

@@ -6,7 +6,7 @@ namespace CapybaraAdventure.Save
 {
     public class SaveService : MonoBehaviour
     {
-        private const float AutoSaveInterval = 5f;
+        private const float AutoSaveInterval = 10f;
 
         [SerializeField] private Score _score;
         [SerializeField] private PlayerData _playerData;
