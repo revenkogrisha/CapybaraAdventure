@@ -296,6 +296,7 @@ GameObject:
   m_Component:
   - component: {fileID: 494221095}
   - component: {fileID: 494221096}
+  - component: {fileID: 494221097}
   m_Layer: 0
   m_Name: AppStartup
   m_TagString: Untagged
@@ -328,6 +329,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 011d0dee278934639be4ef7a6d9a0c88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &494221097
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 494221094}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d7de6fdb2981430fb9d6e0a5ebb2f67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &545457740
