@@ -18,9 +18,10 @@ namespace CapybaraAdventure.Save
         {
             string json = JsonUtility.ToJson(data);
 
-            var writer = new StreamWriter(FilePath);
-            using (writer)
+            using (var writer = new StreamWriter(FilePath))
+            {
                 writer.Write(json);
+            }
         }
 
         public SaveData Load()
@@ -30,8 +31,8 @@ namespace CapybaraAdventure.Save
 
             string json = "";
 
-            var reader = new StreamReader(FilePath);
-            using (reader)
+
+            using (var reader = new StreamReader(FilePath))
             {
                 string line;
                 while ((line = reader.ReadLine()) != null)
