@@ -11,7 +11,7 @@ namespace CapybaraAdventure.Save
 
         public JsonSaveSystem()
         {
-            FilePath = Application.persistentDataPath + FileName;
+            FilePath = Path.Combine(Application.persistentDataPath, FileName);
         }
 
         public void Save(SaveData data)
