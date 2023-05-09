@@ -15,7 +15,7 @@ namespace CapybaraAdventure.UI
         private const float MaxLerpDirectionChangeChance = 35;
         private const float MinLerpDirectionChangeChance = 0;
         private const float MaxLerpSpeed = 0.75f;
-        private const float MinValue = 2f;
+        private const float MinValue = 3f;
         private const float StartLerpSpeed = 0.35f;
 
         [SerializeField] private Slider _slider;
