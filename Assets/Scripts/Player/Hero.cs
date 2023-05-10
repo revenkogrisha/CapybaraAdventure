@@ -25,7 +25,6 @@ namespace CapybaraAdventure.Player
         private PauseManager _pauseManager;
         private bool _isDead;
         private bool _hasJumped;
-        private ParticleSystem _particles;
 
         public HeroJump Jump { get; private set; }
         public bool IsPaused => _pauseManager.IsPaused;
