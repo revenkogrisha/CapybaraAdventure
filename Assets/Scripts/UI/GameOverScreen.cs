@@ -13,8 +13,8 @@ namespace CapybaraAdventure.UI
         [SerializeField] private UIButton _continueButton;
         [SerializeField] private Transform _logoText;
         [SerializeField] private float _UIShowDuration = 0.3f;
-        [SerializeField] private AppodealInterstitial _interstitialAd;
-        [SerializeField] private AppodealRewarded _rewardedHeroRevival;
+        [SerializeField] private AdInterstitial _interstitialAd;
+        [SerializeField] private AdRewarded _rewardedHeroRevival;
         private SaveService _saveService;
         private LoadingScreenProvider _loadingScreenProvider;
 
