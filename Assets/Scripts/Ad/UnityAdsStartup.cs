@@ -5,8 +5,8 @@ namespace CapybaraAdventure.Ad
 {
     public class UnityAdsStartup : MonoBehaviour, IUnityAdsInitializationListener
     {
-        private const string AndroidGameID = "5061567";
-        private const string IOSGameID = "5061566";
+        private const string AndroidGameID = "5253776";
+        private const string IOSGameID = "5253777";
         private const bool TestMode = true;
 
         private string gameID;
