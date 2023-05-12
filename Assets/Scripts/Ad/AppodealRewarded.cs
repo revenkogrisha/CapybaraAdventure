@@ -17,8 +17,8 @@ namespace CapybaraAdventure.Ad
         [SerializeField] private UIButton _showButton;
 
         public bool IsLoaded => Appodeal.IsLoaded(AppodealAdType.RewardedVideo) == true;
-
         public bool CanShow => Appodeal.CanShow(AppodealAdType.RewardedVideo) == true;
+        public bool IsPrecache => Appodeal.IsPrecache(AppodealAdType.RewardedVideo) == true;
 
         public event Action OnRewardGotten;
 
@@ -54,16 +54,21 @@ namespace CapybaraAdventure.Ad
 
         public void Show()
         {
-            if (IsLoaded == true && CanShow == true)
+            if (IsLoaded == true && CanShow == true && IsPrecache == false)
                 Appodeal.Show(AppodealShowStyle.RewardedVideo);
+            else
+                Appodeal.Cache(AppodealAdType.RewardedVideo);
 
             SwitchButtonStatus(false);
         }
 
         private IEnumerator CheckForAd()
         {
-            if (IsLoaded == false || CanShow == false)
+            if (IsLoaded == false || CanShow == false || IsPrecache == true)
+            {
+                Appodeal.Cache(AppodealAdType.RewardedVideo);
                 yield return new WaitForSeconds(CheckForAdInterval);
+            }
 
             SwitchButtonStatus(true);
         }

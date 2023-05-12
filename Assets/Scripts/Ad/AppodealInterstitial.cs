@@ -12,8 +12,8 @@ namespace CapybaraAdventure.Ad
         [SerializeField] private int _showChance = 40;
 
         public bool IsLoaded => Appodeal.IsLoaded(AppodealAdType.Interstitial) == true;
-
         public bool CanShow => Appodeal.CanShow(AppodealAdType.Interstitial) == true;
+        public bool IsPrecache => Appodeal.IsPrecache(AppodealAdType.Interstitial) == true;
 
         private void Start()
         {
@@ -29,8 +29,10 @@ namespace CapybaraAdventure.Ad
 
         public void Show()
         {
-            if (IsLoaded == true && CanShow == true)
+            if (IsLoaded == true && CanShow == true && IsPrecache == false)
                 Appodeal.Show(AppodealShowStyle.Interstitial);
+            else
+                Appodeal.Cache(AppodealAdType.Interstitial);
         }
 
         public void OnInitializationFinished(List<string> errors) {  }
