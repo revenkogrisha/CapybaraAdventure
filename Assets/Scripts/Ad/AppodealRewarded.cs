@@ -18,6 +18,8 @@ namespace CapybaraAdventure.Ad
 
         public bool IsLoaded => Appodeal.IsLoaded(AppodealAdType.RewardedVideo) == true;
 
+        public bool CanShow => Appodeal.CanShow(AppodealAdType.RewardedVideo) == true;
+
         public event Action OnRewardGotten;
 
         #region MonoBehavior
@@ -32,12 +34,14 @@ namespace CapybaraAdventure.Ad
         private void OnEnable()
         {
             _showButton.OnClicked += Show;
+
             AppodealCallbacks.RewardedVideo.OnFinished += OnRewardedVideoFinished;
         }
 
         private void OnDisable()
         {
             _showButton.OnClicked -= Show;
+
             AppodealCallbacks.RewardedVideo.OnFinished -= OnRewardedVideoFinished;
         }
 
@@ -50,7 +54,7 @@ namespace CapybaraAdventure.Ad
 
         public void Show()
         {
-            if (IsLoaded == true)
+            if (IsLoaded == true && CanShow == true)
                 Appodeal.Show(AppodealShowStyle.RewardedVideo);
 
             SwitchButtonStatus(false);
@@ -58,7 +62,7 @@ namespace CapybaraAdventure.Ad
 
         private IEnumerator CheckForAd()
         {
-            if (IsLoaded == false)
+            if (IsLoaded == false || CanShow == false)
                 yield return new WaitForSeconds(CheckForAdInterval);
 
             SwitchButtonStatus(true);
