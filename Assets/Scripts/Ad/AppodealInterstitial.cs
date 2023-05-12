@@ -13,6 +13,8 @@ namespace CapybaraAdventure.Ad
 
         public bool IsLoaded => Appodeal.IsLoaded(AppodealAdType.Interstitial) == true;
 
+        public bool CanShow => Appodeal.CanShow(AppodealAdType.Interstitial) == true;
+
         private void Start()
         {
             Appodeal.Initialize(_appKey, AppodealAdType.Interstitial, this);
@@ -27,7 +29,7 @@ namespace CapybaraAdventure.Ad
 
         public void Show()
         {
-            if (IsLoaded == true)
+            if (IsLoaded == true && CanShow == true)
                 Appodeal.Show(AppodealShowStyle.Interstitial);
         }
 
