@@ -57,7 +57,7 @@ namespace CapybaraAdventure.UI
         }
 
         public void BlockContinuing() => 
-            _continueButton.OriginalButton.interactable = false;
+            _continueButton.Lock();
 
         private async void RestartGame()
         {

@@ -45,7 +45,7 @@ namespace CapybaraAdventure.Ad
             Advertisement.Show(_adID, this);
         }
 
-        private void SwitchButtonStatus(bool value) => _showButton.OriginalButton.interactable = value;
+        private void SwitchButtonStatus(bool value) => _showButton.IsInteractable = value;
 
         #region Callbacks
         public void OnUnityAdsAdLoaded(string placementId)
