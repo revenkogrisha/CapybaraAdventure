@@ -7,7 +7,7 @@ namespace CapybaraAdventure.Ad
     {
         private const string AndroidGameID = "5253776";
         private const string IOSGameID = "5253777";
-        private const bool TestMode = true;
+        private const bool TestMode = false;
 
         private string gameID;
 
