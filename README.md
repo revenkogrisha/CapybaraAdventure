@@ -33,7 +33,7 @@
 
 ## Links
 
-* **[Play Market](https://play.google.com/store/apps/details?id=com.Revenkorg.TwoDoors)**
+* **[Play Market](https://play.google.com/store/apps/details?id=com.Revenko.org.CapybaraAdventure)**
 * **Yandex Games** - in publishing process...
 
 ## Contributing
