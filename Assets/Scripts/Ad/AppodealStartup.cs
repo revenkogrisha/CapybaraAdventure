@@ -19,7 +19,7 @@ namespace CapybaraAdventure.Ad
             AppodealCallbacks.Sdk.OnInitialized += OnInitializationFinished;
 
             Appodeal.SetTesting(TestMode);
-            //Appodeal.SetLogLevel(AppodealLogLevel.Verbose);
+            Appodeal.SetLogLevel(AppodealLogLevel.Verbose);
             
             Appodeal.Initialize(appKey, adTypes);
         } 
