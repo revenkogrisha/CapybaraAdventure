@@ -10,7 +10,6 @@ namespace UnityTools.Buttons
     {
         [Header("Components")]
         [SerializeField] private UIButton _button;
-
         [Header("Settings")]
         [Tooltip("If required (Can be null; no exception)")]
         [SerializeField] private GameObject _toOpen;
