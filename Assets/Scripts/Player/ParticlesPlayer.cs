@@ -8,6 +8,7 @@ namespace CapybaraAdventure.Player
         private const float JumpParticlesDespawnDelay = 1f;
 
         [SerializeField] private ParticleSystem _particlesPrefab;
+        [Tooltip("The transform's pos is used to determine the spawn position")]
         [SerializeField] private Transform _spawnTransform;
 
         private ParticleSystem _particles;

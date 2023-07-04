@@ -6,7 +6,9 @@ namespace CapybaraAdventure.Player
 {
     public class FollowerObject : MonoBehaviour
     {
+        [Header("Components")]
         [SerializeField] private Transform _toFollow;
+        [Header("Settings")]
         [SerializeField] private float _updateIntervalInSeconds = 1f;
         [SerializeField] private bool _ignoreXMovement;
         [SerializeField] private bool _ignoreYMovement;

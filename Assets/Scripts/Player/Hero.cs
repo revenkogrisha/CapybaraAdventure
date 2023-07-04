@@ -11,15 +11,17 @@ namespace CapybaraAdventure.Player
     {
         private const float HeightTestRadius = 0.05f;
 
+        [Header("Components")]
         [SerializeField] private Animator _animator;
         [SerializeField] private Rigidbody2D _rigidBody2D;
-        [SerializeField] private float _duration = 0.8f;
         [SerializeField] private Collider2D _collider;
         [SerializeField] private LayerMask _ground;
-        [SerializeField] private AnimationCurve _jumpCurve;
         [Tooltip("Optional")]
         [SerializeField] private ParticlesPlayer _jumpParticlesPlayer;
         [SerializeField] private HeroAudioPlayer _audioPlayer;
+        [Header("Settings")]
+        [SerializeField] private AnimationCurve _jumpCurve;
+        [SerializeField] private float _duration = 0.8f;
         
         private HeroAnimator _heroAnimator;
         private PauseManager _pauseManager;

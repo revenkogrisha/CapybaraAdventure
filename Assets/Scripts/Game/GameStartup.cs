@@ -45,6 +45,7 @@ namespace CapybaraAdventure.Game
         private void OnDisable()
         {
             _menu.OnMenuWorkHasOver -= UnloadMenu;
+            
             _gameOverHandler?.Disable();
             _heroPresenter?.Disable();
             _gameOverHandlerPresenter?.Disable();

@@ -4,6 +4,7 @@ namespace CapybaraAdventure.Level
 {
     public class Platform : MonoBehaviour
     {
+        [Header("Spawn position markers")]
         [SerializeField] private FoodSpawnMarker[] _foodMarkers;
         [SerializeField] private ChestSpawnMarker[] _chestMarkers;
 
