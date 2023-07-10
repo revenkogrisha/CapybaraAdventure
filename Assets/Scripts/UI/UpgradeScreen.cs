@@ -4,7 +4,6 @@ using CapybaraAdventure.Player;
 using System;
 using CapybaraAdventure.Save;
 using CapybaraAdventure.Other;
-using CapybaraAdventure.Ad;
 
 namespace CapybaraAdventure.UI
 {
@@ -20,8 +19,6 @@ namespace CapybaraAdventure.UI
         [Tooltip("First value - min; second - max")]
         [SerializeField] private Vector2Int _minMaxRewardedCoins = new(5, 31);
         [Header("Ad settings")]
-        [SerializeField] private AppodealInterstitial _interstitialAd;
-        [SerializeField] private AppodealRewarded _rewardedCoins;
 
         private PlayerData _playerData;
         private SaveService _saveService;
@@ -38,7 +35,6 @@ namespace CapybaraAdventure.UI
         private void OnEnable()
         {
             _backButton.OnClicked += OnBackButtonClickedHandler;
-            _rewardedCoins.OnRewardGotten += AddRewardedCoins;
 
             _jumpDistanceUpgrade.Button.OnClicked += TryUpdgradeJumpDistance;
             _foodBonusUpgrade.Button.OnClicked += TryUpgradeFoodBonus;
@@ -47,7 +43,6 @@ namespace CapybaraAdventure.UI
         private void OnDisable()
         {
             _backButton.OnClicked -= OnBackButtonClickedHandler;
-            _rewardedCoins.OnRewardGotten -= AddRewardedCoins;
 
             _jumpDistanceUpgrade.Button.OnClicked -= TryUpdgradeJumpDistance;
             _foodBonusUpgrade.Button.OnClicked -= TryUpgradeFoodBonus;
@@ -114,7 +109,7 @@ namespace CapybaraAdventure.UI
         private void HandleUpgrade()
         {
             _saveService.Save();
-            _interstitialAd.TryShowWithChance();
+            // interst ad
         }
     }
 }

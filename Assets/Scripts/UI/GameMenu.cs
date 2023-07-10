@@ -5,7 +5,6 @@ using UnityTools.Buttons;
 using TMPro;
 using CapybaraAdventure.Player;
 using CapybaraAdventure.Other;
-using CapybaraAdventure.Ad;
 
 namespace CapybaraAdventure.Game
 {
@@ -17,7 +16,6 @@ namespace CapybaraAdventure.Game
         [SerializeField] private UIButton _updgradeButton;
         [SerializeField] private TextMeshProUGUI _highScoreText;
         [SerializeField] private Transform _logo;
-        [SerializeField] private AppodealInterstitial _interstitialAd;
 
         private GameStartup _gameStartup;
         private GameUI _inGameUI;
@@ -75,7 +73,7 @@ namespace CapybaraAdventure.Game
 
             Conceal();
 
-            _interstitialAd.TryShowWithChance();
+            //  interst ad
         }
 
         private void OnUpgradeScreenClosedHandler()

@@ -1,7 +1,6 @@
 using UnityEngine;
 using UnityTools.Buttons;
 using CapybaraAdventure.Other;
-using CapybaraAdventure.Ad;
 using System;
 using CapybaraAdventure.Save;
 
@@ -16,8 +15,6 @@ namespace CapybaraAdventure.UI
         [Header("Settings")]
         [SerializeField] private float _UIShowDuration = 0.3f;
         [Header("Ad Settings")]
-        [SerializeField] private AppodealInterstitial _interstitialAd;
-        [SerializeField] private AppodealRewarded _rewardedHeroRevival;
 
         private SaveService _saveService;
         private LoadingScreenProvider _loadingScreenProvider;
@@ -29,13 +26,11 @@ namespace CapybaraAdventure.UI
         private void OnEnable()
         {
             _restartButton.OnClicked += RestartGame;
-            _rewardedHeroRevival.OnRewardGotten += InvokeGameContinuing;
         }
 
         private void OnDisable()
         {
             _restartButton.OnClicked -= RestartGame;
-            _rewardedHeroRevival.OnRewardGotten -= InvokeGameContinuing;
         }
 
         #endregion
@@ -50,7 +45,7 @@ namespace CapybaraAdventure.UI
 
         public override void Reveal()
         {
-            _interstitialAd.TryShowWithChance();
+            // interst ad
 
             base.Reveal();
 

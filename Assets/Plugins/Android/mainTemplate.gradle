@@ -1,102 +1,10 @@
-// Android Resolver Repos Start
-([rootProject] + (rootProject.subprojects as List)).each { project ->
-    project.repositories {
-        def unityProjectPath = $/file:///**DIR_UNITYPROJECT**/$.replace("\\", "/")
-        maven {
-            url "https://maven.google.com"
-        }
-        maven {
-            url "https://artifactory.appodeal.com/appodeal" // Assets/Appodeal/Editor/Dependencies/AdColonyDependencies.xml:14, Assets/Appodeal/Editor/Dependencies/AdjustDependencies.xml:16, Assets/Appodeal/Editor/Dependencies/AppLovinDependencies.xml:13, Assets/Appodeal/Editor/Dependencies/AppodealDependencies.xml:23, Assets/Appodeal/Editor/Dependencies/AppsFlyerDependencies.xml:15, Assets/Appodeal/Editor/Dependencies/BidMachineDependencies.xml:15, Assets/Appodeal/Editor/Dependencies/FirebaseDependencies.xml:14, Assets/Appodeal/Editor/Dependencies/GoogleAdMobDependencies.xml:14, Assets/Appodeal/Editor/Dependencies/IronSourceDependencies.xml:14, Assets/Appodeal/Editor/Dependencies/MetaAudienceNetworkDependencies.xml:14, Assets/Appodeal/Editor/Dependencies/MetaDependencies.xml:13, Assets/Appodeal/Editor/Dependencies/MyTargetDependencies.xml:15, Assets/Appodeal/Editor/Dependencies/SentryAnalyticsDependencies.xml:14, Assets/Appodeal/Editor/Dependencies/StackAnalyticsDependencies.xml:13, Assets/Appodeal/Editor/Dependencies/UnityDependencies.xml:12, Assets/Appodeal/Editor/Dependencies/VungleDependencies.xml:16, Assets/Appodeal/Editor/Dependencies/YandexDependencies.xml:13
-        }
-        mavenLocal()
-        mavenCentral()
-    }
-}
-// Android Resolver Repos End
 apply plugin: 'com.android.library'
 **APPLY_PLUGINS**
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-// Android Resolver Dependencies Start
-    implementation 'androidx.core:core:1.7.0' // Assets/Appodeal/Editor/Dependencies/VungleDependencies.xml:10
-    implementation 'com.adcolony:sdk:4.8.0' // Assets/Appodeal/Editor/Dependencies/AdColonyDependencies.xml:7
-    implementation 'com.adjust.sdk:adjust-android:4.33.2' // Assets/Appodeal/Editor/Dependencies/AdjustDependencies.xml:4
-    implementation 'com.android.installreferrer:installreferrer:2.2' // Assets/Appodeal/Editor/Dependencies/AppsFlyerDependencies.xml:7
-    implementation 'com.applovin:applovin-sdk:11.6.1' // Assets/Appodeal/Editor/Dependencies/AppLovinDependencies.xml:6
-    implementation 'com.appodeal.ads.sdk.core:internal:3.0.2' // Assets/Appodeal/Editor/Dependencies/StackAnalyticsDependencies.xml:10
-    implementation 'com.appodeal.ads.sdk.core:public:3.0.2' // Assets/Appodeal/Editor/Dependencies/StackAnalyticsDependencies.xml:5
-    implementation 'com.appodeal.ads.sdk.networks:a4g:3.0.2.0' // Assets/Appodeal/Editor/Dependencies/GoogleAdMobDependencies.xml:5
-    implementation 'com.appodeal.ads.sdk.networks:adcolony:3.0.2.0' // Assets/Appodeal/Editor/Dependencies/AdColonyDependencies.xml:4
-    implementation 'com.appodeal.ads.sdk.networks:admob:3.0.2.0' // Assets/Appodeal/Editor/Dependencies/GoogleAdMobDependencies.xml:4
-    implementation 'com.appodeal.ads.sdk.networks:applovin:3.0.2.0' // Assets/Appodeal/Editor/Dependencies/AppLovinDependencies.xml:4
-    implementation 'com.appodeal.ads.sdk.networks:appodeal:3.0.2.0' // Assets/Appodeal/Editor/Dependencies/AppodealDependencies.xml:13
-    implementation 'com.appodeal.ads.sdk.networks:bidmachine:3.0.2.0' // Assets/Appodeal/Editor/Dependencies/BidMachineDependencies.xml:4
-    implementation 'com.appodeal.ads.sdk.networks:facebook:3.0.2.0' // Assets/Appodeal/Editor/Dependencies/MetaAudienceNetworkDependencies.xml:4
-    implementation 'com.appodeal.ads.sdk.networks:ironsource:3.0.2.0' // Assets/Appodeal/Editor/Dependencies/IronSourceDependencies.xml:4
-    implementation 'com.appodeal.ads.sdk.networks:mraid:3.0.2.0' // Assets/Appodeal/Editor/Dependencies/AppodealDependencies.xml:12
-    implementation 'com.appodeal.ads.sdk.networks:my_target:3.0.2.0' // Assets/Appodeal/Editor/Dependencies/MyTargetDependencies.xml:4
-    implementation 'com.appodeal.ads.sdk.networks:nast:3.0.2.0' // Assets/Appodeal/Editor/Dependencies/AppodealDependencies.xml:11
-    implementation 'com.appodeal.ads.sdk.networks:notsy:3.0.2.0' // Assets/Appodeal/Editor/Dependencies/GoogleAdMobDependencies.xml:6
-    implementation 'com.appodeal.ads.sdk.networks:unity_ads:3.0.2.0' // Assets/Appodeal/Editor/Dependencies/UnityDependencies.xml:4
-    implementation 'com.appodeal.ads.sdk.networks:vast:3.0.2.0' // Assets/Appodeal/Editor/Dependencies/AppodealDependencies.xml:10
-    implementation 'com.appodeal.ads.sdk.networks:vungle:3.0.2.0' // Assets/Appodeal/Editor/Dependencies/VungleDependencies.xml:4
-    implementation 'com.appodeal.ads.sdk.networks:yandex:3.0.2.0' // Assets/Appodeal/Editor/Dependencies/YandexDependencies.xml:4
-    implementation 'com.appodeal.ads.sdk.services:adjust:3.0.2.0' // Assets/Appodeal/Editor/Dependencies/AdjustDependencies.xml:6
-    implementation 'com.appodeal.ads.sdk.services:appsflyer:3.0.2.0' // Assets/Appodeal/Editor/Dependencies/AppsFlyerDependencies.xml:12
-    implementation 'com.appodeal.ads.sdk.services:facebook_analytics:3.0.2.0' // Assets/Appodeal/Editor/Dependencies/MetaDependencies.xml:4
-    implementation 'com.appodeal.ads.sdk.services:firebase:3.0.2.0' // Assets/Appodeal/Editor/Dependencies/FirebaseDependencies.xml:4
-    implementation 'com.appodeal.ads.sdk.services:sentry_analytics:3.0.2.0' // Assets/Appodeal/Editor/Dependencies/SentryAnalyticsDependencies.xml:5
-    implementation 'com.appodeal.ads.sdk.services:stack_analytics:3.0.2.0' // Assets/Appodeal/Editor/Dependencies/StackAnalyticsDependencies.xml:8
-    implementation 'com.appodeal.ads.sdk:core:3.0.2' // Assets/Appodeal/Editor/Dependencies/YandexDependencies.xml:5
-    implementation 'com.appodeal.ads:advertising:3.0.2' // Assets/Appodeal/Editor/Dependencies/AppodealDependencies.xml:16
-    implementation 'com.appodeal.ads:consent:3.0.2' // Assets/Appodeal/Editor/Dependencies/AppodealDependencies.xml:15
-    implementation 'com.appodeal.ads:network:3.0.2' // Assets/Appodeal/Editor/Dependencies/StackAnalyticsDependencies.xml:4
-    implementation 'com.appsflyer:adrevenue:6.9.1' // Assets/Appodeal/Editor/Dependencies/AppsFlyerDependencies.xml:10
-    implementation 'com.appsflyer:af-android-sdk:6.9.4' // Assets/Appodeal/Editor/Dependencies/AppsFlyerDependencies.xml:11
-    implementation 'com.explorestack.adjust:sdk-purchase:1.1.2' // Assets/Appodeal/Editor/Dependencies/AdjustDependencies.xml:9
-    implementation 'com.explorestack:iab:1.4.1' // Assets/Appodeal/Editor/Dependencies/AppodealDependencies.xml:17
-    implementation 'com.facebook.android:audience-network-sdk:6.11.0' // Assets/Appodeal/Editor/Dependencies/MetaAudienceNetworkDependencies.xml:7
-    implementation 'com.facebook.android:facebook-core:15.2.0' // Assets/Appodeal/Editor/Dependencies/MetaDependencies.xml:9
-    implementation 'com.google.android.exoplayer:exoplayer:2.17.1' // Assets/Appodeal/Editor/Dependencies/MyTargetDependencies.xml:8
-    implementation 'com.google.android.gms:play-services-ads:21.4.0' // Assets/Appodeal/Editor/Dependencies/GoogleAdMobDependencies.xml:8
-    implementation 'com.google.android.gms:play-services-ads-identifier:18.0.1' // Assets/Appodeal/Editor/Dependencies/VungleDependencies.xml:9
-    implementation 'com.google.android.gms:play-services-base:18.0.1' // Assets/Appodeal/Editor/Dependencies/MetaAudienceNetworkDependencies.xml:8
-    implementation 'com.google.android.gms:play-services-basement:18.1.0' // Assets/Appodeal/Editor/Dependencies/VungleDependencies.xml:8
-    implementation 'com.google.firebase:firebase-analytics-ktx:21.2.0' // Assets/Appodeal/Editor/Dependencies/FirebaseDependencies.xml:7
-    implementation 'com.google.firebase:firebase-config-ktx:21.2.0' // Assets/Appodeal/Editor/Dependencies/FirebaseDependencies.xml:6
-    implementation 'com.ironsource.sdk:mediationsdk:7.2.6' // Assets/Appodeal/Editor/Dependencies/IronSourceDependencies.xml:6
-    implementation 'com.my.target:mytarget-sdk:5.16.3' // Assets/Appodeal/Editor/Dependencies/MyTargetDependencies.xml:7
-    implementation 'com.unity3d.ads:unity-ads:4.5.0' // Assets/Appodeal/Editor/Dependencies/UnityDependencies.xml:6
-    implementation 'com.vungle:publisher-sdk-android:6.12.0' // Assets/Appodeal/Editor/Dependencies/VungleDependencies.xml:7
-    implementation 'com.yandex.android:mobileads:5.5.0' // Assets/Appodeal/Editor/Dependencies/YandexDependencies.xml:6
-    implementation 'com.yandex.android:mobmetricalib:5.2.0' // Assets/Appodeal/Editor/Dependencies/YandexDependencies.xml:7
-    implementation 'io.bidmachine:ads.networks.adcolony:2.1.5.11' // Assets/Appodeal/Editor/Dependencies/AdColonyDependencies.xml:6
-    implementation 'io.bidmachine:ads.networks.amazon:2.1.5.7' // Assets/Appodeal/Editor/Dependencies/BidMachineDependencies.xml:7
-    implementation 'io.bidmachine:ads.networks.criteo:2.1.5.10' // Assets/Appodeal/Editor/Dependencies/BidMachineDependencies.xml:8
-    implementation 'io.bidmachine:ads.networks.meta_audience:2.1.5.12' // Assets/Appodeal/Editor/Dependencies/MetaAudienceNetworkDependencies.xml:6
-    implementation 'io.bidmachine:ads.networks.my_target:2.1.5.9' // Assets/Appodeal/Editor/Dependencies/MyTargetDependencies.xml:6
-    implementation 'io.bidmachine:ads.networks.pangle:2.1.5.4' // Assets/Appodeal/Editor/Dependencies/BidMachineDependencies.xml:9
-    implementation 'io.bidmachine:ads.networks.vungle:2.1.5.2' // Assets/Appodeal/Editor/Dependencies/VungleDependencies.xml:6
-    implementation 'io.bidmachine:ads:2.1.5' // Assets/Appodeal/Editor/Dependencies/BidMachineDependencies.xml:6
-    implementation 'io.sentry:sentry-android:6.11.0' // Assets/Appodeal/Editor/Dependencies/SentryAnalyticsDependencies.xml:11
-    implementation 'org.jetbrains.kotlin:kotlin-stdlib:1.7.10' // Assets/Appodeal/Editor/Dependencies/YandexDependencies.xml:8
-    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4' // Assets/Appodeal/Editor/Dependencies/YandexDependencies.xml:10
-    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4' // Assets/Appodeal/Editor/Dependencies/YandexDependencies.xml:9
-// Android Resolver Dependencies End
 **DEPS**}
 
-// Android Resolver Exclusions Start
-android {
-  packagingOptions {
-      exclude ('/lib/armeabi/*' + '*')
-      exclude ('/lib/mips/*' + '*')
-      exclude ('/lib/mips64/*' + '*')
-      exclude ('/lib/x86/*' + '*')
-      exclude ('/lib/x86_64/*' + '*')
-  }
-}
-// Android Resolver Exclusions End
 android {
     compileSdkVersion **APIVERSION**
     buildToolsVersion '**BUILDTOOLS**'
