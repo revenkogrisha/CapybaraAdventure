@@ -19,7 +19,6 @@ namespace CapybaraAdventure.UI
         private const float StartLerpSpeed = 0.35f;
 
         [SerializeField] private Slider _slider;
-        [Tooltip("Put value in seconds")]
 
         private float _lerpSpeed;
         private float _lerpDirectionChangeChance = 10;

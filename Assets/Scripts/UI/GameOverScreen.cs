@@ -9,12 +9,16 @@ namespace CapybaraAdventure.UI
 {
     public class GameOverScreen : UIBase
     {
+        [Header("Components:")]
         [SerializeField] private UIButton _restartButton;
         [SerializeField] private UIButton _continueButton;
         [SerializeField] private Transform _logoText;
+        [Header("Settings")]
         [SerializeField] private float _UIShowDuration = 0.3f;
+        [Header("Ad Settings")]
         [SerializeField] private AppodealInterstitial _interstitialAd;
         [SerializeField] private AppodealRewarded _rewardedHeroRevival;
+
         private SaveService _saveService;
         private LoadingScreenProvider _loadingScreenProvider;
 
