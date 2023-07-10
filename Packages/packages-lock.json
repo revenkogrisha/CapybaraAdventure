@@ -1,12 +1,5 @@
 {
   "dependencies": {
-    "com.appodeal.appodeal-unity-plugin-upm": {
-      "version": "https://github.com/appodeal/appodeal-unity-plugin-upm.git#v3.0.2",
-      "depth": 0,
-      "source": "git",
-      "dependencies": {},
-      "hash": "4c9c09738284b39a5d78bdb380e8163474f2e050"
-    },
     "com.pixelsparkstudio.parallaxer": {
       "version": "git@github.com:PixelSparkStudio/Parallaxer.git",
       "depth": 0,
@@ -194,8 +187,8 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.nuget.newtonsoft-json": {
-      "version": "3.0.2",
-      "depth": 2,
+      "version": "3.2.1",
+      "depth": 0,
       "source": "registry",
       "dependencies": {},
       "url": "https://packages.unity.com"
