@@ -32,7 +32,6 @@ namespace CapybaraAdventure.Save
 
             string json = "";
 
-
             using (var reader = new StreamReader(FilePath))
             {
                 string line;

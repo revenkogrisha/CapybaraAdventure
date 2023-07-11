@@ -1,6 +1,7 @@
 using UnityEngine;
 using CapybaraAdventure.Player;
 using System.Collections;
+using YG;
 
 namespace CapybaraAdventure.Save
 {
@@ -15,13 +16,26 @@ namespace CapybaraAdventure.Save
 
         #region MonoBehaviour
 
+        private void OnEnable()
+        {
+            YandexGame.GetDataEvent += Load;
+        }
+
+        private void OnDisable()
+        {
+            YandexGame.GetDataEvent -= Load;
+        }
+
         private void Awake()
         {
-            _saveSystem = new JsonSaveSystem();
+            _saveSystem = new YandexGamesSaveSystem();
 
-            Load();
+            if (YandexGame.SDKEnabled == true)
+            {
+                Load();
+                StartCoroutine(AutoSave());
+            }
 
-            StartCoroutine(AutoSave());
         }
 
         private void OnApplicationQuit()
