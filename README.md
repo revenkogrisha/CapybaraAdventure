@@ -30,6 +30,7 @@
 * [NightPool](https://github.com/MeeXaSiK/NightPool) - Fast object pool for Unity
 * [Universal RP](https://unity.com/ru/srp/universal-render-pipeline) - Scriptable Render Pipeline made by Unity
 * [UnityAds](https://unity.com/ru/products/unity-ads) - UnityAds SDK v4.4.2
+* [Appodeal](https://github.com/appodeal/appodeal-android-sdk) - Appodeal SDK v3.0.2
 
 ## Links
 
@@ -53,6 +54,7 @@ This project is licensed under the Apache-2.0 License - see the [LICENSE.md](LIC
 
 ## Acknowledgments
 
+* [PluginYG](https://github.com/JustPlay-Max/PluginYG/tree/main) - Unity plugin used for publishing on Yandex Games platform
 * [Privacy Policy Generator](https://github.com/nisrulz/app-privacy-policy-generator) - used for publishing onto Google Play Market
 * [Freesound.org](https://freesound.org/) - taken some sounds from there
 * [DALLE-2](https://openai.com/product/dall-e-2) - used for creating some UI assets
