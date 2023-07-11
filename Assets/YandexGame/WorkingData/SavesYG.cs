@@ -1,4 +1,5 @@
-﻿
+﻿using CapybaraAdventure.Save;
+
 namespace YG
 {
     [System.Serializable]
@@ -17,11 +18,12 @@ namespace YG
         public bool[] openLevels = new bool[3];
 
         // Ваши сохранения
-
-        // ...
-
-        // Поля (сохранения) можно удалять и создавать новые. При обновлении игры сохранения ломаться не должны
-        // Пока выявленное ограничение - это расширение массива
+        public int HighScore = 0;
+        public int Coins = 0;
+        public float MaxDistance = 15f;
+        public int DistanceUpgradeCost = 15;
+        public float FoodBonus = 0;
+        public int FoodUpgradeCost = 15;
 
 
         // Вы можете выполнить какие то действия при загрузке сохранений
@@ -34,6 +36,17 @@ namespace YG
             // Длина массива в проекте должна быть задана один раз!
             // Если после публикации игры изменить длину массива, то после обновления игры у пользователей сохранения могут поломаться
             // Если всё же необходимо увеличить длину массива, сдвиньте данное поле массива в самую нижнюю строку кода
+        }
+
+        public static SavesYG operator+(SavesYG savesYG, SaveData saveData)
+        {
+            savesYG.HighScore = saveData.HighScore;
+            savesYG.Coins = saveData.Coins;
+            savesYG.MaxDistance = saveData.MaxDistance;
+            savesYG.DistanceUpgradeCost = saveData.DistanceUpgradeCost;
+            savesYG.FoodBonus = saveData.FoodBonus;
+            savesYG.FoodUpgradeCost = saveData.FoodUpgradeCost;
+            return savesYG;
         }
     }
 }
