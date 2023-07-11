@@ -19,6 +19,7 @@ namespace CapybaraAdventure.UI
         [Tooltip("First value - min; second - max")]
         [SerializeField] private Vector2Int _minMaxRewardedCoins = new(5, 31);
         [Header("Ad settings")]
+        [SerializeField] private int FullscreenAdShowChance = 30;
 
         private PlayerData _playerData;
         private SaveService _saveService;
@@ -109,7 +110,7 @@ namespace CapybaraAdventure.UI
         private void HandleUpgrade()
         {
             _saveService.Save();
-            // interst ad
+            YGAdsProvider.TryShowFullscreenAdWithChance(FullscreenAdShowChance);
         }
     }
 }

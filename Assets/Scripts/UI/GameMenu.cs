@@ -16,6 +16,7 @@ namespace CapybaraAdventure.Game
         [SerializeField] private UIButton _updgradeButton;
         [SerializeField] private TextMeshProUGUI _highScoreText;
         [SerializeField] private Transform _logo;
+        [SerializeField] private int FullscreenAdShowChance = 30;
 
         private GameStartup _gameStartup;
         private GameUI _inGameUI;
@@ -73,7 +74,7 @@ namespace CapybaraAdventure.Game
 
             Conceal();
 
-            //  interst ad
+            YGAdsProvider.TryShowFullscreenAdWithChance(FullscreenAdShowChance);
         }
 
         private void OnUpgradeScreenClosedHandler()

@@ -3,6 +3,7 @@ using UnityTools.Buttons;
 using CapybaraAdventure.Other;
 using System;
 using CapybaraAdventure.Save;
+using YG;
 
 namespace CapybaraAdventure.UI
 {
@@ -14,7 +15,6 @@ namespace CapybaraAdventure.UI
         [SerializeField] private Transform _logoText;
         [Header("Settings")]
         [SerializeField] private float _UIShowDuration = 0.3f;
-        [Header("Ad Settings")]
 
         private SaveService _saveService;
         private LoadingScreenProvider _loadingScreenProvider;
@@ -45,8 +45,6 @@ namespace CapybaraAdventure.UI
 
         public override void Reveal()
         {
-            // interst ad
-
             base.Reveal();
 
             var tweener = new ScreenTweener(_UIShowDuration);
