@@ -10,7 +10,7 @@ namespace CapybaraAdventure.Game
 {
     public class GameMenu : UIBase
     {
-        private const string HighScoreOriginalText = "HighScore:";
+        private const string HighScoreOriginalText = "Твой рекорд:";
 
         [SerializeField] private UIButton _playButton;
         [SerializeField] private UIButton _updgradeButton;
