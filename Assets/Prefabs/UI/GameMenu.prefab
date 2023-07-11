@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 422289749642706785}
   - component: {fileID: 422289749642706784}
-  - component: {fileID: 70793784434629463}
   - component: {fileID: 8659481709430681348}
   m_Layer: 5
   m_Name: GameMenu
@@ -61,20 +60,6 @@ MonoBehaviour:
   _updgradeButton: {fileID: 616575188257481629}
   _highScoreText: {fileID: 8903894321127541643}
   _logo: {fileID: 445153461296672191}
-  _interstitialAd: {fileID: 70793784434629463}
---- !u!114 &70793784434629463
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 422289749642706790}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 872fb12229d5b4360bea7db7bf165865, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _showChance: 40
 --- !u!114 &8659481709430681348
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -503,7 +488,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'High Score: 100'
+  m_text: "\u0422\u0432\u043E\u0439 \u0440\u0435\u043A\u043E\u0440\u0434: 100"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -638,7 +623,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: play
+  m_text: "\u0438\u0433\u0440\u0430\u0442\u044C"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -665,8 +650,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 122.4
-  m_fontSizeBase: 122.4
+  m_fontSize: 109.28
+  m_fontSizeBase: 109.28
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 43.4
@@ -1124,7 +1109,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: hero
+  m_text: "\u0433\u0435\u0440\u043E\u0439"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1151,8 +1136,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 122.4
-  m_fontSizeBase: 122.4
+  m_fontSize: 109
+  m_fontSizeBase: 109
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 43.4

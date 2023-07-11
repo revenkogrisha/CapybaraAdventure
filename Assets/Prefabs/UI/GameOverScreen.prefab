@@ -89,7 +89,6 @@ GameObject:
   - component: {fileID: 1447709927015565667}
   - component: {fileID: 9172325998623135816}
   - component: {fileID: 4530117193839094271}
-  - component: {fileID: 2809010873875153453}
   m_Layer: 5
   m_Name: ContinueButton (1)
   m_TagString: Untagged
@@ -196,7 +195,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 0
+  m_Interactable: 1
   m_TargetGraphic: {fileID: 1447709927015565667}
   m_OnClick:
     m_PersistentCalls:
@@ -215,19 +214,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _button: {fileID: 9172325998623135816}
   _audio: {fileID: 0}
---- !u!114 &2809010873875153453
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2266628454494954166}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c9f1d0f2a9024701adb19e9667024ef, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _showButton: {fileID: 4530117193839094271}
 --- !u!1 &2660487267901704431
 GameObject:
   m_ObjectHideFlags: 0
@@ -238,7 +224,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2660487267901704428}
   - component: {fileID: 7254897607754875040}
-  - component: {fileID: 5719466777131685920}
   m_Layer: 5
   m_Name: GameOverScreen
   m_TagString: Untagged
@@ -286,21 +271,6 @@ MonoBehaviour:
   _continueButton: {fileID: 4530117193839094271}
   _logoText: {fileID: 2660487269680322940}
   _UIShowDuration: 0.3
-  _interstitialAd: {fileID: 5719466777131685920}
-  _rewardedHeroRevival: {fileID: 2809010873875153453}
---- !u!114 &5719466777131685920
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2660487267901704431}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 872fb12229d5b4360bea7db7bf165865, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _showChance: 25
 --- !u!1 &2660487268082393622
 GameObject:
   m_ObjectHideFlags: 0
@@ -367,7 +337,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: menu
+  m_text: "\u043C\u0435\u043D\u044E"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -715,7 +685,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: game over!
+  m_text: "\u0443\u043F\u0441.. \u0442\u044B \u043F\u0440\u043E\u0438\u0433\u0440\u0430\u043B!"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -742,8 +712,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 167.7
-  m_fontSizeBase: 167.7
+  m_fontSize: 150
+  m_fontSizeBase: 150
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -850,7 +820,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: continue
+  m_text: "\u043F\u0440\u043E\u0434\u043E\u043B\u0436\u0438\u0442\u044C"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -877,8 +847,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 78
-  m_fontSizeBase: 78
+  m_fontSize: 61.6
+  m_fontSizeBase: 61.6
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 43.4
