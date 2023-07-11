@@ -9,6 +9,8 @@ namespace CapybaraAdventure.UI
 {
     public class GameOverScreen : UIBase
     {
+        private const int ContinueAdId = 2;
+
         [Header("Components:")]
         [SerializeField] private UIButton _restartButton;
         [SerializeField] private UIButton _continueButton;
@@ -26,11 +28,13 @@ namespace CapybaraAdventure.UI
         private void OnEnable()
         {
             _restartButton.OnClicked += RestartGame;
+            _continueButton.OnClicked += ShowContinueAd;
         }
 
         private void OnDisable()
         {
             _restartButton.OnClicked -= RestartGame;
+            _continueButton.OnClicked -= ShowContinueAd;
         }
 
         #endregion
@@ -66,6 +70,11 @@ namespace CapybaraAdventure.UI
         {
             _saveService.Save();
             OnGameContinued?.Invoke();
+        }
+
+        private void ShowContinueAd()
+        {
+            YGAdsProvider.ShowRewardedAd(ContinueAdId);
         }
     }
 }

@@ -9,9 +9,12 @@ namespace CapybaraAdventure.UI
 {
     public class UpgradeScreen : UIBase
     {
+        private const int GetMoneyAdId = 1;
+
         [Header("Components")]
         [SerializeField] private ResetProgressService _resetService;
         [SerializeField] private UIButton _backButton;
+        [SerializeField] private UIButton _getMoneyButton;
         [Header("Blocks")]
         [SerializeField] private UpgradeBlock _jumpDistanceUpgrade;
         [SerializeField] private UpgradeBlock _foodBonusUpgrade;
@@ -19,7 +22,7 @@ namespace CapybaraAdventure.UI
         [Tooltip("First value - min; second - max")]
         [SerializeField] private Vector2Int _minMaxRewardedCoins = new(5, 31);
         [Header("Ad settings")]
-        [SerializeField] private int FullscreenAdShowChance = 30;
+        [SerializeField] private int _fullscreenAdShowChance = 30;
 
         private PlayerData _playerData;
         private SaveService _saveService;
@@ -39,6 +42,7 @@ namespace CapybaraAdventure.UI
 
             _jumpDistanceUpgrade.Button.OnClicked += TryUpdgradeJumpDistance;
             _foodBonusUpgrade.Button.OnClicked += TryUpgradeFoodBonus;
+            _getMoneyButton.OnClicked += OnGetMoneyButtonClicked;
         }
 
         private void OnDisable()
@@ -47,6 +51,7 @@ namespace CapybaraAdventure.UI
 
             _jumpDistanceUpgrade.Button.OnClicked -= TryUpdgradeJumpDistance;
             _foodBonusUpgrade.Button.OnClicked -= TryUpgradeFoodBonus;
+            _getMoneyButton.OnClicked -= OnGetMoneyButtonClicked;
         }
 
         #endregion
@@ -110,7 +115,12 @@ namespace CapybaraAdventure.UI
         private void HandleUpgrade()
         {
             _saveService.Save();
-            YGAdsProvider.TryShowFullscreenAdWithChance(FullscreenAdShowChance);
+            YGAdsProvider.TryShowFullscreenAdWithChance(_fullscreenAdShowChance);
+        }
+
+        private void OnGetMoneyButtonClicked()
+        {
+            YGAdsProvider.ShowRewardedAd(GetMoneyAdId);
         }
     }
 }
