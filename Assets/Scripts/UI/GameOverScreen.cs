@@ -29,12 +29,16 @@ namespace CapybaraAdventure.UI
         {
             _restartButton.OnClicked += RestartGame;
             _continueButton.OnClicked += ShowContinueAd;
+
+            YandexGame.RewardVideoEvent += InvokeGameContinuing;
         }
 
         private void OnDisable()
         {
             _restartButton.OnClicked -= RestartGame;
             _continueButton.OnClicked -= ShowContinueAd;
+            
+            YandexGame.RewardVideoEvent -= InvokeGameContinuing;
         }
 
         #endregion
@@ -66,8 +70,11 @@ namespace CapybaraAdventure.UI
             await _loadingScreenProvider.LoadSceneAsync();
         }
 
-        private void InvokeGameContinuing()
+        private void InvokeGameContinuing(int id)
         {
+            if (id != ContinueAdId)
+                return;
+                
             _saveService.Save();
             OnGameContinued?.Invoke();
         }

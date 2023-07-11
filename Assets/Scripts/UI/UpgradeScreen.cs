@@ -4,6 +4,7 @@ using CapybaraAdventure.Player;
 using System;
 using CapybaraAdventure.Save;
 using CapybaraAdventure.Other;
+using YG;
 
 namespace CapybaraAdventure.UI
 {
@@ -43,6 +44,8 @@ namespace CapybaraAdventure.UI
             _jumpDistanceUpgrade.Button.OnClicked += TryUpdgradeJumpDistance;
             _foodBonusUpgrade.Button.OnClicked += TryUpgradeFoodBonus;
             _getMoneyButton.OnClicked += OnGetMoneyButtonClicked;
+
+            YandexGame.RewardVideoEvent += AddRewardedCoins;
         }
 
         private void OnDisable()
@@ -52,6 +55,8 @@ namespace CapybaraAdventure.UI
             _jumpDistanceUpgrade.Button.OnClicked -= TryUpdgradeJumpDistance;
             _foodBonusUpgrade.Button.OnClicked -= TryUpgradeFoodBonus;
             _getMoneyButton.OnClicked -= OnGetMoneyButtonClicked;
+
+            YandexGame.RewardVideoEvent -= AddRewardedCoins;
         }
 
         #endregion
@@ -76,8 +81,11 @@ namespace CapybaraAdventure.UI
             OnScreenClosed?.Invoke();
         }
 
-        private void AddRewardedCoins()
+        private void AddRewardedCoins(int id)
         {
+            if (id != GetMoneyAdId)
+                return;
+
             int minInclusive = _minMaxRewardedCoins.x;
             int maxExclusive = _minMaxRewardedCoins.y;
 
