@@ -3,6 +3,7 @@ using System.Collections;
 using CapybaraAdventure.Game;
 using CapybaraAdventure.Save;
 using UnityEngine;
+using YG;
 using Zenject;
 
 namespace CapybaraAdventure.Player
@@ -10,6 +11,7 @@ namespace CapybaraAdventure.Player
     public class Score : MonoBehaviour, IPauseHandler
     {
         private const float _scoreUpdateIntervalInSeconds = 0.5f;
+        private const string YandexLeaderBoardName = "Score";
         
         private Transform _heroTransform;
         private IEnumerator _countCoroutine;
@@ -100,6 +102,8 @@ namespace CapybaraAdventure.Player
                 return;
 
             HighScore = ScoreCount;
+            
+            YandexGame.NewLeaderboardScores(YandexLeaderBoardName, HighScore);
         }
     }
 }
