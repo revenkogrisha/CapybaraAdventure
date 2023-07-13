@@ -17,6 +17,11 @@
 
 "Capybara Adventure" is a fascinating ranner game that will take you to an uncharted world, where you will play as a charming capybara. The unique jumping mechanic allows you to control the strength of the jump and move only by jumping, which creates an interesting gameplay. Upgrade your capybara, jump around islands and find new places in an exciting world full of danger and rewards. Capybara Adventure is the perfect game for anyone who loves exciting adventures and addictive gameplay in a mobile game.
 
+## Links
+
+* **[Play Market](https://play.google.com/store/apps/details?id=com.Revenko.org.CapybaraAdventure)**
+* **[Yandex Games](https://yandex.ru/games/app/230164?draft=true&lang=ru)** (Demo/Draft)
+
 ## About the project
 
 * **Release Date:** May 13, 2023
@@ -31,11 +36,6 @@
 * [Universal RP](https://unity.com/ru/srp/universal-render-pipeline) - Scriptable Render Pipeline made by Unity
 * [UnityAds](https://unity.com/ru/products/unity-ads) - UnityAds SDK v4.4.2
 * [Appodeal](https://github.com/appodeal/appodeal-android-sdk) - Appodeal SDK v3.0.2
-
-## Links
-
-* **[Play Market](https://play.google.com/store/apps/details?id=com.Revenko.org.CapybaraAdventure)**
-* **Yandex Games** - in publishing process...
 
 ## Contributing
 
