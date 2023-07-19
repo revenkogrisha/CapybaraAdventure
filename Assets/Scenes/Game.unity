@@ -1135,7 +1135,7 @@ MonoBehaviour:
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 512
   m_textAlignment: 65535
-  m_characterSpacing: 0
+  m_characterSpacing: 5
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -1568,9 +1568,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe425db1ff36046aca0ebb941ad3055c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _parent: {fileID: 1524486398}
   _foodPrefab: {fileID: 8408874472059896616, guid: 74018d65fd7574a568d87aa61bf6e4fc, type: 3}
   _chestPrefab: {fileID: 9104171104501049455, guid: 7ddd390120b37444bb88892481b3f5b1, type: 3}
-  _parent: {fileID: 1524486398}
   _platformsAmountToGenerate: 5
   _XstartPoint: 0
   _platformsY: -2
@@ -2358,7 +2358,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -998.7, y: -285.92}
+  m_AnchoredPosition: {x: -1023.2, y: -285.92}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1748718673
