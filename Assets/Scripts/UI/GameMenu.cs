@@ -64,7 +64,7 @@ namespace CapybaraAdventure.Game
 
             var tweener = new ScreenTweener();
             var logoTargetY = _logoTargetPositionRoot.position.y;
-            
+
             tweener.TweenLogo(_logo, logoTargetY);
             tweener.TweenButton(_playButton.transform);
             tweener.TweenButton(_updgradeButton.transform);
