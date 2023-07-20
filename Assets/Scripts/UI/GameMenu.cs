@@ -12,6 +12,7 @@ namespace CapybaraAdventure.Game
     {
         private const string HighScoreOriginalText = "Твой рекорд:";
 
+        [SerializeField] private Transform _logoTargetPositionRoot;
         [SerializeField] private UIButton _playButton;
         [SerializeField] private UIButton _updgradeButton;
         [SerializeField] private TextMeshProUGUI _highScoreText;
@@ -62,7 +63,9 @@ namespace CapybaraAdventure.Game
             base.Reveal();
 
             var tweener = new ScreenTweener();
-            tweener.TweenLogo(_logo);
+            var logoTargetY = _logoTargetPositionRoot.position.y;
+            
+            tweener.TweenLogo(_logo, logoTargetY);
             tweener.TweenButton(_playButton.transform);
             tweener.TweenButton(_updgradeButton.transform);
         }

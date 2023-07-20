@@ -5,7 +5,7 @@ namespace CapybaraAdventure.Other
 {
     public class ScreenTweener
     {
-        private readonly float _logoTargetY = 245f;
+        private const float DefaultLogoTargetY = 245f;
         private readonly float _logoShowDuration = 0.5f;
         private readonly float _buttonsDelay = 0.3f;
         private readonly float _buttonsScaleDuration = 0.4f;
@@ -18,12 +18,14 @@ namespace CapybaraAdventure.Other
             _buttonsScaleDuration = commonShowDuration;
         }
 
-        public void TweenLogo(Transform logo)
+        public void TweenLogo(
+            Transform logo,
+            float logoTargetY = DefaultLogoTargetY)
         {
             logo.localScale = Vector2.zero;
 
             logo.DOScale(Vector2.one, _logoShowDuration);
-            logo.DOLocalMoveY(_logoTargetY, _logoShowDuration);
+            logo.DOLocalMoveY(logoTargetY, _logoShowDuration);
             
         }
 
