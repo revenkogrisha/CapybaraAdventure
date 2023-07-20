@@ -61,8 +61,13 @@ namespace CapybaraAdventure.Game
         public override void Reveal()
         {
             base.Reveal();
+            TweenElements();
+        }
 
+        private void TweenElements()
+        {
             var tweener = new ScreenTweener();
+            
             tweener.TweenLogo(_logo);
             tweener.TweenButton(_playButton.transform);
             tweener.TweenButton(_updgradeButton.transform);
