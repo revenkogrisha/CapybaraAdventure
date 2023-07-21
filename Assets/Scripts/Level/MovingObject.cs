@@ -24,11 +24,6 @@ namespace CapybaraAdventure.Level
         private bool _canChangeDirection = true;
 
         #region MonoBehaviour
-        
-        private void Awake()
-        {
-            InitFields();
-        }
 
         private void Update()
         {
@@ -41,7 +36,7 @@ namespace CapybaraAdventure.Level
         
         #endregion
 
-        private void InitFields()
+        public void InitFields()
         {
             _transform = transform;
 

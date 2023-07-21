@@ -17,11 +17,13 @@ namespace CapybaraAdventure.Level
             DiContainer diContainer,
             Food foodPrefab,
             Chest chestPrefab,
+            Enemy enemyPrefab,
             Transform parent)
         {
             _diContainer = diContainer;
             _foodPrefab = foodPrefab;
             _chestPrefab = chestPrefab;
+            _enemyPrefab = enemyPrefab;
             _parent = parent;
         }
 
@@ -71,6 +73,7 @@ namespace CapybaraAdventure.Level
                 Vector3 position = marker.Position;
                 enemy.transform.SetParent(platformInGame.transform);
                 enemy.transform.position = position;
+                enemy.GetComponent<MovingObject>().InitFields();
             }
         }
 

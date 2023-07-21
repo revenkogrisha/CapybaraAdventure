@@ -16,6 +16,7 @@ namespace CapybaraAdventure.Level
 
         [SerializeField] private Food _foodPrefab;
         [SerializeField] private Chest _chestPrefab;
+        [SerializeField] private Enemy _enemyPrefab;
         [SerializeField] private Transform _parent;
         [SerializeField] private int _platformsAmountToGenerate = 5;
         [SerializeField] private float _XstartPoint = 0f;
@@ -63,6 +64,7 @@ namespace CapybaraAdventure.Level
                 _diContainer,
                 _foodPrefab,
                 _chestPrefab,
+                _enemyPrefab,
                 _parent);
 
             _lastGeneratedPlatformX = _XstartPoint;

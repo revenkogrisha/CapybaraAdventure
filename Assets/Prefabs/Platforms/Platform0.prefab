@@ -321,7 +321,8 @@ MonoBehaviour:
   - {fileID: 5535163097122240597}
   _chestMarkers:
   - {fileID: 297978410978052024}
-  _enemyMarkers: []
+  _enemyMarkers:
+  - {fileID: 607237526800958068}
 --- !u!1 &4957135898778543787
 GameObject:
   m_ObjectHideFlags: 0
