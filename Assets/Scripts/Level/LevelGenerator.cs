@@ -26,7 +26,7 @@ namespace CapybaraAdventure.Level
         [SerializeField] private SpecialPlatform[] _specialPlatforms;
 
         private DiContainer _diContainer;
-        private CollectablesSpawner _collectablesSpawner;
+        private LevelElementsSpawner _collectablesSpawner;
         private Transform _heroTransform;
         private bool _heroIsInitialized = false;
         private readonly Queue<Platform> _platformsOnLevel = new();

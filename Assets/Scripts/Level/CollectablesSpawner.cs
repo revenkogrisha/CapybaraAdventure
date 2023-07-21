@@ -5,14 +5,14 @@ using Zenject;
 
 namespace CapybaraAdventure.Level
 {
-    public class CollectablesSpawner
+    public class LevelElementsSpawner
     {
         private readonly DiContainer _diContainer;
         private readonly Food _foodPrefab;
         private readonly Chest _chestPrefab;
         private readonly Transform _parent;
 
-        public CollectablesSpawner(
+        public LevelElementsSpawner(
             DiContainer diContainer,
             Food foodPrefab,
             Chest chestPrefab,
