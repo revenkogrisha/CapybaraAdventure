@@ -15,11 +15,13 @@ namespace CapybaraAdventure.Level
         public LevelElementsSpawner(
             DiContainer diContainer,
             Food foodPrefab,
-            Chest chestPrefab)
+            Chest chestPrefab,
+            Transform parent)
         {
             _diContainer = diContainer;
             _foodPrefab = foodPrefab;
             _chestPrefab = chestPrefab;
+            _parent = parent;
         }
 
         public void SpawnChests(Platform platformInGame)
@@ -58,6 +60,11 @@ namespace CapybaraAdventure.Level
             Food food = NightPool.Spawn(_foodPrefab, position, Quaternion.identity);
 
             food.transform.SetParent(_parent);
+        }
+
+        public void SpawnEnemies(Platform platformInGame)
+        {
+            
         }
     }
 }
