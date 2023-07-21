@@ -1,9 +1,12 @@
+using System.Collections;
 using UnityEngine;
 
 namespace CapybaraAdventure.Level
 {
     public class MovingObject : MonoBehaviour
     {
+        private const float DirectionBlockDuration = 0.1f; // in seconds
+
         [SerializeField] private Rigidbody2D _rigidBody2D;
         [SerializeField, Min(0f)] private float _leftOffset = 0f;
         [SerializeField, Min(0f)] private float _rightOffset = 0f;
@@ -14,8 +17,8 @@ namespace CapybaraAdventure.Level
         private float _leftBorder;
         private float _rightBorder;
         private MovingDirection _currentDirection;
-
         private Transform _transform;
+        private bool _canChangeDirection = true;
 
         #region MonoBehaviour
         
@@ -28,7 +31,7 @@ namespace CapybaraAdventure.Level
         {
             float posX = _transform.position.x;
             if (posX < _leftBorder || posX > _rightBorder)
-                ChangeDirection();
+                TryChangeDirection();
 
             Move();
         }
@@ -55,8 +58,11 @@ namespace CapybaraAdventure.Level
 
         private float GetDirectedSpeed() => _speed * (float)_currentDirection;
 
-        private void ChangeDirection()
+        private void TryChangeDirection()
         {
+            if (_canChangeDirection == false)
+                return;
+
             if (_currentDirection == MovingDirection.Left)
                 _currentDirection = MovingDirection.Right;
             else
@@ -64,6 +70,8 @@ namespace CapybaraAdventure.Level
 
             if (_reflectObject == true)
                 Reflect();
+
+            StartCoroutine(BlockDirection());
         }
 
         private void Reflect()
@@ -72,6 +80,15 @@ namespace CapybaraAdventure.Level
             reflected.x *= -1f;
 
             _transform.localScale = reflected; 
+        }
+
+        private IEnumerator BlockDirection()
+        {
+            _canChangeDirection = false;
+
+            yield return new WaitForSeconds(DirectionBlockDuration);
+
+            _canChangeDirection = true;
         }
     }
 }
