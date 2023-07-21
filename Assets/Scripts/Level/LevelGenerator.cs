@@ -62,8 +62,7 @@ namespace CapybaraAdventure.Level
             _collectablesSpawner = new(
                 _diContainer,
                 _foodPrefab,
-                _chestPrefab,
-                _parent);
+                _chestPrefab);
 
             _lastGeneratedPlatformX = _XstartPoint;
 

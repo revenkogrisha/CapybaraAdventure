@@ -15,13 +15,11 @@ namespace CapybaraAdventure.Level
         public LevelElementsSpawner(
             DiContainer diContainer,
             Food foodPrefab,
-            Chest chestPrefab,
-            Transform parent)
+            Chest chestPrefab)
         {
             _diContainer = diContainer;
             _foodPrefab = foodPrefab;
             _chestPrefab = chestPrefab;
-            _parent = parent;
         }
 
         public void SpawnChests(Platform platformInGame)
