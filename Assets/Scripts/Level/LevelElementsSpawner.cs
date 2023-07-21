@@ -10,6 +10,7 @@ namespace CapybaraAdventure.Level
         private readonly DiContainer _diContainer;
         private readonly Food _foodPrefab;
         private readonly Chest _chestPrefab;
+        private readonly Enemy _enemyPrefab;
         private readonly Transform _parent;
 
         public LevelElementsSpawner(
@@ -32,39 +33,52 @@ namespace CapybaraAdventure.Level
                 Chest chest = _diContainer
                     .InstantiatePrefabForComponent<Chest>(_chestPrefab);
 
+                Vector3 position = marker.Position;
                 chest.transform.SetParent(platformInGame.transform);
-                chest.transform.position = marker.Position;
+                chest.transform.position = position;
             }
         }
 
         public void SpawnFood(Platform platformInGame)
         {
             FoodSpawnMarker[] markers = platformInGame.FoodMarkers;
-            SpawnFoodOnMarkers(markers);
-        }
-
-        public void SpawnFoodOnMarkers(FoodSpawnMarker[] markers)
-        {
             foreach (var marker in markers)
-                SpawnFoodOnMarker(marker);
-        }
+            {
+                int chance = marker.SpawnChance;
+                int randomChance = Random.Range(0, 101);
+                if (chance < randomChance)
+                    return;
 
-        public void SpawnFoodOnMarker(FoodSpawnMarker marker)
-        {
-            int chance = marker.SpawnChance;
-            int randomChance = Random.Range(0, 101);
-            if (chance < randomChance)
-                return;
+                Vector3 position = marker.Position;
+                Food food = NightPool.Spawn(_foodPrefab, position, Quaternion.identity);
 
-            Vector3 position = marker.Position;
-            Food food = NightPool.Spawn(_foodPrefab, position, Quaternion.identity);
-
-            food.transform.SetParent(_parent);
+                food.transform.SetParent(_parent);
+            }
         }
 
         public void SpawnEnemies(Platform platformInGame)
         {
-            
+            EnemySpawnMarker[] markers = platformInGame.EnemyMarkers;
+            foreach (var marker in markers)
+            {
+                bool isChanceSucceeded = GetChanceByMarker(marker);
+                if (isChanceSucceeded == false)
+                    return;
+
+                Enemy enemy = _diContainer
+                    .InstantiatePrefabForComponent<Enemy>(_enemyPrefab);
+
+                Vector3 position = marker.Position;
+                enemy.transform.SetParent(platformInGame.transform);
+                enemy.transform.position = position;
+            }
+        }
+
+        private bool GetChanceByMarker(SpawnMarker marker)
+        {
+            int chance = marker.SpawnChance;
+            int randomChance = Random.Range(0, 101);
+            return chance >= randomChance;
         }
     }
 }

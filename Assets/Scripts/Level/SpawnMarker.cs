@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace CapybaraAdventure.Level
 {
-    public class SpawnMarker : MonoBehaviour
+    public abstract class SpawnMarker : MonoBehaviour
     {
         [Tooltip("Fill in value as percent")]
         [SerializeField] private int _spawnChance = 35;
