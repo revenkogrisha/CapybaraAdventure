@@ -58,6 +58,18 @@ namespace CapybaraAdventure.Player
             OnCoinsChanged?.Invoke(Coins);
         }
 
+        public void AddTreasureChestCoins()
+        { 
+            int amount = SimpleChest.CoinsInsideAmount;
+
+            if (amount <= 0)
+                throw new ArgumentException("Wrong amount was given!");
+
+            Coins += amount;
+
+            OnCoinsChanged?.Invoke(Coins);
+        }
+
         public void AddRandomAdCoins(int minInclusive, int maxExclusive)
         {
             int amount = Random.Range(minInclusive, maxExclusive);
