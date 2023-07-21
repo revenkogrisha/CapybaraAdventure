@@ -3316,9 +3316,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _rigidBody2D: {fileID: 2063057005}
   _leftOffset: 2
-  _rightOffset: 2
+  _rightOffset: 1.4
   _startDirection: -1
-  _speed: 1
+  _speed: 1.5
   _reflectObject: 1
 --- !u!50 &2063057005
 Rigidbody2D:

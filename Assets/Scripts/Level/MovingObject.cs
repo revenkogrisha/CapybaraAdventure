@@ -7,9 +7,12 @@ namespace CapybaraAdventure.Level
     {
         private const float DirectionBlockDuration = 0.1f; // in seconds
 
+        [Header("Components")]
         [SerializeField] private Rigidbody2D _rigidBody2D;
+        [Header("Moving borders")]
         [SerializeField, Min(0f)] private float _leftOffset = 0f;
         [SerializeField, Min(0f)] private float _rightOffset = 0f;
+        [Header("Settings")]
         [SerializeField] private MovingDirection _startDirection = MovingDirection.Left;
         [SerializeField, Min(0f)] private float _speed = 2f;
         [SerializeField] private bool _reflectObject = true;
