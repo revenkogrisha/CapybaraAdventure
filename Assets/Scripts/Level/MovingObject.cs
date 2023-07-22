@@ -26,14 +26,13 @@ namespace CapybaraAdventure.Level
         private Transform _transform;
         private bool _canChangeDirection = true;
 
+        public bool IsDirectedLeft => _currentDirection == MovingDirection.Left;
+
         #region MonoBehaviour
 
         private void Update()
         {
-            float posX = _transform.position.x;
-            if (posX < _leftBorder || posX > _rightBorder)
-                TryChangeDirection();
-
+            CheckBordersAndChangeDirection();
             Move();
         }
         
@@ -59,6 +58,13 @@ namespace CapybaraAdventure.Level
             _currentDirection = _startDirection;
         }
 
+        private void CheckBordersAndChangeDirection()
+        {
+            float posX = _transform.position.x;
+            if (posX < _leftBorder || posX > _rightBorder)
+                TryChangeDirection();
+        }
+
         private void Move()
         {
             float directedSpeed = GetDirectedSpeed();
@@ -74,10 +80,9 @@ namespace CapybaraAdventure.Level
             if (_canChangeDirection == false)
                 return;
 
-            if (_currentDirection == MovingDirection.Left)
-                _currentDirection = MovingDirection.Right;
-            else
-                _currentDirection = MovingDirection.Left;
+            _currentDirection = IsDirectedLeft 
+                ? MovingDirection.Right 
+                : MovingDirection.Left;
 
             if (_reflectObject == true)
                 Reflect();
@@ -96,9 +101,7 @@ namespace CapybaraAdventure.Level
         private IEnumerator BlockDirection()
         {
             _canChangeDirection = false;
-
             yield return new WaitForSeconds(DirectionBlockDuration);
-
             _canChangeDirection = true;
         }
     }
