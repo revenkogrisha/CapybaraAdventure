@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace CapybaraAdventure.Level
 {
-    public class MovingObject : MonoBehaviour
+    public class MovingObject : MonoBehaviour, NTC.Global.Pool.IPoolItem
     {
         private const float DirectionBlockDuration = 0.1f; // in seconds
 
@@ -87,6 +87,16 @@ namespace CapybaraAdventure.Level
             yield return new WaitForSeconds(DirectionBlockDuration);
 
             _canChangeDirection = true;
+        }
+
+        public void OnSpawn()
+        {
+            InitFields();
+        }
+
+        public void OnDespawn()
+        {
+            Destroy(gameObject);
         }
     }
 }

@@ -32,6 +32,10 @@ namespace CapybaraAdventure.Level
             ChestSpawnMarker[] markers = platformInGame.ChestMarkers;
             foreach (var marker in markers)
             {
+                bool isChanceSucceeded = GetChanceByMarker(marker);
+                if (isChanceSucceeded == false)
+                    return;
+
                 Chest chest = _diContainer
                     .InstantiatePrefabForComponent<Chest>(_chestPrefab);
 
@@ -46,9 +50,8 @@ namespace CapybaraAdventure.Level
             FoodSpawnMarker[] markers = platformInGame.FoodMarkers;
             foreach (var marker in markers)
             {
-                int chance = marker.SpawnChance;
-                int randomChance = Random.Range(0, 101);
-                if (chance < randomChance)
+                bool isChanceSucceeded = GetChanceByMarker(marker);
+                if (isChanceSucceeded == false)
                     return;
 
                 Vector3 position = marker.Position;
@@ -67,13 +70,10 @@ namespace CapybaraAdventure.Level
                 if (isChanceSucceeded == false)
                     return;
 
-                Enemy enemy = _diContainer
-                    .InstantiatePrefabForComponent<Enemy>(_enemyPrefab);
-
                 Vector3 position = marker.Position;
+                Enemy enemy = NightPool.Spawn(_enemyPrefab, position);
+
                 enemy.transform.SetParent(platformInGame.transform);
-                enemy.transform.position = position;
-                enemy.GetComponent<MovingObject>().InitFields();
             }
         }
 
