@@ -14,14 +14,19 @@ namespace CapybaraAdventure.Level
         private const float PlatformLength = 30f;
         private const float HeroPositionCheckFrequencyInSeconds = 1.5f;
 
+        [Header("Prefabs")]
         [SerializeField] private Food _foodPrefab;
         [SerializeField] private Chest _chestPrefab;
         [SerializeField] private Enemy _enemyPrefab;
+
+        [Header("Platform Generation Settings")]
         [SerializeField] private Transform _parent;
         [SerializeField] private int _platformsAmountToGenerate = 5;
         [SerializeField] private float _XstartPoint = 0f;
         [SerializeField] private float _platformsY = -2f;
         [SerializeField] private int _specialPlatformSequentialNumber = 4;
+
+        [Header("Platforms")]
         [SerializeField] private SimplePlatform _startPlatform;
         [SerializeField] private SimplePlatform[] _simplePlatforms;
         [SerializeField] private SpecialPlatform[] _specialPlatforms;

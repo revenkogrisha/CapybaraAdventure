@@ -1,20 +1,23 @@
 using System.Collections;
 using UnityEngine;
+using NTC.Global.Pool;
 
 namespace CapybaraAdventure.Level
 {
-    public class MovingObject : MonoBehaviour, NTC.Global.Pool.IPoolItem
+    public class MovingObject : MonoBehaviour, IPoolItem
     {
         private const float DirectionBlockDuration = 0.1f; // in seconds
 
         [Header("Components")]
         [SerializeField] private Rigidbody2D _rigidBody2D;
-        [Header("Moving borders")]
+
+        [Header("Movement Settings")]
         [SerializeField, Min(0f)] private float _leftOffset = 0f;
         [SerializeField, Min(0f)] private float _rightOffset = 0f;
-        [Header("Settings")]
         [SerializeField] private MovingDirection _startDirection = MovingDirection.Left;
         [SerializeField, Min(0f)] private float _speed = 2f;
+
+        [Header("Reflection")]
         [SerializeField] private bool _reflectObject = true;
 
         private float _leftBorder;
@@ -35,6 +38,16 @@ namespace CapybaraAdventure.Level
         }
         
         #endregion
+
+        public void OnSpawn()
+        {
+            InitFields();
+        }
+
+        public void OnDespawn()
+        {
+            Destroy(gameObject);
+        }
 
         public void InitFields()
         {
@@ -87,16 +100,6 @@ namespace CapybaraAdventure.Level
             yield return new WaitForSeconds(DirectionBlockDuration);
 
             _canChangeDirection = true;
-        }
-
-        public void OnSpawn()
-        {
-            InitFields();
-        }
-
-        public void OnDespawn()
-        {
-            Destroy(gameObject);
         }
     }
 }
