@@ -14,22 +14,25 @@ namespace CapybaraAdventure.Level
         private const float PlatformLength = 30f;
         private const float HeroPositionCheckFrequencyInSeconds = 1.5f;
 
-        [SerializeField] private Transform _parent;
         [Header("Prefabs")]
         [SerializeField] private Food _foodPrefab;
         [SerializeField] private Chest _chestPrefab;
-        [Header("Settings")]
+        [SerializeField] private Enemy _enemyPrefab;
+
+        [Header("Platform Generation Settings")]
+        [SerializeField] private Transform _parent;
         [SerializeField] private int _platformsAmountToGenerate = 5;
         [SerializeField] private float _XstartPoint = 0f;
         [SerializeField] private float _platformsY = -2f;
         [SerializeField] private int _specialPlatformSequentialNumber = 4;
+
         [Header("Platforms")]
         [SerializeField] private SimplePlatform _startPlatform;
         [SerializeField] private SimplePlatform[] _simplePlatforms;
         [SerializeField] private SpecialPlatform[] _specialPlatforms;
 
         private DiContainer _diContainer;
-        private CollectablesSpawner _collectablesSpawner;
+        private LevelElementsSpawner _elementsSpawner;
         private Transform _heroTransform;
         private bool _heroIsInitialized = false;
         private readonly Queue<Platform> _platformsOnLevel = new();
@@ -62,10 +65,11 @@ namespace CapybaraAdventure.Level
 
         private void Awake()
         {
-            _collectablesSpawner = new(
+            _elementsSpawner = new(
                 _diContainer,
                 _foodPrefab,
                 _chestPrefab,
+                _enemyPrefab,
                 _parent);
 
             _lastGeneratedPlatformX = _XstartPoint;
@@ -136,7 +140,7 @@ namespace CapybaraAdventure.Level
             platform.transform.SetParent(_parent);
             platform.name = PlatformName;
 
-            SpawnCollectables(platform);
+            SpawnElements(platform);
 
             _lastGeneratedPlatformX += PlatformLength;
             _platformNumber++;
@@ -154,10 +158,11 @@ namespace CapybaraAdventure.Level
             return platform;
         }
 
-        private void SpawnCollectables(Platform platform)
+        private void SpawnElements(Platform platform)
         {
-            _collectablesSpawner.SpawnFood(platform);
-            _collectablesSpawner.SpawnChests(platform);
+            _elementsSpawner.SpawnFood(platform);
+            _elementsSpawner.SpawnChests(platform);
+            _elementsSpawner.SpawnEnemies(platform);
         }
 
         private void DespawnOldestPlatform()

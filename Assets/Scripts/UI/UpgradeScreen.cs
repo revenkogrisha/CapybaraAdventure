@@ -16,12 +16,9 @@ namespace CapybaraAdventure.UI
         [Header("Blocks")]
         [SerializeField] private UpgradeBlock _jumpDistanceUpgrade;
         [SerializeField] private UpgradeBlock _foodBonusUpgrade;
-        [Header("Settings")]
-        [Tooltip("First value - min; second - max")]
+        [SerializeField] private AdInterstitial _interstitialAd;
+        [SerializeField] private AdRewarded _rewardedCoins;
         [SerializeField] private Vector2Int _minMaxRewardedCoins = new(5, 31);
-        [Header("Ad settings")]
-        [SerializeField] private AppodealInterstitial _interstitialAd;
-        [SerializeField] private AppodealRewarded _rewardedCoins;
 
         private PlayerData _playerData;
         private SaveService _saveService;

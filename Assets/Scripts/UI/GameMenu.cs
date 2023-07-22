@@ -17,7 +17,7 @@ namespace CapybaraAdventure.Game
         [SerializeField] private UIButton _updgradeButton;
         [SerializeField] private TextMeshProUGUI _highScoreText;
         [SerializeField] private Transform _logo;
-        [SerializeField] private AppodealInterstitial _interstitialAd;
+        [SerializeField] private AdInterstitial _interstitialAd;
 
         private GameStartup _gameStartup;
         private GameUI _inGameUI;

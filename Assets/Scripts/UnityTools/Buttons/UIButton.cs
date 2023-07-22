@@ -14,6 +14,18 @@ namespace UnityTools.Buttons
         [SerializeField] private AudioSource _audio;
 
         public Button OriginalButton => _button;
+        public bool IsLocked { get; private set; }
+        public bool IsInteractable
+        {
+            get => _button.interactable;
+            set
+            {
+                if (IsLocked)
+                    return;
+
+                _button.interactable = value;
+            }
+        }
 
         public event Action OnClicked;
 
@@ -31,6 +43,23 @@ namespace UnityTools.Buttons
         }
 
         #endregion
+
+        public void Lock()
+        {
+            IsInteractable = false;
+            IsLocked = true;
+        }
+
+        public void Unlock()
+        {
+            IsLocked = false;
+        }
+
+        public void UnlockWithInteraction()
+        {
+            Unlock();
+            IsInteractable = true;
+        }
 
         private void PlaySound()
         {

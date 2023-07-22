@@ -15,10 +15,8 @@ namespace CapybaraAdventure.UI
         [SerializeField] private Transform _logoText;
         [Header("Settings")]
         [SerializeField] private float _UIShowDuration = 0.3f;
-        [Header("Ad Settings")]
-        [SerializeField] private AppodealInterstitial _interstitialAd;
-        [SerializeField] private AppodealRewarded _rewardedHeroRevival;
-
+        [SerializeField] private AdInterstitial _interstitialAd;
+        [SerializeField] private AdRewarded _rewardedHeroRevival;
         private SaveService _saveService;
         private LoadingScreenProvider _loadingScreenProvider;
 
@@ -61,7 +59,7 @@ namespace CapybaraAdventure.UI
         }
 
         public void BlockContinuing() => 
-            _continueButton.OriginalButton.interactable = false;
+            _continueButton.Lock();
 
         private async void RestartGame()
         {
