@@ -9,10 +9,10 @@ namespace CapybaraAdventure.Player
 
         private readonly Rigidbody2D _rigidBody2D;
         private readonly AnimationCurve _jumpCurve;
-        private HeightCheckService _heightTestService;
         private readonly Transform _transform;
         private readonly float _duration;
         private readonly float _heightTest;
+        private HeightCheckService _heightTestService;
         private bool _shouldJump = false;
         private float _expiredJumpTime = 0f;
         private float _jumpForce;

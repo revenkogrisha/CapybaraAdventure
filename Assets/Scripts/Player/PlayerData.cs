@@ -90,12 +90,11 @@ namespace CapybaraAdventure.Player
 
         public void UpgradeJumpDistance(UpgradeBlock block)
         {
-            //  It is supposed to work like this.
-            //  It makes illusion of unlimited upgrading for player
-
             DistanceUpgradeCost = block.Cost;
 
             float increased = MaxDistance += MaxDistanceUpgradeIncrease;
+            //  It is supposed to work like this.
+            //  It makes illusion of unlimited upgrading for player
             if (increased > MaxDistanceUpgradeLimit)
                 return;
 
@@ -104,12 +103,11 @@ namespace CapybaraAdventure.Player
 
         public void UpgradeFoodBonus(UpgradeBlock block)
         {
-            //  It is supposed to work like this.
-            //  It makes illusion of unlimited upgrading for player
-
             FoodUpgradeCost = block.Cost;
 
             float increased = FoodBonus += FoodBonusIncrease;
+            //  It is supposed to work like this.
+            //  It makes illusion of unlimited upgrading for player
             if (increased > FoodBonusLimit)
                 return;
 
