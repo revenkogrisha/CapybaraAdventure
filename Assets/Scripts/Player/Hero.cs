@@ -26,10 +26,6 @@ namespace CapybaraAdventure.Player
         [Header("Audio")]
         [SerializeField] private HeroAudioPlayer _audioPlayer;
         
-        [Header("Settings")]
-        [SerializeField] private AnimationCurve _jumpCurve;
-        [SerializeField] private float _duration = 0.8f;
-        
         private HeroAnimator _heroAnimator;
         private PauseManager _pauseManager;
         private bool _isDead;
