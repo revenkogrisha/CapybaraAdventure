@@ -183,7 +183,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3508101966133755882}
-  - component: {fileID: -6293920189038187168}
+  - component: {fileID: 4323019035991690519}
   m_Layer: 6
   m_Name: Platform5
   m_TagString: Untagged
@@ -216,7 +216,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &-6293920189038187168
+--- !u!114 &4323019035991690519
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -225,7 +225,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3508101966133755884}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 10806325b3e4445d0b8d589785d3ac76, type: 3}
+  m_Script: {fileID: 11500000, guid: a5cbf0f8d6dbe4bddb0a5b2f09174331, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _foodMarkers:
@@ -428,7 +428,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6981545685005338837}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.25, y: 1.1, z: 0}
+  m_LocalPosition: {x: 3.06, y: 1.1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -557,7 +557,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7476260952591014034}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.99, y: 1.1, z: 0}
+  m_LocalPosition: {x: -1.43, y: 1.1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
