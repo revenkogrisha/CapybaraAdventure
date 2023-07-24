@@ -3,7 +3,6 @@ using CapybaraAdventure.Game;
 using CapybaraAdventure.Other;
 using CapybaraAdventure.Save;
 using UnityEngine;
-using Zenject;
 
 namespace CapybaraAdventure.UI
 {

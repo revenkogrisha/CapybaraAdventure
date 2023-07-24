@@ -10,15 +10,16 @@ namespace CapybaraAdventure.UI
 {
     public class UpgradeScreen : UIBase
     {
-        [Header("Components")]
-        [SerializeField] private ResetProgressService _resetService;
+        [Header("UI Elements")]
         [SerializeField] private UIButton _backButton;
-        [Header("Blocks")]
         [SerializeField] private UpgradeBlock _jumpDistanceUpgrade;
         [SerializeField] private UpgradeBlock _foodBonusUpgrade;
+        [SerializeField] private ResetProgressService _resetService;
+
+        [Header("Ads Settings")]
         [SerializeField] private AdInterstitial _interstitialAd;
         [SerializeField] private AdRewarded _rewardedCoins;
-        [SerializeField] private Vector2Int _minMaxRewardedCoins = new(5, 31);
+        [SerializeField] private Vector2Int _minMaxRewardedCoins = new Vector2Int(5, 31);
 
         private PlayerData _playerData;
         private SaveService _saveService;

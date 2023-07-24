@@ -13,10 +13,13 @@ namespace CapybaraAdventure.Game
     {
         private const string HighScoreOriginalText = "HighScore:";
 
+        [Header("UI Elements")]
         [SerializeField] private UIButton _playButton;
         [SerializeField] private UIButton _updgradeButton;
         [SerializeField] private TextMeshProUGUI _highScoreText;
         [SerializeField] private Transform _logo;
+
+        [Header("Ads Settings")]
         [SerializeField] private AdInterstitial _interstitialAd;
 
         private GameStartup _gameStartup;

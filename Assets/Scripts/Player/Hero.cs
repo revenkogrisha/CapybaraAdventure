@@ -15,10 +15,17 @@ namespace CapybaraAdventure.Player
         [SerializeField] private Animator _animator;
         [SerializeField] private Rigidbody2D _rigidBody2D;
         [SerializeField] private Collider2D _collider;
-        [SerializeField] private LayerMask _ground;
-        [Tooltip("Optional")]
+        [Tooltip("Optional (Can be null)")]
         [SerializeField] private ParticlesPlayer _jumpParticlesPlayer;
+
+        [Header("Jump Settings")]
+        [SerializeField] private float _duration = 0.8f;
+        [SerializeField] private LayerMask _ground;
+        [SerializeField] private AnimationCurve _jumpCurve;
+
+        [Header("Audio")]
         [SerializeField] private HeroAudioPlayer _audioPlayer;
+        
         [Header("Settings")]
         [SerializeField] private AnimationCurve _jumpCurve;
         [SerializeField] private float _duration = 0.8f;
