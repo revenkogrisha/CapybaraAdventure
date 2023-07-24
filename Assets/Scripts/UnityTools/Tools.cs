@@ -21,6 +21,28 @@ namespace UnityTools
             return isNotComponentNull;
         }
 
+        public static bool InvokeIfNotNull<T>(Collision2D container, params Action<T>[] handlers)
+        {
+            var component = container.transform.GetComponent<T>();
+            var isNotComponentNull = component != null;
+            if (isNotComponentNull)
+                foreach (var handler in handlers)
+                    handler?.Invoke(component);
+
+            return isNotComponentNull;
+        }
+
+        public static bool InvokeIfNotNull<T>(Collision2D container, params Action[] handlers)
+        {
+            var component = container.transform.GetComponent<T>();
+            var isNotComponentNull = component != null;
+            if (isNotComponentNull)
+                foreach (var handler in handlers)
+                    handler?.Invoke();
+
+            return isNotComponentNull;
+        }
+
         /// <summary>
         /// Invokes given methods if Collider container has component requested as generic type.
         /// </summary>
