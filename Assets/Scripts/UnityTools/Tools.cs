@@ -6,6 +6,12 @@ namespace UnityTools
 {
     public static class Tools
     {
+        public static bool GetChance(int chance)
+        {
+            int randomChance = Random.Range(0, 101);
+            return chance >= randomChance;
+        }
+
         /// <summary>
         /// Invokes given methods if Collider container has component requested as generic type.
         /// Component of given generic type is used as argument for methods.
@@ -28,6 +34,17 @@ namespace UnityTools
             if (isNotComponentNull)
                 foreach (var handler in handlers)
                     handler?.Invoke(component);
+
+            return isNotComponentNull;
+        }
+
+        public static bool InvokeIfNotNull<T>(Collision2D container, params Action<Collision2D>[] handlers)
+        {
+            var component = container.transform.GetComponent<T>();
+            var isNotComponentNull = component != null;
+            if (isNotComponentNull)
+                foreach (var handler in handlers)
+                    handler?.Invoke(container);
 
             return isNotComponentNull;
         }

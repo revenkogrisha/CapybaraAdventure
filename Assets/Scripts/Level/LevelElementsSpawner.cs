@@ -2,6 +2,7 @@ using UnityEngine;
 using NTC.Global.Pool;
 using CapybaraAdventure.Player;
 using Zenject;
+using UnityTools;
 
 namespace CapybaraAdventure.Level
 {
@@ -32,7 +33,7 @@ namespace CapybaraAdventure.Level
             ChestSpawnMarker[] markers = platformInGame.ChestMarkers;
             foreach (var marker in markers)
             {
-                bool isChanceSucceeded = GetChanceByMarker(marker);
+                bool isChanceSucceeded = Tools.GetChance(marker.SpawnChance);
                 if (isChanceSucceeded == false)
                     return;
 
@@ -50,7 +51,7 @@ namespace CapybaraAdventure.Level
             FoodSpawnMarker[] markers = platformInGame.FoodMarkers;
             foreach (var marker in markers)
             {
-                bool isChanceSucceeded = GetChanceByMarker(marker);
+                bool isChanceSucceeded = Tools.GetChance(marker.SpawnChance);
                 if (isChanceSucceeded == false)
                     return;
 
@@ -66,7 +67,7 @@ namespace CapybaraAdventure.Level
             EnemySpawnMarker[] markers = platformInGame.EnemyMarkers;
             foreach (var marker in markers)
             {
-                bool isChanceSucceeded = GetChanceByMarker(marker);
+                bool isChanceSucceeded = Tools.GetChance(marker.SpawnChance);
                 if (isChanceSucceeded == false)
                     return;
 
@@ -75,13 +76,6 @@ namespace CapybaraAdventure.Level
 
                 enemy.transform.SetParent(platformInGame.transform);
             }
-        }
-
-        private bool GetChanceByMarker(SpawnMarker marker)
-        {
-            int chance = marker.SpawnChance;
-            int randomChance = Random.Range(0, 101);
-            return chance >= randomChance;
         }
     }
 }
