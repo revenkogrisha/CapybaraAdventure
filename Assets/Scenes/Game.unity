@@ -785,7 +785,7 @@ MonoBehaviour:
   m_Intensity: 1
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
-  m_ApplyToSortingLayers: 0000000061540ebc7f330070531c661f
+  m_ApplyToSortingLayers: 0000000061540ebc7f330070531c661fc3841a0b
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
@@ -1568,7 +1568,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe425db1ff36046aca0ebb941ad3055c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _parent: {fileID: 1524486398}
   _foodPrefab: {fileID: 8408874472059896616, guid: 74018d65fd7574a568d87aa61bf6e4fc, type: 3}
   _chestPrefab: {fileID: 9104171104501049455, guid: 7ddd390120b37444bb88892481b3f5b1, type: 3}
   _enemyPrefab: {fileID: 5067633634680072084, guid: 60051f938269b4a03b7add09834f5f65, type: 3}
@@ -2549,9 +2548,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1139911583
+  m_SortingLayerID: 186287299
   m_SortingLayer: 1
-  m_SortingOrder: -1
+  m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 44c647739badd41f3b6153592073fdc4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 0.73333335}
   m_FlipX: 0
