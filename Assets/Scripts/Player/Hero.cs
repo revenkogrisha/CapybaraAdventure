@@ -4,6 +4,7 @@ using System;
 using CapybaraAdventure.Game;
 using NTC.Global.Pool;
 using UnityTools;
+using CapybaraAdventure.Level;
 
 namespace CapybaraAdventure.Player
 {
@@ -63,6 +64,7 @@ namespace CapybaraAdventure.Player
             Jump.OnJumped += PlayJumpSound;
             Jump.OnLanded += AnimateJumpEnd;
             Jump.OnLanded += HasLanded;
+            Jump.OnJumped += RemoveParent;
 
             if (ShouldPlayParticles == true)
                 Jump.OnJumped += SpawnParticles;
@@ -75,6 +77,7 @@ namespace CapybaraAdventure.Player
             Jump.OnJumped -= PlayJumpSound;
             Jump.OnLanded -= AnimateJumpEnd;
             Jump.OnLanded -= HasLanded;
+            Jump.OnJumped -= RemoveParent;
 
             if (ShouldPlayParticles == true)
                 Jump.OnJumped -= SpawnParticles;
@@ -90,13 +93,22 @@ namespace CapybaraAdventure.Player
 
         private void OnTriggerEnter2D(Collider2D other)
         {
-            if (IsPaused
-                || _isDead)
+            if (IsPaused || _isDead)
                 return;
             
             HandleDeadlyObjectCollision(other);
             HandleFoodCollision(other);
             HandleChestCollision(other);
+        }
+
+        private void OnCollisionEnter2D(Collision2D other)
+        {
+            HandleFallingIslandCollision(other);
+        }
+
+        private void OnCollisionExit2D(Collision2D other)
+        {
+            HandleFallingIslandExit(other);
         }
 
         #endregion
@@ -155,6 +167,16 @@ namespace CapybaraAdventure.Player
             Tools.InvokeIfNotNull<Chest>(other, OpenChest);
         }
 
+        private void HandleFallingIslandCollision(Collision2D other)
+        {
+            Tools.InvokeIfNotNull<FallingIsland>(other, LandOnFallingIsland);
+        }
+
+        private void HandleFallingIslandExit(Collision2D other)
+        {
+            Tools.InvokeIfNotNull<FallingIsland>(other, RemoveParent);
+        }
+
         private void PerformDeath()
         {
             _audioPlayer.PlayGameOver();
@@ -186,6 +208,17 @@ namespace CapybaraAdventure.Player
         {
             _audioPlayer.PlayCollected();
             chest.Open();
+        }
+
+        private void LandOnFallingIsland(FallingIsland island)
+        {
+            transform.SetParent(island.transform, true);
+            island.TriggerFalling();
+        }
+
+        private void RemoveParent()
+        {
+            transform.SetParent(null, true);
         }
     }
 }

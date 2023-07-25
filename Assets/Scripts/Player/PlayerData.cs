@@ -26,7 +26,7 @@ namespace CapybaraAdventure.Player
         public float ChangeDirectionChanceDecrease
         {
             get => _changeDirectionChanceDecrease + (_changeDirectionChanceDecrease * FoodBonus);
-            private set => _changeDirectionChanceDecrease = value;
+            private set => _changeDirectionChanceDecrease = value; 
         }
 
         public float LerpSpeedDecrease
