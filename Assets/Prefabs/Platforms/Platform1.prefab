@@ -1200,7 +1200,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _rigidBody2D: {fileID: 3364170317229222522}
   _triggerChance: 40
-  _delayBeforeFalling: 1.5
+  _delayBeforeFalling: 1.7
   _delayBeforeDestroy: 2
   _fallSpeed: 10
   _moveDownDuration: 0.2

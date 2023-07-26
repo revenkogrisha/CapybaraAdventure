@@ -13,7 +13,7 @@ namespace CapybaraAdventure.Level
         [SerializeField, Range(0, 101)] private int _triggerChance = 40;
 
         [Header("Falling Settings")]
-        [SerializeField] private float _delayBeforeFalling = 1.5f;
+        [SerializeField] private float _delayBeforeFalling = 1.7f;
         [SerializeField] private float _delayBeforeDestroy = 2f;
         [SerializeField] private float _fallSpeed = 10f;
         [SerializeField] private float _moveDownDuration = 0.2f;
