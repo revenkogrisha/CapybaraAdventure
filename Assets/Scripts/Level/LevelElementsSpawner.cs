@@ -6,26 +6,24 @@ using UnityTools;
 
 namespace CapybaraAdventure.Level
 {
-    public class LevelElementsSpawner
+    public class LevelElementsSpawner : MonoBehaviour
     {
-        private readonly DiContainer _diContainer;
-        private readonly Food _foodPrefab;
-        private readonly Chest _chestPrefab;
-        private readonly Enemy _enemyPrefab;
-        private readonly Transform _parent;
+        [Header("Element Prefabs")]
+        [SerializeField] private Food _foodPrefab;
+        [SerializeField] private SimpleChest _chestPrefab;
+        [SerializeField] private SwordChest _swordChestPrefab;
+        [SerializeField] private Enemy _enemyPrefab;
+        [SerializeField] private Transform _parent;
 
-        public LevelElementsSpawner(
-            DiContainer diContainer,
-            Food foodPrefab,
-            Chest chestPrefab,
-            Enemy enemyPrefab,
-            Transform parent)
+        [Header("Chest Spawn Settings")]
+        [SerializeField, Range(0, 101)] private int _swordChestSpawnChance = 30;
+ 
+        private DiContainer _diContainer;
+
+        [Inject]
+        private void Construct(DiContainer diContainer)
         {
             _diContainer = diContainer;
-            _foodPrefab = foodPrefab;
-            _chestPrefab = chestPrefab;
-            _enemyPrefab = enemyPrefab;
-            _parent = parent;
         }
 
         public void SpawnChests(Platform platformInGame)
@@ -37,8 +35,10 @@ namespace CapybaraAdventure.Level
                 if (isChanceSucceeded == false)
                     return;
 
-                Chest chest = _diContainer
-                    .InstantiatePrefabForComponent<Chest>(_chestPrefab);
+                bool isSwordChestSpawn = Tools.GetChance(_swordChestSpawnChance);
+                Chest chest = isSwordChestSpawn == true
+                    ? SpawnSwordChest()
+                    : SpawnSimpleChest();
 
                 Vector3 position = marker.Position;
                 chest.transform.SetParent(platformInGame.transform);
@@ -76,6 +76,20 @@ namespace CapybaraAdventure.Level
 
                 enemy.transform.SetParent(platformInGame.transform);
             }
+        }
+
+        private Chest SpawnSimpleChest()
+        {
+            Chest chest = _diContainer
+                    .InstantiatePrefabForComponent<Chest>(_chestPrefab);
+
+            return chest;
+        }
+
+        private Chest SpawnSwordChest()
+        {
+            Chest chest = NightPool.Spawn(_swordChestPrefab);
+            return chest;
         }
     }
 }

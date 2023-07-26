@@ -14,13 +14,16 @@ namespace CapybaraAdventure.Level
         private const float PlatformLength = 30f;
         private const float HeroPositionCheckFrequencyInSeconds = 1.5f;
 
+        [Header("Components")]
+        [SerializeField] private LevelElementsSpawner _elementsSpawner;
+
         [Header("Prefabs")]
         [SerializeField] private Food _foodPrefab;
         [SerializeField] private Chest _chestPrefab;
         [SerializeField] private Enemy _enemyPrefab;
 
         [Header("Platform Generation Settings")]
-        [SerializeField] private Transform _parent;
+        [SerializeField] private Transform _platformsParent;
         [SerializeField] private int _platformsAmountToGenerate = 5;
         [SerializeField] private float _XstartPoint = 0f;
         [SerializeField] private float _platformsY = -2f;
@@ -32,7 +35,6 @@ namespace CapybaraAdventure.Level
         [SerializeField] private SpecialPlatform[] _specialPlatforms;
 
         private DiContainer _diContainer;
-        private LevelElementsSpawner _elementsSpawner;
         private Transform _heroTransform;
         private bool _heroIsInitialized = false;
         private readonly Queue<Platform> _platformsOnLevel = new();
@@ -65,13 +67,6 @@ namespace CapybaraAdventure.Level
 
         private void Awake()
         {
-            _elementsSpawner = new(
-                _diContainer,
-                _foodPrefab,
-                _chestPrefab,
-                _enemyPrefab,
-                _parent);
-
             _lastGeneratedPlatformX = _XstartPoint;
 
             StartCoroutine(CheckPlayerPosition());
@@ -137,7 +132,7 @@ namespace CapybaraAdventure.Level
         private void GeneratePlatform(Platform platformPrefab)
         {
             Platform platform = SpawnPlatform(platformPrefab);
-            platform.transform.SetParent(_parent);
+            platform.transform.SetParent(_platformsParent);
             platform.name = PlatformName;
 
             SpawnElements(platform);
