@@ -41,7 +41,6 @@ namespace CapybaraAdventure.UI
         private void OnFoodEatenHandler()
         {
             _jumpSlider.TryDecreaseLerpSpeed();
-            _jumpSlider.DecreaseLerpDirectionChangeChance();
         }
 
         private void OnClickedHandler()
@@ -53,7 +52,6 @@ namespace CapybaraAdventure.UI
             _heroJump.SayShouldJump();
 
             _jumpSlider.TryIncreaseLerpSpeed();
-            _jumpSlider.IncreaseLerpDirectionChangeChance();
         }
 
         private void UpdateForceValue()
