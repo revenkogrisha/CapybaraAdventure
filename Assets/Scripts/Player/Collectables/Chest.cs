@@ -12,17 +12,13 @@ namespace CapybaraAdventure.Player
 
         private readonly int _openedId = Animator.StringToHash(Opened);
 
-        public void Open()
+        public virtual void Open()
         {
             _openParticles.SpawnTillDuration();
             _animator.SetTrigger(_openedId);
             
             Invoke(nameof(Deactivate), DeactivateDelay);
-
-            ReleaseContent();
         }
-
-        protected abstract void ReleaseContent();
 
         private void Deactivate() => gameObject.SetActive(false);
     }

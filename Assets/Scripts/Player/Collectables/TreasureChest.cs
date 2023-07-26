@@ -8,7 +8,13 @@ namespace CapybaraAdventure.Player
 
         private PlayerData _playerData;
 
-        protected override void ReleaseContent()
+        public override void Open()
+        {
+            base.Open();
+            ReleaseContent();
+        }
+
+        protected void ReleaseContent()
         {
             _playerData.AddTreasureChestCoins();
         }
