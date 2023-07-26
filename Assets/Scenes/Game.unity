@@ -1534,6 +1534,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1168720910}
   - component: {fileID: 1168720911}
+  - component: {fileID: 1168720912}
   m_Layer: 0
   m_Name: LevelGenerator
   m_TagString: Untagged
@@ -1568,10 +1569,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe425db1ff36046aca0ebb941ad3055c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _elementsSpawner: {fileID: 1168720912}
   _foodPrefab: {fileID: 8408874472059896616, guid: 74018d65fd7574a568d87aa61bf6e4fc, type: 3}
   _chestPrefab: {fileID: 9104171104501049455, guid: 7ddd390120b37444bb88892481b3f5b1, type: 3}
   _enemyPrefab: {fileID: 5067633634680072084, guid: 60051f938269b4a03b7add09834f5f65, type: 3}
-  _parent: {fileID: 1524486398}
+  _platformsParent: {fileID: 0}
   _platformsAmountToGenerate: 5
   _XstartPoint: 0
   _platformsY: -2
@@ -1587,6 +1589,24 @@ MonoBehaviour:
   _specialPlatforms:
   - {fileID: -6293920189038187168, guid: 21db26adf15df4746aa4a65099e8dcd0, type: 3}
   - {fileID: -6293920189038187168, guid: 197dd6839770041bf9d27df96e783424, type: 3}
+--- !u!114 &1168720912
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1168720909}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf61f0bcfa5324542806e8f8391630ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _foodPrefab: {fileID: 8408874472059896616, guid: 74018d65fd7574a568d87aa61bf6e4fc, type: 3}
+  _chestPrefab: {fileID: 9104171104501049455, guid: 7ddd390120b37444bb88892481b3f5b1, type: 3}
+  _swordChestPrefab: {fileID: -7780956765906762808, guid: 68690134a56a64edabe9aba8760c5193, type: 3}
+  _enemyPrefab: {fileID: 5067633634680072084, guid: 60051f938269b4a03b7add09834f5f65, type: 3}
+  _parent: {fileID: 1524486398}
+  _swordChestSpawnChance: 30
 --- !u!1 &1262779069
 GameObject:
   m_ObjectHideFlags: 0

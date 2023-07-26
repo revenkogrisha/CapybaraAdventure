@@ -20,6 +20,9 @@ namespace CapybaraAdventure.Player
         [Tooltip("Optional (Can be null)")]
         [SerializeField] private ParticlesPlayer _jumpParticlesPlayer;
 
+        [Header("Parts")]
+        [SerializeField] private GameObject _sword;
+
         [Header("Jump Settings")]
         [SerializeField] private float _duration = 0.8f;
         [SerializeField] private LayerMask _ground;
@@ -45,6 +48,7 @@ namespace CapybaraAdventure.Player
 
         private void Awake()
         {
+            _sword.SetActive(false);
             InitFields();
         }
 
@@ -166,8 +170,12 @@ namespace CapybaraAdventure.Player
 
         private void GetSword()
         {
+            if (_hasSword == true)
+                return;
+
             _hasSword = true;
             _heroAnimator.GetSword();
+            _sword.SetActive(true);
         }
 
         private void SpawnParticles() =>
