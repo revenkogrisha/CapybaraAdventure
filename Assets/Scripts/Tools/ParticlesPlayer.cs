@@ -1,7 +1,7 @@
 using NTC.Global.Pool;
 using UnityEngine;
 
-namespace CapybaraAdventure.Player
+namespace CapybaraAdventure.Other
 {
     public class ParticlesPlayer : MonoBehaviour
     {

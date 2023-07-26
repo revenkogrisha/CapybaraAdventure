@@ -1,3 +1,4 @@
+using CapybaraAdventure.Other;
 using UnityEngine;
 
 namespace CapybaraAdventure.Player
