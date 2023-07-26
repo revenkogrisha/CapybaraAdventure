@@ -19,9 +19,6 @@ namespace CapybaraAdventure.Game
         [SerializeField] private TextMeshProUGUI _highScoreText;
         [SerializeField] private Transform _logo;
 
-        [Header("Ads Settings")]
-        [SerializeField] private AdInterstitial _interstitialAd;
-
         private GameStartup _gameStartup;
         private GameUI _inGameUI;
         private UpgradeScreenProvider _upgradeScreenProvider;
@@ -82,8 +79,6 @@ namespace CapybaraAdventure.Game
             _upgradeScreen.OnScreenClosed += OnUpgradeScreenClosedHandler;
 
             Conceal();
-
-            _interstitialAd.TryShowWithChance();
         }
 
         private void OnUpgradeScreenClosedHandler()

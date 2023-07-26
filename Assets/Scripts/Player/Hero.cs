@@ -124,6 +124,16 @@ namespace CapybaraAdventure.Player
                 EnableRigidbody();
         }
 
+        public void GetSword()
+        {
+            if (_hasSword == true)
+                return;
+
+            _hasSword = true;
+            _heroAnimator.GetSword();
+            _sword.SetActive(true);
+        }
+
         public void Revive()
         {
             transform.position = Jump.LastJump;
@@ -166,16 +176,6 @@ namespace CapybaraAdventure.Player
         private void AnimateJumpEnd()
         {
             _heroAnimator.EndJumping();
-        }
-
-        private void GetSword()
-        {
-            if (_hasSword == true)
-                return;
-
-            _hasSword = true;
-            _heroAnimator.GetSword();
-            _sword.SetActive(true);
         }
 
         private void SpawnParticles() =>

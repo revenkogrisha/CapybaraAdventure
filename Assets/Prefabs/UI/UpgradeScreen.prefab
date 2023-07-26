@@ -834,9 +834,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _backButton: {fileID: 7732472209935443828}
-  _resetService: {fileID: 8614150904273148640}
   _jumpDistanceUpgrade: {fileID: 5535412511629223778}
   _foodBonusUpgrade: {fileID: 4875462189767796406}
+  _resetService: {fileID: 8614150904273148640}
   _interstitialAd: {fileID: 6214101468028628617}
   _rewardedCoins: {fileID: 1999024865187337601}
   _minMaxRewardedCoins: {x: 5, y: 31}
@@ -852,7 +852,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 872fb12229d5b4360bea7db7bf165865, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _showChance: 20
+  _showChance: 30
 --- !u!1 &2660487269598813082
 GameObject:
   m_ObjectHideFlags: 0

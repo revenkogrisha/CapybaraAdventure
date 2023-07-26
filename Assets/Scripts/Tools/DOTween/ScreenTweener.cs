@@ -6,9 +6,12 @@ namespace CapybaraAdventure.Other
     public class ScreenTweener
     {
         private const float DefaultLogoTargetY = 245f;
+
         private readonly float _logoShowDuration = 0.5f;
         private readonly float _buttonsDelay = 0.3f;
         private readonly float _buttonsScaleDuration = 0.4f;
+        private readonly float _swordButtonFadeDuration = 4f;
+        private readonly float _swordButtonFadeDelay = 4f;
 
         public ScreenTweener() {  }
 
@@ -50,6 +53,17 @@ namespace CapybaraAdventure.Other
 
             DOTween.Sequence()
                 .Append(button.DOScale(Vector2.one, _buttonsScaleDuration));
+        }
+
+        public void TweenSwordButton(Transform button)
+        {
+            button.localScale = Vector2.zero;
+
+            DOTween.Sequence()
+                .Append(button.DOScale(Vector2.one, _buttonsScaleDuration))
+                .AppendInterval(_swordButtonFadeDelay)
+                .Append(button.DOScale(Vector2.zero, _swordButtonFadeDuration))
+                .AppendCallback(() => button.gameObject.SetActive(false));
         }
     }
 }

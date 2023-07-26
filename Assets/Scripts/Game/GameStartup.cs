@@ -106,7 +106,12 @@ namespace CapybaraAdventure.Game
         {
             Hero hero = CreateHero();
 
-            _heroPresenter = new HeroPresenter(hero, _jumpButton, _jumpSlider);
+            _heroPresenter = new HeroPresenter(
+                hero, 
+                _jumpButton, 
+                _jumpSlider,
+                 _inGameUI);
+                 
             _heroPresenter.Enable();
 
             SetupCamera(hero);
