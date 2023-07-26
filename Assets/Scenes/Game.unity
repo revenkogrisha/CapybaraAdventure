@@ -1606,7 +1606,7 @@ MonoBehaviour:
   _swordChestPrefab: {fileID: -7780956765906762808, guid: 68690134a56a64edabe9aba8760c5193, type: 3}
   _enemyPrefab: {fileID: 5067633634680072084, guid: 60051f938269b4a03b7add09834f5f65, type: 3}
   _parent: {fileID: 1524486398}
-  _swordChestSpawnChance: 30
+  _swordChestSpawnChance: 40
 --- !u!1 &1262779069
 GameObject:
   m_ObjectHideFlags: 0

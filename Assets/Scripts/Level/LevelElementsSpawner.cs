@@ -8,6 +8,8 @@ namespace CapybaraAdventure.Level
 {
     public class LevelElementsSpawner : MonoBehaviour
     {
+        private const int SwordChestsLimit = 2;
+
         [Header("Element Prefabs")]
         [SerializeField] private Food _foodPrefab;
         [SerializeField] private SimpleChest _chestPrefab;
@@ -19,6 +21,9 @@ namespace CapybaraAdventure.Level
         [SerializeField, Range(0, 101)] private int _swordChestSpawnChance = 30;
  
         private DiContainer _diContainer;
+        private int _swordChestsAmount = 0;
+
+        private bool CanSpawnSwordChest => SwordChestsLimit > _swordChestsAmount;
 
         [Inject]
         private void Construct(DiContainer diContainer)
@@ -36,7 +41,7 @@ namespace CapybaraAdventure.Level
                     return;
 
                 bool isSwordChestSpawn = Tools.GetChance(_swordChestSpawnChance);
-                Chest chest = isSwordChestSpawn == true
+                Chest chest = isSwordChestSpawn == true && CanSpawnSwordChest == true
                     ? SpawnSwordChest()
                     : SpawnSimpleChest();
 
@@ -89,6 +94,7 @@ namespace CapybaraAdventure.Level
         private Chest SpawnSwordChest()
         {
             Chest chest = NightPool.Spawn(_swordChestPrefab);
+            _swordChestsAmount++;
             return chest;
         }
     }
