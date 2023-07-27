@@ -6,12 +6,15 @@ using NTC.Global.Pool;
 using UnityTools;
 using CapybaraAdventure.Level;
 using CapybaraAdventure.Other;
+using YG;
 
 namespace CapybaraAdventure.Player
 {
     public class Hero : MonoBehaviour, IPauseHandler
     {
+
         private const float HeightTestRadius = 0.05f;
+        private const int GetSwordId = 3;
 
         [Header("Components")]
         [SerializeField] private Animator _animator;
@@ -61,6 +64,8 @@ namespace CapybaraAdventure.Player
             Jump.OnLanded += HasLanded;
             Jump.OnJumped += RemoveParent;
 
+            YandexGame.RewardVideoEvent += GetSword;
+
             if (ShouldPlayParticles == true)
                 Jump.OnJumped += SpawnParticles;
         }
@@ -73,6 +78,8 @@ namespace CapybaraAdventure.Player
             Jump.OnLanded -= AnimateJumpEnd;
             Jump.OnLanded -= HasLanded;
             Jump.OnJumped -= RemoveParent;
+
+            YandexGame.RewardVideoEvent -= GetSword;
 
             if (ShouldPlayParticles == true)
                 Jump.OnJumped -= SpawnParticles;
@@ -131,6 +138,14 @@ namespace CapybaraAdventure.Player
 
             _hasSword = true;
             _heroAnimator.GetSword();
+        }
+
+        public void GetSword(int id)
+        {
+            if (id != GetSwordId)
+                return;
+
+            GetSword();
         }
 
         public void ActivateSwordObject()

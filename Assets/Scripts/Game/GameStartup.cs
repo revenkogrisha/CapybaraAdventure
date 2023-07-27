@@ -109,8 +109,7 @@ namespace CapybaraAdventure.Game
             _heroPresenter = new HeroPresenter(
                 hero, 
                 _jumpButton, 
-                _jumpSlider,
-                 _inGameUI);
+                _jumpSlider);
                  
             _heroPresenter.Enable();
 

@@ -1136,7 +1136,6 @@ MonoBehaviour:
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 5
-  m_characterSpacing: 5
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -1607,7 +1606,6 @@ GameObject:
   - component: {fileID: 1114529846}
   - component: {fileID: 1114529845}
   - component: {fileID: 1114529844}
-  - component: {fileID: 1114529849}
   m_Layer: 5
   m_Name: GetSwordButton
   m_TagString: Untagged
@@ -1627,8 +1625,8 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 2112627414}
   - {fileID: 1826598426}
+  - {fileID: 1777800904}
   m_Father: {fileID: 2134969917}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -16.11}
@@ -1733,19 +1731,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1114529842}
   m_CullTransparentMesh: 1
---- !u!114 &1114529849
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1114529842}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c9f1d0f2a9024701adb19e9667024ef, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _showButton: {fileID: 1114529844}
 --- !u!1 &1168720909
 GameObject:
   m_ObjectHideFlags: 0
@@ -1791,9 +1776,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe425db1ff36046aca0ebb941ad3055c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _parent: {fileID: 1524486398}
+  _elementsSpawner: {fileID: 1168720912}
   _foodPrefab: {fileID: 8408874472059896616, guid: 74018d65fd7574a568d87aa61bf6e4fc, type: 3}
   _chestPrefab: {fileID: 9104171104501049455, guid: 7ddd390120b37444bb88892481b3f5b1, type: 3}
+  _enemyPrefab: {fileID: 5067633634680072084, guid: 60051f938269b4a03b7add09834f5f65, type: 3}
+  _platformsParent: {fileID: 1524486398}
   _platformsAmountToGenerate: 5
   _XstartPoint: 0
   _platformsY: -2
@@ -1805,7 +1792,7 @@ MonoBehaviour:
   - {fileID: -7841068184548764235, guid: d9ccda69bb470453682e6dd4faa62089, type: 3}
   - {fileID: 3154565652104204545, guid: 44597342c78e44b5ab6f52b82c67b238, type: 3}
   - {fileID: -7841068184548764235, guid: b89fcbc7f8986417484e35e73f6c0b41, type: 3}
-  - {fileID: 4323019035991690519, guid: 29b0a0fc144f442fe932042a97a85427, type: 3}
+  - {fileID: 4323019035991690519, guid: 74f790f3aec19418786753a0667ba5dd, type: 3}
   - {fileID: -7841068184548764235, guid: fb4991b58c6e342509cd3bed7a34cf6c, type: 3}
   - {fileID: -7841068184548764235, guid: 14fb245fb9c5c4141b84fa6c4d7ff8b2, type: 3}
   _specialPlatforms:
@@ -1825,7 +1812,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _foodPrefab: {fileID: 8408874472059896616, guid: 74018d65fd7574a568d87aa61bf6e4fc, type: 3}
   _chestPrefab: {fileID: 9104171104501049455, guid: 7ddd390120b37444bb88892481b3f5b1, type: 3}
-  _swordChestPrefab: {fileID: -7780956765906762808, guid: 68690134a56a64edabe9aba8760c5193, type: 3}
+  _swordChestPrefab: {fileID: -7780956765906762808, guid: 80141aacb3dd8435698365449f4a5656, type: 3}
   _enemyPrefab: {fileID: 5067633634680072084, guid: 60051f938269b4a03b7add09834f5f65, type: 3}
   _parent: {fileID: 1524486398}
   _swordChestSpawnChance: 40
@@ -2499,7 +2486,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _pauseButton: {fileID: 2134969921}
   _giveSwordButton: {fileID: 1114529844}
-  _swordAdRewarded: {fileID: 1114529849}
+  _swordAdRewarded: {fileID: 0}
 --- !u!1 &1714520636
 GameObject:
   m_ObjectHideFlags: 0
@@ -2645,6 +2632,82 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1748718671}
   m_CullTransparentMesh: 1
+--- !u!1 &1777800903
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1777800904}
+  - component: {fileID: 1777800906}
+  - component: {fileID: 1777800905}
+  m_Layer: 5
+  m_Name: Image
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1777800904
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1777800903}
+  m_LocalRotation: {x: 0, y: 0, z: 0.23861815, w: 0.9711135}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1114529843}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 27.61}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -56.96, y: 21.4}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1777800905
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1777800903}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 303db01011e7d45938ee83bc658c47ac, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1777800906
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1777800903}
+  m_CullTransparentMesh: 1
 --- !u!1 &1809188268
 GameObject:
   m_ObjectHideFlags: 0
@@ -2752,7 +2815,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1114529843}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 16.11}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
