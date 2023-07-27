@@ -595,7 +595,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _rigidBody2D: {fileID: 1626417517151484425}
   _triggerChance: 101
-  _delayBeforeFalling: 1.7
+  _delayBeforeFalling: 2
   _delayBeforeDestroy: 2
   _fallSpeed: 10
   _moveDownDuration: 0.2
@@ -938,11 +938,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _rigidBody2D: {fileID: 6068041504449016723}
   _triggerChance: 101
-  _delayBeforeFalling: 2.2
+  _delayBeforeFalling: 3
   _delayBeforeDestroy: 2
   _fallSpeed: 10
-  _moveDownDuration: 0.2
-  _moveDownDistance: 1.4
+  _moveDownDuration: 0.18
+  _moveDownDistance: 1
   _particleEffect: {fileID: 3464394299546599032}
 --- !u!4 &3947668554096203226 stripped
 Transform:

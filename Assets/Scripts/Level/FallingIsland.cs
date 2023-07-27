@@ -1,10 +1,11 @@
 using System.Collections;
+using NTC.Global.Pool;
 using UnityEngine;
 using UnityTools;
 
 namespace CapybaraAdventure.Level
 {
-    public class FallingIsland : MonoBehaviour
+    public class FallingIsland : MonoBehaviour, IPoolItem
     {
         [Header("Components")]
         [SerializeField] private Rigidbody2D _rigidBody2D;
@@ -14,7 +15,7 @@ namespace CapybaraAdventure.Level
 
         [Header("Falling Settings")]
         [SerializeField] private float _delayBeforeFalling = 1.7f;
-        [SerializeField] private float _delayBeforeDestroy = 2f;
+        [SerializeField] private float _delayBeforeFreeze = 2f;
         [SerializeField] private float _fallSpeed = 10f;
         [SerializeField] private float _moveDownDuration = 0.2f;
         [SerializeField] private float _moveDownDistance = 1.4f;
@@ -23,12 +24,20 @@ namespace CapybaraAdventure.Level
         [SerializeField] private ParticleSystem _particleEffect;
 
         private bool _isTriggered = false;
-        private Vector3 _initialPosition;
+        private Vector3 _initialLocalPosition;
 
-        private void Awake()
+        public void OnSpawn()
         {
-            _rigidBody2D.bodyType = RigidbodyType2D.Static;
-            _rigidBody2D.constraints = RigidbodyConstraints2D.FreezeRotation;
+            FreezeRigidBody();
+        }
+
+        public void OnDespawn()
+        {
+            Vector2 newPosition = transform.localPosition;
+            newPosition.y = _initialLocalPosition.y;
+
+            transform.localPosition = newPosition;
+            _isTriggered = false;
         }
 
         public void TriggerFalling()
@@ -41,7 +50,7 @@ namespace CapybaraAdventure.Level
 
             TryPlayParticles();
 
-            _initialPosition = transform.position;
+            _initialLocalPosition = transform.localPosition;
             StartCoroutine(MoveDownSmoothly());
 
             Invoke(nameof(StartFalling), _delayBeforeFalling);
@@ -52,7 +61,7 @@ namespace CapybaraAdventure.Level
             _rigidBody2D.bodyType = RigidbodyType2D.Dynamic;
             _rigidBody2D.velocity = Vector2.down * _fallSpeed;
 
-            Destroy(gameObject, _delayBeforeDestroy);
+            Invoke(nameof(FreezeRigidBody), _delayBeforeFreeze);
         }
 
         private void TryPlayParticles()
@@ -66,7 +75,7 @@ namespace CapybaraAdventure.Level
         private IEnumerator MoveDownSmoothly()
         {
             float elapsedTime = 0f;
-            Vector3 targetPosition = transform.position + Vector3.down * _moveDownDistance;
+            Vector3 targetPosition = transform.localPosition + Vector3.down * _moveDownDistance;
 
             while (elapsedTime < _moveDownDuration)
             {
@@ -80,7 +89,13 @@ namespace CapybaraAdventure.Level
 
         private void MoveToPosition(Vector3 targetPosition, float time)
         {
-            transform.position = Vector3.Lerp(_initialPosition, targetPosition, time);
+            transform.localPosition = Vector3.Lerp(_initialLocalPosition, targetPosition, time);
+        }
+
+        private void FreezeRigidBody()
+        {
+            _rigidBody2D.bodyType = RigidbodyType2D.Static;
+            _rigidBody2D.constraints = RigidbodyConstraints2D.FreezeRotation;
         }
     }
 }
