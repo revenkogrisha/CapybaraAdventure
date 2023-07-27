@@ -9,12 +9,9 @@ namespace CapybaraAdventure.UI
     public class JumpSlider : MonoBehaviour
     {
         private const float LerpSpeedIncrease = 0.05f;
-        private const int ChangeDirectionChanceIncrease = 3;
-        private const float MaxLerpDirectionChangeChance = 35;
-        private const float MinLerpDirectionChangeChance = 0;
-        private const float MaxLerpSpeed = 0.75f;
+        private const float MaxLerpSpeed = 0.70f;
         private const float MinValue = 3f;
-        private const float StartLerpSpeed = 0.35f;
+        private const float StartLerpSpeed = 0.4f;
 
         [SerializeField] private Slider _slider;
 
@@ -22,9 +19,6 @@ namespace CapybaraAdventure.UI
         private JumpSliderState _state = JumpSliderState.LerpingUp;
         private PauseManager _pauseManager;
         private PlayerData _playerData;
-
-        public float ChangeDirectionChanceDecrease => 
-            _playerData.ChangeDirectionChanceDecrease;
 
         public float LerpSpeedDecrease => _playerData.LerpSpeedDecrease;
         public float Value => _slider.value;

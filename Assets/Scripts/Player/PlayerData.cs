@@ -32,7 +32,6 @@ namespace CapybaraAdventure.Player
         public float LerpSpeedDecrease
         {
             get => _lerpSpeedDecrease + (_lerpSpeedDecrease * FoodBonus);
-            private set => _lerpSpeedDecrease = value;
         }
 
         public event Action<int> OnCoinsChanged;
