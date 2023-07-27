@@ -2658,7 +2658,6 @@ GameObject:
   - component: {fileID: 1897825024}
   - component: {fileID: 1897825025}
   - component: {fileID: 1897825027}
-  - component: {fileID: 1897825028}
   m_Layer: 0
   m_Name: Startup
   m_TagString: Untagged
@@ -2711,18 +2710,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   poolPreset: {fileID: 11400000, guid: a4fd81f646efb4a0faa4903a20cad6af, type: 2}
---- !u!114 &1897825028
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1897825023}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ea2f98b2776b4b01a8ace7b1613142b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &2134969916
 GameObject:
   m_ObjectHideFlags: 0
