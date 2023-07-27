@@ -17,6 +17,11 @@
 
 "Capybara Adventure" is a fascinating ranner game that will take you to an uncharted world, where you will play as a charming capybara. The unique jumping mechanic allows you to control the strength of the jump and move only by jumping, which creates an interesting gameplay. Upgrade your capybara, jump around islands and find new places in an exciting world full of danger and rewards. Capybara Adventure is the perfect game for anyone who loves exciting adventures and addictive gameplay in a mobile game.
 
+## Links
+
+* **[Play Market](https://play.google.com/store/apps/details?id=com.Revenko.org.CapybaraAdventure)**
+* **[Yandex Games](https://yandex.ru/games/app/230164?lang=ru)**
+
 ## About the project
 
 * **Release Date:** May 13, 2023
@@ -30,11 +35,7 @@
 * [NightPool](https://github.com/MeeXaSiK/NightPool) - Fast object pool for Unity
 * [Universal RP](https://unity.com/ru/srp/universal-render-pipeline) - Scriptable Render Pipeline made by Unity
 * [UnityAds](https://unity.com/ru/products/unity-ads) - UnityAds SDK v4.4.2
-
-## Links
-
-* **[Play Market](https://play.google.com/store/apps/details?id=com.Revenko.org.CapybaraAdventure)**
-* **Yandex Games** - in publishing process...
+* [Appodeal](https://github.com/appodeal/appodeal-android-sdk) - Appodeal SDK v3.0.2
 
 ## Contributing
 
@@ -53,6 +54,7 @@ This project is licensed under the Apache-2.0 License - see the [LICENSE.md](LIC
 
 ## Acknowledgments
 
+* [PluginYG](https://github.com/JustPlay-Max/PluginYG/tree/main) - Unity plugin used for publishing on Yandex Games platform
 * [Privacy Policy Generator](https://github.com/nisrulz/app-privacy-policy-generator) - used for publishing onto Google Play Market
 * [Freesound.org](https://freesound.org/) - taken some sounds from there
 * [DALLE-2](https://openai.com/product/dall-e-2) - used for creating some UI assets

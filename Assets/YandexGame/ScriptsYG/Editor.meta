@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/YandexGame/ScriptsYG/Editor.meta
 guid: 5fbcc4f9f77425b409526c3fce11a264
+========
+guid: 576a0821a2a164f4aa986e077cdb9a5a
+>>>>>>>> unity-ads-version:Assets/WebGLTemplates.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

@@ -13,9 +13,16 @@ namespace CapybaraAdventure.Game
     [DisallowMultipleComponent]
     public class GameStartup : MonoBehaviour
     {
+        [Header("Prefabs")]
         [SerializeField] private Hero _heroPrefab;
+
+        [Header("Camera")]
         [SerializeField] private CinemachineVirtualCamera _mainCamera;
+
+        [Header("Level Elements")]
         [SerializeField] private FollowerObject _deadlyYBorder;
+
+        [Header("UI Elements")]
         [SerializeField] private UIText _scoreText;
         [SerializeField] private CoinsUIContainer _coinsUIContainer;
 
@@ -99,7 +106,12 @@ namespace CapybaraAdventure.Game
         {
             Hero hero = CreateHero();
 
-            _heroPresenter = new HeroPresenter(hero, _jumpButton, _jumpSlider);
+            _heroPresenter = new HeroPresenter(
+                hero, 
+                _jumpButton, 
+                _jumpSlider,
+                 _inGameUI);
+                 
             _heroPresenter.Enable();
 
             SetupCamera(hero);

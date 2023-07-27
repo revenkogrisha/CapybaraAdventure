@@ -10,29 +10,20 @@ namespace CapybaraAdventure.Player
     {
         private const float MaxDistanceUpgradeLimit = 25f;
         private const float MaxDistanceUpgradeIncrease = 1f;
+        private const float LerpSpeedDecrease = 0.07f;
         private const float FoodBonusIncrease = 0.25f;
         public const float FoodBonusLimit = 1f;
-        private const int DefaultUpgradeCost = 15;
 
-        private float _changeDirectionChanceDecrease = 7;
-        private float _lerpSpeedDecrease = 0.07f;
 
-        public int Coins { get; private set; } = 0;
-        public float MaxDistance { get; private set; } = 15f;
-        public float FoodBonus { get; private set; } = 0f;
-        public int FoodUpgradeCost { get; private set; } = DefaultUpgradeCost;
-        public int DistanceUpgradeCost { get; private set; } = DefaultUpgradeCost;
+        public int Coins { get; private set; }
+        public float MaxDistance { get; private set; }
+        public float FoodBonus { get; private set; }
+        public int FoodUpgradeCost { get; private set; }
+        public int DistanceUpgradeCost { get; private set; }
 
-        public float ChangeDirectionChanceDecrease
+        public float FinalLerpSpeedDecrease
         {
-            get => _changeDirectionChanceDecrease + (_changeDirectionChanceDecrease * FoodBonus);
-            private set => _changeDirectionChanceDecrease = value;
-        }
-
-        public float LerpSpeedDecrease
-        {
-            get => _lerpSpeedDecrease + (_lerpSpeedDecrease * FoodBonus);
-            private set => _lerpSpeedDecrease = value;
+            get => LerpSpeedDecrease + (LerpSpeedDecrease * FoodBonus);
         }
 
         public event Action<int> OnCoinsChanged;
@@ -47,6 +38,18 @@ namespace CapybaraAdventure.Player
         }
 
         public void AddSimpleChestCoins()
+        { 
+            int amount = SimpleChest.CoinsInsideAmount;
+
+            if (amount <= 0)
+                throw new ArgumentException("Wrong amount was given!");
+
+            Coins += amount;
+
+            OnCoinsChanged?.Invoke(Coins);
+        }
+
+        public void AddTreasureChestCoins()
         { 
             int amount = SimpleChest.CoinsInsideAmount;
 
@@ -78,12 +81,11 @@ namespace CapybaraAdventure.Player
 
         public void UpgradeJumpDistance(UpgradeBlock block)
         {
-            //  It is supposed to work like this.
-            //  It makes illusion of unlimited upgrading for player
-
             DistanceUpgradeCost = block.Cost;
 
             float increased = MaxDistance += MaxDistanceUpgradeIncrease;
+            //  It is supposed to work like this.
+            //  It makes illusion of unlimited upgrading for player
             if (increased > MaxDistanceUpgradeLimit)
                 return;
 
@@ -92,12 +94,11 @@ namespace CapybaraAdventure.Player
 
         public void UpgradeFoodBonus(UpgradeBlock block)
         {
-            //  It is supposed to work like this.
-            //  It makes illusion of unlimited upgrading for player
-
             FoodUpgradeCost = block.Cost;
 
             float increased = FoodBonus += FoodBonusIncrease;
+            //  It is supposed to work like this.
+            //  It makes illusion of unlimited upgrading for player
             if (increased > FoodBonusLimit)
                 return;
 

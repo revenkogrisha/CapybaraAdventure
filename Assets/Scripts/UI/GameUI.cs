@@ -3,26 +3,38 @@ using CapybaraAdventure.Other;
 using UnityEngine;
 using UnityTools.Buttons;
 using CapybaraAdventure.Game;
+using CapybaraAdventure.Ad;
 
 namespace CapybaraAdventure.UI
 {
     public class GameUI : UIBase
     {
         [SerializeField] private UIButton _pauseButton;
+        [SerializeField] private UIButton _giveSwordButton;
+        [SerializeField] private AdRewarded _swordAdRewarded;
 
         private PauseManager _pauseManager;
         private PauseScreenProvider _pauseScreenProvider;
+
+        public AdRewarded SwordAdRewarded =>_swordAdRewarded;
 
         #region MonoBehaviour
 
         private void OnEnable()
         {
             _pauseButton.OnClicked += PauseGame;
+            _giveSwordButton.OnClicked += DeactivateSwordButton;
         }
 
         private void OnDisable()
         {
             _pauseButton.OnClicked -= PauseGame;
+            _giveSwordButton.OnClicked -= DeactivateSwordButton;
+        }
+
+        private void Start()
+        {
+            TweenGiveSwordButton();
         }
 
         #endregion
@@ -43,6 +55,17 @@ namespace CapybaraAdventure.UI
             await _pauseScreenProvider.Load();
 
             Conceal();
+        }
+
+        private void TweenGiveSwordButton()
+        {
+            var tweener = new ScreenTweener();
+            tweener.TweenSwordButton(_giveSwordButton.transform);
+        }
+
+        private void DeactivateSwordButton()
+        {
+            _giveSwordButton.gameObject.SetActive(false);
         }
     }
 }

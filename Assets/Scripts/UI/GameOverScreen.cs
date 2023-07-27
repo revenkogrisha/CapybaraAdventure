@@ -15,7 +15,8 @@ namespace CapybaraAdventure.UI
         [SerializeField] private UIButton _restartButton;
         [SerializeField] private UIButton _continueButton;
         [SerializeField] private Transform _logoText;
-        [Header("Settings")]
+
+        [Header("UI Settings")]
         [SerializeField] private float _UIShowDuration = 0.3f;
 
         private SaveService _saveService;
@@ -62,7 +63,7 @@ namespace CapybaraAdventure.UI
         }
 
         public void BlockContinuing() => 
-            _continueButton.OriginalButton.interactable = false;
+            _continueButton.Lock();
 
         private async void RestartGame()
         {

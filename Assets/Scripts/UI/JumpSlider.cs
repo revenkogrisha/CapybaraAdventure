@@ -2,7 +2,6 @@ using UnityEngine.UI;
 using UnityEngine;
 using CapybaraAdventure.Game;
 using Zenject;
-using System.Collections;
 using CapybaraAdventure.Player;
 
 namespace CapybaraAdventure.UI
@@ -10,26 +9,18 @@ namespace CapybaraAdventure.UI
     public class JumpSlider : MonoBehaviour
     {
         private const float LerpSpeedIncrease = 0.05f;
-        private const float LerpDirectionChangeIntervalInSeconds = 1.5f;
-        private const int ChangeDirectionChanceIncrease = 3;
-        private const float MaxLerpDirectionChangeChance = 35;
-        private const float MinLerpDirectionChangeChance = 0;
-        private const float MaxLerpSpeed = 0.75f;
+        private const float MaxLerpSpeed = 0.70f;
         private const float MinValue = 3f;
         private const float StartLerpSpeed = 0.35f;
 
         [SerializeField] private Slider _slider;
 
         private float _lerpSpeed;
-        private float _lerpDirectionChangeChance = 10;
         private JumpSliderState _state = JumpSliderState.LerpingUp;
         private PauseManager _pauseManager;
         private PlayerData _playerData;
 
-        public float ChangeDirectionChanceDecrease => 
-            _playerData.ChangeDirectionChanceDecrease;
-
-        public float LerpSpeedDecrease => _playerData.LerpSpeedDecrease;
+        public float LerpSpeedDecrease => _playerData.FinalLerpSpeedDecrease;
         public float Value => _slider.value;
         public bool IsPaused => _pauseManager.IsPaused;
         public bool IsLerpingUp => _state == JumpSliderState.LerpingUp;
@@ -44,8 +35,6 @@ namespace CapybaraAdventure.UI
             _lerpSpeed = StartLerpSpeed;
             _slider.value = _slider.minValue;
             UpdateSliderProperties();
-
-            StartCoroutine(RandomlyChangeLerpDirection());
         }
 
         private void FixedUpdate()
@@ -65,26 +54,6 @@ namespace CapybaraAdventure.UI
         {
             _pauseManager = pauseManager;
             _playerData = playerData;
-        }
-
-        public void IncreaseLerpDirectionChangeChance() 
-        {
-            float increased = _lerpDirectionChangeChance + ChangeDirectionChanceIncrease;
-
-            if (increased > MaxLerpDirectionChangeChance)
-                return;
-
-            _lerpDirectionChangeChance = increased;
-        }
-
-        public void DecreaseLerpDirectionChangeChance()
-        {
-            float decreased = _lerpDirectionChangeChance - ChangeDirectionChanceDecrease;
-
-            if (decreased < MinLerpDirectionChangeChance)
-                return;
-
-            _lerpDirectionChangeChance = decreased;
         }
 
         public void TryIncreaseLerpSpeed()
@@ -124,20 +93,6 @@ namespace CapybaraAdventure.UI
             _slider.value = IsLerpingUp
                 ? _slider.value + _lerpSpeed
                 : _slider.value - _lerpSpeed;
-        }
-
-        private IEnumerator RandomlyChangeLerpDirection()
-        {
-            while (true)
-            {
-                yield return new WaitForSeconds(LerpDirectionChangeIntervalInSeconds);
-
-                int randomPercentageChance = Random.Range(0, 100);
-                if (_lerpDirectionChangeChance < randomPercentageChance)
-                    continue;
-
-                ChangeLerpDirection();
-            }
         }
 
         private void ChangeLerpDirection()

@@ -2,7 +2,7 @@ using UnityEngine;
 using System.Collections;
 using System;
 
-namespace CapybaraAdventure.Player
+namespace CapybaraAdventure.Level
 {
     public class FollowerObject : MonoBehaviour
     {

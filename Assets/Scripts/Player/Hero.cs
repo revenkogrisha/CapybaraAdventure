@@ -4,6 +4,8 @@ using System;
 using CapybaraAdventure.Game;
 using NTC.Global.Pool;
 using UnityTools;
+using CapybaraAdventure.Level;
+using CapybaraAdventure.Other;
 
 namespace CapybaraAdventure.Player
 {
@@ -15,18 +17,25 @@ namespace CapybaraAdventure.Player
         [SerializeField] private Animator _animator;
         [SerializeField] private Rigidbody2D _rigidBody2D;
         [SerializeField] private Collider2D _collider;
-        [SerializeField] private LayerMask _ground;
-        [Tooltip("Optional")]
+        [Tooltip("Optional (Can be null)")]
         [SerializeField] private ParticlesPlayer _jumpParticlesPlayer;
-        [SerializeField] private HeroAudioPlayer _audioPlayer;
-        [Header("Settings")]
-        [SerializeField] private AnimationCurve _jumpCurve;
+
+        [Header("Parts")]
+        [SerializeField] private GameObject _sword;
+
+        [Header("Jump Settings")]
         [SerializeField] private float _duration = 0.8f;
+        [SerializeField] private LayerMask _ground;
+        [SerializeField] private AnimationCurve _jumpCurve;
+
+        [Header("Audio")]
+        [SerializeField] private HeroAudioPlayer _audioPlayer;
         
         private HeroAnimator _heroAnimator;
         private PauseManager _pauseManager;
-        private bool _isDead;
-        private bool _hasJumped;
+        private bool _isDead = false;
+        private bool _hasJumped = false;
+        private bool _hasSword = false;
 
         public HeroJump Jump { get; private set; }
         public bool IsPaused => _pauseManager.IsPaused;
@@ -39,18 +48,8 @@ namespace CapybaraAdventure.Player
 
         private void Awake()
         {
-            _isDead = false;
-            _hasJumped = false;
-
-            var heightTestService = new HeightCheckService(_collider, _ground, HeightTestRadius);
-            Jump = new HeroJump(
-                _rigidBody2D,
-                _jumpCurve,
-                heightTestService,
-                transform,
-                _duration);
-
-            _heroAnimator = new HeroAnimator(_animator);
+            _sword.SetActive(false);
+            InitFields();
         }
 
         private void OnEnable()
@@ -60,6 +59,7 @@ namespace CapybaraAdventure.Player
             Jump.OnJumped += PlayJumpSound;
             Jump.OnLanded += AnimateJumpEnd;
             Jump.OnLanded += HasLanded;
+            Jump.OnJumped += RemoveParent;
 
             if (ShouldPlayParticles == true)
                 Jump.OnJumped += SpawnParticles;
@@ -72,6 +72,7 @@ namespace CapybaraAdventure.Player
             Jump.OnJumped -= PlayJumpSound;
             Jump.OnLanded -= AnimateJumpEnd;
             Jump.OnLanded -= HasLanded;
+            Jump.OnJumped -= RemoveParent;
 
             if (ShouldPlayParticles == true)
                 Jump.OnJumped -= SpawnParticles;
@@ -87,13 +88,24 @@ namespace CapybaraAdventure.Player
 
         private void OnTriggerEnter2D(Collider2D other)
         {
-            if (IsPaused
-                || _isDead)
+            if (IsPaused || _isDead)
                 return;
             
             HandleDeadlyObjectCollision(other);
+            HandleEnemyCollision(other);
             HandleFoodCollision(other);
             HandleChestCollision(other);
+            HandleSwordChestCollision(other);
+        }
+
+        private void OnCollisionEnter2D(Collision2D other)
+        {
+            HandleFallingIslandCollision(other);
+        }
+
+        private void OnCollisionExit2D(Collision2D other)
+        {
+            HandleFallingIslandExit(other);
         }
 
         #endregion
@@ -112,6 +124,20 @@ namespace CapybaraAdventure.Player
                 EnableRigidbody();
         }
 
+        public void GetSword()
+        {
+            if (_hasSword == true)
+                return;
+
+            _hasSword = true;
+            _heroAnimator.GetSword();
+        }
+
+        public void ActivateSwordObject()
+        {
+            _sword.SetActive(true);
+        }
+
         public void Revive()
         {
             transform.position = Jump.LastJump;
@@ -119,7 +145,23 @@ namespace CapybaraAdventure.Player
             EnableRigidbody();
         }
 
-        private void HasLanded() => _hasJumped = false;
+        private void InitFields()
+        {
+            var heightTestService = new HeightCheckService(_collider, _ground, HeightTestRadius);
+            Jump = new HeroJump(
+                _rigidBody2D,
+                _jumpCurve,
+                heightTestService,
+                transform,
+                _duration);
+
+            _heroAnimator = new HeroAnimator(_animator);
+        }
+
+        private void HasLanded()
+        {
+            _hasJumped = false;
+        }
         
         private void PlayJumpSound()
         {
@@ -130,9 +172,15 @@ namespace CapybaraAdventure.Player
             _audioPlayer.PlayJump();
         }
 
-        private void AnimateJump() => _heroAnimator.SetAsJumping();
+        private void AnimateJump()
+        {
+            _heroAnimator.SetAsJumping();
+        }
         
-        private void AnimateJumpEnd() => _heroAnimator.EndJumping();
+        private void AnimateJumpEnd()
+        {
+            _heroAnimator.EndJumping();
+        }
 
         private void SpawnParticles() =>
              _jumpParticlesPlayer.SpawnTillDuration();
@@ -140,6 +188,11 @@ namespace CapybaraAdventure.Player
         private void HandleDeadlyObjectCollision(Collider2D other)
         {
             Tools.InvokeIfNotNull<DeadlyForPlayerObject>(other, PerformDeath);
+        }
+
+        private void HandleEnemyCollision(Collider2D other)
+        {
+            Tools.InvokeIfNotNull<Enemy>(other, InteractWithEnemy);
         }
 
         private void HandleFoodCollision(Collider2D other)
@@ -152,6 +205,21 @@ namespace CapybaraAdventure.Player
             Tools.InvokeIfNotNull<Chest>(other, OpenChest);
         }
 
+        private void HandleSwordChestCollision(Collider2D other)
+        {
+            Tools.InvokeIfNotNull<SwordChest>(other, GetSword);
+        }
+
+        private void HandleFallingIslandCollision(Collision2D other)
+        {
+            Tools.InvokeIfNotNull<FallingIsland>(other, LandOnFallingIsland);
+        }
+
+        private void HandleFallingIslandExit(Collision2D other)
+        {
+            Tools.InvokeIfNotNull<FallingIsland>(other, RemoveParent);
+        }
+
         private void PerformDeath()
         {
             _audioPlayer.PlayGameOver();
@@ -159,6 +227,18 @@ namespace CapybaraAdventure.Player
             _isDead = true;
 
             OnDeath?.Invoke();
+        }
+
+        private void InteractWithEnemy(Enemy enemy)
+        {
+            if (_hasSword == false)
+            {
+                PerformDeath();
+                return;
+            }
+
+            enemy.PerformDeath();
+            _heroAnimator.DoHit();
         }
 
         private void EatFood(Food food)
@@ -183,6 +263,17 @@ namespace CapybaraAdventure.Player
         {
             _audioPlayer.PlayCollected();
             chest.Open();
+        }
+
+        private void LandOnFallingIsland(FallingIsland island)
+        {
+            transform.SetParent(island.transform, true);
+            island.TriggerFalling();
+        }
+
+        private void RemoveParent()
+        {
+            transform.SetParent(null, true);
         }
     }
 }
