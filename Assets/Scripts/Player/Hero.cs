@@ -131,6 +131,10 @@ namespace CapybaraAdventure.Player
 
             _hasSword = true;
             _heroAnimator.GetSword();
+        }
+
+        public void ActivateSwordObject()
+        {
             _sword.SetActive(true);
         }
 

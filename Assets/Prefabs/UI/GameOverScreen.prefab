@@ -300,7 +300,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 872fb12229d5b4360bea7db7bf165865, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _showChance: 30
+  _showChance: 40
 --- !u!1 &2660487268082393622
 GameObject:
   m_ObjectHideFlags: 0
