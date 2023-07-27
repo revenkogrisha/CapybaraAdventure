@@ -10,6 +10,7 @@ namespace CapybaraAdventure.Ad
 
         [SerializeField, Range(0f, 100f)] private float _showChance = 30f;
 
+        private AdTimer _adTimer = AdTimer.Instance;
         private string _adID;
 
         private void Awake()
@@ -21,6 +22,12 @@ namespace CapybaraAdventure.Ad
 
         public void TryShowWithChance()
         {
+            if (_adTimer.CanShowAd == false)
+            {
+                print("Ad blocked by timer!");
+                return;
+            }
+
             int randomChance = Random.Range(0, 101);
             if (randomChance <= _showChance)
                 Show();
@@ -56,6 +63,7 @@ namespace CapybaraAdventure.Ad
         public void OnUnityAdsShowComplete(string placementId, UnityAdsShowCompletionState showCompletionState)
         {
             Advertisement.Load(_adID, this);
+            _adTimer.BlockAdForPeriod();
         }
         #endregion
     }
