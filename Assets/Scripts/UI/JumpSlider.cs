@@ -11,7 +11,7 @@ namespace CapybaraAdventure.UI
         private const float LerpSpeedIncrease = 0.05f;
         private const float MaxLerpSpeed = 0.70f;
         private const float MinValue = 3f;
-        private const float StartLerpSpeed = 0.4f;
+        private const float StartLerpSpeed = 0.35f;
 
         [SerializeField] private Slider _slider;
 
@@ -20,7 +20,7 @@ namespace CapybaraAdventure.UI
         private PauseManager _pauseManager;
         private PlayerData _playerData;
 
-        public float LerpSpeedDecrease => _playerData.LerpSpeedDecrease;
+        public float LerpSpeedDecrease => _playerData.FinalLerpSpeedDecrease;
         public float Value => _slider.value;
         public bool IsPaused => _pauseManager.IsPaused;
         public bool IsLerpingUp => _state == JumpSliderState.LerpingUp;
