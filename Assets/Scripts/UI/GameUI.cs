@@ -3,33 +3,31 @@ using CapybaraAdventure.Other;
 using UnityEngine;
 using UnityTools.Buttons;
 using CapybaraAdventure.Game;
-using CapybaraAdventure.Ad;
 
 namespace CapybaraAdventure.UI
 {
     public class GameUI : UIBase
     {
+        private const int SwordAdId = 3;
+
         [SerializeField] private UIButton _pauseButton;
         [SerializeField] private UIButton _giveSwordButton;
-        [SerializeField] private AdRewarded _swordAdRewarded;
 
         private PauseManager _pauseManager;
         private PauseScreenProvider _pauseScreenProvider;
-
-        public AdRewarded SwordAdRewarded =>_swordAdRewarded;
 
         #region MonoBehaviour
 
         private void OnEnable()
         {
             _pauseButton.OnClicked += PauseGame;
-            _giveSwordButton.OnClicked += DeactivateSwordButton;
+            _giveSwordButton.OnClicked += ActivateSwordAd;
         }
 
         private void OnDisable()
         {
             _pauseButton.OnClicked -= PauseGame;
-            _giveSwordButton.OnClicked -= DeactivateSwordButton;
+            _giveSwordButton.OnClicked -= ActivateSwordAd;
         }
 
         private void Start()
@@ -63,9 +61,10 @@ namespace CapybaraAdventure.UI
             tweener.TweenSwordButton(_giveSwordButton.transform);
         }
 
-        private void DeactivateSwordButton()
+        private void ActivateSwordAd()
         {
             _giveSwordButton.gameObject.SetActive(false);
+            YGAdsProvider.ShowRewardedAd(SwordAdId);
         }
     }
 }
