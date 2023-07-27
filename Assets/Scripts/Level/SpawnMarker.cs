@@ -11,6 +11,8 @@ namespace CapybaraAdventure.Level
 
         public Vector3 Position => _transform.position;
         public int SpawnChance => _spawnChance;
+        public GameObject SpawnedObject { get; set; }
+        public bool HasActiveObject => SpawnedObject != null && SpawnedObject.activeSelf == true;
 
         private void Awake()
         {

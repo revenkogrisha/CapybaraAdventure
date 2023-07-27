@@ -37,8 +37,8 @@ namespace CapybaraAdventure.Level
             foreach (var marker in markers)
             {
                 bool isChanceSucceeded = Tools.GetChance(marker.SpawnChance);
-                if (isChanceSucceeded == false)
-                    return;
+                if (isChanceSucceeded == false || marker.HasActiveObject == true)
+                    continue;
 
                 bool isSwordChestSpawn = Tools.GetChance(_swordChestSpawnChance);
                 Chest chest = isSwordChestSpawn == true && CanSpawnSwordChest == true
@@ -46,6 +46,7 @@ namespace CapybaraAdventure.Level
                     : SpawnSimpleChest();
 
                 Vector3 position = marker.Position;
+                marker.SpawnedObject = chest.gameObject;
                 chest.transform.SetParent(platformInGame.transform);
                 chest.transform.position = position;
             }
@@ -57,13 +58,14 @@ namespace CapybaraAdventure.Level
             foreach (var marker in markers)
             {
                 bool isChanceSucceeded = Tools.GetChance(marker.SpawnChance);
-                if (isChanceSucceeded == false)
-                    return;
+                if (isChanceSucceeded == false || marker.HasActiveObject == true)
+                    continue;
 
                 Vector3 position = marker.Position;
                 Food food = NightPool.Spawn(_foodPrefab, position, Quaternion.identity);
 
-                food.transform.SetParent(_parent);
+                marker.SpawnedObject = food.gameObject;
+                food.transform.SetParent(platformInGame.transform);
             }
         }
 
@@ -73,12 +75,13 @@ namespace CapybaraAdventure.Level
             foreach (var marker in markers)
             {
                 bool isChanceSucceeded = Tools.GetChance(marker.SpawnChance);
-                if (isChanceSucceeded == false)
-                    return;
+                if (isChanceSucceeded == false || marker.HasActiveObject == true)
+                    continue;
 
                 Vector3 position = marker.Position;
                 Enemy enemy = NightPool.Spawn(_enemyPrefab, position);
 
+                marker.SpawnedObject = enemy.gameObject;
                 enemy.transform.SetParent(platformInGame.transform);
             }
         }
