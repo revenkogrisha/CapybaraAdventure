@@ -94,7 +94,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &74444457295345055
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -122,6 +122,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _deathParticles: {fileID: 74444457295345055}
+  _movement: {fileID: 3989806925437065158}
+  _disappearDelayInSeconds: 1.2
+  _deathLayer:
+    serializedVersion: 2
+    m_Bits: 128
 --- !u!114 &3989806925437065158
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -135,10 +140,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rigidBody2D: {fileID: 3989806925437065159}
+  _collider2D: {fileID: 3989806925437065153}
   _leftOffset: 2
   _rightOffset: 1.4
   _startDirection: -1
   _speed: 1.2
+  _enabled: 1
   _reflectObject: 1
 --- !u!1 &3989806925666833295
 GameObject:

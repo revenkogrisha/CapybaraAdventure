@@ -1090,6 +1090,7 @@ MonoBehaviour:
   _collider: {fileID: 7266856433574884422}
   _jumpParticlesPlayer: {fileID: -8462858369482034409}
   _sword: {fileID: 7785680583913415663}
+  _kickForce: 7
   _duration: 0.6
   _ground:
     serializedVersion: 2
