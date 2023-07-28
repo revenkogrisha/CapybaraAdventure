@@ -10,12 +10,14 @@ namespace CapybaraAdventure.Level
 
         [Header("Components")]
         [SerializeField] private Rigidbody2D _rigidBody2D;
+        [SerializeField] private Collider2D _collider2D;
 
         [Header("Movement Settings")]
         [SerializeField, Min(0f)] private float _leftOffset = 0f;
         [SerializeField, Min(0f)] private float _rightOffset = 0f;
         [SerializeField] private MovingDirection _startDirection = MovingDirection.Left;
         [SerializeField, Min(0f)] private float _speed = 2f;
+        [SerializeField] private bool _enabledFromStart = true;
 
         [Header("Reflection")]
         [SerializeField] private bool _reflectObject = true;
@@ -25,15 +27,20 @@ namespace CapybaraAdventure.Level
         private MovingDirection _currentDirection;
         private Transform _transform;
         private bool _canChangeDirection = true;
+        private bool _enabled;
 
+        public Rigidbody2D Rigidbody2D => _rigidBody2D;
         public bool IsDirectedLeft => _currentDirection == MovingDirection.Left;
 
         #region MonoBehaviour
 
         private void Update()
         {
-            CheckBordersAndChangeDirection();
-            Move();
+            if (_enabled == true)
+            {
+                CheckBordersAndChangeDirection();
+                Move();
+            }
         }
         
         #endregion
@@ -51,11 +58,19 @@ namespace CapybaraAdventure.Level
         public void InitFields()
         {
             _transform = transform;
+            _enabled = _enabledFromStart;
 
             float originalX = _transform.position.x;
             _leftBorder = originalX - _leftOffset;
             _rightBorder = originalX + _rightOffset;
             _currentDirection = _startDirection;
+        }
+
+        public void BecomePhysical()
+        {
+            _enabled = false;
+            _collider2D.isTrigger = false;
+            _rigidBody2D.bodyType = RigidbodyType2D.Dynamic;
         }
 
         private void CheckBordersAndChangeDirection()

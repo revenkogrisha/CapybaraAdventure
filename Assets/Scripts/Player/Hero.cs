@@ -23,8 +23,9 @@ namespace CapybaraAdventure.Player
         [Tooltip("Optional (Can be null)")]
         [SerializeField] private ParticlesPlayer _jumpParticlesPlayer;
 
-        [Header("Parts")]
+        [Header("Fight")]
         [SerializeField] private GameObject _sword;
+        [SerializeField] private float _kickForce = 7f;
 
         [Header("Jump Settings")]
         [SerializeField] private float _duration = 0.8f;
@@ -39,6 +40,7 @@ namespace CapybaraAdventure.Player
         private bool _isDead = false;
         private bool _hasJumped = false;
         private bool _hasSword = false;
+        private Enemy _enemyToKick = null;
 
         public HeroJump Jump { get; private set; }
         public bool IsPaused => _pauseManager.IsPaused;
@@ -148,6 +150,17 @@ namespace CapybaraAdventure.Player
             GetSword();
         }
 
+        public void Kick()
+        {
+            if (_enemyToKick == null)
+                return;
+
+            var force = Vector2.right * _kickForce;
+            _enemyToKick.GetKicked(force);
+
+            _enemyToKick = null;
+        }
+
         public void ActivateSwordObject()
         {
             _sword.SetActive(true);
@@ -252,8 +265,10 @@ namespace CapybaraAdventure.Player
                 return;
             }
 
-            enemy.PerformDeath();
             _heroAnimator.DoHit();
+            
+            enemy.PerformDeath();
+            _enemyToKick = enemy;
         }
 
         private void EatFood(Food food)
