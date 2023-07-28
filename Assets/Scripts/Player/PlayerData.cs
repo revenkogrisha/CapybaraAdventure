@@ -51,7 +51,7 @@ namespace CapybaraAdventure.Player
 
         public void AddTreasureChestCoins()
         { 
-            int amount = SimpleChest.CoinsInsideAmount;
+            int amount = TreasureChest.CoinsInsideAmount;
 
             if (amount <= 0)
                 throw new ArgumentException("Wrong amount was given!");

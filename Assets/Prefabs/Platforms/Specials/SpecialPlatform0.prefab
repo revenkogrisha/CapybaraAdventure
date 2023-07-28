@@ -128,7 +128,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccc8d84d4cac84ef39c79e43bff40cc3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _spawnChance: 100
+  _spawnChance: 80
 --- !u!1 &2950971934423034600
 GameObject:
   m_ObjectHideFlags: 0
@@ -218,7 +218,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d81ca3589a4e4a5e84a731d1d02116c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _spawnChance: 100
+  _spawnChance: 80
 --- !u!1 &3508101966133755884
 GameObject:
   m_ObjectHideFlags: 0
@@ -286,6 +286,7 @@ MonoBehaviour:
   _chestMarkers:
   - {fileID: 4155760388576318275}
   - {fileID: 8970241736529998210}
+  _treasureChestMarkers: []
   _enemyMarkers: []
 --- !u!1 &3551709222774441608
 GameObject:
@@ -376,7 +377,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccc8d84d4cac84ef39c79e43bff40cc3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _spawnChance: 100
+  _spawnChance: 80
 --- !u!1 &4835745986864139792
 GameObject:
   m_ObjectHideFlags: 0

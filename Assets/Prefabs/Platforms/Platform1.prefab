@@ -492,6 +492,7 @@ MonoBehaviour:
   _chestMarkers:
   - {fileID: 1055035064464828982}
   - {fileID: 6481615116168538187}
+  _treasureChestMarkers: []
   _enemyMarkers: []
 --- !u!1 &3853220561062207432
 GameObject:
@@ -1075,7 +1076,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1139911583
   m_SortingLayer: 2
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 332286436, guid: 432073e9bcecf4764b7d700a1e528d87, type: 3}
   m_Color: {r: 0.764151, g: 0.764151, b: 0.764151, a: 1}
   m_FlipX: 0

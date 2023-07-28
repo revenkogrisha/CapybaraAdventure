@@ -7,10 +7,12 @@ namespace CapybaraAdventure.Level
         [Header("Markers")]
         [SerializeField] private FoodSpawnMarker[] _foodMarkers;
         [SerializeField] private ChestSpawnMarker[] _chestMarkers;
+        [SerializeField] private TreasureChestSpawnMarker[] _treasureChestMarkers;
         [SerializeField] private EnemySpawnMarker[] _enemyMarkers;
 
         public FoodSpawnMarker[] FoodMarkers => _foodMarkers;
         public ChestSpawnMarker[] ChestMarkers => _chestMarkers;
+        public TreasureChestSpawnMarker[] TreasureChestMarkers => _treasureChestMarkers;
         public EnemySpawnMarker[] EnemyMarkers => _enemyMarkers;
 
         protected void OnDrawGizmos()

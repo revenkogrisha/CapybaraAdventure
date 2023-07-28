@@ -109,7 +109,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1077749588469598002}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.1600002, y: 1.41, z: 0}
+  m_LocalPosition: {x: -2.46, y: 1.41, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -129,7 +129,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _spawnChance: 100
---- !u!1 &3315856177739096682
+--- !u!1 &1801406400771432246
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -137,43 +137,43 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1058595376761253291}
-  - component: {fileID: 8970241736529998210}
-  m_Layer: 0
-  m_Name: ChestMarker (1)
+  - component: {fileID: 7372649976191614337}
+  - component: {fileID: 262893148618241408}
+  m_Layer: 6
+  m_Name: TreasureMarker
   m_TagString: Untagged
-  m_Icon: {fileID: 6519382022992737161, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 8418204508859773708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1058595376761253291
+--- !u!4 &7372649976191614337
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3315856177739096682}
+  m_GameObject: {fileID: 1801406400771432246}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.08, y: 1.18, z: 0}
+  m_LocalPosition: {x: 0.03, y: 1.49, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3508101966133755882}
-  m_RootOrder: 6
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8970241736529998210
+--- !u!114 &262893148618241408
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3315856177739096682}
+  m_GameObject: {fileID: 1801406400771432246}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d81ca3589a4e4a5e84a731d1d02116c, type: 3}
+  m_Script: {fileID: 11500000, guid: 47b52e0f30c1748a7a27646779fb142a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _spawnChance: 100
+  _spawnChance: 40
 --- !u!1 &3508101966133755884
 GameObject:
   m_ObjectHideFlags: 0
@@ -209,12 +209,12 @@ Transform:
   - {fileID: 5604338213192109331}
   - {fileID: 2577242826783876976}
   - {fileID: 1784427376178907346}
-  - {fileID: 1058595376761253291}
   - {fileID: 1330946557562603515}
   - {fileID: 433883770240619154}
   - {fileID: 3472194666804770754}
   - {fileID: 9079176347974792173}
   - {fileID: 1270208648206601070}
+  - {fileID: 7372649976191614337}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -233,8 +233,9 @@ MonoBehaviour:
   _foodMarkers:
   - {fileID: 2666533897444694454}
   - {fileID: 7582606722903942449}
-  _chestMarkers:
-  - {fileID: 8970241736529998210}
+  _chestMarkers: []
+  _treasureChestMarkers:
+  - {fileID: 262893148618241408}
   _enemyMarkers: []
 --- !u!1 &3958280867071624441
 GameObject:
@@ -261,12 +262,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3958280867071624441}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.3400003, y: 1.41, z: 0}
+  m_LocalPosition: {x: 2.42, y: 1.41, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3508101966133755882}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7582606722903942449
 MonoBehaviour:
@@ -311,7 +312,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3508101966133755882}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &788852802873041009
 SpriteRenderer:
@@ -395,7 +396,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3508101966133755882}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &8319501070822342883
 SpriteRenderer:
@@ -479,7 +480,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3508101966133755882}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &5043615397175623512
 SpriteRenderer:
@@ -715,7 +716,7 @@ MonoBehaviour:
   _rigidBody2D: {fileID: 3249400221533570808}
   _triggerChance: 25
   _delayBeforeFalling: 1.7
-  _delayBeforeDestroy: 2
+  _delayBeforeFreeze: 2
   _fallSpeed: 10
   _moveDownDuration: 0.2
   _moveDownDistance: 1.4
@@ -738,7 +739,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8121727841988415053, guid: 7c1b602b0f3ad465886608dc24c227e4, type: 3}
       propertyPath: m_RootOrder
-      value: 10
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 8121727841988415053, guid: 7c1b602b0f3ad465886608dc24c227e4, type: 3}
       propertyPath: m_LocalPosition.x

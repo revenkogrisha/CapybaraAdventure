@@ -13,6 +13,7 @@ namespace CapybaraAdventure.Level
         [Header("Element Prefabs")]
         [SerializeField] private Food _foodPrefab;
         [SerializeField] private SimpleChest _chestPrefab;
+        [SerializeField] private TreasureChest _treasureChestPrefab;
         [SerializeField] private SwordChest _swordChestPrefab;
         [SerializeField] private Enemy _enemyPrefab;
         [SerializeField] private Transform _parent;
@@ -44,6 +45,25 @@ namespace CapybaraAdventure.Level
                 Chest chest = isSwordChestSpawn == true && CanSpawnSwordChest == true
                     ? SpawnSwordChest()
                     : SpawnSimpleChest();
+
+                Vector3 position = marker.Position;
+                marker.SpawnedObject = chest.gameObject;
+                chest.transform.SetParent(platformInGame.transform);
+                chest.transform.position = position;
+            }
+        }
+
+        public void SpawnTreasureChests(Platform platformInGame)
+        {
+            TreasureChestSpawnMarker[] markers = platformInGame.TreasureChestMarkers;
+            foreach (var marker in markers)
+            {
+                bool isChanceSucceeded = Tools.GetChance(marker.SpawnChance);
+                if (isChanceSucceeded == false || marker.HasActiveObject == true)
+                    continue;
+
+                TreasureChest chest = _diContainer
+                    .InstantiatePrefabForComponent<TreasureChest>(_treasureChestPrefab);
 
                 Vector3 position = marker.Position;
                 marker.SpawnedObject = chest.gameObject;
