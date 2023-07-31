@@ -14,6 +14,8 @@ namespace CapybaraAdventure.Level
     {
         private const float PlatformLength = 30f;
         private const float HeroPositionCheckFrequencyInSeconds = 1.5f;
+        private const int SpecialPlatformSequentialNumber = 4;
+        private const int LocationChangeSequentialNumber = 10;
 
         [Header("Components")]
         [SerializeField] private LevelElementsSpawner _elementsSpawner;
@@ -28,8 +30,6 @@ namespace CapybaraAdventure.Level
         [SerializeField] private int _platformsAmountToGenerate = 5;
         [SerializeField] private float _XstartPoint = 0f;
         [SerializeField] private float _platformsY = -2f;
-        [SerializeField] private int _specialPlatformSequentialNumber = 4;
-        [SerializeField] private int _locationChangeSequentialNumber = 9;
 
         [Header("Platforms")]
         [SerializeField] private SimplePlatform _startPlatform;
@@ -46,11 +46,11 @@ namespace CapybaraAdventure.Level
         private string PlatformName => $"Platform №{_platformNumber}";
 
         private bool IsNowSpecialPlatformTurn => 
-            _platformNumber % _specialPlatformSequentialNumber == 0
+            _platformNumber % SpecialPlatformSequentialNumber == 0
             && _platformNumber > 0;
 
         private bool IsNowLocationChangeTurn => 
-            _platformNumber % _locationChangeSequentialNumber == 0
+            _platformNumber % LocationChangeSequentialNumber == 0
             && _platformNumber > 0;
 
         private bool IsLevelMidPointXLessHeroX
@@ -141,10 +141,7 @@ namespace CapybaraAdventure.Level
                 
             int locationsLength = _locations.Length;
             if (_locationNumber >= locationsLength)
-            {
-                int random = Random.Range(0, locationsLength);
-                _locationNumber = random;
-            }
+                _locationNumber = _locations.GetRandomIndex();
         }
 
         private T GetRandomPlatform<T>(T[] platformPrefabs)

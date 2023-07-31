@@ -1725,25 +1725,13 @@ MonoBehaviour:
   _foodPrefab: {fileID: 8408874472059896616, guid: 74018d65fd7574a568d87aa61bf6e4fc, type: 3}
   _chestPrefab: {fileID: 9104171104501049455, guid: 7ddd390120b37444bb88892481b3f5b1, type: 3}
   _enemyPrefab: {fileID: 5067633634680072084, guid: 60051f938269b4a03b7add09834f5f65, type: 3}
-  _platformsParent: {fileID: 0}
+  _platformsParent: {fileID: 1524486398}
   _platformsAmountToGenerate: 5
   _XstartPoint: 0
   _platformsY: -2
-  _specialPlatformSequentialNumber: 4
   _startPlatform: {fileID: 2883049585238784193, guid: 7d8832a9aacf248aca9b5135e6f660b7, type: 3}
-  _simplePlatforms:
-  - {fileID: -7841068184548764235, guid: faf8218739d6c4e688811592da06e509, type: 3}
-  - {fileID: 3154565652104204545, guid: e6cdb5e39ef524b4e8efc37728d03629, type: 3}
-  - {fileID: -7841068184548764235, guid: d9ccda69bb470453682e6dd4faa62089, type: 3}
-  - {fileID: 3154565652104204545, guid: 44597342c78e44b5ab6f52b82c67b238, type: 3}
-  - {fileID: -7841068184548764235, guid: b89fcbc7f8986417484e35e73f6c0b41, type: 3}
-  - {fileID: 4323019035991690519, guid: 29b0a0fc144f442fe932042a97a85427, type: 3}
-  - {fileID: -7841068184548764235, guid: fb4991b58c6e342509cd3bed7a34cf6c, type: 3}
-  - {fileID: -7841068184548764235, guid: 14fb245fb9c5c4141b84fa6c4d7ff8b2, type: 3}
-  _specialPlatforms:
-  - {fileID: -6293920189038187168, guid: 21db26adf15df4746aa4a65099e8dcd0, type: 3}
-  - {fileID: -6293920189038187168, guid: 197dd6839770041bf9d27df96e783424, type: 3}
-  - {fileID: 2136358286600949718, guid: 3c9dc12606a894683bec71e28632b97a, type: 3}
+  _locations:
+  - {fileID: 11400000, guid: fecd7b4ec39c14c668d9b2eb651f3e72, type: 2}
 --- !u!114 &1168720912
 MonoBehaviour:
   m_ObjectHideFlags: 0

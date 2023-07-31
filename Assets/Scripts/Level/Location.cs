@@ -4,7 +4,8 @@ using System;
 namespace CapybaraAdventure.Level
 {
     [Serializable]
-    public class Location : MonoBehaviour
+    [CreateAssetMenu(fileName = "New Location", menuName = "Location")]
+    public class Location : ScriptableObject
     {
         [SerializeField] private SimplePlatform[] _simplePlatforms;
         [SerializeField] private SpecialPlatform[] _specialPlatforms;
