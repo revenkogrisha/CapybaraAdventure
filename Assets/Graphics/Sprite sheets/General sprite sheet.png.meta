@@ -615,7 +615,7 @@ TextureImporter:
       name: Chest_simple
       rect:
         serializedVersion: 2
-        x: 479
+        x: 480
         y: 38
         width: 148
         height: 152
@@ -779,6 +779,27 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: SwordChest
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 342
+        width: 148
+        height: 152
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 479c308b9c8b247ac912ae78d0899139
+      internalID: 1057914844
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -820,6 +841,7 @@ TextureImporter:
       Arm_1: 545172540
       Ground_4: 38570329
       Chest_simple: -1923124446
+      SwordChest: 1057914844
       Leg_3: 1093640960
       General sprite sheet_16: -467461171
       General sprite sheet_19: -94444500
