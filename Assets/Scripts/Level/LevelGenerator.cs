@@ -16,6 +16,7 @@ namespace CapybaraAdventure.Level
         private const float HeroPositionCheckFrequencyInSeconds = 1.5f;
         private const int SpecialPlatformSequentialNumber = 4;
         private const int LocationChangeSequentialNumber = 10;
+        private const float BackgroundLerpDuration = 3.5f;
 
         [Header("Components")]
         [SerializeField] private LevelElementsSpawner _elementsSpawner;
@@ -36,12 +37,14 @@ namespace CapybaraAdventure.Level
         [SerializeField] private Location[] _locations;
 
         private DiContainer _diContainer;
+        private Camera _camera;
         private Transform _heroTransform;
         private bool _heroIsInitialized = false;
         private readonly Queue<Platform> _platformsOnLevel = new();
         private int _platformNumber = 0;
         private float _lastGeneratedPlatformX = 0f;
         private int _locationNumber = 0;
+        private Color _defaultBackground;
 
         private string PlatformName => $"Platform №{_platformNumber}";
 
@@ -52,6 +55,8 @@ namespace CapybaraAdventure.Level
         private bool IsNowLocationChangeTurn => 
             _platformNumber % LocationChangeSequentialNumber == 0
             && _platformNumber > 0;
+
+        private Location CurrentLocation => _locations[_locationNumber];
 
         private bool IsLevelMidPointXLessHeroX
         {
@@ -74,6 +79,9 @@ namespace CapybaraAdventure.Level
         private void Awake()
         {
             _lastGeneratedPlatformX = _XstartPoint;
+            _camera = Camera.main;
+
+            _defaultBackground = _camera.backgroundColor;
 
             StartCoroutine(CheckPlayerPosition());
         }
@@ -84,7 +92,10 @@ namespace CapybaraAdventure.Level
             _diContainer = diContainer;
         }
 
-        public void SpawnStartPlatform() => GeneratePlatform(_startPlatform);
+        public void SpawnStartPlatform()
+        {
+            GeneratePlatform(_startPlatform);
+        }
         
         public void GenerateDefaultAmount()
         {
@@ -109,7 +120,7 @@ namespace CapybaraAdventure.Level
                     () => _heroIsInitialized == true
                     );
 
-                if (IsLevelMidPointXLessHeroX)
+                if (IsLevelMidPointXLessHeroX == true)
                 {
                     DespawnOldestPlatform();
                     GenerateRandomPlatform();
@@ -122,9 +133,12 @@ namespace CapybaraAdventure.Level
         private void GenerateRandomPlatform()
         {
             if (IsNowLocationChangeTurn == true)
+            {
                 ChangeLocation();
-
-            Location currentLocation = _locations[_locationNumber];
+                ChangeBackgroundColor();
+            }
+ 
+            Location currentLocation = CurrentLocation;
             SimplePlatform[] simplePlatforms = currentLocation.SimplePlatforms;
             SpecialPlatform[] specialPlatforms = currentLocation.SpecialPlatforms;
 
@@ -142,6 +156,32 @@ namespace CapybaraAdventure.Level
             int locationsLength = _locations.Length;
             if (_locationNumber >= locationsLength)
                 _locationNumber = _locations.GetRandomIndex();
+        }
+
+        private void ChangeBackgroundColor()
+        {
+            Location currentLocation = CurrentLocation;
+            Color newBackground;
+            if (currentLocation.UseDefaultBackground == true)
+                newBackground = _defaultBackground;
+            else
+                newBackground = currentLocation.BackgroundColor;
+
+            StartCoroutine(LerpBackground(newBackground));
+        }
+
+        private IEnumerator LerpBackground(Color newBackground)
+        {
+            float elapsedTime = 0;
+            Color currentBackground = _camera.backgroundColor;
+            while (elapsedTime < BackgroundLerpDuration)
+            {
+                float time = elapsedTime / BackgroundLerpDuration;
+                _camera.backgroundColor = Color.Lerp(currentBackground, newBackground, time);
+
+                elapsedTime += Time.deltaTime;
+                yield return null;
+            }
         }
 
         private T GetRandomPlatform<T>(T[] platformPrefabs)

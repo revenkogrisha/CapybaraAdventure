@@ -12,9 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0b08a659b2cb448e9e99c11f11ced32, type: 3}
   m_Name: DarkLocation
   m_EditorClassIdentifier: 
+  _useDefaultBackground: 1
+  _backgroundColor: {r: 0.26593092, g: 0.42865324, b: 0.6792453, a: 0}
   _simplePlatforms:
   - {fileID: -7841068184548764235, guid: df580e0a5be394c93bf38aecd17c74ec, type: 3}
   - {fileID: -7841068184548764235, guid: 7d96fc4c4f06b42b0a9e99817932da68, type: 3}
   - {fileID: -7841068184548764235, guid: d9ccda69bb470453682e6dd4faa62089, type: 3}
+  - {fileID: 3154565652104204545, guid: 3478ed26303484b1d81717301792700d, type: 3}
   _specialPlatforms:
   - {fileID: 2136358286600949718, guid: 94b5ae46c1dab4247ae3905b7da44b4c, type: 3}
+  - {fileID: 2136358286600949718, guid: 0ffce396b645d4628afaa75e49da46bd, type: 3}
