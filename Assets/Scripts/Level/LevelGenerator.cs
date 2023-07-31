@@ -4,6 +4,7 @@ using UnityEngine;
 using Zenject;
 using NTC.Global.Pool;
 using CapybaraAdventure.Player;
+using UnityTools;
 using Random = UnityEngine.Random;
 using IEnumerator = System.Collections.IEnumerator;
 
@@ -28,11 +29,11 @@ namespace CapybaraAdventure.Level
         [SerializeField] private float _XstartPoint = 0f;
         [SerializeField] private float _platformsY = -2f;
         [SerializeField] private int _specialPlatformSequentialNumber = 4;
+        [SerializeField] private int _locationChangeSequentialNumber = 9;
 
         [Header("Platforms")]
         [SerializeField] private SimplePlatform _startPlatform;
-        [SerializeField] private SimplePlatform[] _simplePlatforms;
-        [SerializeField] private SpecialPlatform[] _specialPlatforms;
+        [SerializeField] private Location[] _locations;
 
         private DiContainer _diContainer;
         private Transform _heroTransform;
@@ -40,11 +41,16 @@ namespace CapybaraAdventure.Level
         private readonly Queue<Platform> _platformsOnLevel = new();
         private int _platformNumber = 0;
         private float _lastGeneratedPlatformX = 0f;
+        private int _locationNumber = 0;
 
         private string PlatformName => $"Platform №{_platformNumber}";
 
         private bool IsNowSpecialPlatformTurn => 
             _platformNumber % _specialPlatformSequentialNumber == 0
+            && _platformNumber > 0;
+
+        private bool IsNowLocationChangeTurn => 
+            _platformNumber % _locationChangeSequentialNumber == 0
             && _platformNumber > 0;
 
         private bool IsLevelMidPointXLessHeroX
@@ -115,11 +121,30 @@ namespace CapybaraAdventure.Level
 
         private void GenerateRandomPlatform()
         {
+            if (IsNowLocationChangeTurn == true)
+                ChangeLocation();
+
+            Location currentLocation = _locations[_locationNumber];
+            SimplePlatform[] simplePlatforms = currentLocation.SimplePlatforms;
+            SpecialPlatform[] specialPlatforms = currentLocation.SpecialPlatforms;
+
             Platform randomPlatform = IsNowSpecialPlatformTurn
-                ? GetRandomPlatform(_specialPlatforms)
-                : GetRandomPlatform(_simplePlatforms);
+                ? GetRandomPlatform(specialPlatforms)
+                : GetRandomPlatform(simplePlatforms);
 
             GeneratePlatform(randomPlatform);
+        }
+
+        private void ChangeLocation()
+        {
+            _locationNumber++;
+                
+            int locationsLength = _locations.Length;
+            if (_locationNumber >= locationsLength)
+            {
+                int random = Random.Range(0, locationsLength);
+                _locationNumber = random;
+            }
         }
 
         private T GetRandomPlatform<T>(T[] platformPrefabs)
