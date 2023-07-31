@@ -20,7 +20,6 @@ namespace CapybaraAdventure.Game
         [SerializeField] private Transform _logo;
 
         private GameStartup _gameStartup;
-        private GameUI _inGameUI;
         private UpgradeScreenProvider _upgradeScreenProvider;
         private UpgradeScreen _upgradeScreen;
         private bool _isInitialized = false;
@@ -46,12 +45,10 @@ namespace CapybaraAdventure.Game
         public void Init(
             GameStartup gameStartup,
             UpgradeScreenProvider upgradeScreenProvider,
-            GameUI inGameUI,
             Score score)
         {
             _gameStartup = gameStartup;
             _upgradeScreenProvider = upgradeScreenProvider;
-            _inGameUI = inGameUI;
             _isInitialized = true;
 
             var highScore = score.HighScore;
@@ -95,7 +92,6 @@ namespace CapybaraAdventure.Game
 
             _gameStartup.StartGame();
             Conceal();
-            _inGameUI.Reveal();
 
             OnMenuWorkHasOver?.Invoke();
         }

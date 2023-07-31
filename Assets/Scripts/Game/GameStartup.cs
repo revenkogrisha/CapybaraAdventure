@@ -46,6 +46,7 @@ namespace CapybaraAdventure.Game
         private GameOverHandlerPresenter _gameOverHandlerPresenter;
         private HeroPresenter _heroPresenter;
         private CoinsPresenter _coinsPresenter;
+        private QuestPresenter _questPresenter;
 
         #region MonoBehaviour
 
@@ -58,6 +59,7 @@ namespace CapybaraAdventure.Game
             _gameOverHandlerPresenter?.Disable();
             _scorePresenter?.Disable();
             _coinsPresenter?.Disable();
+            _questPresenter?.Disable();
         }
 
         private async void Start()
@@ -124,6 +126,10 @@ namespace CapybaraAdventure.Game
             SetupGameOverSystem(hero);
 
             _pauseManager.SetPaused(false);
+
+            _questPresenter = new QuestPresenter(_levelGenerator, _inGameUI);
+            _questPresenter.Enable();
+            _inGameUI.Reveal();
         }
 
         private async Task LoadAndRevealMenu()

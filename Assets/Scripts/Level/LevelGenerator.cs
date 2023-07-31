@@ -16,6 +16,7 @@ namespace CapybaraAdventure.Level
         private const float HeroPositionCheckFrequencyInSeconds = 1.5f;
         private const int SpecialPlatformSequentialNumber = 4;
         private const int LocationChangeSequentialNumber = 10;
+        private const int QuestPlatformSequentialNumber = 16;
         private const float BackgroundLerpDuration = 3.5f;
 
         [Header("Components")]
@@ -58,14 +59,16 @@ namespace CapybaraAdventure.Level
 
         private Location CurrentLocation => _locations[_locationNumber];
 
+        public float QuestPlatformXPosition => PlatformLength * QuestPlatformSequentialNumber;
+
+        public event Action<float> OnHeroXPositionUpdated;
+
         private bool IsLevelMidPointXLessHeroX
         {
             get
             {
-                Vector3 heroPosition = _heroTransform.position;
-                float heroX = heroPosition.x;
-                float midPointX = GetLevelMidPointX(heroX);
-                return midPointX < heroX;
+                float midPointX = GetLevelMidPointX(HeroX);
+                return midPointX < HeroX;
 
                 float GetLevelMidPointX(float heroX)
                 {
@@ -75,6 +78,8 @@ namespace CapybaraAdventure.Level
                 }
             }
         }
+
+        private float HeroX => _heroTransform.position.x;
 
         private void Awake()
         {
@@ -119,6 +124,8 @@ namespace CapybaraAdventure.Level
                 yield return new WaitUntil(
                     () => _heroIsInitialized == true
                     );
+
+                OnHeroXPositionUpdated?.Invoke(HeroX);
 
                 if (IsLevelMidPointXLessHeroX == true)
                 {

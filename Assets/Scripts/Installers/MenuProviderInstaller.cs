@@ -19,7 +19,6 @@ namespace CapybaraAdventure.Installers
             var provider = new MenuProvider(
                 _canvas,
                 _gameStartup,
-                _inGameUI,
                 _score);
 
             Container

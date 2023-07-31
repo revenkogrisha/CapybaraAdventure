@@ -1,6 +1,7 @@
 using Zenject;
 using CapybaraAdventure.Other;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityTools.Buttons;
 using CapybaraAdventure.Game;
 using CapybaraAdventure.Ad;
@@ -9,8 +10,12 @@ namespace CapybaraAdventure.UI
 {
     public class GameUI : UIBase
     {
+        [Header("UI Elements")]
         [SerializeField] private UIButton _pauseButton;
         [SerializeField] private UIButton _giveSwordButton;
+        [SerializeField] private Slider _questBar;
+
+        [Header("Ads Settings")]
         [SerializeField] private AdRewarded _swordAdRewarded;
 
         private PauseManager _pauseManager;
@@ -38,6 +43,20 @@ namespace CapybaraAdventure.UI
         }
 
         #endregion
+
+        public void InitQuestBarValues(float min, float max)
+        {
+            _questBar.minValue = min;
+            _questBar.maxValue = max;
+        }
+
+        public void UpdateQuestBar(float value)
+        {
+            _questBar.value = value;
+
+            if (value >= _questBar.maxValue)
+                Destroy(_questBar.gameObject);
+        }
 
         [Inject]
         private void Construct(

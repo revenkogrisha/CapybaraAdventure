@@ -13,18 +13,15 @@ namespace CapybaraAdventure.UI
         private readonly Canvas _canvas;
         private readonly GameStartup _gameStartup;
         private UpgradeScreenProvider _upgradeScreenProvider;
-        private readonly GameUI _inGameUI;
         private readonly Score _score;
 
         public MenuProvider(
             Canvas canvas,
             GameStartup gameStartup,
-            GameUI inGameUI,
             Score score)
         {
             _canvas = canvas;
             _gameStartup = gameStartup;
-            _inGameUI = inGameUI;
             _score = score;
         }
 
@@ -38,7 +35,7 @@ namespace CapybaraAdventure.UI
             Transform canvasTransform = _canvas.transform;
             GameMenu menu = await LoadInternal<GameMenu>(GameMenu, canvasTransform);
 
-            menu.Init(_gameStartup, _upgradeScreenProvider, _inGameUI, _score);
+            menu.Init(_gameStartup, _upgradeScreenProvider, _score);
             return menu;
         }
 
