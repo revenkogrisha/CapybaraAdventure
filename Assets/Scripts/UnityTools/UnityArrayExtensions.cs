@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using Random = UnityEngine.Random;
 
 namespace UnityTools
@@ -22,6 +21,17 @@ namespace UnityTools
             }
 
             Array.Copy(newArray, array, array.Length);
+        }
+
+        public static T GetRandomItem<T>(this Array array)
+        {
+            int random = Random.Range(0, array.Length);
+            return (T)array.GetValue(random);
+        }
+
+        public static int GetRandomIndex(this Array array)
+        {
+            return Random.Range(0, array.Length);
         }
     }
 }
