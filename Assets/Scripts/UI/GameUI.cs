@@ -20,6 +20,7 @@ namespace CapybaraAdventure.UI
 
         private PauseManager _pauseManager;
         private PauseScreenProvider _pauseScreenProvider;
+        private ScreenTweener _tweener;
 
         public AdRewarded SwordAdRewarded =>_swordAdRewarded;
 
@@ -39,7 +40,10 @@ namespace CapybaraAdventure.UI
 
         private void Start()
         {
+            _tweener = new ScreenTweener();
+
             TweenGiveSwordButton();
+            StartPeriodicallyShowQuestBar();
         }
 
         #endregion
@@ -82,13 +86,17 @@ namespace CapybaraAdventure.UI
 
         private void TweenGiveSwordButton()
         {
-            var tweener = new ScreenTweener();
-            tweener.TweenSwordButton(_giveSwordButton.transform);
+            _tweener.TweenSwordButton(_giveSwordButton.transform);
         }
 
         private void DeactivateSwordButton()
         {
             _giveSwordButton.gameObject.SetActive(false);
+        }
+
+        private void StartPeriodicallyShowQuestBar()
+        {
+            _tweener.DisplayQuestBarForPeriod(_questBar.transform);
         }
     }
 }

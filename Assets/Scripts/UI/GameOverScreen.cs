@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityTools.Buttons;
+using TMPro;
 using CapybaraAdventure.Other;
 using CapybaraAdventure.Ad;
 using System;
@@ -13,6 +14,7 @@ namespace CapybaraAdventure.UI
         [SerializeField] private UIButton _restartButton;
         [SerializeField] private UIButton _continueButton;
         [SerializeField] private Transform _logoText;
+        [SerializeField] private TextMeshProUGUI _scoreText;
 
         [Header("UI Settings")]
         [SerializeField] private float _UIShowDuration = 0.3f;
