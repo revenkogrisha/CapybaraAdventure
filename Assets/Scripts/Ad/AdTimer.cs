@@ -6,6 +6,7 @@ namespace CapybaraAdventure.Ad
 {
     public class AdTimer : MonoBehaviour
     {
+        public const int StartBlockPeriodInSeconds = 30;
         public const int BlockPeriodInSeconds = 45;
 
         public static AdTimer Instance { get; private set; }
@@ -24,15 +25,25 @@ namespace CapybaraAdventure.Ad
             Instance = this;
         }
 
-        public void BlockAdForPeriod()
+        private void Start()
         {
-            StartCoroutine(BlockAd());
+            BlockAdForStartPeriod();
         }
 
-        private IEnumerator BlockAd()
+        public void BlockAdForStartPeriod()
+        {
+            StartCoroutine(BlockAd(StartBlockPeriodInSeconds));
+        }
+
+        public void BlockAdForPeriod()
+        {
+            StartCoroutine(BlockAd(BlockPeriodInSeconds));
+        }
+
+        private IEnumerator BlockAd(int period)
         {
             _canShowAd = false;
-            yield return new WaitForSeconds(BlockPeriodInSeconds);
+            yield return new WaitForSeconds(period);
             _canShowAd = true;
         }
     }

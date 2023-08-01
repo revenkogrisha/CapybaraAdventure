@@ -35,6 +35,7 @@ namespace CapybaraAdventure.Level
 
         [Header("Platforms")]
         [SerializeField] private SimplePlatform _startPlatform;
+        [SerializeField] private SpecialPlatform _questPlatform;
         [SerializeField] private Location[] _locations;
 
         private DiContainer _diContainer;
@@ -49,17 +50,36 @@ namespace CapybaraAdventure.Level
 
         private string PlatformName => $"Platform №{_platformNumber}";
 
-        private bool IsNowSpecialPlatformTurn => 
-            _platformNumber % SpecialPlatformSequentialNumber == 0
-            && _platformNumber > 0;
-
-        private bool IsNowLocationChangeTurn => 
-            _platformNumber % LocationChangeSequentialNumber == 0
-            && _platformNumber > 0;
-
         private Location CurrentLocation => _locations[_locationNumber];
 
         public float QuestPlatformXPosition => PlatformLength * QuestPlatformSequentialNumber;
+
+        private bool IsNowSpecialPlatformTurn 
+        {
+            get
+            {
+                return _platformNumber % SpecialPlatformSequentialNumber == 0
+                && _platformNumber > 0;
+            }
+        }
+
+        private bool IsNowQuestPlatformTurn
+        {
+            get
+            {
+                return _platformNumber % QuestPlatformSequentialNumber == 0
+                && _platformNumber > 0;
+            }
+        }
+
+        private bool IsNowLocationChangeTurn 
+        {
+            get
+            {
+                return _platformNumber % LocationChangeSequentialNumber == 0
+                && _platformNumber > 0;
+            }
+        }
 
         public event Action<float> OnHeroXPositionUpdated;
 
@@ -149,9 +169,13 @@ namespace CapybaraAdventure.Level
             SimplePlatform[] simplePlatforms = currentLocation.SimplePlatforms;
             SpecialPlatform[] specialPlatforms = currentLocation.SpecialPlatforms;
 
-            Platform randomPlatform = IsNowSpecialPlatformTurn
-                ? GetRandomPlatform(specialPlatforms)
-                : GetRandomPlatform(simplePlatforms);
+            Platform randomPlatform;
+            if (IsNowQuestPlatformTurn == true)
+                randomPlatform = _questPlatform;
+            else
+                randomPlatform = IsNowSpecialPlatformTurn
+                    ? GetRandomPlatform(specialPlatforms)
+                    : GetRandomPlatform(simplePlatforms);
 
             GeneratePlatform(randomPlatform);
         }

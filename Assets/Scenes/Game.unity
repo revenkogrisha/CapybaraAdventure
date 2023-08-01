@@ -2123,6 +2123,7 @@ MonoBehaviour:
   _XstartPoint: 0
   _platformsY: -2
   _startPlatform: {fileID: 2883049585238784193, guid: 7d8832a9aacf248aca9b5135e6f660b7, type: 3}
+  _questPlatform: {fileID: 2136358286600949718, guid: f7e7842d947c7436eadb7d654fb59aff, type: 3}
   _locations:
   - {fileID: 11400000, guid: fecd7b4ec39c14c668d9b2eb651f3e72, type: 2}
   - {fileID: 11400000, guid: 10a3dace407214fd6bfa5cd9e6acddd3, type: 2}

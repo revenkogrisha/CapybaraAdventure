@@ -52,6 +52,10 @@ namespace CapybaraAdventure.UI
 
         public void UpdateQuestBar(float value)
         {
+            // Different logic in future versions
+            if (_questBar == null)
+                return;
+
             _questBar.value = value;
 
             if (value >= _questBar.maxValue)
