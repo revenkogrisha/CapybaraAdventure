@@ -35,7 +35,7 @@ namespace CapybaraAdventure.Save
         {
             _saveService.ResetProcess();
 
-            await _loadingScreenProvider.LoadSceneAsync();
+            await _loadingScreenProvider.LoadGameAsync();
         }
     }
 }

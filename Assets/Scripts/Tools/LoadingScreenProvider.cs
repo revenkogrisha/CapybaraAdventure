@@ -11,10 +11,16 @@ namespace CapybaraAdventure.Other
 
         [SerializeField] private Canvas _canvas;
 
-        public async Task LoadSceneAsync()
+        public async Task LoadGameAsync()
         {
             SceneLoader loader = await Load();
-            StartCoroutine(LoadScene(loader));
+            StartCoroutine(LoadGame(loader));
+        }
+
+        public async Task LoadPregameCutsceneAsync()
+        {
+            SceneLoader loader = await Load();
+            StartCoroutine(LoadPregameCutscene(loader));
         }
 
         public async Task<SceneLoader> Load()
@@ -27,9 +33,18 @@ namespace CapybaraAdventure.Other
 
         public void Unload() => UnlodadInternalIfCached();
 
-        private IEnumerator LoadScene(SceneLoader loader)
+        private IEnumerator LoadGame(SceneLoader loader)
         {
-            AsyncOperation operation = loader.Load();
+            AsyncOperation operation = loader.LoadGame();
+            while (operation.isDone == false)
+                yield return null;
+
+            Unload();
+        }
+
+        private IEnumerator LoadPregameCutscene(SceneLoader loader)
+        {
+            AsyncOperation operation = loader.LoadPregameCutscene();
             while (operation.isDone == false)
                 yield return null;
 
