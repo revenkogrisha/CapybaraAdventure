@@ -20,6 +20,7 @@ namespace CapybaraAdventure.Player
         public float FoodBonus { get; private set; }
         public int FoodUpgradeCost { get; private set; }
         public int DistanceUpgradeCost { get; private set; }
+        public bool IsCutsceneWatched { get; set; }
 
         public float FinalLerpSpeedDecrease
         {
@@ -35,6 +36,7 @@ namespace CapybaraAdventure.Player
             FoodBonus = data.FoodBonus;
             DistanceUpgradeCost = data.DistanceUpgradeCost;
             FoodUpgradeCost = data.FoodUpgradeCost;
+            IsCutsceneWatched = data.IsCutsceneWatched;
         }
 
         public void AddSimpleChestCoins()

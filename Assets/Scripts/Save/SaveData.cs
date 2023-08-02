@@ -11,5 +11,6 @@ namespace CapybaraAdventure.Save
         public int DistanceUpgradeCost = 15;
         public float FoodBonus = 0.25f;
         public int FoodUpgradeCost = 15;
+        public bool IsCutsceneWatched = false;
     }
 }

@@ -56,6 +56,6 @@ namespace CapybaraAdventure.UI
         }
 
         private async void RestartGame() =>
-            await _loadingScreenProvider.LoadSceneAsync();
+            await _loadingScreenProvider.LoadGameAsync();
     }
 }

@@ -44,7 +44,10 @@ namespace CapybaraAdventure.Player
             _heroTransform = heroObject.transform;
         }
 
-        public void LoadHighScore(SaveData data) => HighScore = data.HighScore;
+        public void LoadHighScore(SaveData data)
+        {
+            HighScore = data.HighScore;
+        }
 
         public void StartCount()
         {

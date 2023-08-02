@@ -48,6 +48,7 @@ namespace CapybaraAdventure.Save
             data.DistanceUpgradeCost = _playerData.DistanceUpgradeCost;
             data.FoodBonus = _playerData.FoodBonus;
             data.FoodUpgradeCost = _playerData.FoodUpgradeCost;
+            data.IsCutsceneWatched = _playerData.IsCutsceneWatched;
             
             _saveSystem.Save(data);
         }

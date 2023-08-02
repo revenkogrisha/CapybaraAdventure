@@ -70,7 +70,7 @@ namespace CapybaraAdventure.UI
         private async void RestartGame()
         {
             _saveService.Save();
-            await _loadingScreenProvider.LoadSceneAsync();
+            await _loadingScreenProvider.LoadGameAsync();
         }
 
         private void InvokeGameContinuing()
