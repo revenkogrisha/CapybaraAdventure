@@ -2204,6 +2204,7 @@ MonoBehaviour:
   _locations:
   - {fileID: 11400000, guid: fecd7b4ec39c14c668d9b2eb651f3e72, type: 2}
   - {fileID: 11400000, guid: 10a3dace407214fd6bfa5cd9e6acddd3, type: 2}
+  - {fileID: 11400000, guid: 5d4b5acfe479e4574b71909a925ace7e, type: 2}
 --- !u!114 &1168720912
 MonoBehaviour:
   m_ObjectHideFlags: 0
