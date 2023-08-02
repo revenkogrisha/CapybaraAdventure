@@ -15,8 +15,8 @@
 
 ## About this game
 
-"Capybara Adventure" is a fascinating ranner game that will take you to an uncharted world, where you will play as a charming capybara. The unique jumping mechanic allows you to control the strength of the jump and move only by jumping, which creates an interesting gameplay. Upgrade your capybara, jump around islands and find new places in an exciting world full of danger and rewards. Capybara Adventure is the perfect game for anyone who loves exciting adventures and addictive gameplay in a mobile game.
-
+**Capybara Adventure** is a fascinating ranner game that will take you to an uncharted world, where you will play as a charming capybara. The unique jumping mechanic allows you to control the strength of the jump and move only by jumping, which creates an interesting gameplay. Upgrade your capybara, jump around islands and find new places in an exciting world full of danger and rewards. Capybara Adventure is the perfect game for anyone who loves exciting adventures and addictive gameplay in a mobile game.
+   
 ## Links
 
 * **[Play Market](https://play.google.com/store/apps/details?id=com.Revenko.org.CapybaraAdventure)**
@@ -31,15 +31,12 @@
 ### Built With
 
 * [Zenject](https://github.com/modesttree/Zenject) - Dependency Injection Container for Unity
+* [Cinemachine](https://unity.com/unity/features/editor/art-and-design/cinemachine) - Advanced camera for Unity
 * [DOTween](http://dotween.demigiant.com/) - Animation engine for Unity
 * [NightPool](https://github.com/MeeXaSiK/NightPool) - Fast object pool for Unity
 * [Universal RP](https://unity.com/ru/srp/universal-render-pipeline) - Scriptable Render Pipeline made by Unity
 * [UnityAds](https://unity.com/ru/products/unity-ads) - UnityAds SDK v4.4.2
 * [Appodeal](https://github.com/appodeal/appodeal-android-sdk) - Appodeal SDK v3.0.2
-
-## Contributing
-
-My pleasure to you to contribute to my project! Feel free to go
 
 ## Authors
 
@@ -47,6 +44,10 @@ My pleasure to you to contribute to my project! Feel free to go
 * **[Kristina](https://t.me/krisdvg_10)** - *Graphics, Design, Game Design*
 
 See also the list of [contributors](https://github.com/revenkogrisha/TwoDoors/contributors) who and how participated in this project.
+
+## Contributing
+
+My pleasure to you to contribute to my project! Feel free to go
 
 ## License
 
