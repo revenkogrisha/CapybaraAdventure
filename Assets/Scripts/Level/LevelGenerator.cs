@@ -47,6 +47,7 @@ namespace CapybaraAdventure.Level
         private float _lastGeneratedPlatformX = 0f;
         private int _locationNumber = 0;
         private Color _defaultBackground;
+        private bool _isQuestCompleted = false;
 
         private string PlatformName => $"Platform №{_platformNumber}";
 
@@ -68,7 +69,7 @@ namespace CapybaraAdventure.Level
             get
             {
                 return _platformNumber % QuestPlatformSequentialNumber == 0
-                && _platformNumber > 0;
+                && _platformNumber > 0 && _isQuestCompleted == false;
             }
         }
 
@@ -171,11 +172,16 @@ namespace CapybaraAdventure.Level
 
             Platform randomPlatform;
             if (IsNowQuestPlatformTurn == true)
+            {
                 randomPlatform = _questPlatform;
+                _isQuestCompleted = true;
+            }
             else
+            {
                 randomPlatform = IsNowSpecialPlatformTurn
                     ? GetRandomPlatform(specialPlatforms)
                     : GetRandomPlatform(simplePlatforms);
+            }
 
             GeneratePlatform(randomPlatform);
         }
