@@ -1,7 +1,9 @@
 using System.Collections;
 using CapybaraAdventure.Other;
+using CapybaraAdventure.Player;
 using UnityEngine;
 using Zenject;
+using UnityTools.Buttons;
 
 namespace CapybaraAdventure.Level
 {
@@ -12,22 +14,45 @@ namespace CapybaraAdventure.Level
         private const string ZoomDark = nameof(ZoomDark);
 
         [SerializeField] private Animator _cutsceneAnimator;
+        [SerializeField] private UIButton _skipButton;
 
-        private LoadingScreenProvider _loaderProvider;
         private readonly float _cutsceneChangeInterval = 1.5f;
         private int _cutscene0Id = Animator.StringToHash(Cutscene0);
         private int _zoomHeroId = Animator.StringToHash(ZoomHero);
         private int _zoomDarkId = Animator.StringToHash(ZoomDark);
 
-        private void Start()
+        #region Injected fields
+        private LoadingScreenProvider _loaderProvider;
+        private PlayerData _playerData;
+        #endregion
+
+        #region MonoBehaviour
+        
+        private void OnEnable()
         {
-            StartCoroutine(PerformCutscene());
+            _skipButton.OnClicked += LoadGame;
+        }
+        
+        private void OnDisable()
+        {
+            _skipButton.OnClicked -= LoadGame;
         }
 
+        private void Start()
+        {
+            if (_playerData.IsCutsceneWatched == true)
+                _skipButton.gameObject.SetActive(true);
+
+            StartCoroutine(PerformCutscene());
+        }
+        
+        #endregion
+
         [Inject]
-        private void Construct(LoadingScreenProvider provider)
+        private void Construct(LoadingScreenProvider provider, PlayerData playerData)
         {
             _loaderProvider = provider;
+            _playerData = playerData;
         }
 
         private IEnumerator PerformCutscene()
@@ -51,6 +76,7 @@ namespace CapybaraAdventure.Level
 
             yield return new WaitForSeconds(_cutsceneChangeInterval);
 
+            _playerData.IsCutsceneWatched = true;
             LoadGame();
         }
 
