@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: DesertLocation
   m_EditorClassIdentifier: 
   _useDefaultBackground: 0
-  _backgroundColor: {r: 0.8490566, g: 0.810008, b: 0.6688323, a: 0}
+  _backgroundColor: {r: 0.75686276, g: 0.70980394, b: 0.5254902, a: 0}
   _simplePlatforms:
   - {fileID: -7841068184548764235, guid: fb4991b58c6e342509cd3bed7a34cf6c, type: 3}
   - {fileID: -7841068184548764235, guid: 14fb245fb9c5c4141b84fa6c4d7ff8b2, type: 3}
