@@ -1,0 +1,807 @@
+fileFormatVersion: 2
+guid: c86753f294eae46f8a80029c3f512b97
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Skins sprite sheet_0
+      rect:
+        serializedVersion: 2
+        x: 231
+        y: 988
+        width: 209
+        height: 187
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d6cb58e1dc4924d049cb045fd3b83274
+      internalID: -706347043
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenBara_LArm
+      rect:
+        serializedVersion: 2
+        x: 713
+        y: 843
+        width: 147
+        height: 146
+      alignment: 9
+      pivot: {x: 0.8760247, y: 0.89007276}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2eecb6ca34c4446b9b1022ddb4c108c3
+      internalID: -1732202905
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenBara_Head
+      rect:
+        serializedVersion: 2
+        x: 881
+        y: 985
+        width: 209
+        height: 187
+      alignment: 9
+      pivot: {x: 0.4999994, y: 0.11483455}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a63bf9df0290c40de90d8e9b7cf91671
+      internalID: 1969311795
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DarkBara_Head
+      rect:
+        serializedVersion: 2
+        x: 1474
+        y: 969
+        width: 245
+        height: 214
+      alignment: 9
+      pivot: {x: 0.48632613, y: 0.25735617}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 25c7310a4321247e2a073aa6790cdc42
+      internalID: 317021763
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skins sprite sheet_4
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 754
+        width: 147
+        height: 146
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b3637d22499ea43ee87774ec0561ecbd
+      internalID: -598417987
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skins sprite sheet_5
+      rect:
+        serializedVersion: 2
+        x: 270
+        y: 801
+        width: 158
+        height: 149
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f07a4801684b94e0ea16bd23a0ccd4a1
+      internalID: -34807063
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skins sprite sheet_6
+      rect:
+        serializedVersion: 2
+        x: 460
+        y: 754
+        width: 147
+        height: 146
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef63f7a57a48d46a0b49e8e7a951ed26
+      internalID: -186711741
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenBara_Body
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 761
+        width: 158
+        height: 149
+      alignment: 9
+      pivot: {x: 0.49999923, y: 0.09529636}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa2fbcca2967d4f29b4dfe3602f6cefd
+      internalID: 600591636
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenBara_RArm
+      rect:
+        serializedVersion: 2
+        x: 1081
+        y: 832
+        width: 148
+        height: 146
+      alignment: 9
+      pivot: {x: 0.115197256, y: 0.8900732}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e4adb9aeecf3f4805a1c97ababb9f421
+      internalID: -632400797
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DarkBara_LArm
+      rect:
+        serializedVersion: 2
+        x: 1354
+        y: 756
+        width: 147
+        height: 146
+      alignment: 9
+      pivot: {x: 0.8874188, y: 0.8900732}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 008b4976fc08b41b99b90082d8a01077
+      internalID: 629613151
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DarkBara_Body
+      rect:
+        serializedVersion: 2
+        x: 1548
+        y: 805
+        width: 158
+        height: 149
+      alignment: 9
+      pivot: {x: 0.5, y: 0.061571363}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3558251b202f44104a8561898b4a3913
+      internalID: -60223703
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DarkBara_RArm
+      rect:
+        serializedVersion: 2
+        x: 1738
+        y: 758
+        width: 147
+        height: 146
+      alignment: 9
+      pivot: {x: 0.123973615, y: 0.8900732}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae8ea5b51c7d3438d9b4117a0061c423
+      internalID: 646096914
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skins sprite sheet_12
+      rect:
+        serializedVersion: 2
+        x: 273
+        y: 649
+        width: 82
+        height: 139
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eef6d921fcae94904961fa97481a416b
+      internalID: -1330340903
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenBara_Leg
+      rect:
+        serializedVersion: 2
+        x: 841
+        y: 603
+        width: 82
+        height: 139
+      alignment: 9
+      pivot: {x: 0.47957107, y: 0.94586843}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5fc188edb65f6416ebd28062f4587f9d
+      internalID: 780475699
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DarkBara_Leg
+      rect:
+        serializedVersion: 2
+        x: 1551
+        y: 653
+        width: 82
+        height: 139
+      alignment: 9
+      pivot: {x: 0.47957256, y: 0.94586843}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a08a39334d454710bb68bbcf73c13ee
+      internalID: 513421181
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skins sprite sheet_15
+      rect:
+        serializedVersion: 2
+        x: 276
+        y: 378
+        width: 209
+        height: 187
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4125eebc6908c41baa128ba9273df3fc
+      internalID: 1138996402
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skins sprite sheet_16
+      rect:
+        serializedVersion: 2
+        x: 873
+        y: 378
+        width: 209
+        height: 187
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 88e5b3d8ff227435d91fffe3f80215c3
+      internalID: -419870927
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skins sprite sheet_17
+      rect:
+        serializedVersion: 2
+        x: 1476
+        y: 396
+        width: 210
+        height: 187
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 78a2b6107197d4ae8b949555d6fe7a69
+      internalID: -243716487
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skins sprite sheet_18
+      rect:
+        serializedVersion: 2
+        x: 121
+        y: 137
+        width: 147
+        height: 146
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b51f413aea8a462ca87e705a2d22a12
+      internalID: 962097720
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skins sprite sheet_19
+      rect:
+        serializedVersion: 2
+        x: 315
+        y: 184
+        width: 158
+        height: 149
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b42402a8e228d4a1fb35ffbca3f1c8de
+      internalID: 178941328
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skins sprite sheet_20
+      rect:
+        serializedVersion: 2
+        x: 505
+        y: 137
+        width: 147
+        height: 146
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4c89254ae1f5f4221aa972647ed11ca7
+      internalID: -209862144
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skins sprite sheet_21
+      rect:
+        serializedVersion: 2
+        x: 763
+        y: 137
+        width: 147
+        height: 146
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9318726ad2ad42a384b510977c7ec12
+      internalID: -304867411
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skins sprite sheet_22
+      rect:
+        serializedVersion: 2
+        x: 912
+        y: 184
+        width: 158
+        height: 149
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e18af0286c14e4f4eaa2f566eb9d4f03
+      internalID: -907199320
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skins sprite sheet_23
+      rect:
+        serializedVersion: 2
+        x: 1087
+        y: 128
+        width: 147
+        height: 146
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a7355ec00f6a049c9bdb9359504b1a07
+      internalID: 443169922
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skins sprite sheet_24
+      rect:
+        serializedVersion: 2
+        x: 1322
+        y: 162
+        width: 147
+        height: 148
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 250795769b9b3432aad7e21c6c1f405c
+      internalID: -1781092865
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skins sprite sheet_25
+      rect:
+        serializedVersion: 2
+        x: 1516
+        y: 209
+        width: 158
+        height: 149
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2199eb46654e145f99f1ba87e9da56f4
+      internalID: 84403471
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skins sprite sheet_26
+      rect:
+        serializedVersion: 2
+        x: 1706
+        y: 162
+        width: 147
+        height: 146
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 507a824e5dc0243f2a987fb9f65ec7f2
+      internalID: 148129793
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skins sprite sheet_27
+      rect:
+        serializedVersion: 2
+        x: 318
+        y: 32
+        width: 82
+        height: 139
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed1c1e9cbbfd14003bfdd8a3b95fdf97
+      internalID: 1835073145
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skins sprite sheet_28
+      rect:
+        serializedVersion: 2
+        x: 915
+        y: 32
+        width: 82
+        height: 139
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 16173d8ee605f483eb0b6f13c5308599
+      internalID: -1705605479
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skins sprite sheet_29
+      rect:
+        serializedVersion: 2
+        x: 1519
+        y: 57
+        width: 82
+        height: 139
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d8315a49f45934f0d91051a2cb3d0cf6
+      internalID: 148015019
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      DarkBara_LArm: 629613151
+      Skins sprite sheet_22: -907199320
+      Skins sprite sheet_20: -209862144
+      Skins sprite sheet_21: -304867411
+      Skins sprite sheet_26: 148129793
+      DarkBara_Leg: 513421181
+      Skins sprite sheet_25: 84403471
+      Skins sprite sheet_19: 178941328
+      GreenBara_Leg: 780475699
+      Skins sprite sheet_0: -706347043
+      Skins sprite sheet_15: 1138996402
+      Skins sprite sheet_29: 148015019
+      Skins sprite sheet_23: 443169922
+      Skins sprite sheet_28: -1705605479
+      DarkBara_Head: 317021763
+      Skins sprite sheet_18: 962097720
+      GreenBara_LArm: -1732202905
+      Skins sprite sheet_6: -186711741
+      Skins sprite sheet_12: -1330340903
+      Skins sprite sheet_4: -598417987
+      Skins sprite sheet_16: -419870927
+      GreenBara_RArm: -632400797
+      Skins sprite sheet_5: -34807063
+      GreenBara_Body: 600591636
+      Skins sprite sheet_24: -1781092865
+      Skins sprite sheet_17: -243716487
+      DarkBara_Body: -60223703
+      DarkBara_RArm: 646096914
+      Skins sprite sheet_27: 1835073145
+      GreenBara_Head: 1969311795
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
