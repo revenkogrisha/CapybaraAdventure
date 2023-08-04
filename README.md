@@ -8,7 +8,7 @@
    <img src="https://img.shields.io/badge/Engine-Unity%202021.3.16f1-blueviolet?style=&logo=unity" alt="Engine">
    <img src="https://img.shields.io/badge/Platform-Android 9+%20-brightgreen?style=&logo=android" alt="Platform">
    <img src="https://img.shields.io/badge/Play_Market-Available%20-brightgreen?style=&logo=google play" alt="Distribution">
-   <img src="https://img.shields.io/badge/Version-1.0.4-blue" alt="Game Version">
+   <img src="https://img.shields.io/badge/Version-1.1.1-blue" alt="Game Version">
    <img src="https://img.shields.io/badge/Release Date-13.05.2023-red" alt="Release Date">
    <img src="https://img.shields.io/badge/License-Apache--2.0%20-yellow?style=&logo=apache" alt="License">
 </p>
@@ -25,6 +25,7 @@
 ## About the project
 
 * **Release Date:** May 13, 2023
+* **Last Updated:** August 4, 2023
 * Project was made with **[Unity Engine](https://unity.com/)**
 * **Engine Version:** 2021.3.16f1
 
@@ -41,9 +42,9 @@
 ## Authors
 
 * **[Grisha Revenko](https://github.com/revenkogrisha)** - *Game & UI Design, Code, Mediation, Publishing*
-* **[Kristina](https://t.me/krisdvg_10)** - *Graphics, Design, Game Design*
+* **[Kristina](https://t.me/krisdvg_10)** - *Graphics, Game Design*
 
-See also the list of [contributors](https://github.com/revenkogrisha/TwoDoors/contributors) who and how participated in this project.
+See also the list of [contributors](https://github.com/revenkogrisha/CapybaraAdventure/contributors) who and how participated in this project.
 
 ## Contributing
 
