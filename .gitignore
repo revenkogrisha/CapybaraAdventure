@@ -43,8 +43,11 @@ ExportedObj/
 *.opendb
 *.VC.db
 
+# Publishing-related files
 *.keystore
-*.DS_Store
+
+# MacOS generated files
+**.DS_Store
 
 # Unity3D generated meta files
 *.pidb.meta
