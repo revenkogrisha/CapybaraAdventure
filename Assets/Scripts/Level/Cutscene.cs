@@ -14,7 +14,7 @@ namespace CapybaraAdventure.Level
         private LoadingScreenProvider _loaderProvider;
         private readonly float _cutsceneChangeInterval = 2f;
         private int _cutscene0Id = Animator.StringToHash(Cutscene0);
-
+//
         private void Start()
         {
             StartCoroutine(PerformCutscene());
