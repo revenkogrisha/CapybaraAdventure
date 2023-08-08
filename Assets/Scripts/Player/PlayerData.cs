@@ -8,10 +8,10 @@ namespace CapybaraAdventure.Player
 {
     public class PlayerData : MonoBehaviour
     {
-        private const float MaxDistanceUpgradeLimit = 25f;
+        private const float MaxDistanceUpgradeLimit = 22f;
         private const float MaxDistanceUpgradeIncrease = 1f;
-        private const float LerpSpeedDecrease = 0.07f;
-        private const float FoodBonusIncrease = 0.25f;
+        private const float LerpSpeedDecrease = 0.08f;
+        private const float FoodBonusIncrease = 0.125f;
         public const float FoodBonusLimit = 1f;
 
 

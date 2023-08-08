@@ -7,11 +7,13 @@ namespace CapybaraAdventure.Player
         public const string IsJumping = nameof(IsJumping);
         public const string GotSword = nameof(GotSword);
         public const string Hit = nameof(Hit);
+        public const string Eat = nameof(Eat);
         
         private Animator _animator;
         private readonly int _isJumpingHash = Animator.StringToHash(IsJumping);
         private readonly int _gotSwordHash = Animator.StringToHash(GotSword);
-        private readonly int _hit = Animator.StringToHash(Hit);
+        private readonly int _hitHash = Animator.StringToHash(Hit);
+        private readonly int _eatHash = Animator.StringToHash(Eat);
 
         public HeroAnimator(Animator heroAnimator)
         {
@@ -24,6 +26,7 @@ namespace CapybaraAdventure.Player
 
         public void GetSword() => _animator.SetTrigger(_gotSwordHash);
 
-        public void DoHit() => _animator.SetTrigger(_hit);
+        public void DoHit() => _animator.SetTrigger(_hitHash);
+        public void EatFood() => _animator.SetTrigger(_eatHash);
     }
 }

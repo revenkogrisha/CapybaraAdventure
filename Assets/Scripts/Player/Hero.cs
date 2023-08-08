@@ -187,6 +187,11 @@ namespace CapybaraAdventure.Player
             _audioPlayer.PlayJump();
         }
 
+        public void PlayFoodSound()
+        {
+            _audioPlayer.PlayEat();
+        }
+
         private void AnimateJump()
         {
             _heroAnimator.SetAsJumping();
@@ -260,7 +265,10 @@ namespace CapybaraAdventure.Player
 
         private void EatFood(Food food)
         {
-            _audioPlayer.PlayEat();
+            if (_isDead == true)
+                return;
+            
+            _heroAnimator.EatFood();
             OnFoodEaten?.Invoke();
             NightPool.Despawn(food);
         }
