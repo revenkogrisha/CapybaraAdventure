@@ -8,11 +8,11 @@ namespace CapybaraAdventure.Player
         [SerializeField] private AudioSource _eatSound;
         [SerializeField] private AudioSource _collectedSound;
         [SerializeField] private AudioSource _gameOverSound;
+        [SerializeField] private AudioSource _swordSound;
 
         public void PlayJump()
         {
-            if (_jumpSound == null
-                || _jumpSound.isPlaying == true)
+            if (_jumpSound == null || _jumpSound.isPlaying == true)
                 return;
 
             _jumpSound.Play();
@@ -28,7 +28,7 @@ namespace CapybaraAdventure.Player
 
         public void PlayCollected()
         {
-            if (_collectedSound == null)
+            if (_collectedSound == null || _swordSound.isPlaying == true)
                 return;
 
             _collectedSound.Play();
@@ -36,11 +36,18 @@ namespace CapybaraAdventure.Player
 
         public void PlayGameOver()
         {
-            if (_gameOverSound == null
-                || _gameOverSound.isPlaying == true)
+            if (_gameOverSound == null || _gameOverSound.isPlaying == true)
                 return;
 
             _gameOverSound.Play();
+        }
+
+        public void PlaySword()
+        {
+            if (_swordSound == null)
+                return;
+
+            _swordSound.Play();
         }
     }
 }

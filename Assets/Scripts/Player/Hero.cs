@@ -96,8 +96,8 @@ namespace CapybaraAdventure.Player
             HandleDeadlyObjectCollision(other);
             HandleEnemyCollision(other);
             HandleFoodCollision(other);
-            HandleChestCollision(other);
             HandleSwordChestCollision(other);
+            HandleChestCollision(other);
         }
 
         private void OnCollisionEnter2D(Collision2D other)
@@ -133,6 +133,7 @@ namespace CapybaraAdventure.Player
 
             _hasSword = true;
             _heroAnimator.GetSword();
+            _audioPlayer.PlaySword();
         }
 
         public void Kick()
@@ -142,6 +143,7 @@ namespace CapybaraAdventure.Player
 
             var force = Vector2.right * _kickForce;
             _enemyToKick.GetKicked(force);
+            _audioPlayer.PlaySword();
 
             _enemyToKick = null;
         }
