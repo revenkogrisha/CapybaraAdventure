@@ -1,5 +1,4 @@
 using CapybaraAdventure.Other;
-using CapybaraAdventure.Player;
 using UnityEngine;
 using Zenject;
 
@@ -12,7 +11,7 @@ namespace CapybaraAdventure.Game
         private async void Start()
         {
             Application.targetFrameRate = 60;
-//
+
             await _loaderProvider.LoadPregameCutsceneAsync();
         }
 
