@@ -5,7 +5,7 @@ namespace CapybaraAdventure.Level
     public abstract class SpawnMarker : MonoBehaviour
     {
         [Tooltip("Fill in value as percent")]
-        [SerializeField] private int _spawnChance = 35;
+        [SerializeField, Range(0, 101)] private int _spawnChance = 35;
 
         private Transform _transform;
 

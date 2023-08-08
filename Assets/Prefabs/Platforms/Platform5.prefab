@@ -257,7 +257,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d81ca3589a4e4a5e84a731d1d02116c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _spawnChance: 80
+  _spawnChance: 60
 --- !u!1 &3508101966133755884
 GameObject:
   m_ObjectHideFlags: 0
@@ -317,6 +317,7 @@ MonoBehaviour:
   - {fileID: 4084133150316561761}
   _chestMarkers:
   - {fileID: 8970241736529998210}
+  _treasureChestMarkers: []
   _enemyMarkers:
   - {fileID: 551328883457537500}
   - {fileID: 3081948393318241041}

@@ -75,7 +75,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3508101966133755882}
-  m_RootOrder: 14
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &3971211235817533779
 SpriteRenderer:
@@ -254,7 +254,6 @@ Transform:
   - {fileID: 2609608622938011984}
   - {fileID: 1411009733143712394}
   - {fileID: 9021102309277169176}
-  - {fileID: 8781333246657781403}
   - {fileID: 3248835042142055201}
   - {fileID: 6981454641184889664}
   m_Father: {fileID: 0}
@@ -277,7 +276,6 @@ MonoBehaviour:
   - {fileID: 5535163097122240597}
   _chestMarkers:
   - {fileID: 297978410978052024}
-  - {fileID: 5437670828110764551}
   _treasureChestMarkers: []
   _enemyMarkers: []
 --- !u!1 &4957135898778543787
@@ -364,51 +362,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &5052776375317140189
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 8781333246657781403}
-  - component: {fileID: 5437670828110764551}
-  m_Layer: 0
-  m_Name: ChestMarker (1)
-  m_TagString: Untagged
-  m_Icon: {fileID: 6519382022992737161, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &8781333246657781403
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5052776375317140189}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.09, y: 1.18, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 3508101966133755882}
-  m_RootOrder: 12
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5437670828110764551
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5052776375317140189}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d81ca3589a4e4a5e84a731d1d02116c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _spawnChance: 80
 --- !u!1 &6078129689017859426
 GameObject:
   m_ObjectHideFlags: 0
@@ -736,7 +689,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3508101966133755882}
-  m_RootOrder: 13
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &3836180753462955444
 SpriteRenderer:
@@ -834,7 +787,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d81ca3589a4e4a5e84a731d1d02116c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _spawnChance: 80
+  _spawnChance: 60
 --- !u!1001 &941426287098043882
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -301,6 +301,7 @@ Transform:
   - {fileID: 2609608622938011984}
   - {fileID: 302000053994300643}
   - {fileID: 4717461416009478005}
+  - {fileID: 2082871106950449446}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -319,7 +320,9 @@ MonoBehaviour:
   _foodMarkers:
   - {fileID: 4630418133301108424}
   - {fileID: 5535163097122240597}
-  _chestMarkers: []
+  _chestMarkers:
+  - {fileID: 2567126899069249036}
+  _treasureChestMarkers: []
   _enemyMarkers:
   - {fileID: 607237526800958068}
 --- !u!1 &4957135898778543787
@@ -703,6 +706,51 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _spawnChance: 35
+--- !u!1 &7527264779271682562
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2082871106950449446}
+  - component: {fileID: 2567126899069249036}
+  m_Layer: 0
+  m_Name: ChestMarker
+  m_TagString: Untagged
+  m_Icon: {fileID: 6519382022992737161, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2082871106950449446
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7527264779271682562}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -12.65, y: 1.18, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3508101966133755882}
+  m_RootOrder: 14
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2567126899069249036
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7527264779271682562}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d81ca3589a4e4a5e84a731d1d02116c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _spawnChance: 60
 --- !u!1 &8110425475367366427
 GameObject:
   m_ObjectHideFlags: 0

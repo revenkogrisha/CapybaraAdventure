@@ -1,9 +1,9 @@
+using System;
 using UnityEngine;
 using Zenject;
-using System;
-using CapybaraAdventure.Game;
 using NTC.Global.Pool;
 using UnityTools;
+using CapybaraAdventure.Game;
 using CapybaraAdventure.Level;
 using CapybaraAdventure.Other;
 
@@ -82,7 +82,7 @@ namespace CapybaraAdventure.Player
 
         private void Update()
         {
-            if (IsPaused)
+            if (IsPaused == true)
                 return;
 
             Jump.TryJump();
@@ -90,7 +90,7 @@ namespace CapybaraAdventure.Player
 
         private void OnTriggerEnter2D(Collider2D other)
         {
-            if (IsPaused || _isDead)
+            if (IsPaused == true || _isDead == true)
                 return;
             
             HandleDeadlyObjectCollision(other);

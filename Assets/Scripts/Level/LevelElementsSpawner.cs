@@ -19,7 +19,7 @@ namespace CapybaraAdventure.Level
         [SerializeField] private Transform _parent;
 
         [Header("Chest Spawn Settings")]
-        [SerializeField, Range(0, 101)] private int _swordChestSpawnChance = 30;
+        [SerializeField, Range(0, 101)] private int _swordChestSpawnChance = 20;
  
         private DiContainer _diContainer;
         private int _swordChestsAmount = 0;

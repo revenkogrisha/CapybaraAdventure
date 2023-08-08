@@ -186,6 +186,7 @@ MonoBehaviour:
   - {fileID: 357596192722765246}
   _chestMarkers:
   - {fileID: 297978410978052024}
+  _treasureChestMarkers: []
   _enemyMarkers: []
 --- !u!1 &5353559048640446581
 GameObject:
@@ -360,7 +361,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d81ca3589a4e4a5e84a731d1d02116c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _spawnChance: 80
+  _spawnChance: 60
 --- !u!1001 &941426287098043882
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -596,7 +597,7 @@ MonoBehaviour:
   _rigidBody2D: {fileID: 1626417517151484425}
   _triggerChance: 101
   _delayBeforeFalling: 2
-  _delayBeforeDestroy: 2
+  _delayBeforeFreeze: 2
   _fallSpeed: 10
   _moveDownDuration: 0.2
   _moveDownDistance: 1.4
@@ -770,7 +771,7 @@ MonoBehaviour:
   _rigidBody2D: {fileID: 2110266133563364788}
   _triggerChance: 101
   _delayBeforeFalling: 2
-  _delayBeforeDestroy: 2
+  _delayBeforeFreeze: 2
   _fallSpeed: 10
   _moveDownDuration: 0.2
   _moveDownDistance: 1.4
@@ -939,7 +940,7 @@ MonoBehaviour:
   _rigidBody2D: {fileID: 6068041504449016723}
   _triggerChance: 101
   _delayBeforeFalling: 3
-  _delayBeforeDestroy: 2
+  _delayBeforeFreeze: 2
   _fallSpeed: 10
   _moveDownDuration: 0.18
   _moveDownDistance: 1

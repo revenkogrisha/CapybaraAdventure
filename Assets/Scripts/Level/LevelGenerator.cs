@@ -109,6 +109,8 @@ namespace CapybaraAdventure.Level
 
             _defaultBackground = _camera.backgroundColor;
 
+            ChangeBackgroundColor();
+
             StartCoroutine(CheckPlayerPosition());
         }
 
