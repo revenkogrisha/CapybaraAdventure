@@ -129,15 +129,15 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Skins sprite sheet_0
+      name: Blackbara_Head
       rect:
         serializedVersion: 2
         x: 231
         y: 988
         width: 209
         height: 187
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.50801456, y: 0.105877064}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -153,7 +153,7 @@ TextureImporter:
       name: GreenBara_LArm
       rect:
         serializedVersion: 2
-        x: 713
+        x: 711
         y: 843
         width: 147
         height: 146
@@ -213,15 +213,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Skins sprite sheet_4
+      name: Blackbara_LArm
       rect:
         serializedVersion: 2
-        x: 76
+        x: 78
         y: 754
         width: 147
         height: 146
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.87602526, y: 0.87860024}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -234,15 +234,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Skins sprite sheet_5
+      name: Blackbara_Body
       rect:
         serializedVersion: 2
         x: 270
         y: 801
         width: 158
         height: 149
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.050329834}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -255,15 +255,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Skins sprite sheet_6
+      name: Blackbara_RArm
       rect:
         serializedVersion: 2
         x: 460
         y: 754
         width: 147
         height: 146
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.13536933, y: 0.9015457}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -381,15 +381,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Skins sprite sheet_12
+      name: Blackbara_Leg
       rect:
         serializedVersion: 2
         x: 273
         y: 649
         width: 82
         height: 139
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.9338181}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -405,7 +405,7 @@ TextureImporter:
       name: GreenBara_Leg
       rect:
         serializedVersion: 2
-        x: 841
+        x: 839
         y: 603
         width: 82
         height: 139
@@ -444,15 +444,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Skins sprite sheet_15
+      name: Redbara_Head
       rect:
         serializedVersion: 2
         x: 276
-        y: 378
+        y: 380
         width: 209
         height: 187
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.10587739}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -465,15 +465,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Skins sprite sheet_16
+      name: Purplebara_Head
       rect:
         serializedVersion: 2
         x: 873
         y: 378
         width: 209
         height: 187
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.49523282, y: 0.105727255}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -486,15 +486,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Skins sprite sheet_17
+      name: Pinkbara_Head
       rect:
         serializedVersion: 2
         x: 1476
-        y: 396
+        y: 398
         width: 210
         height: 187
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.4999994, y: 0.11483422}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -507,15 +507,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Skins sprite sheet_18
+      name: Redbara_LArm
       rect:
         serializedVersion: 2
         x: 121
         y: 137
         width: 147
         height: 146
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.86463034, y: 0.9015461}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -528,15 +528,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Skins sprite sheet_19
+      name: Redbara_Body
       rect:
         serializedVersion: 2
         x: 315
-        y: 184
+        y: 182
         width: 158
         height: 149
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.08405565}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -549,15 +549,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Skins sprite sheet_20
+      name: Redbara_RArm
       rect:
         serializedVersion: 2
         x: 505
         y: 137
         width: 147
         height: 146
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.12397444, y: 0.86712813}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -570,15 +570,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Skins sprite sheet_21
+      name: Purplebara_LArm
       rect:
         serializedVersion: 2
         x: 763
         y: 137
         width: 147
         height: 146
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.8863351, y: 0.8889808}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -591,15 +591,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Skins sprite sheet_22
+      name: Purplebara_Body
       rect:
         serializedVersion: 2
         x: 912
         y: 184
         width: 158
         height: 149
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.072042786}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -612,15 +612,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Skins sprite sheet_23
+      name: Purplebara_RArm
       rect:
         serializedVersion: 2
         x: 1087
         y: 128
         width: 147
         height: 146
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.12044271, y: 0.8889808}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -633,15 +633,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Skins sprite sheet_24
+      name: Pinkbara_LArm
       rect:
         serializedVersion: 2
         x: 1322
         y: 162
         width: 147
         height: 148
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.8594821, y: 0.89275837}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -654,15 +654,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Skins sprite sheet_25
+      name: Pinkbara_Body
       rect:
         serializedVersion: 2
         x: 1516
-        y: 209
+        y: 207
         width: 158
         height: 149
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.06444657}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -675,15 +675,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Skins sprite sheet_26
+      name: Pinkbara_RArm
       rect:
         serializedVersion: 2
         x: 1706
         y: 162
         width: 147
         height: 146
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.14051871, y: 0.9053775}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -696,15 +696,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Skins sprite sheet_27
+      name: Redbara_Leg
       rect:
         serializedVersion: 2
         x: 318
-        y: 32
+        y: 30
         width: 82
         height: 139
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.47957256, y: 0.9338186}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -717,15 +717,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Skins sprite sheet_28
+      name: Purplebara_Leg
       rect:
         serializedVersion: 2
-        x: 915
+        x: 917
         y: 32
         width: 82
         height: 139
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.48494366, y: 0.94410586}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -738,15 +738,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Skins sprite sheet_29
+      name: Pinkbara_Leg
       rect:
         serializedVersion: 2
         x: 1519
-        y: 57
+        y: 56
         width: 82
         height: 139
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.48711264, y: 0.96380925}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -769,36 +769,37 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      Pinkbara_Body: -598417987
       DarkBara_LArm: 629613151
-      Skins sprite sheet_22: -907199320
-      Skins sprite sheet_20: -209862144
-      Skins sprite sheet_21: -304867411
-      Skins sprite sheet_26: 148129793
+      Purplebara_Head: 1138996402
+      Purplebara_RArm: 443169922
       DarkBara_Leg: 513421181
-      Skins sprite sheet_25: 84403471
-      Skins sprite sheet_19: 178941328
       GreenBara_Leg: 780475699
-      Skins sprite sheet_0: -706347043
-      Skins sprite sheet_15: 1138996402
-      Skins sprite sheet_29: 148015019
-      Skins sprite sheet_23: 443169922
-      Skins sprite sheet_28: -1705605479
+      Redbara_Head: -706347043
+      Pinkbara_LArm: -1781092865
+      Pinkbara_Leg: 148015019
+      Redbara_LArm: 962097720
       DarkBara_Head: 317021763
-      Skins sprite sheet_18: 962097720
+      Skins sprite sheet_1: -243716487
+      Redbara_Body: 84403471
+      Blackbara_Head: -34807063
       GreenBara_LArm: -1732202905
-      Skins sprite sheet_6: -186711741
-      Skins sprite sheet_12: -1330340903
-      Skins sprite sheet_4: -598417987
-      Skins sprite sheet_16: -419870927
-      GreenBara_RArm: -632400797
-      Skins sprite sheet_5: -34807063
-      GreenBara_Body: 600591636
-      Skins sprite sheet_24: -1781092865
-      Skins sprite sheet_17: -243716487
-      DarkBara_Body: -60223703
-      DarkBara_RArm: 646096914
-      Skins sprite sheet_27: 1835073145
-      GreenBara_Head: 1969311795
+      Pinkbara_RArm: 148129793
+      Purplebara_Body: 178941328
+      Redbara_RArm: -209862144
+      Purplebara_Leg: -1705605479
+      Blackbara_LArm: -598417987
+      Blackbara_Body: -907199320
+      Pinkbara_Head: -419870927
+      DarkBara_RArm: 1835073145
+      GreenBara_RArm: 600591636
+      Blackbara_RArm: -186711741
+      GreenBara_Body: -1781092865
+      DarkBara_Body: 646096914
+      Redbara_Leg: 1835073145
+      Purplebara_LArm: -304867411
+      Blackbara_Leg: -1330340903
+      GreenBara_Head: -1507083671
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
