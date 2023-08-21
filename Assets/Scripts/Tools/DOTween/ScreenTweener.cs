@@ -61,8 +61,6 @@ namespace CapybaraAdventure.Other
 
         public void TweenSwordButton(Transform button)
         {
-            button.localScale = Vector2.zero;
-
             DOTween.Sequence()
                 .Append(button.DOScale(Vector2.one, _buttonsScaleDuration))
                 .AppendInterval(_swordButtonFadeDelay)

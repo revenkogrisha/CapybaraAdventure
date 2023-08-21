@@ -5,11 +5,14 @@ using UnityEngine.UI;
 using UnityTools.Buttons;
 using CapybaraAdventure.Game;
 using CapybaraAdventure.Ad;
+using UnityTools;
 
 namespace CapybaraAdventure.UI
 {
     public class GameUI : UIBase
     {
+        public const int GiveSwordButtonShowChance = 40;
+
         [Header("UI Elements")]
         [SerializeField] private UIButton _pauseButton;
         [SerializeField] private UIButton _giveSwordButton;
@@ -23,6 +26,7 @@ namespace CapybaraAdventure.UI
         private ScreenTweener _tweener;
 
         public AdRewarded SwordAdRewarded =>_swordAdRewarded;
+
 
         #region MonoBehaviour
 
@@ -42,7 +46,11 @@ namespace CapybaraAdventure.UI
         {
             _tweener = new ScreenTweener();
 
-            TweenGiveSwordButton();
+            _giveSwordButton.transform.localScale = Vector2.zero;
+            bool isSucceeded = Tools.GetChance(GiveSwordButtonShowChance);
+            if (isSucceeded == true)
+                ShowGiveSwordButton();
+                
             StartPeriodicallyShowQuestBar();
         }
 
@@ -84,7 +92,7 @@ namespace CapybaraAdventure.UI
             Conceal();
         }
 
-        private void TweenGiveSwordButton()
+        private void ShowGiveSwordButton()
         {
             _tweener.TweenSwordButton(_giveSwordButton.transform);
         }
