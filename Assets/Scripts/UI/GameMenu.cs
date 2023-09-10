@@ -13,9 +13,10 @@ namespace CapybaraAdventure.Game
     {
         private const string HighScoreOriginalText = "HighScore:";
 
-        [Header("UI Elements")]
         [SerializeField] private UIButton _playButton;
         [SerializeField] private UIButton _updgradeButton;
+
+        [Space]
         [SerializeField] private TextMeshProUGUI _highScoreText;
         [SerializeField] private Transform _logo;
 
