@@ -5,7 +5,6 @@ using UnityTools.Buttons;
 using TMPro;
 using CapybaraAdventure.Player;
 using CapybaraAdventure.Other;
-using CapybaraAdventure.Ad;
 
 namespace CapybaraAdventure.Game
 {
