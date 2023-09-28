@@ -40,16 +40,17 @@ namespace CapybaraAdventure.Save
 
         public void Save()
         {
-            var data = new SaveData();
+            var data = new SaveData
+            {
+                HighScore = _score.HighScore,
+                Coins = _playerData.Coins,
+                MaxDistance = _playerData.MaxDistance,
+                DistanceUpgradeCost = _playerData.DistanceUpgradeCost,
+                FoodBonus = _playerData.FoodBonus,
+                FoodUpgradeCost = _playerData.FoodUpgradeCost,
+                IsCutsceneWatched = _playerData.IsCutsceneWatched
+            };
 
-            data.HighScore = _score.HighScore;
-            data.Coins = _playerData.Coins;
-            data.MaxDistance = _playerData.MaxDistance;
-            data.DistanceUpgradeCost = _playerData.DistanceUpgradeCost;
-            data.FoodBonus = _playerData.FoodBonus;
-            data.FoodUpgradeCost = _playerData.FoodUpgradeCost;
-            data.IsCutsceneWatched = _playerData.IsCutsceneWatched;
-            
             _saveSystem.Save(data);
         }
 
