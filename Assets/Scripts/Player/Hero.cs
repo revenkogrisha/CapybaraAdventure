@@ -9,7 +9,7 @@ using CapybaraAdventure.Other;
 
 namespace CapybaraAdventure.Player
 {
-    public class Hero : MonoBehaviour, IPauseHandler
+    public class Hero : MonoBehaviour, IPhysicalObject, IPauseHandler
     {
         private const float HeightTestRadius = 0.05f;
 
@@ -42,6 +42,8 @@ namespace CapybaraAdventure.Player
         public HeroJump Jump { get; private set; }
         public bool IsPaused => _pauseManager.IsPaused;
         public bool ShouldPlayParticles => _jumpParticlesPlayer != null;
+        public Transform Transform => transform;
+        public Rigidbody2D Rigidbody2D => _rigidBody2D;
 
         public event Action OnDeath;
         public event Action OnFoodEaten;
@@ -164,10 +166,9 @@ namespace CapybaraAdventure.Player
         {
             var heightTestService = new HeightCheckService(_collider, _ground, HeightTestRadius);
             Jump = new HeroJump(
-                _rigidBody2D,
+                this,
                 _jumpCurve,
                 heightTestService,
-                transform,
                 _duration);
 
             _heroAnimator = new HeroAnimator(_animator);
