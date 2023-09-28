@@ -17,6 +17,8 @@ namespace CapybaraAdventure.UI
         [SerializeField] private UIButton _pauseButton;
         [SerializeField] private UIButton _giveSwordButton;
         [SerializeField] private Slider _questBar;
+        [field: SerializeField] public JumpButton JumpButton { get; private set; }
+        [field: SerializeField] public JumpSlider JumpSlider { get; private set; }
 
         [Header("Ads Settings")]
         [SerializeField] private AdRewarded _swordAdRewarded;
@@ -24,6 +26,7 @@ namespace CapybaraAdventure.UI
         private PauseManager _pauseManager;
         private PauseScreenProvider _pauseScreenProvider;
         private ScreenTweener _tweener;
+
 
         public AdRewarded SwordAdRewarded =>_swordAdRewarded;
 

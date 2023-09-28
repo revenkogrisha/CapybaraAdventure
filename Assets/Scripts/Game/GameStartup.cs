@@ -27,8 +27,6 @@ namespace CapybaraAdventure.Game
         [SerializeField] private CoinsUIContainer _coinsUIContainer;
 
         #region Injected Variables
-        private JumpButton _jumpButton;
-        private JumpSlider _jumpSlider;
         private MenuProvider _menuProvider;
         private GameMenu _menu;
         private Score _score;
@@ -76,8 +74,6 @@ namespace CapybaraAdventure.Game
 
         [Inject]
         private void Construct(
-            JumpButton button,
-            JumpSlider slider,
             MenuProvider menuProvider,
             Score score,
             LevelGenerator levelGenerator,
@@ -89,8 +85,6 @@ namespace CapybaraAdventure.Game
             UpgradeScreenProvider upgradeScreenProvider,
             DiContainer diContainer)
         {
-            _jumpButton = button;
-            _jumpSlider = slider;
             _menuProvider = menuProvider;
             _score = score;
             _levelGenerator = levelGenerator; 
@@ -108,18 +102,14 @@ namespace CapybaraAdventure.Game
         {
             Hero hero = CreateHero();
 
-            _heroPresenter = new HeroPresenter(
-                hero, 
-                _jumpButton, 
-                _jumpSlider,
-                 _inGameUI);
+            _heroPresenter = new HeroPresenter(hero, _inGameUI);
                  
             _heroPresenter.Enable();
 
             SetupCamera(hero);
             SetupScore(hero);
 
-            SetupDeadlyYBorder(hero);
+            _deadlyYBorder.Init(hero.transform);
 
             _levelGenerator.InitHeroTransform(hero);
 
@@ -177,12 +167,6 @@ namespace CapybaraAdventure.Game
             _coinsPresenter = new(_playerData, _coinsUIContainer);
             _coinsPresenter.Init();
             _coinsPresenter.Enable();
-        }
-
-        private void SetupDeadlyYBorder(Hero hero)
-        {
-            GameObject heroObject = hero.gameObject;
-            _deadlyYBorder.Init(heroObject);
         }
 
         private void SetupGameOverSystem(Hero hero)

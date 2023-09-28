@@ -22,7 +22,11 @@ namespace CapybaraAdventure.Player
         public Hero Create()
         {
             Hero hero = _diContainer
-                .InstantiatePrefabForComponent<Hero>(_heroPrefab, _spawnPosition, Quaternion.identity, null);
+                .InstantiatePrefabForComponent<Hero>(
+                    _heroPrefab, 
+                    _spawnPosition, 
+                    Quaternion.identity, 
+                    null);
 
             return hero;
         }

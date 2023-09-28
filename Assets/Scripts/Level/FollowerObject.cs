@@ -31,12 +31,12 @@ namespace CapybaraAdventure.Level
 
         #endregion
 
-        public void Init(GameObject toFollow)
+        public void Init(Transform toFollow)
         {
             if (IsFollowObjectInitialized == true)
                 throw new InvalidOperationException("Object to follow has been already initialized! You cannot do it more than once");
 
-            _toFollow = toFollow.transform;
+            _toFollow = toFollow;
         }
 
         public void StopFollowing()

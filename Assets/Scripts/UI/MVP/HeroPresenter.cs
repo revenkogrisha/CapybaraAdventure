@@ -12,15 +12,13 @@ namespace CapybaraAdventure.UI
 
         public HeroPresenter(
             Hero hero,
-            JumpButton button,
-            JumpSlider slider,
             GameUI gameUI)
         {
             _hero = hero;
-            _jumpButton = button;
-            _jumpSlider = slider;
             _gameUI = gameUI;
 
+            _jumpButton = gameUI.JumpButton;
+            _jumpSlider = gameUI.JumpSlider;
             _heroJump = _hero.Jump;
         }
 

@@ -82,16 +82,14 @@ namespace CapybaraAdventure.Level
             }
         }
 
-        public event Action<float> OnHeroXPositionUpdated;
-
         private bool IsLevelMidPointXLessHeroX
         {
             get
             {
-                float midPointX = GetLevelMidPointX(HeroX);
+                float midPointX = GetLevelMidPointX();
                 return midPointX < HeroX;
 
-                float GetLevelMidPointX(float heroX)
+                float GetLevelMidPointX()
                 {
                     Platform oldestPlatform = _platformsOnLevel.Peek();
                     float oldestPlatformX = oldestPlatform.transform.position.x;
@@ -101,6 +99,8 @@ namespace CapybaraAdventure.Level
         }
 
         private float HeroX => _heroTransform.position.x;
+
+        public event Action<float> OnHeroXPositionUpdated;
 
         private void Awake()
         {
