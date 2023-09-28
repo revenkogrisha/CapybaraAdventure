@@ -38,7 +38,6 @@ namespace CapybaraAdventure.Level
         [SerializeField] private SpecialPlatform _questPlatform;
         [SerializeField] private Location[] _locations;
 
-        private DiContainer _diContainer;
         private Camera _camera;
         private Transform _heroTransform;
         private bool _heroIsInitialized = false;
@@ -112,12 +111,6 @@ namespace CapybaraAdventure.Level
             ChangeBackgroundColor();
 
             StartCoroutine(CheckPlayerPosition());
-        }
-
-        [Inject]
-        private void Construct(DiContainer diContainer)
-        {
-            _diContainer = diContainer;
         }
 
         public void SpawnStartPlatform()

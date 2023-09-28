@@ -1,5 +1,5 @@
+using CapybaraAdventure.Other;
 using UnityEngine;
-using Zenject;
 
 namespace CapybaraAdventure.Player
 {
@@ -7,21 +7,18 @@ namespace CapybaraAdventure.Player
     {
         private readonly Hero _heroPrefab;
         private readonly Vector3 _spawnPosition;
-        private DiContainer _diContainer;
 
         public HeroFactory(
-            DiContainer container,
             Hero prefab,
             Vector3 spawnPosition)
         {
-            _diContainer = container;
             _heroPrefab = prefab;
             _spawnPosition = spawnPosition;
         }
 
         public Hero Create()
         {
-            Hero hero = _diContainer
+            Hero hero = DIContainerRef.Container
                 .InstantiatePrefabForComponent<Hero>(
                     _heroPrefab, 
                     _spawnPosition, 

@@ -3,6 +3,7 @@ using NTC.Global.Pool;
 using CapybaraAdventure.Player;
 using Zenject;
 using UnityTools;
+using CapybaraAdventure.Other;
 
 namespace CapybaraAdventure.Level
 {
@@ -21,16 +22,9 @@ namespace CapybaraAdventure.Level
         [Header("Chest Spawn Settings")]
         [SerializeField, Range(0, 101)] private int _swordChestSpawnChance = 20;
  
-        private DiContainer _diContainer;
         private int _swordChestsAmount = 0;
 
         private bool CanSpawnSwordChest => SwordChestsLimit > _swordChestsAmount;
-
-        [Inject]
-        private void Construct(DiContainer diContainer)
-        {
-            _diContainer = diContainer;
-        }
 
         public void SpawnChests(Platform platformInGame)
         {
@@ -62,7 +56,7 @@ namespace CapybaraAdventure.Level
                 if (isChanceSucceeded == false || marker.HasActiveObject == true)
                     continue;
 
-                TreasureChest chest = _diContainer
+                TreasureChest chest = DIContainerRef.Container
                     .InstantiatePrefabForComponent<TreasureChest>(_treasureChestPrefab);
 
                 Vector3 position = marker.Position;
@@ -108,7 +102,7 @@ namespace CapybaraAdventure.Level
 
         private Chest SpawnSimpleChest()
         {
-            Chest chest = _diContainer
+            Chest chest = DIContainerRef.Container
                     .InstantiatePrefabForComponent<Chest>(_chestPrefab);
 
             return chest;

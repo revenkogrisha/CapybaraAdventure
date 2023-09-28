@@ -36,7 +36,6 @@ namespace CapybaraAdventure.Game
         private GameUI _inGameUI;
         private GameOverScreenProvider _gameOverScreenProvider;
         private PlayerData _playerData;
-        private DiContainer _diContainer;
         #endregion
 
         private ScorePresenter _scorePresenter;
@@ -82,8 +81,7 @@ namespace CapybaraAdventure.Game
             GameUI inGameUI,
             GameOverScreenProvider gameOverScreenProvider,
             PlayerData playerData,
-            UpgradeScreenProvider upgradeScreenProvider,
-            DiContainer diContainer)
+            UpgradeScreenProvider upgradeScreenProvider)
         {
             _menuProvider = menuProvider;
             _score = score;
@@ -93,7 +91,6 @@ namespace CapybaraAdventure.Game
             _inGameUI = inGameUI;
             _gameOverScreenProvider = gameOverScreenProvider;
             _playerData = playerData;
-            _diContainer = diContainer;
 
             _menuProvider.Init(upgradeScreenProvider);
         }
@@ -142,7 +139,7 @@ namespace CapybaraAdventure.Game
             Vector3 spawnPosition = spawnMarkerTransform.position;
             
             var heroFactory = 
-                new HeroFactory(_diContainer, _heroPrefab, spawnPosition);
+                new HeroFactory(_heroPrefab, spawnPosition);
                 
             return heroFactory.Create();
         }
