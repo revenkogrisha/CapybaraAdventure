@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
-using Zenject;
 using NTC.Global.Pool;
 using CapybaraAdventure.Player;
 using UnityTools;
@@ -12,7 +11,6 @@ namespace CapybaraAdventure.Level
 {
     public class LevelGenerator : MonoBehaviour
     {
-        private const float PlatformLength = 30f;
         private const float HeroPositionCheckFrequencyInSeconds = 1.5f;
         private const int SpecialPlatformSequentialNumber = 4;
         private const int LocationChangeSequentialNumber = 10;
@@ -52,7 +50,7 @@ namespace CapybaraAdventure.Level
 
         private Location CurrentLocation => _locations[_locationNumber];
 
-        public float QuestPlatformXPosition => PlatformLength * QuestPlatformSequentialNumber;
+        public float QuestPlatformXPosition => Platform.Length * QuestPlatformSequentialNumber;
 
         private bool IsNowSpecialPlatformTurn 
         {
@@ -231,7 +229,7 @@ namespace CapybaraAdventure.Level
 
             SpawnElements(platform);
 
-            _lastGeneratedPlatformX += PlatformLength;
+            _lastGeneratedPlatformX += Platform.Length;
             _platformNumber++;
             _platformsOnLevel.Enqueue(platform);
         }
