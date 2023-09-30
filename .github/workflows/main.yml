@@ -10,7 +10,9 @@ jobs:
       fail-fast: false
       matrix:
         projectPath:
-          - /Users/revenkogrisha/Documents/UnityProjects/CapybaraAdventure
+          - ./
+        unityVersion:
+          - 2021.3.16f1
         testMode:
           - playmode
           - editmode
