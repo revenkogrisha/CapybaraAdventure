@@ -90,6 +90,7 @@ namespace CapybaraAdventure.Game
             if (_isInitialized == false)
                 throw new NullReferenceException("The instance of the class haven't been initialized yet! Call Init(...) first before calling StartGame()");
 
+            // TODO: remake with EventBus/MVP...
             _gameStartup.StartGame();
             Conceal();
 
