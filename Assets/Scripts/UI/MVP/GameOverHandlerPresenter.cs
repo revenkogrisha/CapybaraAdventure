@@ -7,7 +7,7 @@ namespace CapybaraAdventure.UI
     public class GameOverHandlerPresenter
     {
         private readonly GameOverHandler _gameOverHandler;
-        private readonly GameUI _inGameUI;
+        private readonly GameUI _gameUI;
         private readonly GameOverScreenProvider _screenProvider;
         private readonly Score _score;
         private GameOverScreen _screen;
@@ -21,7 +21,7 @@ namespace CapybaraAdventure.UI
             Score score)
         {
             _gameOverHandler = handler;
-            _inGameUI = inGameUI;
+            _gameUI = inGameUI;
             _screenProvider = screenProvider;
             _score = score;
         }
@@ -41,7 +41,7 @@ namespace CapybaraAdventure.UI
 
         private async void OnGameHasOverHandler()
         {
-            _inGameUI.Conceal();
+            _gameUI.Conceal();
             _score.StopCount();
             await LoadScreen();
 
@@ -62,7 +62,7 @@ namespace CapybaraAdventure.UI
             if (WasGameContinuedBefore == true)
                 return;
 
-            _inGameUI.Reveal();
+            _gameUI.Reveal();
             _score.StartCount();
             _screenProvider.Unload();
             _gameOverHandler.HandleHeroRevival();

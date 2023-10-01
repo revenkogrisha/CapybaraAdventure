@@ -11,7 +11,7 @@ namespace CapybaraAdventure.Other
 
         private readonly Canvas _canvas;
         private readonly PauseManager _pauseManager;
-        private readonly GameUI _inGameUI;
+        private readonly GameUI _gameUI;
         private readonly LoadingScreenProvider _loadingScreenProvider;
 
         public PauseScreenProvider(
@@ -22,7 +22,7 @@ namespace CapybaraAdventure.Other
         {
             _canvas = canvas;
             _pauseManager = pauseManager;
-            _inGameUI = inGameUI;
+            _gameUI = inGameUI;
             _loadingScreenProvider = loadingScreenProvider;
         }
 
@@ -31,7 +31,7 @@ namespace CapybaraAdventure.Other
             var canvasTransform = _canvas.transform;
             PauseScreen screen = await LoadInternal<PauseScreen>(PauseScreen, canvasTransform);
 
-            screen.Init(_pauseManager, _inGameUI, _loadingScreenProvider);
+            screen.Init(_pauseManager, _gameUI, _loadingScreenProvider);
 
             return screen;
         }

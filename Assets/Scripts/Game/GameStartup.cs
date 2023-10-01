@@ -33,7 +33,7 @@ namespace CapybaraAdventure.Game
         private LevelGenerator _levelGenerator;
         private HeroSpawnMarker _heroSpawnMarker;
         private PauseManager _pauseManager;
-        private GameUI _inGameUI;
+        private GameUI _gameUI;
         private GameOverScreenProvider _gameOverScreenProvider;
         private PlayerData _playerData;
         #endregion
@@ -78,7 +78,7 @@ namespace CapybaraAdventure.Game
             LevelGenerator levelGenerator,
             HeroSpawnMarker spawnMarker,
             PauseManager pauseManager,
-            GameUI inGameUI,
+            GameUI gameUI,
             GameOverScreenProvider gameOverScreenProvider,
             PlayerData playerData,
             UpgradeScreenProvider upgradeScreenProvider)
@@ -88,7 +88,7 @@ namespace CapybaraAdventure.Game
             _levelGenerator = levelGenerator; 
             _heroSpawnMarker = spawnMarker;
             _pauseManager = pauseManager;
-            _inGameUI = inGameUI;
+            _gameUI = gameUI;
             _gameOverScreenProvider = gameOverScreenProvider;
             _playerData = playerData;
 
@@ -99,7 +99,7 @@ namespace CapybaraAdventure.Game
         {
             Hero hero = CreateHero();
 
-            _heroPresenter = new HeroPresenter(hero, _inGameUI);
+            _heroPresenter = new HeroPresenter(hero, _gameUI);
                  
             _heroPresenter.Enable();
 
@@ -114,9 +114,9 @@ namespace CapybaraAdventure.Game
 
             _pauseManager.SetPaused(false);
 
-            _questPresenter = new QuestPresenter(_levelGenerator, _inGameUI);
+            _questPresenter = new QuestPresenter(_levelGenerator, _gameUI);
             _questPresenter.Enable();
-            _inGameUI.Reveal();
+            _gameUI.Reveal();
         }
 
         private async Task LoadAndRevealMenu()
@@ -185,7 +185,7 @@ namespace CapybaraAdventure.Game
 
             _gameOverHandlerPresenter = new GameOverHandlerPresenter(
                 _gameOverHandler,
-                _inGameUI,
+                _gameUI,
                 _gameOverScreenProvider,
                 _score);
 
