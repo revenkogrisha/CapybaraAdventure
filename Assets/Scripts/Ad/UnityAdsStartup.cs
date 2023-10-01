@@ -7,15 +7,19 @@ namespace CapybaraAdventure.Ad
     {
         private const string AndroidGameID = "5253776";
         private const string IOSGameID = "5253777";
-        private const bool TestMode = false;
 
+        private bool _testMode = false;
         private string gameID;
 
         private void Awake()
         {
+            #if UNITY_EDITOR
+            _testMode = true;
+            #endif
+
             gameID = (Application.platform == RuntimePlatform.IPhonePlayer) ? IOSGameID : AndroidGameID;
 
-            Advertisement.Initialize(gameID, TestMode, this);
+            Advertisement.Initialize(gameID, _testMode, this);
         }
 
         public void OnInitializationComplete()
