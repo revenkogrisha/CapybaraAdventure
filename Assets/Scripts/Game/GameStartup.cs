@@ -80,8 +80,7 @@ namespace CapybaraAdventure.Game
             PauseManager pauseManager,
             GameUI gameUI,
             GameOverScreenProvider gameOverScreenProvider,
-            PlayerData playerData,
-            UpgradeScreenProvider upgradeScreenProvider)
+            PlayerData playerData)
         {
             _menuProvider = menuProvider;
             _score = score;
@@ -91,8 +90,6 @@ namespace CapybaraAdventure.Game
             _gameUI = gameUI;
             _gameOverScreenProvider = gameOverScreenProvider;
             _playerData = playerData;
-
-            _menuProvider.Init(upgradeScreenProvider);
         }
 
         public void StartGame()
@@ -131,7 +128,10 @@ namespace CapybaraAdventure.Game
             _levelGenerator.GenerateDefaultAmount();
         }
 
-        private void UnloadMenu() => _menuProvider.Unload();
+        private void UnloadMenu()
+        {
+            _menuProvider.Unload();
+        }
 
         private Hero CreateHero()
         {

@@ -5,7 +5,7 @@ using UnityEngine.AddressableAssets;
 
 namespace CapybaraAdventure.Other
 {
-    public class LocalAssetLoader : MonoBehaviour
+    public class LocalAssetLoader
     {
         private GameObject _cachedObject;
 

@@ -1,8 +1,8 @@
 using System.Threading.Tasks;
-using CapybaraAdventure.Game;
 using CapybaraAdventure.Other;
 using CapybaraAdventure.Save;
 using UnityEngine;
+using Zenject;
 
 namespace CapybaraAdventure.UI
 {
@@ -11,10 +11,10 @@ namespace CapybaraAdventure.UI
         public const string GameOverScreen = nameof(GameOverScreen);
 
         private readonly Canvas _canvas;
-        private readonly  GameMenu _gameMenu;
         private readonly LoadingScreenProvider _loadingScreenProvider;
         private readonly SaveService _saveService;
 
+        [Inject]
         public GameOverScreenProvider(
             Canvas canvas,
             LoadingScreenProvider loadingScreenProvider,

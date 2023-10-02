@@ -3,6 +3,7 @@ using CapybaraAdventure.Game;
 using System.Threading.Tasks;
 using UnityEngine;
 using CapybaraAdventure.Player;
+using Zenject;
 
 namespace CapybaraAdventure.UI
 {
@@ -15,19 +16,17 @@ namespace CapybaraAdventure.UI
         private UpgradeScreenProvider _upgradeScreenProvider;
         private readonly Score _score;
 
+        [Inject]
         public MenuProvider(
             Canvas canvas,
+            UpgradeScreenProvider upgradeScreenProvider,
             GameStartup gameStartup,
             Score score)
         {
             _canvas = canvas;
+            _upgradeScreenProvider = upgradeScreenProvider;
             _gameStartup = gameStartup;
             _score = score;
-        }
-
-        public void Init(UpgradeScreenProvider upgradeScreenProvider)
-        {
-            _upgradeScreenProvider = upgradeScreenProvider;
         }
 
         public async Task<GameMenu> Load()

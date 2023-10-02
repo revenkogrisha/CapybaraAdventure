@@ -1,7 +1,8 @@
 using UnityEngine;
 using CapybaraAdventure.Game;
 using System.Threading.Tasks;
-using System.Collections;
+using Cysharp.Threading.Tasks;
+using Zenject;
 
 namespace CapybaraAdventure.Other
 {
@@ -9,18 +10,24 @@ namespace CapybaraAdventure.Other
     {
         public const string LoadingScreen = nameof(LoadingScreen);
 
-        [SerializeField] private Canvas _canvas;
+        private readonly Canvas _canvas;
+
+        [Inject]
+        public LoadingScreenProvider(Canvas canvas)
+        {
+            _canvas = canvas;
+        }
 
         public async Task LoadGameAsync()
         {
             SceneLoader loader = await Load();
-            StartCoroutine(LoadGame(loader));
+            await LoadGame(loader);
         }
 
         public async Task LoadPregameCutsceneAsync()
         {
             SceneLoader loader = await Load();
-            StartCoroutine(LoadPregameCutscene(loader));
+            await LoadPregameCutscene(loader);
         }
 
         public async Task<SceneLoader> Load()
@@ -33,21 +40,15 @@ namespace CapybaraAdventure.Other
 
         public void Unload() => UnlodadInternalIfCached();
 
-        private IEnumerator LoadGame(SceneLoader loader)
+        private async UniTask LoadGame(SceneLoader loader)
         {
-            AsyncOperation operation = loader.LoadGame();
-            while (operation.isDone == false)
-                yield return null;
-
+            await loader.LoadGame();
             Unload();
         }
 
-        private IEnumerator LoadPregameCutscene(SceneLoader loader)
+        private async UniTask LoadPregameCutscene(SceneLoader loader)
         {
-            AsyncOperation operation = loader.LoadPregameCutscene();
-            while (operation.isDone == false)
-                yield return null;
-
+            await loader.LoadPregameCutscene();
             Unload();
         }
     }

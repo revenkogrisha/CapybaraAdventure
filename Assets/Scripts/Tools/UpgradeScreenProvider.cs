@@ -3,6 +3,7 @@ using UnityEngine;
 using CapybaraAdventure.UI;
 using CapybaraAdventure.Player;
 using CapybaraAdventure.Save;
+using Zenject;
 
 namespace CapybaraAdventure.Other
 {
@@ -15,6 +16,7 @@ namespace CapybaraAdventure.Other
         private readonly SaveService _saveService;
         private readonly LoadingScreenProvider _loadingScreenProvider;
 
+        [Inject]
         public UpgradeScreenProvider(
             Canvas canvas,
             PlayerData playerData,

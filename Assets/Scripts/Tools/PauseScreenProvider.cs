@@ -1,7 +1,9 @@
 using System.Threading.Tasks;
-using UnityEngine;
 using CapybaraAdventure.UI;
 using CapybaraAdventure.Game;
+using Zenject;
+using UnityEditor;
+using UnityEngine;
 
 namespace CapybaraAdventure.Other
 {
@@ -14,6 +16,7 @@ namespace CapybaraAdventure.Other
         private readonly GameUI _gameUI;
         private readonly LoadingScreenProvider _loadingScreenProvider;
 
+        [Inject]
         public PauseScreenProvider(
             Canvas canvas,
             PauseManager pauseManager,
