@@ -1,5 +1,12 @@
 {
   "dependencies": {
+    "com.cysharp.unitask": {
+      "version": "https://github.com/Cysharp/UniTask.git?path=src/UniTask/Assets/Plugins/UniTask",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "cfe509a55602ba5be6df7fa0468b10298b8a053d"
+    },
     "com.pixelsparkstudio.parallaxer": {
       "version": "git@github.com:PixelSparkStudio/Parallaxer.git",
       "depth": 0,
@@ -8,7 +15,7 @@
       "hash": "b6d50b72d807ae0ac21e6aa4bd5d6a610d5aa89f"
     },
     "com.unity.2d.animation": {
-      "version": "7.0.11",
+      "version": "7.0.12",
       "depth": 0,
       "source": "registry",
       "dependencies": {
