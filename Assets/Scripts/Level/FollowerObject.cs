@@ -1,6 +1,6 @@
 using UnityEngine;
-using System.Collections;
 using System;
+using Cysharp.Threading.Tasks;
 
 namespace CapybaraAdventure.Level
 {
@@ -24,9 +24,9 @@ namespace CapybaraAdventure.Level
             _transform = transform;
         }
 
-        private void Start()
+        private async void Start()
         {
-            StartCoroutine(Follow());
+            await Follow();
         }
 
         #endregion
@@ -39,23 +39,19 @@ namespace CapybaraAdventure.Level
             _toFollow = toFollow;
         }
 
-        public void StopFollowing()
-        {
-            StopCoroutine(Follow());
-        }
-
-        private IEnumerator Follow()
+        private async UniTask Follow()
         {
             while (true)
             {
-                yield return new WaitUntil(
+                await UniTask.WaitUntil
+                (
                     () => IsFollowObjectInitialized == true
-                    );
+                );
 
                 Vector3 movedPosition = GetMovedPosition();
                 _transform.position = movedPosition;
 
-                yield return new WaitForSeconds(_updateIntervalInSeconds);
+                await UniTask.WaitForSeconds(_updateIntervalInSeconds);
             }
         }
 

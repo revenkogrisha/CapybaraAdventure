@@ -5,7 +5,7 @@ using NTC.Global.Pool;
 using CapybaraAdventure.Player;
 using UnityTools;
 using Random = UnityEngine.Random;
-using IEnumerator = System.Collections.IEnumerator;
+using Cysharp.Threading.Tasks;
 
 namespace CapybaraAdventure.Level
 {
@@ -99,7 +99,7 @@ namespace CapybaraAdventure.Level
 
         public event Action<float> OnHeroXPositionUpdated;
 
-        private void Awake()
+        private async void Awake()
         {
             _lastGeneratedPlatformX = _XstartPoint;
             _camera = Camera.main;
@@ -108,7 +108,7 @@ namespace CapybaraAdventure.Level
 
             ChangeBackgroundColor();
 
-            StartCoroutine(CheckPlayerPosition());
+            await CheckPlayerPosition();
         }
 
         public void SpawnStartPlatform()
@@ -131,13 +131,14 @@ namespace CapybaraAdventure.Level
             _heroIsInitialized = true;
         }
 
-        private IEnumerator CheckPlayerPosition()
+        private async UniTask CheckPlayerPosition()
         {
             while (true)
             {
-                yield return new WaitUntil(
+                await UniTask.WaitUntil
+                (
                     () => _heroIsInitialized == true
-                    );
+                );
 
                 OnHeroXPositionUpdated?.Invoke(HeroX);
 
@@ -147,7 +148,7 @@ namespace CapybaraAdventure.Level
                     GenerateRandomPlatform();
                 }
 
-                yield return new WaitForSeconds(HeroPositionCheckFrequencyInSeconds);
+                await UniTask.WaitForSeconds(HeroPositionCheckFrequencyInSeconds);
             }
         }
 
@@ -188,7 +189,7 @@ namespace CapybaraAdventure.Level
                 _locationNumber = _locations.GetRandomIndex();
         }
 
-        private void ChangeBackgroundColor()
+        private async void ChangeBackgroundColor()
         {
             Location currentLocation = CurrentLocation;
             Color newBackground;
@@ -197,10 +198,10 @@ namespace CapybaraAdventure.Level
             else
                 newBackground = currentLocation.BackgroundColor;
 
-            StartCoroutine(LerpBackground(newBackground));
+            await LerpBackground(newBackground);
         }
 
-        private IEnumerator LerpBackground(Color newBackground)
+        private async UniTask LerpBackground(Color newBackground)
         {
             float elapsedTime = 0;
             Color currentBackground = _camera.backgroundColor;
@@ -210,7 +211,7 @@ namespace CapybaraAdventure.Level
                 _camera.backgroundColor = Color.Lerp(currentBackground, newBackground, time);
 
                 elapsedTime += Time.deltaTime;
-                yield return null;
+                await UniTask.Yield();
             }
         }
 

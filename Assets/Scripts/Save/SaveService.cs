@@ -1,6 +1,6 @@
 using UnityEngine;
 using CapybaraAdventure.Player;
-using System.Collections;
+using Cysharp.Threading.Tasks;
 
 namespace CapybaraAdventure.Save
 {
@@ -15,13 +15,13 @@ namespace CapybaraAdventure.Save
 
         #region MonoBehaviour
 
-        private void Awake()
+        private async void Awake()
         {
             _saveSystem = new JsonSaveSystem();
 
             Load();
 
-            StartCoroutine(AutoSave());
+            await AutoSave();
         }
 
         private void OnApplicationQuit()
@@ -62,12 +62,12 @@ namespace CapybaraAdventure.Save
             _score.LoadHighScore(data);
         }
         
-        private IEnumerator AutoSave()
+        private async UniTask AutoSave()
         {
             while (true)
             {
                 Save();
-                yield return new WaitForSeconds(AutoSaveInterval);
+                await UniTask.WaitForSeconds(AutoSaveInterval);
             }
         }
     }

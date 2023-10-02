@@ -1,4 +1,4 @@
-using System.Collections;
+using Cysharp.Threading.Tasks;
 using NTC.Global.Pool;
 using UnityEngine;
 using UnityTools;
@@ -15,7 +15,7 @@ namespace CapybaraAdventure.Level
 
         [Header("Falling Settings")]
         [SerializeField] private float _delayBeforeFalling = 1.7f;
-        [SerializeField] private float _delayBeforeFreeze = 2f;
+        [SerializeField] private float _delayBeforeRigidbodyFreeze = 2f;
         [SerializeField] private float _fallSpeed = 10f;
         [SerializeField] private float _moveDownDuration = 0.2f;
         [SerializeField] private float _moveDownDistance = 1.4f;
@@ -40,7 +40,7 @@ namespace CapybaraAdventure.Level
             _isTriggered = false;
         }
 
-        public void TriggerFalling()
+        public async void TriggerFalling()
         {
             bool shallTrigger = Tools.GetChance(_triggerChance);
             if (_isTriggered == true || shallTrigger == false)
@@ -51,17 +51,19 @@ namespace CapybaraAdventure.Level
             TryPlayParticles();
 
             _initialLocalPosition = transform.localPosition;
-            StartCoroutine(MoveDownSmoothly());
+            await MoveDownSmoothly();
 
-            Invoke(nameof(StartFalling), _delayBeforeFalling);
+            await UniTask.WaitForSeconds(_delayBeforeFalling);
+            StartFalling();
         }
 
-        private void StartFalling()
+        private async void StartFalling()
         {
             _rigidBody2D.bodyType = RigidbodyType2D.Dynamic;
             _rigidBody2D.velocity = Vector2.down * _fallSpeed;
 
-            Invoke(nameof(FreezeRigidBody), _delayBeforeFreeze);
+            await UniTask.WaitForSeconds(_delayBeforeRigidbodyFreeze);
+            FreezeRigidBody();
         }
 
         private void TryPlayParticles()
@@ -72,7 +74,7 @@ namespace CapybaraAdventure.Level
             _particleEffect.Play();
         }
 
-        private IEnumerator MoveDownSmoothly()
+        private async UniTask MoveDownSmoothly()
         {
             float elapsedTime = 0f;
             Vector3 targetPosition = transform.localPosition + Vector3.down * _moveDownDistance;
@@ -81,7 +83,7 @@ namespace CapybaraAdventure.Level
             {
                 MoveToPosition(targetPosition, elapsedTime / _moveDownDuration);
                 elapsedTime += Time.deltaTime;
-                yield return null;
+                await UniTask.Yield();
             }
 
             MoveToPosition(targetPosition, 1f);

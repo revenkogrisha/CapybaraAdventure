@@ -1,9 +1,9 @@
-using System.Collections;
 using CapybaraAdventure.Other;
 using CapybaraAdventure.Player;
 using UnityEngine;
 using Zenject;
 using UnityTools.Buttons;
+using Cysharp.Threading.Tasks;
 
 namespace CapybaraAdventure.Level
 {
@@ -38,12 +38,12 @@ namespace CapybaraAdventure.Level
             _skipButton.OnClicked -= LoadGame;
         }
 
-        private void Start()
+        private async void Start()
         {
             if (_playerData.IsCutsceneWatched == true)
                 _skipButton.gameObject.SetActive(true);
 
-            StartCoroutine(PerformCutscene());
+            await PerformCutscene();
         }
         
         #endregion
@@ -55,28 +55,29 @@ namespace CapybaraAdventure.Level
             _playerData = playerData;
         }
 
-        private IEnumerator PerformCutscene()
+        private async UniTask PerformCutscene()
         {
-            yield return new WaitForSeconds(_cutsceneChangeInterval);
+            await UniTask.WaitForSeconds(_cutsceneChangeInterval);
 
             _cutsceneAnimator.SetBool(_zoomHeroId, true);
 
-            yield return new WaitForSeconds(_cutsceneChangeInterval);
+            await UniTask.WaitForSeconds(_cutsceneChangeInterval);
 
             _cutsceneAnimator.SetBool(_cutscene0Id, true);
             _cutsceneAnimator.SetBool(_zoomHeroId, false);
 
-            yield return new WaitForSeconds(_cutsceneChangeInterval);
+            await UniTask.WaitForSeconds(_cutsceneChangeInterval);
 
             _cutsceneAnimator.SetBool(_zoomDarkId, true);
 
-            yield return new WaitForSeconds(_cutsceneChangeInterval);
+            await UniTask.WaitForSeconds(_cutsceneChangeInterval);
 
             _cutsceneAnimator.SetBool(_cutscene0Id, false);
 
-            yield return new WaitForSeconds(_cutsceneChangeInterval);
+            await UniTask.WaitForSeconds(_cutsceneChangeInterval);
 
             _playerData.IsCutsceneWatched = true;
+
             LoadGame();
         }
 

@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using CapybaraAdventure.Game;
 using CapybaraAdventure.Save;
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 using Zenject;
 
@@ -12,14 +13,14 @@ namespace CapybaraAdventure.Player
         private const float _scoreUpdateIntervalInSeconds = 0.5f;
         
         private Transform _heroTransform;
-        private IEnumerator _countCoroutine;
         private PauseManager _pauseManager;
+        private bool _shouldBlockCount = false;
+        private bool _isCounting = false;
 
         public bool IsInitialized => _heroTransform != null;
 
         public int ScoreCount { get; private set; } = 0;
         public int HighScore { get; private set; } = 0;
-        private bool HasCountCoroutineInitialized => _countCoroutine != null;
 
         public event Action<int> OnScoreChanged;
 
@@ -46,22 +47,21 @@ namespace CapybaraAdventure.Player
             HighScore = data.HighScore;
         }
 
-        public void StartCount()
+        public async void StartCount()
         {
-            if (HasCountCoroutineInitialized == true)
+            if (_isCounting == true)
                 return;
 
-            _countCoroutine = CountScore();
-            StartCoroutine(_countCoroutine);
+            _shouldBlockCount = false;
+            await CountScore();
         }
         
         public void StopCount()
         {
-            if (HasCountCoroutineInitialized == false)
+            if (_isCounting == false)
                 return;
 
-            StopCoroutine(_countCoroutine);
-            _countCoroutine = null;
+            _shouldBlockCount = true;
         }
 
         public void SetPaused(bool isPaused)
@@ -72,16 +72,18 @@ namespace CapybaraAdventure.Player
                 StartCount();
         }
 
-        private IEnumerator CountScore()
+        private async UniTask CountScore()
         {
-            while (true)
+            _isCounting = true;
+
+            while (_shouldBlockCount == false)
             {
                 if (IsInitialized == false)
                     throw new NullReferenceException("The class hasn't been initialized! Call Init(Hero) first");
                     
                 float heroX = _heroTransform.position.x;
                 if (heroX < 0f || heroX < ScoreCount)
-                    yield return null;
+                    await UniTask.Yield();
 
                 int heroXRounded = (int)Mathf.Round(heroX);
                 ScoreCount = heroXRounded;
@@ -90,8 +92,10 @@ namespace CapybaraAdventure.Player
 
                 OnScoreChanged?.Invoke(ScoreCount);
 
-                yield return new WaitForSeconds(_scoreUpdateIntervalInSeconds);
+                await UniTask.WaitForSeconds(_scoreUpdateIntervalInSeconds);
             }
+
+            _isCounting = false;
         }
 
         private void TrySaveHighScore()

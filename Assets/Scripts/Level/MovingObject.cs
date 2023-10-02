@@ -1,6 +1,6 @@
-using System.Collections;
 using UnityEngine;
 using NTC.Global.Pool;
+using Cysharp.Threading.Tasks;
 
 namespace CapybaraAdventure.Level
 {
@@ -88,7 +88,7 @@ namespace CapybaraAdventure.Level
 
         private float GetDirectedSpeed() => _speed * (float)_currentDirection;
 
-        private void TryChangeDirection()
+        private async void TryChangeDirection()
         {
             if (_canChangeDirection == false)
                 return;
@@ -100,7 +100,7 @@ namespace CapybaraAdventure.Level
             if (_reflectObject == true)
                 Reflect();
 
-            StartCoroutine(BlockDirection());
+            await BlockDirection();
         }
 
         private void Reflect()
@@ -111,10 +111,10 @@ namespace CapybaraAdventure.Level
             _transform.localScale = reflected; 
         }
 
-        private IEnumerator BlockDirection()
+        private async UniTask BlockDirection()
         {
             _canChangeDirection = false;
-            yield return new WaitForSeconds(DirectionBlockDuration);
+            await UniTask.WaitForSeconds(DirectionBlockDuration);
             _canChangeDirection = true;
         }
     }

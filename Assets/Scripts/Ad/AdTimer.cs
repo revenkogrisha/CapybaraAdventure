@@ -1,5 +1,5 @@
 using System;
-using System.Collections;
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 
 namespace CapybaraAdventure.Ad
@@ -30,20 +30,20 @@ namespace CapybaraAdventure.Ad
             BlockAdForStartPeriod();
         }
 
-        public void BlockAdForStartPeriod()
+        public async void BlockAdForStartPeriod()
         {
-            StartCoroutine(BlockAd(StartBlockPeriodInSeconds));
+            await BlockAd(StartBlockPeriodInSeconds);
         }
 
-        public void BlockAdForPeriod()
+        public async void BlockAdForPeriod()
         {
-            StartCoroutine(BlockAd(BlockPeriodInSeconds));
+            await BlockAd(BlockPeriodInSeconds);
         }
 
-        private IEnumerator BlockAd(int period)
+        private async UniTask BlockAd(int perid)
         {
             _canShowAd = false;
-            yield return new WaitForSeconds(period);
+            await UniTask.WaitForSeconds(perid);
             _canShowAd = true;
         }
     }
