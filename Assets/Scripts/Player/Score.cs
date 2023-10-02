@@ -35,11 +35,8 @@ namespace CapybaraAdventure.Player
             _pauseManager = pauseManager;
         }
 
-        public void Init(Hero hero)
+        public void InitHero(Hero hero)
         {
-            if (IsInitialized == true)
-                throw new InvalidOperationException("Score cannot be initialized more than once!");
-
             GameObject heroObject = hero.gameObject;
             _heroTransform = heroObject.transform;
         }

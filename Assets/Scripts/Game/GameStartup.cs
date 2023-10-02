@@ -152,7 +152,7 @@ namespace CapybaraAdventure.Game
 
         private void SetupScore(Hero hero)
         {
-            _score.Init(hero);
+            _score.InitHero(hero);
             _score.StartCount();
 
             _scorePresenter = new ScorePresenter(_score, _scoreText);
