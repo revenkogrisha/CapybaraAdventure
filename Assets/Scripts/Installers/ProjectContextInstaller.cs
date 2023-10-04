@@ -1,5 +1,4 @@
 using CapybaraAdventure.Game;
-using CapybaraAdventure.Other;
 using CapybaraAdventure.Player;
 using CapybaraAdventure.Save;
 using UnityEngine;
@@ -12,14 +11,11 @@ namespace CapybaraAdventure.Installers
         [SerializeField] private Score _score;
         [SerializeField] private SaveService _saveService;
         [SerializeField] private PlayerData _playerData;
-
-        [Inject] DiContainer container;
         
         public override void InstallBindings()
         {
-            DIContainerRef.Container = container;
-
             var pauseManager = new PauseManager();
+
             Container
                 .Bind<PauseManager>()
                 .FromInstance(pauseManager)

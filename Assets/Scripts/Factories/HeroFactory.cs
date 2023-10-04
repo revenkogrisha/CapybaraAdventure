@@ -7,13 +7,16 @@ namespace CapybaraAdventure.Player
     {
         private readonly Hero _heroPrefab;
         private readonly Vector3 _spawnPosition;
+        private readonly Transform _parent;
 
         public HeroFactory(
             Hero prefab,
-            Vector3 spawnPosition)
+            Vector3 spawnPosition,
+            Transform parent = null)
         {
             _heroPrefab = prefab;
             _spawnPosition = spawnPosition;
+            _parent = parent;
         }
 
         public Hero Create()
@@ -23,7 +26,7 @@ namespace CapybaraAdventure.Player
                     _heroPrefab, 
                     _spawnPosition, 
                     Quaternion.identity, 
-                    null);
+                    _parent);
 
             return hero;
         }
