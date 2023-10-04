@@ -10,7 +10,6 @@ namespace CapybaraAdventure.Other
         private GameObject _cachedObject;
 
         public bool IsCached => _cachedObject != null;
-        public bool IsNotCached => _cachedObject == null;
 
         protected async Task<T> LoadInternal<T>(
             string assetID,
@@ -19,18 +18,19 @@ namespace CapybaraAdventure.Other
             var handle = Addressables.InstantiateAsync(assetID, parent);
             _cachedObject = await handle.Task;
 
-            bool isGetOperationSucceeded = 
-                _cachedObject.TryGetComponent<T>(out T component);
+            T component = _cachedObject.GetComponent<T>();
                 
-            if (isGetOperationSucceeded)
-                return component;
+            if (component == null)
+                throw new NullReferenceException(
+                    $"Object of type {typeof(T)} is null while loading an asset from Addressables");
                 
-            throw new NullReferenceException($"Object of type {typeof(T)} is null while loading an asset from Addressables");
+            return component;
+                
         }
 
         protected void UnlodadInternalIfCached()
         {
-            if (IsCached)
+            if (IsCached == true)
                 UnlodadInternal();
         }
 

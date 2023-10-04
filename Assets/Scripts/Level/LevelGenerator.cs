@@ -6,6 +6,7 @@ using CapybaraAdventure.Player;
 using UnityTools;
 using Random = UnityEngine.Random;
 using Cysharp.Threading.Tasks;
+using System.Threading.Tasks;
 
 namespace CapybaraAdventure.Level
 {
@@ -99,7 +100,7 @@ namespace CapybaraAdventure.Level
 
         public event Action<float> OnHeroXPositionUpdated;
 
-        private async void Awake()
+        private void Awake()
         {
             _lastGeneratedPlatformX = _XstartPoint;
             _camera = Camera.main;
@@ -108,7 +109,7 @@ namespace CapybaraAdventure.Level
 
             ChangeBackgroundColor();
 
-            await CheckPlayerPosition();
+            CheckPlayerPosition().Forget(exc => throw exc);
         }
 
         public void SpawnStartPlatform()
@@ -133,16 +134,13 @@ namespace CapybaraAdventure.Level
 
         private async UniTask CheckPlayerPosition()
         {
-            while (true)
+            while (this != null)
             {
-                await UniTask.WaitUntil
-                (
-                    () => _heroIsInitialized == true
-                );
+                await UniTask.WaitUntil(() => _heroIsInitialized == true);
 
                 OnHeroXPositionUpdated?.Invoke(HeroX);
 
-                if (IsLevelMidPointXLessHeroX == true)
+                if (IsLevelMidPointXLessHeroX == true) 
                 {
                     DespawnOldestPlatform();
                     GenerateRandomPlatform();
@@ -205,7 +203,7 @@ namespace CapybaraAdventure.Level
         {
             float elapsedTime = 0;
             Color currentBackground = _camera.backgroundColor;
-            while (elapsedTime < BackgroundLerpDuration)
+            while (this != null && elapsedTime < BackgroundLerpDuration)
             {
                 float time = elapsedTime / BackgroundLerpDuration;
                 _camera.backgroundColor = Color.Lerp(currentBackground, newBackground, time);

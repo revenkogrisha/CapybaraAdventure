@@ -38,7 +38,10 @@ namespace CapybaraAdventure.Other
             return loader;
         }
 
-        public void Unload() => UnlodadInternalIfCached();
+        public void Unload()
+        {
+            UnlodadInternalIfCached();
+        }
 
         private async UniTask LoadGame(SceneLoader loader)
         {

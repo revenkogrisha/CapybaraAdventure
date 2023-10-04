@@ -6,7 +6,6 @@ using CapybaraAdventure.UI;
 using System;
 using CapybaraAdventure.Level;
 using System.Threading.Tasks;
-using CapybaraAdventure.Other;
 
 namespace CapybaraAdventure.Game
 {
