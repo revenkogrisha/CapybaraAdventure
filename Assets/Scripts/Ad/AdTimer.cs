@@ -30,14 +30,14 @@ namespace CapybaraAdventure.Ad
             BlockAdForStartPeriod();
         }
 
-        public async void BlockAdForStartPeriod()
+        public void BlockAdForStartPeriod()
         {
-            await BlockAd(StartBlockPeriodInSeconds);
+            BlockAd(StartBlockPeriodInSeconds).Forget(exc => throw exc);
         }
 
-        public async void BlockAdForPeriod()
+        public void BlockAdForPeriod()
         {
-            await BlockAd(BlockPeriodInSeconds);
+            BlockAd(BlockPeriodInSeconds).Forget(exc => throw exc);
         }
 
         private async UniTask BlockAd(int perid)

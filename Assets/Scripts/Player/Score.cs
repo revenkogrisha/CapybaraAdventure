@@ -47,13 +47,13 @@ namespace CapybaraAdventure.Player
             HighScore = data.HighScore;
         }
 
-        public async void StartCount()
+        public void StartCount()
         {
             if (_isCounting == true)
                 return;
 
             _shouldBlockCount = false;
-            await CountScore();
+            CountScore().Forget(exc => throw exc);
         }
         
         public void StopCount()
@@ -76,14 +76,14 @@ namespace CapybaraAdventure.Player
         {
             _isCounting = true;
 
-            while (_shouldBlockCount == false)
+            while (_shouldBlockCount == false && this != null)
             {
                 if (IsInitialized == false)
                     throw new NullReferenceException("The class hasn't been initialized! Call Init(Hero) first");
                     
                 float heroX = _heroTransform.position.x;
                 if (heroX < 0f || heroX < ScoreCount)
-                    await UniTask.Yield();
+                    await UniTask.NextFrame();
 
                 int heroXRounded = (int)Mathf.Round(heroX);
                 ScoreCount = heroXRounded;

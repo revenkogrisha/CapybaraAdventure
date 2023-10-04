@@ -4,6 +4,8 @@ using UnityEngine;
 using Zenject;
 using UnityTools.Buttons;
 using Cysharp.Threading.Tasks;
+using System.Threading.Tasks;
+using DG.Tweening.Plugins;
 
 namespace CapybaraAdventure.Level
 {
@@ -38,12 +40,12 @@ namespace CapybaraAdventure.Level
             _skipButton.OnClicked -= LoadGame;
         }
 
-        private async void Start()
+        private void Start()
         {
             if (_playerData.IsCutsceneWatched == true)
                 _skipButton.gameObject.SetActive(true);
 
-            await PerformCutscene();
+            PerformCutscene().Forget(exc => throw exc);
         }
         
         #endregion

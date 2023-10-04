@@ -23,13 +23,12 @@ namespace CapybaraAdventure.Level
 
         private void Awake()
         {
-            print("Awake: " + GetInstanceID());
             _transform = transform;
         }
 
         private void Start()
         {
-            Follow().Forget();
+            Follow().Forget(exc => throw exc);
         }
 
         #endregion

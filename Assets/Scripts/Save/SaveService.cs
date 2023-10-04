@@ -15,13 +15,13 @@ namespace CapybaraAdventure.Save
 
         #region MonoBehaviour
 
-        private async void Awake()
+        private void Awake()
         {
             _saveSystem = new JsonSaveSystem();
 
             Load();
 
-            await AutoSave();
+            AutoSave().Forget();
         }
 
         private void OnApplicationQuit()
@@ -64,7 +64,7 @@ namespace CapybaraAdventure.Save
         
         private async UniTask AutoSave()
         {
-            while (true)
+            while (this != null)
             {
                 Save();
                 await UniTask.WaitForSeconds(AutoSaveInterval);

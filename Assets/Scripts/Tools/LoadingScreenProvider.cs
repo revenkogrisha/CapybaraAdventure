@@ -18,19 +18,19 @@ namespace CapybaraAdventure.Other
             _canvas = canvas;
         }
 
-        public async Task LoadGameAsync()
+        public async UniTask LoadGameAsync()
         {
             SceneLoader loader = await Load();
             await LoadGame(loader);
         }
 
-        public async Task LoadPregameCutsceneAsync()
+        public async UniTask LoadPregameCutsceneAsync()
         {
             SceneLoader loader = await Load();
             await LoadPregameCutscene(loader);
         }
 
-        public async Task<SceneLoader> Load()
+        public async UniTask<SceneLoader> Load()
         {
             Transform canvasTransform = _canvas.transform;
             SceneLoader loader = await LoadInternal<SceneLoader>(LoadingScreen, canvasTransform);

@@ -86,9 +86,12 @@ namespace CapybaraAdventure.Level
             _rigidBody2D.velocity = velocity;
         }
 
-        private float GetDirectedSpeed() => _speed * (float)_currentDirection;
+        private float GetDirectedSpeed()
+        {
+            return _speed * (float)_currentDirection;
+        }
 
-        private async void TryChangeDirection()
+        private void TryChangeDirection()
         {
             if (_canChangeDirection == false)
                 return;
@@ -100,7 +103,7 @@ namespace CapybaraAdventure.Level
             if (_reflectObject == true)
                 Reflect();
 
-            await BlockDirection();
+            BlockDirectionForDuration().Forget(exc => throw exc);
         }
 
         private void Reflect()
@@ -111,7 +114,7 @@ namespace CapybaraAdventure.Level
             _transform.localScale = reflected; 
         }
 
-        private async UniTask BlockDirection()
+        private async UniTask BlockDirectionForDuration()
         {
             _canChangeDirection = false;
             await UniTask.WaitForSeconds(DirectionBlockDuration);

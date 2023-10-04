@@ -51,7 +51,7 @@ namespace CapybaraAdventure.Level
             TryPlayParticles();
 
             _initialLocalPosition = transform.localPosition;
-            await MoveDownSmoothly();
+            MoveDownSmoothly().Forget(exc => throw exc);
 
             await UniTask.WaitForSeconds(_delayBeforeFalling);
             StartFalling();
@@ -79,11 +79,11 @@ namespace CapybaraAdventure.Level
             float elapsedTime = 0f;
             Vector3 targetPosition = transform.localPosition + Vector3.down * _moveDownDistance;
 
-            while (elapsedTime < _moveDownDuration)
+            while (elapsedTime < _moveDownDuration && this != null)
             {
                 MoveToPosition(targetPosition, elapsedTime / _moveDownDuration);
                 elapsedTime += Time.deltaTime;
-                await UniTask.Yield();
+                await UniTask.NextFrame();
             }
 
             MoveToPosition(targetPosition, 1f);
@@ -96,6 +96,9 @@ namespace CapybaraAdventure.Level
 
         private void FreezeRigidBody()
         {
+            if (this == null)
+                return;
+                
             _rigidBody2D.bodyType = RigidbodyType2D.Static;
             _rigidBody2D.constraints = RigidbodyConstraints2D.FreezeRotation;
         }

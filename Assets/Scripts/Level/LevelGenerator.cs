@@ -187,7 +187,7 @@ namespace CapybaraAdventure.Level
                 _locationNumber = _locations.GetRandomIndex();
         }
 
-        private async void ChangeBackgroundColor()
+        private void ChangeBackgroundColor()
         {
             Location currentLocation = CurrentLocation;
             Color newBackground;
@@ -196,20 +196,20 @@ namespace CapybaraAdventure.Level
             else
                 newBackground = currentLocation.BackgroundColor;
 
-            await LerpBackground(newBackground);
+            LerpBackground(newBackground).Forget(exc => throw exc);
         }
 
         private async UniTask LerpBackground(Color newBackground)
         {
             float elapsedTime = 0;
             Color currentBackground = _camera.backgroundColor;
-            while (this != null && elapsedTime < BackgroundLerpDuration)
+            while (elapsedTime < BackgroundLerpDuration && this != null)
             {
                 float time = elapsedTime / BackgroundLerpDuration;
                 _camera.backgroundColor = Color.Lerp(currentBackground, newBackground, time);
 
                 elapsedTime += Time.deltaTime;
-                await UniTask.Yield();
+                await UniTask.NextFrame();
             }
         }
 
