@@ -32,11 +32,13 @@
 ### Built With
 
 * [Zenject](https://github.com/modesttree/Zenject) - Dependency Injection Container for Unity
+* [UniTask](https://github.com/Cysharp/UniTask) - better async/await for Unity (v2.4.1)
+* [UnityAds](https://unity.com/ru/products/unity-ads) - UnityAds SDK v4.4.2
+* [Localization](https://docs.unity3d.com/Packages/com.unity.localization@1.0/manual/index.html) - official localization package for Unity
+* [Universal RP](https://unity.com/ru/srp/universal-render-pipeline) - Scriptable Render Pipeline made by Unity
 * [Cinemachine](https://unity.com/unity/features/editor/art-and-design/cinemachine) - Advanced camera for Unity
 * [DOTween](http://dotween.demigiant.com/) - Animation engine for Unity
 * [NightPool](https://github.com/MeeXaSiK/NightPool) - Fast object pool for Unity
-* [Universal RP](https://unity.com/ru/srp/universal-render-pipeline) - Scriptable Render Pipeline made by Unity
-* [UnityAds](https://unity.com/ru/products/unity-ads) - UnityAds SDK v4.4.2
 * [Appodeal*](https://github.com/appodeal/appodeal-android-sdk) - Appodeal SDK v3.0.2
 
 **( * - Used in previous versions )**
