@@ -1,4 +1,6 @@
 using System;
+using System.Threading;
+using System.Threading.Tasks;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 
@@ -12,6 +14,7 @@ namespace CapybaraAdventure.Ad
         public static AdTimer Instance { get; private set; }
 
         private bool _canShowAd = true;
+        private CancellationToken _cancellationToken;
 
         public bool CanShowAd => _canShowAd;
 
@@ -22,28 +25,28 @@ namespace CapybaraAdventure.Ad
             else if (Instance != null)
                 throw new InvalidOperationException("AdTimer is a singleton. There can be only one instance of it.");
 
+            _cancellationToken = this.GetCancellationTokenOnDestroy();
+
             Instance = this;
         }
 
         private void Start()
         {
-            BlockAdForStartPeriod();
-        }
-
-        public void BlockAdForStartPeriod()
-        {
-            BlockAd(StartBlockPeriodInSeconds).Forget(exc => throw exc);
+            BlockAd(StartBlockPeriodInSeconds).Forget();
         }
 
         public void BlockAdForPeriod()
         {
-            BlockAd(BlockPeriodInSeconds).Forget(exc => throw exc);
+            BlockAd(BlockPeriodInSeconds).Forget();
         }
 
-        private async UniTask BlockAd(int perid)
+        private async UniTask BlockAd(int period)
         {
             _canShowAd = false;
-            await UniTask.WaitForSeconds(perid);
+
+            var delay = TimeSpan.FromSeconds(period);
+            await Task.Delay(delay, _cancellationToken);
+
             _canShowAd = true;
         }
     }

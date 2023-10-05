@@ -1,8 +1,6 @@
 using UnityEngine;
 using System;
 using Cysharp.Threading.Tasks;
-using Unity.VisualScripting;
-using System.Collections;
 
 namespace CapybaraAdventure.Level
 {
@@ -10,6 +8,7 @@ namespace CapybaraAdventure.Level
     {
         [Header("Components")]
         [SerializeField] private Transform _toFollow;
+        
         [Header("Settings")]
         [SerializeField] private float _updateIntervalInSeconds = 1f;
         [SerializeField] private bool _ignoreXMovement;
@@ -28,7 +27,7 @@ namespace CapybaraAdventure.Level
 
         private void Start()
         {
-            Follow().Forget(exc => throw exc);
+            Follow().Forget();
         }
 
         #endregion

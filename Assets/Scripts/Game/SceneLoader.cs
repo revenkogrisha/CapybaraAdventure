@@ -1,3 +1,4 @@
+using System.Threading;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -9,14 +10,18 @@ namespace CapybaraAdventure.Game
         private const int PregameCutsceneSceneID = 1;
         private const int GameSceneID = 2;
 
-        public async UniTask LoadPregameCutscene()
+        public async UniTask LoadGame(CancellationToken cancellationToken = default)
         {
-            await SceneManager.LoadSceneAsync(PregameCutsceneSceneID);
+            await SceneManager
+                .LoadSceneAsync(GameSceneID)
+                .WithCancellation(cancellationToken);
         }
 
-        public async UniTask LoadGame()
+        public async UniTask LoadPregameCutscene(CancellationToken cancellationToken = default)
         {
-            await SceneManager.LoadSceneAsync(GameSceneID);
+            await SceneManager
+                .LoadSceneAsync(PregameCutsceneSceneID)
+                .WithCancellation(cancellationToken);
         }
     }
 }

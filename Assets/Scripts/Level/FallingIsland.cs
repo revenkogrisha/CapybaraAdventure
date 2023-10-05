@@ -1,3 +1,6 @@
+using System;
+using System.Threading;
+using System.Threading.Tasks;
 using Cysharp.Threading.Tasks;
 using NTC.Global.Pool;
 using UnityEngine;
@@ -25,9 +28,11 @@ namespace CapybaraAdventure.Level
 
         private bool _isTriggered = false;
         private Vector3 _initialLocalPosition;
+        private CancellationToken _cancellationToken;
 
         public void OnSpawn()
         {
+            _cancellationToken = this.GetCancellationTokenOnDestroy();
             FreezeRigidBody();
         }
 
@@ -35,12 +40,11 @@ namespace CapybaraAdventure.Level
         {
             Vector2 newPosition = transform.localPosition;
             newPosition.y = _initialLocalPosition.y;
-
             transform.localPosition = newPosition;
             _isTriggered = false;
         }
 
-        public async void TriggerFalling()
+        public async void TriggerFalling(CancellationToken token)
         {
             bool shallTrigger = Tools.GetChance(_triggerChance);
             if (_isTriggered == true || shallTrigger == false)
@@ -51,19 +55,11 @@ namespace CapybaraAdventure.Level
             TryPlayParticles();
 
             _initialLocalPosition = transform.localPosition;
-            MoveDownSmoothly().Forget(exc => throw exc);
+            MoveDownSmoothly(token).Forget();
 
-            await UniTask.WaitForSeconds(_delayBeforeFalling);
-            StartFalling();
-        }
-
-        private async void StartFalling()
-        {
-            _rigidBody2D.bodyType = RigidbodyType2D.Dynamic;
-            _rigidBody2D.velocity = Vector2.down * _fallSpeed;
-
-            await UniTask.WaitForSeconds(_delayBeforeRigidbodyFreeze);
-            FreezeRigidBody();
+            TimeSpan delay = TimeSpan.FromSeconds(_delayBeforeFalling);
+            await Task.Delay(delay, token);
+            StartFalling(token);
         }
 
         private void TryPlayParticles()
@@ -74,19 +70,30 @@ namespace CapybaraAdventure.Level
             _particleEffect.Play();
         }
 
-        private async UniTask MoveDownSmoothly()
+        private async UniTask MoveDownSmoothly(CancellationToken token)
         {
             float elapsedTime = 0f;
             Vector3 targetPosition = transform.localPosition + Vector3.down * _moveDownDistance;
 
-            while (elapsedTime < _moveDownDuration && this != null)
+            while (elapsedTime < _moveDownDuration)
             {
                 MoveToPosition(targetPosition, elapsedTime / _moveDownDuration);
                 elapsedTime += Time.deltaTime;
-                await UniTask.NextFrame();
+                await UniTask.NextFrame(token);
             }
 
             MoveToPosition(targetPosition, 1f);
+        }
+
+        private async void StartFalling(CancellationToken token)
+        {
+            _rigidBody2D.bodyType = RigidbodyType2D.Dynamic;
+            _rigidBody2D.velocity = Vector2.down * _fallSpeed;
+
+            TimeSpan delay = TimeSpan.FromSeconds(_delayBeforeRigidbodyFreeze);
+            await Task.Delay(delay, token);
+
+            FreezeRigidBody();
         }
 
         private void MoveToPosition(Vector3 targetPosition, float time)

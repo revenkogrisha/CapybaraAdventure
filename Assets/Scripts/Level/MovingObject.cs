@@ -1,12 +1,15 @@
 using UnityEngine;
 using NTC.Global.Pool;
 using Cysharp.Threading.Tasks;
+using System.Threading.Tasks;
+using System;
+using System.Threading;
 
 namespace CapybaraAdventure.Level
 {
     public class MovingObject : MonoBehaviour, IPoolItem
     {
-        private const float DirectionBlockDuration = 0.1f; // in seconds
+        private const float DirectionBlockInSeconds = 0.1f;
 
         [Header("Components")]
         [SerializeField] private Rigidbody2D _rigidBody2D;
@@ -27,6 +30,7 @@ namespace CapybaraAdventure.Level
         private MovingDirection _currentDirection;
         private Transform _transform;
         private bool _canChangeDirection = true;
+        private CancellationToken _cancellationToken;
 
         public bool IsDirectedLeft => _currentDirection == MovingDirection.Left;
         public Rigidbody2D Rigidbody2D => _rigidBody2D;
@@ -62,6 +66,7 @@ namespace CapybaraAdventure.Level
             _leftBorder = originalX - _leftOffset;
             _rightBorder = originalX + _rightOffset;
             _currentDirection = _startDirection;
+            _cancellationToken = this.GetCancellationTokenOnDestroy();
         }
         
         public void BecomePhysical()
@@ -103,7 +108,7 @@ namespace CapybaraAdventure.Level
             if (_reflectObject == true)
                 Reflect();
 
-            BlockDirectionForDuration().Forget(exc => throw exc);
+            BlockDirectionForDuration().Forget();
         }
 
         private void Reflect()
@@ -117,7 +122,10 @@ namespace CapybaraAdventure.Level
         private async UniTask BlockDirectionForDuration()
         {
             _canChangeDirection = false;
-            await UniTask.WaitForSeconds(DirectionBlockDuration);
+
+            TimeSpan delay = TimeSpan.FromSeconds(DirectionBlockInSeconds);
+            await Task.Delay(delay, _cancellationToken);
+
             _canChangeDirection = true;
         }
     }

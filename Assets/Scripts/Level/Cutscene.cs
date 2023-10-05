@@ -5,7 +5,8 @@ using Zenject;
 using UnityTools.Buttons;
 using Cysharp.Threading.Tasks;
 using System.Threading.Tasks;
-using DG.Tweening.Plugins;
+using System;
+using System.Threading;
 
 namespace CapybaraAdventure.Level
 {
@@ -18,6 +19,7 @@ namespace CapybaraAdventure.Level
         [SerializeField] private Animator _cutsceneAnimator;
         [SerializeField] private UIButton _skipButton;
 
+        private CancellationToken _cancellationToken;
         private readonly float _cutsceneChangeInterval = 1.5f;
         private int _cutscene0Id = Animator.StringToHash(Cutscene0);
         private int _zoomHeroId = Animator.StringToHash(ZoomHero);
@@ -29,6 +31,11 @@ namespace CapybaraAdventure.Level
         #endregion
 
         #region MonoBehaviour
+
+        private void Awake()
+        {
+            _cancellationToken = this.GetCancellationTokenOnDestroy();
+        }
         
         private void OnEnable()
         {
@@ -45,7 +52,7 @@ namespace CapybaraAdventure.Level
             if (_playerData.IsCutsceneWatched == true)
                 _skipButton.gameObject.SetActive(true);
 
-            PerformCutscene().Forget(exc => throw exc);
+            PerformCutscene().Forget();
         }
         
         #endregion
@@ -59,24 +66,25 @@ namespace CapybaraAdventure.Level
 
         private async UniTask PerformCutscene()
         {
-            await UniTask.WaitForSeconds(_cutsceneChangeInterval);
+            var interval = TimeSpan.FromSeconds(_cutsceneChangeInterval);
+            await Task.Delay(interval, _cancellationToken);
 
             _cutsceneAnimator.SetBool(_zoomHeroId, true);
 
-            await UniTask.WaitForSeconds(_cutsceneChangeInterval);
+            await Task.Delay(interval, _cancellationToken);
 
             _cutsceneAnimator.SetBool(_cutscene0Id, true);
             _cutsceneAnimator.SetBool(_zoomHeroId, false);
 
-            await UniTask.WaitForSeconds(_cutsceneChangeInterval);
+            await Task.Delay(interval, _cancellationToken);
 
             _cutsceneAnimator.SetBool(_zoomDarkId, true);
 
-            await UniTask.WaitForSeconds(_cutsceneChangeInterval);
+            await Task.Delay(interval, _cancellationToken);
 
             _cutsceneAnimator.SetBool(_cutscene0Id, false);
 
-            await UniTask.WaitForSeconds(_cutsceneChangeInterval);
+            await Task.Delay(interval, _cancellationToken);
 
             _playerData.IsCutsceneWatched = true;
 

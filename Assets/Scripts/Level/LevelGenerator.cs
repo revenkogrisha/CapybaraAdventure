@@ -6,13 +6,13 @@ using CapybaraAdventure.Player;
 using UnityTools;
 using Random = UnityEngine.Random;
 using Cysharp.Threading.Tasks;
-using System.Threading.Tasks;
+using System.Threading;
 
 namespace CapybaraAdventure.Level
 {
     public class LevelGenerator : MonoBehaviour
     {
-        private const float HeroPositionCheckFrequencyInSeconds = 1.5f;
+        private const float HeroPositionCheckFrequency = 1.5f;
         private const int SpecialPlatformSequentialNumber = 4;
         private const int LocationChangeSequentialNumber = 10;
         private const int QuestPlatformSequentialNumber = 16;
@@ -46,13 +46,12 @@ namespace CapybaraAdventure.Level
         private int _locationNumber = 0;
         private Color _defaultBackground;
         private bool _isQuestCompleted = false;
+        private CancellationToken _cancellationToken;
 
         private string PlatformName => $"Platform №{_platformNumber}";
-
         private Location CurrentLocation => _locations[_locationNumber];
-
         public float QuestPlatformXPosition => Platform.Length * QuestPlatformSequentialNumber;
-
+        private float HeroX => _heroTransform.position.x;
         private bool IsNowSpecialPlatformTurn 
         {
             get
@@ -96,20 +95,22 @@ namespace CapybaraAdventure.Level
             }
         }
 
-        private float HeroX => _heroTransform.position.x;
-
         public event Action<float> OnHeroXPositionUpdated;
 
         private void Awake()
         {
             _lastGeneratedPlatformX = _XstartPoint;
             _camera = Camera.main;
+            _cancellationToken = this.GetCancellationTokenOnDestroy();
 
             _defaultBackground = _camera.backgroundColor;
+        }
 
+        private void Start()
+        {
             ChangeBackgroundColor();
 
-            CheckPlayerPosition().Forget(exc => throw exc);
+            CheckPlayerPosition().Forget();
         }
 
         public void SpawnStartPlatform()
@@ -146,7 +147,8 @@ namespace CapybaraAdventure.Level
                     GenerateRandomPlatform();
                 }
 
-                await UniTask.WaitForSeconds(HeroPositionCheckFrequencyInSeconds);
+                TimeSpan delay = TimeSpan.FromSeconds(HeroPositionCheckFrequency);
+                await UniTask.Delay(delay);
             }
         }
 
@@ -196,20 +198,20 @@ namespace CapybaraAdventure.Level
             else
                 newBackground = currentLocation.BackgroundColor;
 
-            LerpBackground(newBackground).Forget(exc => throw exc);
+            LerpBackground(newBackground, _cancellationToken).Forget();
         }
 
-        private async UniTask LerpBackground(Color newBackground)
+        private async UniTask LerpBackground(Color newBackground, CancellationToken token)
         {
             float elapsedTime = 0;
             Color currentBackground = _camera.backgroundColor;
-            while (elapsedTime < BackgroundLerpDuration && this != null)
+            while (elapsedTime < BackgroundLerpDuration)
             {
                 float time = elapsedTime / BackgroundLerpDuration;
                 _camera.backgroundColor = Color.Lerp(currentBackground, newBackground, time);
 
                 elapsedTime += Time.deltaTime;
-                await UniTask.NextFrame();
+                await UniTask.NextFrame(token);
             }
         }
 
@@ -246,6 +248,10 @@ namespace CapybaraAdventure.Level
 
         private void SpawnElements(Platform platform)
         {
+//  Refactor spawner with no monobeh, create a config class
+//  Refactor spawner with no monobeh, create a config class
+//  Refactor spawner with no monobeh, create a config class
+//  Refactor spawner with no monobeh, create a config class
             _elementsSpawner.SpawnFood(platform);
             _elementsSpawner.SpawnChests(platform);
             _elementsSpawner.SpawnTreasureChests(platform);

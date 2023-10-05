@@ -1,12 +1,13 @@
 using UnityEngine;
 using CapybaraAdventure.Player;
 using Cysharp.Threading.Tasks;
+using System;
 
 namespace CapybaraAdventure.Save
 {
     public class SaveService : MonoBehaviour
     {
-        private const float AutoSaveInterval = 10f;
+        private const float AutoSaveIntervalInSeconds = 10f;
 
         [SerializeField] private Score _score;
         [SerializeField] private PlayerData _playerData;
@@ -67,7 +68,8 @@ namespace CapybaraAdventure.Save
             while (this != null)
             {
                 Save();
-                await UniTask.WaitForSeconds(AutoSaveInterval);
+                TimeSpan delay = TimeSpan.FromSeconds(AutoSaveIntervalInSeconds);
+                await UniTask.Delay(delay);
             }
         }
     }
