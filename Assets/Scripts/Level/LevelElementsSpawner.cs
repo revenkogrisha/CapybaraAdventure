@@ -1,7 +1,6 @@
 using UnityEngine;
 using NTC.Global.Pool;
 using CapybaraAdventure.Player;
-using Zenject;
 using UnityTools;
 using CapybaraAdventure.Other;
 

@@ -4,8 +4,6 @@ using UnityEngine;
 using Zenject;
 using UnityTools.Buttons;
 using Cysharp.Threading.Tasks;
-using System.Threading.Tasks;
-using System;
 using System.Threading;
 
 namespace CapybaraAdventure.Level
@@ -52,7 +50,7 @@ namespace CapybaraAdventure.Level
             if (_playerData.IsCutsceneWatched == true)
                 _skipButton.gameObject.SetActive(true);
 
-            PerformCutscene().Forget();
+            PerformCutscene(_cancellationToken).Forget();
         }
         
         #endregion
@@ -64,27 +62,26 @@ namespace CapybaraAdventure.Level
             _playerData = playerData;
         }
 
-        private async UniTask PerformCutscene()
+        private async UniTask PerformCutscene(CancellationToken token)
         {
-            var interval = TimeSpan.FromSeconds(_cutsceneChangeInterval);
-            await Task.Delay(interval, _cancellationToken);
+            await MyUniTask.Delay(_cutsceneChangeInterval, token);
 
             _cutsceneAnimator.SetBool(_zoomHeroId, true);
 
-            await Task.Delay(interval, _cancellationToken);
+            await MyUniTask.Delay(_cutsceneChangeInterval, token);
 
             _cutsceneAnimator.SetBool(_cutscene0Id, true);
             _cutsceneAnimator.SetBool(_zoomHeroId, false);
 
-            await Task.Delay(interval, _cancellationToken);
+            await MyUniTask.Delay(_cutsceneChangeInterval, token);
 
             _cutsceneAnimator.SetBool(_zoomDarkId, true);
 
-            await Task.Delay(interval, _cancellationToken);
+            await MyUniTask.Delay(_cutsceneChangeInterval, token);
 
             _cutsceneAnimator.SetBool(_cutscene0Id, false);
 
-            await Task.Delay(interval, _cancellationToken);
+            await MyUniTask.Delay(_cutsceneChangeInterval, token);
 
             _playerData.IsCutsceneWatched = true;
 

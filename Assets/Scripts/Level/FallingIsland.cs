@@ -1,6 +1,6 @@
 using System;
 using System.Threading;
-using System.Threading.Tasks;
+using CapybaraAdventure.Other;
 using Cysharp.Threading.Tasks;
 using NTC.Global.Pool;
 using UnityEngine;
@@ -44,8 +44,11 @@ namespace CapybaraAdventure.Level
             _isTriggered = false;
         }
 
-        public async void TriggerFalling(CancellationToken token)
+        public async void TriggerFalling(CancellationToken token = default)
         {
+            if (token == default)
+                token = _cancellationToken;
+                
             bool shallTrigger = Tools.GetChance(_triggerChance);
             if (_isTriggered == true || shallTrigger == false)
                 return;
@@ -57,8 +60,7 @@ namespace CapybaraAdventure.Level
             _initialLocalPosition = transform.localPosition;
             MoveDownSmoothly(token).Forget();
 
-            TimeSpan delay = TimeSpan.FromSeconds(_delayBeforeFalling);
-            await Task.Delay(delay, token);
+            await MyUniTask.Delay(_delayBeforeFalling, token);
             StartFalling(token);
         }
 
@@ -90,8 +92,7 @@ namespace CapybaraAdventure.Level
             _rigidBody2D.bodyType = RigidbodyType2D.Dynamic;
             _rigidBody2D.velocity = Vector2.down * _fallSpeed;
 
-            TimeSpan delay = TimeSpan.FromSeconds(_delayBeforeRigidbodyFreeze);
-            await Task.Delay(delay, token);
+            await MyUniTask.Delay(_delayBeforeRigidbodyFreeze, token);
 
             FreezeRigidBody();
         }

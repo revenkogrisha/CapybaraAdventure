@@ -1,9 +1,8 @@
 using UnityEngine;
 using NTC.Global.Pool;
 using Cysharp.Threading.Tasks;
-using System.Threading.Tasks;
-using System;
 using System.Threading;
+using CapybaraAdventure.Other;
 
 namespace CapybaraAdventure.Level
 {
@@ -108,7 +107,7 @@ namespace CapybaraAdventure.Level
             if (_reflectObject == true)
                 Reflect();
 
-            BlockDirectionForDuration().Forget();
+            BlockDirectionForDuration(_cancellationToken).Forget();
         }
 
         private void Reflect()
@@ -119,12 +118,11 @@ namespace CapybaraAdventure.Level
             _transform.localScale = reflected; 
         }
 
-        private async UniTask BlockDirectionForDuration()
+        private async UniTask BlockDirectionForDuration(CancellationToken token)
         {
             _canChangeDirection = false;
 
-            TimeSpan delay = TimeSpan.FromSeconds(DirectionBlockInSeconds);
-            await Task.Delay(delay, _cancellationToken);
+            await MyUniTask.Delay(DirectionBlockInSeconds, token);
 
             _canChangeDirection = true;
         }

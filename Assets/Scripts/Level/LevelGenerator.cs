@@ -7,6 +7,7 @@ using UnityTools;
 using Random = UnityEngine.Random;
 using Cysharp.Threading.Tasks;
 using System.Threading;
+using CapybaraAdventure.Other;
 
 namespace CapybaraAdventure.Level
 {
@@ -147,8 +148,7 @@ namespace CapybaraAdventure.Level
                     GenerateRandomPlatform();
                 }
 
-                TimeSpan delay = TimeSpan.FromSeconds(HeroPositionCheckFrequency);
-                await UniTask.Delay(delay);
+                await MyUniTask.Delay(HeroPositionCheckFrequency);
             }
         }
 

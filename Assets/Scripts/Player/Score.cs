@@ -1,7 +1,7 @@
 using System;
 using System.Threading;
-using System.Threading.Tasks;
 using CapybaraAdventure.Game;
+using CapybaraAdventure.Other;
 using CapybaraAdventure.Save;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
@@ -98,8 +98,7 @@ namespace CapybaraAdventure.Player
 
                 OnScoreChanged?.Invoke(ScoreCount);
 
-                TimeSpan delay = TimeSpan.FromSeconds(ScoreUpdateIntervalInSeconds);
-                await Task.Delay(delay, token);
+                await MyUniTask.Delay(ScoreUpdateIntervalInSeconds, token);
             }
 
             _isCounting = false;

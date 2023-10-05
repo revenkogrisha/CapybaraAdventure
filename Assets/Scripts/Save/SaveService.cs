@@ -1,7 +1,7 @@
 using UnityEngine;
 using CapybaraAdventure.Player;
 using Cysharp.Threading.Tasks;
-using System;
+using CapybaraAdventure.Other;
 
 namespace CapybaraAdventure.Save
 {
@@ -68,8 +68,7 @@ namespace CapybaraAdventure.Save
             while (this != null)
             {
                 Save();
-                TimeSpan delay = TimeSpan.FromSeconds(AutoSaveIntervalInSeconds);
-                await UniTask.Delay(delay);
+                await MyUniTask.Delay(AutoSaveIntervalInSeconds);
             }
         }
     }

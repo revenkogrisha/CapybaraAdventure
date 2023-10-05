@@ -1,6 +1,7 @@
 using UnityEngine;
 using System;
 using Cysharp.Threading.Tasks;
+using CapybaraAdventure.Other;
 
 namespace CapybaraAdventure.Level
 {
@@ -49,7 +50,7 @@ namespace CapybaraAdventure.Level
                 Vector3 movedPosition = GetMovedPosition();
                 _transform.position = movedPosition;
 
-                await UniTask.WaitForSeconds(_updateIntervalInSeconds);
+                await MyUniTask.Delay(_updateIntervalInSeconds);
             }
         }
 

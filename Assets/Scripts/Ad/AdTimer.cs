@@ -32,20 +32,20 @@ namespace CapybaraAdventure.Ad
 
         private void Start()
         {
-            BlockAd(StartBlockPeriodInSeconds).Forget();
+            BlockAdForPeriod(StartBlockPeriodInSeconds);
         }
 
-        public void BlockAdForPeriod()
+        public void BlockAdForPeriod(int blockPeriod = BlockPeriodInSeconds)
         {
-            BlockAd(BlockPeriodInSeconds).Forget();
+            BlockAd(blockPeriod, _cancellationToken).Forget();
         }
 
-        private async UniTask BlockAd(int period)
+        private async UniTask BlockAd(int period, CancellationToken token)
         {
             _canShowAd = false;
 
             var delay = TimeSpan.FromSeconds(period);
-            await Task.Delay(delay, _cancellationToken);
+            await Task.Delay(delay, token);
 
             _canShowAd = true;
         }
