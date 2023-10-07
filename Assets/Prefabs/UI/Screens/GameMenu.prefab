@@ -59,6 +59,7 @@ MonoBehaviour:
   _updgradeButton: {fileID: 7291496237125457657}
   _highScoreText: {fileID: 182949257803324325}
   _logo: {fileID: 5484005596023023259}
+  _highScoreLocalization: {fileID: 6403007885779228945}
 --- !u!114 &8659481709430681348
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -997,3 +998,14 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 3874724952982312868, guid: fe354fc30799248e5a3fd3715413b376, type: 3}
   m_PrefabInstance: {fileID: 8781689249996910911}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &6403007885779228945 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2378708087907018798, guid: fe354fc30799248e5a3fd3715413b376, type: 3}
+  m_PrefabInstance: {fileID: 8781689249996910911}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56eb0353ae6e5124bb35b17aff880f16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

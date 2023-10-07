@@ -47,7 +47,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 380525666623498
-    m_Localized: "Upgrade de her\xF3i"
+    m_Localized: "Atualiza\xE7\xE3o do her\xF3i"
     m_Metadata:
       m_Items: []
   - m_Id: 380525666623499
@@ -55,7 +55,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 380525666623501
-    m_Localized: "Levante -se at\xE9 {0}"
+    m_Localized: "Atenda at\xE9 50"
     m_Metadata:
       m_Items: []
   - m_Id: 380525666623503

@@ -1501,6 +1501,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1363624443}
     m_Modifications:
+    - target: {fileID: 6286053543409763713, guid: c3dc9d04412d94c82852e0ed2b0284fa, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6286053543888955942, guid: c3dc9d04412d94c82852e0ed2b0284fa, type: 3}
       propertyPath: m_Name
       value: GameUI

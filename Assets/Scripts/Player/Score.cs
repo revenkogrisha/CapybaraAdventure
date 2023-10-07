@@ -79,7 +79,7 @@ namespace CapybaraAdventure.Player
         {
             _isCounting = true;
 
-            while (_shouldBlockCount == false)
+            while (_shouldBlockCount == false && this != null)
             {
                 if (IsInitialized == false)
                     throw new NullReferenceException("The class hasn't been initialized! Call Init(Hero) first");
@@ -87,7 +87,7 @@ namespace CapybaraAdventure.Player
                 float heroX = _heroTransform.position.x;
                 if (heroX < 0f || heroX < ScoreCount)
                 {
-                    await UniTask.NextFrame();
+                    await UniTask.NextFrame(token);
                     continue;
                 }
 

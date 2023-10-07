@@ -5,23 +5,24 @@ using UnityTools.Buttons;
 using TMPro;
 using CapybaraAdventure.Player;
 using CapybaraAdventure.Other;
+using UnityEngine.Localization.Components;
 
 namespace CapybaraAdventure.Game
 {
     public class GameMenu : UIBase
     {
-        private const string HighScoreOriginalText = "HighScore:";
-
         [SerializeField] private UIButton _playButton;
         [SerializeField] private UIButton _updgradeButton;
 
         [Space]
         [SerializeField] private TextMeshProUGUI _highScoreText;
         [SerializeField] private Transform _logo;
+        [SerializeField] private LocalizeStringEvent _highScoreLocalization;
 
         private GameStartup _gameStartup;
         private UpgradeScreenProvider _upgradeScreenProvider;
         private UpgradeScreen _upgradeScreen;
+        private Score _score;
         private bool _isInitialized = false;
 
         public event Action OnMenuWorkHasOver;
@@ -32,12 +33,14 @@ namespace CapybaraAdventure.Game
         {
             _playButton.OnClicked += StartGame;
             _updgradeButton.OnClicked += LoadAndRevealUpgradeScreen;
+            _highScoreLocalization.OnUpdateString.AddListener(SetupScoreText);
         }
 
         private void OnDisable()
         {
             _playButton.OnClicked -= StartGame;
             _updgradeButton.OnClicked -= LoadAndRevealUpgradeScreen;
+            _highScoreLocalization.OnUpdateString.RemoveListener(SetupScoreText);
         }
 
         #endregion
@@ -50,15 +53,20 @@ namespace CapybaraAdventure.Game
             _gameStartup = gameStartup;
             _upgradeScreenProvider = upgradeScreenProvider;
             _isInitialized = true;
-
-            var highScore = score.HighScore;
-            _highScoreText.text = $"{HighScoreOriginalText} {highScore}";
+            _score = score;
         }
 
         public override void Reveal()
         {
             base.Reveal();
             TweenElements();
+        }
+
+        private void SetupScoreText(string text)
+        {
+            // TODO: remake with MVP
+            int highScore = _score.HighScore;
+            _highScoreText.text = string.Format(text, highScore);
         }
 
         private void TweenElements()
