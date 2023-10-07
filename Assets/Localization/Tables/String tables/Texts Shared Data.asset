@@ -15,12 +15,116 @@ MonoBehaviour:
   m_TableCollectionName: Texts
   m_TableCollectionNameGuidString: 1dae8e34e58154e9b9e49f998f8cf55d
   m_Entries:
-  - m_Id: 4202523779072
-    m_Key: menu_button_play
+  - m_Id: 380525654040576
+    m_Key: General
     m_Metadata:
       m_Items: []
-  - m_Id: 7291670618112
-    m_Key: menu_button_upgrade
+  - m_Id: 380525666623488
+    m_Key: GeneralMenu
+    m_Metadata:
+      m_Items: []
+  - m_Id: 380525666623489
+    m_Key: GeneralBack
+    m_Metadata:
+      m_Items: []
+  - m_Id: 380525666623490
+    m_Key: Cutscene
+    m_Metadata:
+      m_Items: []
+  - m_Id: 380525666623491
+    m_Key: CutsceneSkip
+    m_Metadata:
+      m_Items: []
+  - m_Id: 380525666623492
+    m_Key: CutsceneDarkbara
+    m_Metadata:
+      m_Items: []
+  - m_Id: 380525666623493
+    m_Key: Menu
+    m_Metadata:
+      m_Items: []
+  - m_Id: 380525666623494
+    m_Key: MenuPlay
+    m_Metadata:
+      m_Items: []
+  - m_Id: 380525666623495
+    m_Key: MenuHero
+    m_Metadata:
+      m_Items: []
+  - m_Id: 380525666623496
+    m_Key: MenuHighScore
+    m_Metadata:
+      m_Items: []
+  - m_Id: 380525666623497
+    m_Key: Hero
+    m_Metadata:
+      m_Items: []
+  - m_Id: 380525666623498
+    m_Key: HeroLabel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 380525666623499
+    m_Key: HeroFoodBonus
+    m_Metadata:
+      m_Items: []
+  - m_Id: 466924206022656
+    m_Key: HeroJumpDistance
+    m_Metadata:
+      m_Items: []
+  - m_Id: 380525666623501
+    m_Key: HeroGetCoins
+    m_Metadata:
+      m_Items: []
+  - m_Id: 380525666623502
+    m_Key: Pause
+    m_Metadata:
+      m_Items: []
+  - m_Id: 380525666623503
+    m_Key: PauseLabel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 380525666623504
+    m_Key: PauseBack
+    m_Metadata:
+      m_Items: []
+  - m_Id: 380525666623505
+    m_Key: Game Over
+    m_Metadata:
+      m_Items: []
+  - m_Id: 380525666623506
+    m_Key: GameOverLabel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 380525666623507
+    m_Key: GameOverContinue
+    m_Metadata:
+      m_Items: []
+  - m_Id: 380525666623508
+    m_Key: Game
+    m_Metadata:
+      m_Items: []
+  - m_Id: 380525666623509
+    m_Key: GameGetSword
+    m_Metadata:
+      m_Items: []
+  - m_Id: 380525666623510
+    m_Key: Tutorial
+    m_Metadata:
+      m_Items: []
+  - m_Id: 380525670817792
+    m_Key: TutorialJump
+    m_Metadata:
+      m_Items: []
+  - m_Id: 380525670817793
+    m_Key: TutorialJumpForce
+    m_Metadata:
+      m_Items: []
+  - m_Id: 380525670817794
+    m_Key: TutorialHurryUp
+    m_Metadata:
+      m_Items: []
+  - m_Id: 380525670817795
+    m_Key: TutorialFood
     m_Metadata:
       m_Items: []
   m_Metadata:

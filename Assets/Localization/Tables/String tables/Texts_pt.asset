@@ -18,12 +18,84 @@ MonoBehaviour:
   m_Metadata:
     m_Items: []
   m_TableData:
-  - m_Id: 4202523779072
+  - m_Id: 380525666623488
+    m_Localized: Menu
+    m_Metadata:
+      m_Items: []
+  - m_Id: 380525666623489
+    m_Localized: Voltar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 380525666623491
+    m_Localized: Pular
+    m_Metadata:
+      m_Items: []
+  - m_Id: 380525666623492
+    m_Localized: Capivara Escura
+    m_Metadata:
+      m_Items: []
+  - m_Id: 380525666623494
     m_Localized: Jogar
     m_Metadata:
       m_Items: []
-  - m_Id: 7291670618112
+  - m_Id: 380525666623495
     m_Localized: "Her\xF3i"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 380525666623496
+    m_Localized: "Pontua\xE7\xE3o m\xE1xima: {0}"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 380525666623498
+    m_Localized: "Upgrade de her\xF3i"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 380525666623499
+    m_Localized: "B\xF4nus de comida"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 380525666623501
+    m_Localized: "Levante -se at\xE9 {0}"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 380525666623503
+    m_Localized: Parou
+    m_Metadata:
+      m_Items: []
+  - m_Id: 380525666623504
+    m_Localized: De volta ao jogo
+    m_Metadata:
+      m_Items: []
+  - m_Id: 380525666623506
+    m_Localized: Game Over!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 380525666623507
+    m_Localized: Continuar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 380525666623509
+    m_Localized: Pegue espada!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 380525670817792
+    m_Localized: Toque para pular!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 380525670817793
+    m_Localized: "Sua for\xE7a de salto!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 380525670817794
+    m_Localized: Se apresse! Salve-a!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 380525670817795
+    m_Localized: Comida para facilitar o salto!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 466924206022656
+    m_Localized: "Dist\xE2ncia de salto"
     m_Metadata:
       m_Items: []
   references:
