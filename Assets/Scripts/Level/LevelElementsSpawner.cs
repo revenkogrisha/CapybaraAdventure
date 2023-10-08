@@ -6,24 +6,19 @@ using CapybaraAdventure.Other;
 
 namespace CapybaraAdventure.Level
 {
-    public class LevelElementsSpawner : MonoBehaviour
+    public class LevelElementsSpawner
     {
         private const int SwordChestsLimit = 2;
-
-        [Header("Element Prefabs")]
-        [SerializeField] private Food _foodPrefab;
-        [SerializeField] private SimpleChest _chestPrefab;
-        [SerializeField] private TreasureChest _treasureChestPrefab;
-        [SerializeField] private SwordChest _swordChestPrefab;
-        [SerializeField] private Enemy _enemyPrefab;
-        [SerializeField] private Transform _parent;
-
-        [Header("Chest Spawn Settings")]
-        [SerializeField, Range(0, 101)] private int _swordChestSpawnChance = 20;
  
+        private readonly LevelElementsSpawnerConfig _config;
         private int _swordChestsAmount = 0;
 
         private bool CanSpawnSwordChest => SwordChestsLimit > _swordChestsAmount;
+
+        public LevelElementsSpawner(LevelElementsSpawnerConfig config)
+        {
+            _config = config;
+        }
 
         public void SpawnChests(Platform platformInGame)
         {
@@ -34,7 +29,7 @@ namespace CapybaraAdventure.Level
                 if (isChanceSucceeded == false || marker.HasActiveObject == true)
                     continue;
 
-                bool isSwordChestSpawn = Tools.GetChance(_swordChestSpawnChance);
+                bool isSwordChestSpawn = Tools.GetChance(_config.SwordChestSpawnChance);
                 Chest chest = isSwordChestSpawn == true && CanSpawnSwordChest == true
                     ? SpawnSwordChest()
                     : SpawnSimpleChest();
@@ -56,7 +51,7 @@ namespace CapybaraAdventure.Level
                     continue;
 
                 TreasureChest chest = DIContainerRef.Container
-                    .InstantiatePrefabForComponent<TreasureChest>(_treasureChestPrefab);
+                    .InstantiatePrefabForComponent<TreasureChest>(_config.TreasureChestPrefab);
 
                 Vector3 position = marker.Position;
                 marker.SpawnedObject = chest.gameObject;
@@ -75,7 +70,7 @@ namespace CapybaraAdventure.Level
                     continue;
 
                 Vector3 position = marker.Position;
-                Food food = NightPool.Spawn(_foodPrefab, position, Quaternion.identity);
+                Food food = NightPool.Spawn(_config.FoodPrefab, position, Quaternion.identity);
 
                 marker.SpawnedObject = food.gameObject;
                 food.transform.SetParent(platformInGame.transform);
@@ -92,7 +87,7 @@ namespace CapybaraAdventure.Level
                     continue;
 
                 Vector3 position = marker.Position;
-                Enemy enemy = NightPool.Spawn(_enemyPrefab, position);
+                Enemy enemy = NightPool.Spawn(_config.EnemyPrefab, position);
 
                 marker.SpawnedObject = enemy.gameObject;
                 enemy.transform.SetParent(platformInGame.transform);
@@ -102,14 +97,14 @@ namespace CapybaraAdventure.Level
         private Chest SpawnSimpleChest()
         {
             Chest chest = DIContainerRef.Container
-                    .InstantiatePrefabForComponent<Chest>(_chestPrefab);
+                    .InstantiatePrefabForComponent<Chest>(_config.ChestPrefab);
 
             return chest;
         }
 
         private Chest SpawnSwordChest()
         {
-            Chest chest = NightPool.Spawn(_swordChestPrefab);
+            Chest chest = NightPool.Spawn(_config.SwordChestPrefab);
             _swordChestsAmount++;
             return chest;
         }

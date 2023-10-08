@@ -8,6 +8,7 @@ using Random = UnityEngine.Random;
 using Cysharp.Threading.Tasks;
 using System.Threading;
 using CapybaraAdventure.Other;
+using TMPro;
 
 namespace CapybaraAdventure.Level
 {
@@ -20,12 +21,7 @@ namespace CapybaraAdventure.Level
         private const float BackgroundLerpDuration = 3.5f;
 
         [Header("Components")]
-        [SerializeField] private LevelElementsSpawner _elementsSpawner;
-
-        [Header("Prefabs")]
-        [SerializeField] private Food _foodPrefab;
-        [SerializeField] private Chest _chestPrefab;
-        [SerializeField] private Enemy _enemyPrefab;
+        [SerializeField] private LevelElementsSpawnerConfig _config;
 
         [Header("Platform Generation Settings")]
         [SerializeField] private Transform _platformsParent;
@@ -38,10 +34,11 @@ namespace CapybaraAdventure.Level
         [SerializeField] private SpecialPlatform _questPlatform;
         [SerializeField] private Location[] _locations;
 
+        private readonly Queue<Platform> _platformsOnLevel = new();
         private Camera _camera;
+        private LevelElementsSpawner _spawner;
         private Transform _heroTransform;
         private bool _heroIsInitialized = false;
-        private readonly Queue<Platform> _platformsOnLevel = new();
         private int _platformNumber = 0;
         private float _lastGeneratedPlatformX = 0f;
         private int _locationNumber = 0;
@@ -102,6 +99,7 @@ namespace CapybaraAdventure.Level
         {
             _lastGeneratedPlatformX = _XstartPoint;
             _camera = Camera.main;
+            _spawner = new(_config);
             _cancellationToken = this.GetCancellationTokenOnDestroy();
 
             _defaultBackground = _camera.backgroundColor;
@@ -248,14 +246,10 @@ namespace CapybaraAdventure.Level
 
         private void SpawnElements(Platform platform)
         {
-//  Refactor spawner with no monobeh, create a config class
-//  Refactor spawner with no monobeh, create a config class
-//  Refactor spawner with no monobeh, create a config class
-//  Refactor spawner with no monobeh, create a config class
-            _elementsSpawner.SpawnFood(platform);
-            _elementsSpawner.SpawnChests(platform);
-            _elementsSpawner.SpawnTreasureChests(platform);
-            _elementsSpawner.SpawnEnemies(platform);
+            _spawner.SpawnFood(platform);
+            _spawner.SpawnChests(platform);
+            _spawner.SpawnTreasureChests(platform);
+            _spawner.SpawnEnemies(platform);
         }
 
         private void DespawnOldestPlatform()

@@ -6,6 +6,7 @@ using TMPro;
 using CapybaraAdventure.Player;
 using CapybaraAdventure.Other;
 using UnityEngine.Localization.Components;
+using Cysharp.Threading.Tasks;
 
 namespace CapybaraAdventure.Game
 {
@@ -62,12 +63,10 @@ namespace CapybaraAdventure.Game
             TweenElements();
         }
 
-        private void SetupScoreText(string text)
+        private async void SetupScoreText(string text)
         {
             // TODO: remake with MVP
-            if (_score == null)
-                return;
-                
+            await UniTask.WaitUntil(() => _score != null);
             int highScore = _score.HighScore;
             _highScoreText.text = string.Format(text, highScore);
         }

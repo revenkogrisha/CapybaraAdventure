@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85cb5f15435a6470c804cb84cf8b01b3, type: 3}
+  m_Name: ElementsSpawnerConfig
+  m_EditorClassIdentifier: 
+  _foodPrefab: {fileID: 8408874472059896616, guid: 74018d65fd7574a568d87aa61bf6e4fc, type: 3}
+  _chestPrefab: {fileID: 9104171104501049455, guid: 7ddd390120b37444bb88892481b3f5b1, type: 3}
+  _treasureChestPrefab: {fileID: 3464928910149792557, guid: b75cc4e0ce1c14df7bb37133d21ada0a, type: 3}
+  _swordChestPrefab: {fileID: -7780956765906762808, guid: 68690134a56a64edabe9aba8760c5193, type: 3}
+  _enemyPrefab: {fileID: 5067633634680072084, guid: 60051f938269b4a03b7add09834f5f65, type: 3}
+  _swordChestSpawnChance: 20
