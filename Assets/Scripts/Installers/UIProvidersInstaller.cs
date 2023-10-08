@@ -14,30 +14,10 @@ namespace CapybaraAdventure.Installers
         
         public override void InstallBindings()
         {
-            BindCanvas();
-
-            BindLoadingScreenProvider();
-
             BindUpgradeScreenProvider();
             BindGameOverScreenProvider();
             BindPauseScreenProvider();
             BindMenuProvider();
-        }
-
-        private void BindCanvas()
-        {
-            Container
-                .Bind<Canvas>()
-                .FromInstance(_canvas)
-                .AsSingle();
-        }
-
-        private void BindLoadingScreenProvider()
-        {
-            Container
-                .Bind<LoadingScreenProvider>()
-                .FromNew()
-                .AsSingle();
         }
 
         private void BindUpgradeScreenProvider()
