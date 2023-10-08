@@ -65,6 +65,9 @@ namespace CapybaraAdventure.Game
         private void SetupScoreText(string text)
         {
             // TODO: remake with MVP
+            if (_score == null)
+                return;
+                
             int highScore = _score.HighScore;
             _highScoreText.text = string.Format(text, highScore);
         }

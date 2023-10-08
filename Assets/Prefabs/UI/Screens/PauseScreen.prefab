@@ -317,6 +317,14 @@ PrefabInstance:
       propertyPath: m_StringReference.m_TableEntryReference.m_KeyId
       value: 380525666623504
       objectReference: {fileID: 0}
+    - target: {fileID: 1213740868839201685, guid: 46f31bca6fbe246e2803380741ddc7c1, type: 3}
+      propertyPath: m_fontSize
+      value: 96
+      objectReference: {fileID: 0}
+    - target: {fileID: 1213740868839201685, guid: 46f31bca6fbe246e2803380741ddc7c1, type: 3}
+      propertyPath: m_fontSizeMax
+      value: 96
+      objectReference: {fileID: 0}
     - target: {fileID: 1741337888455278932, guid: 46f31bca6fbe246e2803380741ddc7c1, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
