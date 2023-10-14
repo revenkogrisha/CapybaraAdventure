@@ -121,8 +121,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 21.2, y: -2.16}
-  m_SizeDelta: {x: 13.3687, y: 1.9461}
+  m_AnchoredPosition: {x: 20.516, y: -2.16}
+  m_SizeDelta: {x: 12, y: 1.9461}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5756048528779792772
 CanvasRenderer:
@@ -154,8 +154,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Hurry up! Save her!
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: d481da3009caf496fadf05e16a80f2e9, type: 2}
-  m_sharedMaterial: {fileID: 2100000, guid: 88611a6c685aa43548235c0be20eb940, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -179,12 +179,12 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 1
+  m_fontSize: 0.9
   m_fontSizeBase: 0.75
   m_fontWeight: 400
   m_enableAutoSizing: 1
   m_fontSizeMin: 0.2
-  m_fontSizeMax: 1
+  m_fontSizeMax: 0.9
   m_fontStyle: 0
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
@@ -215,7 +215,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0.5363579, y: 0, z: 0.0000019073486, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -576,8 +576,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Food to Ease the Jump!
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: d481da3009caf496fadf05e16a80f2e9, type: 2}
-  m_sharedMaterial: {fileID: 2100000, guid: 88611a6c685aa43548235c0be20eb940, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -601,12 +601,12 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 1
+  m_fontSize: 0.9
   m_fontSizeBase: 0.75
   m_fontWeight: 400
   m_enableAutoSizing: 1
   m_fontSizeMin: 0.2
-  m_fontSizeMax: 1
+  m_fontSizeMax: 0.9
   m_fontStyle: 0
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
@@ -876,8 +876,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Tap To Jump!
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: d481da3009caf496fadf05e16a80f2e9, type: 2}
-  m_sharedMaterial: {fileID: 2100000, guid: 88611a6c685aa43548235c0be20eb940, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -901,12 +901,12 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 1
+  m_fontSize: 0.9
   m_fontSizeBase: 1
   m_fontWeight: 400
   m_enableAutoSizing: 1
   m_fontSizeMin: 0.2
-  m_fontSizeMax: 1
+  m_fontSizeMax: 0.9
   m_fontStyle: 0
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512

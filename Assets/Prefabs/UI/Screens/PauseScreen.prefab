@@ -449,6 +449,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BackButton
       objectReference: {fileID: 0}
+    - target: {fileID: 6361337898545962847, guid: 46f31bca6fbe246e2803380741ddc7c1, type: 3}
+      propertyPath: m_fontSize
+      value: 136
+      objectReference: {fileID: 0}
     - target: {fileID: 7479690510029819880, guid: 46f31bca6fbe246e2803380741ddc7c1, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0

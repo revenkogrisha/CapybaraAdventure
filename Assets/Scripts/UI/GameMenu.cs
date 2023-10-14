@@ -7,6 +7,7 @@ using CapybaraAdventure.Player;
 using CapybaraAdventure.Other;
 using UnityEngine.Localization.Components;
 using Cysharp.Threading.Tasks;
+using UnityEngine.Localization.Settings;
 
 namespace CapybaraAdventure.Game
 {
@@ -14,11 +15,15 @@ namespace CapybaraAdventure.Game
     {
         [SerializeField] private UIButton _playButton;
         [SerializeField] private UIButton _updgradeButton;
+        [SerializeField] private UIButton _languageButton;
 
         [Space]
         [SerializeField] private TextMeshProUGUI _highScoreText;
         [SerializeField] private Transform _logo;
         [SerializeField] private LocalizeStringEvent _highScoreLocalization;
+
+        [Space]
+        [SerializeField] private LocalizationManager _localization;
 
         private GameStartup _gameStartup;
         private UpgradeScreenProvider _upgradeScreenProvider;
@@ -34,6 +39,7 @@ namespace CapybaraAdventure.Game
         {
             _playButton.OnClicked += StartGame;
             _updgradeButton.OnClicked += LoadAndRevealUpgradeScreen;
+            _languageButton.OnClicked += ChangeLanguage;
             _highScoreLocalization.OnUpdateString.AddListener(SetupScoreText);
         }
 
@@ -41,6 +47,7 @@ namespace CapybaraAdventure.Game
         {
             _playButton.OnClicked -= StartGame;
             _updgradeButton.OnClicked -= LoadAndRevealUpgradeScreen;
+            _languageButton.OnClicked -= ChangeLanguage;
             _highScoreLocalization.OnUpdateString.RemoveListener(SetupScoreText);
         }
 
@@ -78,6 +85,7 @@ namespace CapybaraAdventure.Game
             tweener.TweenLogo(_logo);
             tweener.TweenButton(_playButton.transform);
             tweener.TweenButton(_updgradeButton.transform);
+            tweener.TweenButton(_languageButton.transform);
         }
 
         private async void LoadAndRevealUpgradeScreen()
@@ -105,6 +113,11 @@ namespace CapybaraAdventure.Game
             Conceal();
 
             OnMenuWorkHasOver?.Invoke();
+        }
+
+        private void ChangeLanguage()
+        {
+            _localization.NextLanguage();
         }
     }
 }

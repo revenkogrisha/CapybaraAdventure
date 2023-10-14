@@ -509,10 +509,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: hero upgrade
+  m_text: "Upgrade de her\xF3i"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: d481da3009caf496fadf05e16a80f2e9, type: 2}
-  m_sharedMaterial: {fileID: 7103588919216823777, guid: d481da3009caf496fadf05e16a80f2e9, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 3b3b162acb4d242c5890821f310b52a5, type: 2}
+  m_sharedMaterial: {fileID: 2100000, guid: ad145650ba4ab4d529e62983b51d5d3b, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -896,13 +896,17 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 848701158389590761, guid: 39408da13564d4450bbd2aa37d4c03b3, type: 3}
+      propertyPath: m_text
+      value: "Cumprir at\xE9 50"
+      objectReference: {fileID: 0}
+    - target: {fileID: 848701158389590761, guid: 39408da13564d4450bbd2aa37d4c03b3, type: 3}
       propertyPath: m_fontAsset
       value: 
-      objectReference: {fileID: 11400000, guid: d481da3009caf496fadf05e16a80f2e9, type: 2}
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 848701158389590761, guid: 39408da13564d4450bbd2aa37d4c03b3, type: 3}
       propertyPath: m_sharedMaterial
       value: 
-      objectReference: {fileID: 7103588919216823777, guid: d481da3009caf496fadf05e16a80f2e9, type: 2}
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 5316661243803056938, guid: 39408da13564d4450bbd2aa37d4c03b3, type: 3}
       propertyPath: m_Name
       value: GetCoinsButton
@@ -1055,16 +1059,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3818883604023980801, guid: 47e0b17ab15464e19ae404b0dbfed5aa, type: 3}
       propertyPath: m_fontSize
-      value: 110.1
+      value: 108.5
       objectReference: {fileID: 0}
     - target: {fileID: 3818883604023980801, guid: 47e0b17ab15464e19ae404b0dbfed5aa, type: 3}
       propertyPath: m_fontAsset
       value: 
-      objectReference: {fileID: 11400000, guid: d481da3009caf496fadf05e16a80f2e9, type: 2}
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 3818883604023980801, guid: 47e0b17ab15464e19ae404b0dbfed5aa, type: 3}
       propertyPath: m_sharedMaterial
       value: 
-      objectReference: {fileID: 7103588919216823777, guid: d481da3009caf496fadf05e16a80f2e9, type: 2}
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 4893801357058860924, guid: 47e0b17ab15464e19ae404b0dbfed5aa, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
