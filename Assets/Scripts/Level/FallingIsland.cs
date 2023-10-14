@@ -44,7 +44,7 @@ namespace CapybaraAdventure.Level
             _isTriggered = false;
         }
 
-        public async void TriggerFalling(CancellationToken token = default)
+        public async UniTask TriggerFalling(CancellationToken token = default)
         {
             if (token == default)
                 token = _cancellationToken;
@@ -61,7 +61,7 @@ namespace CapybaraAdventure.Level
             MoveDownSmoothly(token).Forget();
 
             await MyUniTask.Delay(_delayBeforeFalling, token);
-            StartFalling(token);
+            StartFalling(token).Forget();
         }
 
         private void TryPlayParticles()
@@ -87,7 +87,7 @@ namespace CapybaraAdventure.Level
             MoveToPosition(targetPosition, 1f);
         }
 
-        private async void StartFalling(CancellationToken token)
+        private async UniTask StartFalling(CancellationToken token)
         {
             _rigidBody2D.bodyType = RigidbodyType2D.Dynamic;
             _rigidBody2D.velocity = Vector2.down * _fallSpeed;
