@@ -11,8 +11,8 @@ namespace CapybaraAdventure.Save
         private const float AutoSaveIntervalInSeconds = 10f;
 
         [SerializeField] private Score _score;
-        [SerializeField] private PlayerData _playerData;
 
+        private PlayerData _playerData;
         private ISaveSystem _saveSystem;
 
         #region MonoBehaviour
@@ -31,9 +31,12 @@ namespace CapybaraAdventure.Save
         #endregion
 
         [Inject]
-        private void Construct(ISaveSystem saveSystem)
+        private void Construct(
+            ISaveSystem saveSystem, 
+            PlayerData playerData)
         {
             _saveSystem = saveSystem;
+            _playerData = playerData;
         }
 
         public void ResetProcess()
@@ -62,7 +65,8 @@ namespace CapybaraAdventure.Save
         private void Load()
         {
             SaveData data = _saveSystem.Load();
-
+print(_playerData);
+print(data);
             _playerData.LoadData(data);
             _score.LoadHighScore(data);
         }

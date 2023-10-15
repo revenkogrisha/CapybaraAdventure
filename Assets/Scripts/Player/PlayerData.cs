@@ -1,19 +1,17 @@
 using System;
 using CapybaraAdventure.Save;
-using UnityEngine;
 using CapybaraAdventure.UI;
 using Random = UnityEngine.Random;
 
 namespace CapybaraAdventure.Player
 {
-    public class PlayerData : MonoBehaviour
+    public class PlayerData
     {
         private const float MaxDistanceUpgradeLimit = 22f;
         private const float MaxDistanceUpgradeIncrease = 1f;
         private const float LerpSpeedDecrease = 0.08f;
         private const float FoodBonusIncrease = 0.125f;
         public const float FoodBonusLimit = 1f;
-
 
         public int Coins { get; private set; }
         public float MaxDistance { get; private set; }

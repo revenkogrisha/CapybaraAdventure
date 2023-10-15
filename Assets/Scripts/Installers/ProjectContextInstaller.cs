@@ -10,7 +10,6 @@ namespace CapybaraAdventure.Installers
     {
         [SerializeField] private Score _score;
         [SerializeField] private SaveService _saveService;
-        [SerializeField] private PlayerData _playerData;
         
         public override void InstallBindings()
         {
@@ -34,14 +33,14 @@ namespace CapybaraAdventure.Installers
                 .NonLazy();
 
             Container
-                .Bind<SaveService>()
-                .FromInstance(_saveService)
+                .Bind<PlayerData>()
+                .FromNew()
                 .AsSingle()
                 .NonLazy();
 
             Container
-                .Bind<PlayerData>()
-                .FromInstance(_playerData)
+                .Bind<SaveService>()
+                .FromInstance(_saveService)
                 .AsSingle()
                 .NonLazy();
         }
