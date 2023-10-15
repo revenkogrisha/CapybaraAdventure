@@ -1,4 +1,3 @@
-using System;
 using System.IO;
 using UnityEngine;
 
@@ -6,13 +5,13 @@ namespace CapybaraAdventure.Save
 {
     public class JsonSaveSystem : ISaveSystem
     {
-        public const string FileName = "/CapySave.json";
+        public const string SaveFilePath = "/CapySave.json";
 
         public string FilePath { get; private set; }
 
         public JsonSaveSystem()
         {
-            FilePath = Application.persistentDataPath + FileName;
+            FilePath = Application.persistentDataPath + SaveFilePath;
         }
 
         public void Save(SaveData data)
@@ -20,9 +19,7 @@ namespace CapybaraAdventure.Save
             string json = JsonUtility.ToJson(data);
 
             using (var writer = new StreamWriter(FilePath))
-            {
                 writer.Write(json);
-            }
         }
 
         public SaveData Load()
@@ -31,7 +28,6 @@ namespace CapybaraAdventure.Save
                 return new SaveData();
 
             string json = "";
-
 
             using (var reader = new StreamReader(FilePath))
             {
