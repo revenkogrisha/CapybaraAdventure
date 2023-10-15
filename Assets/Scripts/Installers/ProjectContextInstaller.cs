@@ -13,36 +13,47 @@ namespace CapybaraAdventure.Installers
         
         public override void InstallBindings()
         {
+            BindSaveSystem();
+            BindPauseManager();
+            BindScore();
+            BindPlayerData();
+            BindLocalizationManager();
+            BindSaveService();
+        }
+
+        private void BindSaveSystem()
+        {
             Container
                 .Bind<ISaveSystem>()
                 .To<JsonSaveSystem>()
                 .FromNew()
                 .AsSingle()
                 .Lazy();
+        }
 
+        private void BindPauseManager()
+        {
             Container
                 .Bind<PauseManager>()
                 .FromNew()
                 .AsSingle()
                 .Lazy();
+        }
 
+        private void BindScore()
+        {
             Container
                 .Bind<Score>()
                 .FromInstance(_score)
                 .AsSingle()
                 .NonLazy();
+        }
 
+        private void BindPlayerData()
+        {
             Container
                 .Bind<PlayerData>()
                 .FromNew()
-                .AsSingle()
-                .NonLazy();
-
-            BindLocalizationManager();
-
-            Container
-                .Bind<SaveService>()
-                .FromInstance(_saveService)
                 .AsSingle()
                 .NonLazy();
         }
@@ -52,6 +63,15 @@ namespace CapybaraAdventure.Installers
             Container
                 .Bind<LocalizationManager>()
                 .FromNew()
+                .AsSingle()
+                .NonLazy();
+        }
+
+        private void BindSaveService()
+        {
+            Container
+                .Bind<SaveService>()
+                .FromInstance(_saveService)
                 .AsSingle()
                 .NonLazy();
         }
