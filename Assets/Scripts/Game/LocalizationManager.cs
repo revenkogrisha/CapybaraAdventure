@@ -26,6 +26,7 @@ namespace CapybaraAdventure.Game
         {
             await UniTask.WaitUntil(() => AvailableLocales.Count > 0);
             LocalizationSettings.SelectedLocale = AvailableLocales[index];
+            _currentLanguageIndex = index;
         }
     }
 }

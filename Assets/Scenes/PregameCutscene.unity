@@ -461,8 +461,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: '?'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: d481da3009caf496fadf05e16a80f2e9, type: 2}
-  m_sharedMaterial: {fileID: 2100000, guid: 88611a6c685aa43548235c0be20eb940, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2971,7 +2971,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3818883604023980801, guid: 47e0b17ab15464e19ae404b0dbfed5aa, type: 3}
       propertyPath: m_fontSize
-      value: 118.7
+      value: 96
+      objectReference: {fileID: 0}
+    - target: {fileID: 3818883604023980801, guid: 47e0b17ab15464e19ae404b0dbfed5aa, type: 3}
+      propertyPath: m_fontSizeMax
+      value: 96
+      objectReference: {fileID: 0}
+    - target: {fileID: 3818883604023980801, guid: 47e0b17ab15464e19ae404b0dbfed5aa, type: 3}
+      propertyPath: m_fontSizeMin
+      value: 36
       objectReference: {fileID: 0}
     - target: {fileID: 4893801357058860924, guid: 47e0b17ab15464e19ae404b0dbfed5aa, type: 3}
       propertyPath: m_Pivot.x
@@ -8930,8 +8938,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Darkbara! '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: d481da3009caf496fadf05e16a80f2e9, type: 2}
-  m_sharedMaterial: {fileID: 2100000, guid: 88611a6c685aa43548235c0be20eb940, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
