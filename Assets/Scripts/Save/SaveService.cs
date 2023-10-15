@@ -2,6 +2,7 @@ using UnityEngine;
 using CapybaraAdventure.Player;
 using Cysharp.Threading.Tasks;
 using CapybaraAdventure.Other;
+using Zenject;
 
 namespace CapybaraAdventure.Save
 {
@@ -18,10 +19,7 @@ namespace CapybaraAdventure.Save
 
         private void Awake()
         {
-            _saveSystem = new JsonSaveSystem();
-
             Load();
-
             AutoSave().Forget();
         }
 
@@ -31,6 +29,12 @@ namespace CapybaraAdventure.Save
         }
 
         #endregion
+
+        [Inject]
+        private void Construct(ISaveSystem saveSystem)
+        {
+            _saveSystem = saveSystem;
+        }
 
         public void ResetProcess()
         {

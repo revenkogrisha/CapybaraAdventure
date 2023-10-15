@@ -14,27 +14,36 @@ namespace CapybaraAdventure.Installers
         
         public override void InstallBindings()
         {
-            var pauseManager = new PauseManager();
+            Container
+                .Bind<ISaveSystem>()
+                .To<JsonSaveSystem>()
+                .FromNew()
+                .AsSingle()
+                .Lazy();
 
             Container
                 .Bind<PauseManager>()
-                .FromInstance(pauseManager)
-                .AsSingle();
+                .FromNew()
+                .AsSingle()
+                .Lazy();
 
             Container
                 .Bind<Score>()
                 .FromInstance(_score)
-                .AsSingle();
+                .AsSingle()
+                .NonLazy();
 
             Container
                 .Bind<SaveService>()
                 .FromInstance(_saveService)
-                .AsSingle();
+                .AsSingle()
+                .NonLazy();
 
             Container
                 .Bind<PlayerData>()
                 .FromInstance(_playerData)
-                .AsSingle();
+                .AsSingle()
+                .NonLazy();
         }
     }
 }
