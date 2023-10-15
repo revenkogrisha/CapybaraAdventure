@@ -2,6 +2,7 @@ using UnityEngine;
 using CapybaraAdventure.Player;
 using Cysharp.Threading.Tasks;
 using CapybaraAdventure.Other;
+using CapybaraAdventure.Game;
 using Zenject;
 
 namespace CapybaraAdventure.Save
@@ -14,6 +15,7 @@ namespace CapybaraAdventure.Save
 
         private PlayerData _playerData;
         private ISaveSystem _saveSystem;
+        private LocalizationManager _localization;
 
         #region MonoBehaviour
 
@@ -33,10 +35,12 @@ namespace CapybaraAdventure.Save
         [Inject]
         private void Construct(
             ISaveSystem saveSystem, 
-            PlayerData playerData)
+            PlayerData playerData,
+            LocalizationManager localization)
         {
             _saveSystem = saveSystem;
             _playerData = playerData;
+            _localization = localization;
         }
 
         public void ResetProcess()
@@ -56,19 +60,20 @@ namespace CapybaraAdventure.Save
                 DistanceUpgradeCost = _playerData.DistanceUpgradeCost,
                 FoodBonus = _playerData.FoodBonus,
                 FoodUpgradeCost = _playerData.FoodUpgradeCost,
-                IsCutsceneWatched = _playerData.IsCutsceneWatched
+                IsCutsceneWatched = _playerData.IsCutsceneWatched,
+                LanguageIndex = _localization.CurrentLanguageIndex
             };
 
             _saveSystem.Save(data);
         }
 
-        private void Load()
+        private async void Load()
         {
             SaveData data = _saveSystem.Load();
-print(_playerData);
-print(data);
+
             _playerData.LoadData(data);
-            _score.LoadHighScore(data);
+            _score.LoadHighScore(data.HighScore);
+            await _localization.SetLanguage(data.LanguageIndex);
         }
         
         private async UniTask AutoSave()

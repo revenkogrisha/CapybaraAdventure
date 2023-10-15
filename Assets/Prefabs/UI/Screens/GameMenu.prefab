@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 422289749642706785}
   - component: {fileID: 422289749642706784}
   - component: {fileID: 8659481709430681348}
-  - component: {fileID: 1584446356130512378}
   m_Layer: 5
   m_Name: GameMenu
   m_TagString: Untagged
@@ -63,7 +62,6 @@ MonoBehaviour:
   _highScoreText: {fileID: 182949257803324325}
   _logo: {fileID: 5484005596023023259}
   _highScoreLocalization: {fileID: 6403007885779228945}
-  _localization: {fileID: 1584446356130512378}
 --- !u!114 &8659481709430681348
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -78,18 +76,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _telegramButton: {fileID: 3589579988291585712}
   _youtubeButton: {fileID: 713922808023413694}
---- !u!114 &1584446356130512378
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 422289749642706790}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ef666789236c45299ac347d65d18cf9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1909869970487252862
 GameObject:
   m_ObjectHideFlags: 0
@@ -409,8 +395,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: v. 0.0.0
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 3b3b162acb4d242c5890821f310b52a5, type: 2}
-  m_sharedMaterial: {fileID: 2100000, guid: ad145650ba4ab4d529e62983b51d5d3b, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

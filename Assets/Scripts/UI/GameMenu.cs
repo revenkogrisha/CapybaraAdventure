@@ -22,13 +22,11 @@ namespace CapybaraAdventure.Game
         [SerializeField] private Transform _logo;
         [SerializeField] private LocalizeStringEvent _highScoreLocalization;
 
-        [Space]
-        [SerializeField] private LocalizationManager _localization;
-
         private GameStartup _gameStartup;
         private UpgradeScreenProvider _upgradeScreenProvider;
         private UpgradeScreen _upgradeScreen;
         private Score _score;
+        private LocalizationManager _localization;
         private bool _isInitialized = false;
 
         public event Action OnMenuWorkHasOver;
@@ -56,12 +54,14 @@ namespace CapybaraAdventure.Game
         public void Init(
             GameStartup gameStartup,
             UpgradeScreenProvider upgradeScreenProvider,
-            Score score)
+            Score score,
+            LocalizationManager localization)
         {
             _gameStartup = gameStartup;
             _upgradeScreenProvider = upgradeScreenProvider;
             _isInitialized = true;
             _score = score;
+            _localization = localization;
         }
 
         public override void Reveal()
@@ -91,14 +91,14 @@ namespace CapybaraAdventure.Game
         private async void LoadAndRevealUpgradeScreen()
         {
             _upgradeScreen = await _upgradeScreenProvider.Load();
-            _upgradeScreen.OnScreenClosed += OnUpgradeScreenClosedHandler;
+            _upgradeScreen.OnScreenClosed += HandleOnUpgradeScreenClosed;
 
             Conceal();
         }
 
-        private void OnUpgradeScreenClosedHandler()
+        private void HandleOnUpgradeScreenClosed()
         {
-            _upgradeScreen.OnScreenClosed -= OnUpgradeScreenClosedHandler;
+            _upgradeScreen.OnScreenClosed -= HandleOnUpgradeScreenClosed;
             _upgradeScreenProvider.Unload();
             Reveal();
         }

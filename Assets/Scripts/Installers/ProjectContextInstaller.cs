@@ -38,9 +38,20 @@ namespace CapybaraAdventure.Installers
                 .AsSingle()
                 .NonLazy();
 
+            BindLocalizationManager();
+
             Container
                 .Bind<SaveService>()
                 .FromInstance(_saveService)
+                .AsSingle()
+                .NonLazy();
+        }
+
+        private void BindLocalizationManager()
+        {
+            Container
+                .Bind<LocalizationManager>()
+                .FromNew()
                 .AsSingle()
                 .NonLazy();
         }

@@ -1,15 +1,21 @@
 using CapybaraAdventure.Other;
 using Zenject;
 
-namespace CapybaraAdventure
+namespace CapybaraAdventure.Installers
 {
     public class SceneContextInstaller : MonoInstaller
     {
-        [Inject] DiContainer container;
+        DiContainer _container;
 
         public override void InstallBindings()
         {
-            DIContainerRef.Container = container;
+            DIContainerRef.Container = _container;
+        }
+
+        [Inject]
+        private void Construct(DiContainer container)
+        {
+            _container = container;
         }
     }
 }

@@ -1,33 +1,31 @@
-using UnityEngine;
 using UnityEngine.Localization.Settings;
 using UnityEngine.Localization;
 using System.Collections.Generic;
+using Cysharp.Threading.Tasks;
 
 namespace CapybaraAdventure.Game
 {
-    public class LocalizationManager : MonoBehaviour
+    public class LocalizationManager
     {
         private int _currentLanguageIndex = 0;
 
-        private List<Locale> AvaliableLocales => LocalizationSettings.AvailableLocales.Locales;
+        private List<Locale> AvailableLocales => LocalizationSettings.AvailableLocales.Locales;
 
-        private void Start()
-        {
-            SetLanguage(0);
-        }
+        public int CurrentLanguageIndex => _currentLanguageIndex;
 
-        public void NextLanguage()
+        public async void NextLanguage()
         {
             _currentLanguageIndex++;
-            if (_currentLanguageIndex >= AvaliableLocales.Count)
+            if (_currentLanguageIndex >= AvailableLocales.Count)
                 _currentLanguageIndex = 0;
 
-            SetLanguage(_currentLanguageIndex);
+            await SetLanguage(_currentLanguageIndex);
         }
 
-        private void SetLanguage(int index)
+        public async UniTask SetLanguage(int index)
         {
-            LocalizationSettings.SelectedLocale = AvaliableLocales[index];
+            await UniTask.WaitUntil(() => AvailableLocales.Count > 0);
+            LocalizationSettings.SelectedLocale = AvailableLocales[index];
         }
     }
 }
