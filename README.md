@@ -8,7 +8,7 @@
    <img src="https://img.shields.io/badge/Engine-Unity%202021.3.16f1-blueviolet?style=&logo=unity" alt="Engine">
    <img src="https://img.shields.io/badge/Platform-Android 7+%20-brightgreen?style=&logo=android" alt="Platform">
    <img src="https://img.shields.io/badge/Play_Market-Available%20-brightgreen?style=&logo=google play" alt="Distribution">
-   <img src="https://img.shields.io/badge/Version-1.1.4-blue" alt="Game Version">
+   <img src="https://img.shields.io/badge/Version-1.2.0-blue" alt="Game Version">
    <img src="https://img.shields.io/badge/Release Date-13.05.2023-red" alt="Release Date">
    <img src="https://img.shields.io/badge/License-Apache--2.0%20-yellow?style=&logo=apache" alt="License">
 </p>
@@ -25,7 +25,7 @@
 ## About the project
 
 * **Release Date:** May 13, 2023
-* **Last Big Update:** August 28, 2023
+* **Last Update:** October 15, 2023
 * Project was made with **[Unity Engine](https://unity.com/)**
 * **Engine Version:** 2021.3.16f1
 
@@ -43,6 +43,10 @@
 
 **( * - Used in previous versions )**
 
+### Warning
+
+Some of the systems implemented in project may seem overkill for this project size - I was just practicing my skills, don't worry :) But I will be happy if you notice something strange like that and notify my, e.g. put it in the [issues](https://github.com/revenkogrisha/CapybaraAdventure/issues)
+
 ## Authors
 
 * **[Grisha Revenko](https://github.com/revenkogrisha)** - *Game & UI Design, Code, Mediation, Publishing*
@@ -52,7 +56,8 @@ See also the list of [contributors](https://github.com/revenkogrisha/CapybaraAdv
 
 ## Contributing
 
-My pleasure to you to contribute to my project! Feel free to go
+* My pleasure to you to contribute to my project! Feel free to go
+* If you notice any bug or just have some suggestion, do not hesitate to create an [issue](https://github.com/revenkogrisha/CapybaraAdventure/issues)
 
 ## License
 
