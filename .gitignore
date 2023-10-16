@@ -529,5 +529,5 @@ FodyWeavers.xsd
 
 # End of https://www.toptal.com/developers/gitignore/api/unity,macos,visualstudio,visualstudiocode,git
 
-# Publishing-related files
+# Publishing-related files/secrets
 *.keystore
