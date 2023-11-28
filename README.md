@@ -43,16 +43,15 @@
 
 **( * - Used in previous versions )**
 
-### Warning
-
-Some of the systems implemented in project may seem overkill for this project size - I was just practicing my skills, don't worry :) But I will be happy if you notice something strange like that and notify my, e.g. put it in the [issues](https://github.com/revenkogrisha/CapybaraAdventure/issues)
+>[!NOTE]
+>Some of the systems implemented in the project may seem over-engineered for this project size - it's true, I was practicing my skills, don't worry :) But I will be happy if you notice something strange like that and notify me, e.g. put it in the [issues](https://github.com/revenkogrisha/CapybaraAdventure/issues)
 
 ## Authors
 
 * **[Grisha Revenko](https://github.com/revenkogrisha)** - *Game & UI Design, Code, Mediation, Publishing*
 * **[Kristina](https://t.me/krisdvg_10)** - *Graphics, Game Design*
 
-See the list of [contributors](https://github.com/revenkogrisha/CapybaraAdventure/contributors) who and how participated in this project.
+See the list of [contributors](https://github.com/revenkogrisha/CapybaraAdventure/contributors) who and how participated in this project.  
 **Extra thanks to all** of those who was helping to test the game during its development! Love you!
 
 ## Contributing
