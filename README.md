@@ -16,6 +16,9 @@
 ## About this game
 
 **Capybara Adventure** is a fascinating ranner game that will take you to an uncharted world, where you will play as charming capybara. The unique jumping mechanic allows you to control the strength of the jump and move only by jumping, which creates an interesting gameplay. Upgrade your capybara, jump around islands and find new places in an exciting world full of danger and rewards. Capybara Adventure is the perfect game for anyone who loves exciting adventures and addictive gameplay in a mobile game.
+
+>[!NOTE]
+Looking for **fresh code**? Check out [Capybara World](https://github.com/revenkogrisha/CapybaraWorld) repository!
    
 ## Links
 
