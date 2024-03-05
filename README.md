@@ -23,7 +23,7 @@ Looking for **fresh code**? Check out [Capybara World](https://github.com/revenk
 ## Links
 
 * **[Play Market](https://play.google.com/store/apps/details?id=com.Revenko.org.CapybaraAdventure)**
-* **[Yandex Games](https://yandex.ru/games/app/230164?lang=ru)**
+* **[Yandex Games](https://yandex.ru/games/app/230164?draft=true&lang=ru)**
 
 ## About the project
 
