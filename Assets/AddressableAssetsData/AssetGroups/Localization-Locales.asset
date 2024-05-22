@@ -17,34 +17,37 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: fade16eee0a8e4b5d9ce57d9054ca52b
   m_SerializeEntries:
-  - m_GUID: d2bba5cfaf36d4325a9595f5f35a6f07
-    m_Address: English (en)
-    m_ReadOnly: 1
-    m_SerializedLabels:
-    - Locale
-  - m_GUID: c4f493f6fc4a64360b32d6b2a68d8b77
-    m_Address: Spanish (es)
-    m_ReadOnly: 1
-    m_SerializedLabels:
-    - Locale
-  - m_GUID: 2efd3facdb225489ba0258d3585c4b7b
-    m_Address: Portuguese (pt)
-    m_ReadOnly: 1
-    m_SerializedLabels:
-    - Locale
-  - m_GUID: 443252a1f13c04f6582abf20fa4883d5
+  - m_GUID: e42992cc289a0430f9096d32d48a955e
     m_Address: Russian (ru)
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale
-  - m_GUID: f6aa5df1add2d47cea41ce2f6bd2ae22
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 619ce32cd10d54485a74e158f45c846d
+    m_Address: English (en)
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 401b449e25b1840838ea6004091e32c8
+    m_Address: Portuguese (pt)
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 107140fbc5ef6494ba8c2d1561a91722
+    m_Address: Spanish (es)
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 59650d834ccf64f3982e54955b8c6fc3
     m_Address: Ukrainian (Ukraine) (uk-UA)
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 1
   m_Settings: {fileID: 11400000, guid: 8d06babe51c5d4018a46dea98910cd82, type: 2}
   m_SchemaSet:
-    m_Schemas:
-    - {fileID: 11400000, guid: 532f626fe11294248a8056ab86579aa8, type: 2}
-    - {fileID: 11400000, guid: 2c550ffb02812417ba7262703606f8fe, type: 2}
+    m_Schemas: []

@@ -17,26 +17,11 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: 8cad49224b4eb41838da8b4d4c504526
   m_SerializeEntries:
-  - m_GUID: 2be851c5ff5674f539a75f234a195962
-    m_Address: GameMenu
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-  - m_GUID: 44bb8f9e706024a3589908517c00536d
-    m_Address: GameOverScreen
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-  - m_GUID: 9822358f601724fc98560a04e1593632
-    m_Address: PauseScreen
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-  - m_GUID: 67816e13b815f4a44add4e46f37df08d
-    m_Address: UpgradeScreen
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-  - m_GUID: 74e0f081117c1406082c9545afbc3699
+  - m_GUID: d245e2373adf54fa8a5ca18982178507
     m_Address: LoadingScreen
     m_ReadOnly: 0
     m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 8d06babe51c5d4018a46dea98910cd82, type: 2}
   m_SchemaSet:
