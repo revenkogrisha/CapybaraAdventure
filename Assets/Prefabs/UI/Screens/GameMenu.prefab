@@ -165,7 +165,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1248757306271718839
 RectTransform:
   m_ObjectHideFlags: 0
@@ -732,9 +732,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_LocalizedAssetReference:
     m_TableReference:
-      m_TableCollectionName: GUID:24a7ad9c3ead2445ea9a416c9beb8fc2
+      m_TableCollectionName: GUID:321747040274341f2b2511d09b6f960a
     m_TableEntryReference:
-      m_KeyId: 2007845822464
+      m_KeyId: 299726871191552
       m_Key: 
     m_FallbackState: 0
     m_WaitForCompletion: 0
@@ -761,6 +761,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 8712780452500569059}
     m_Modifications:
+    - target: {fileID: 3332263531862417898, guid: 0a8e6b8f173a0497eaf1a527cda14c4f, type: 3}
+      propertyPath: m_StringReference.m_TableEntryReference.m_KeyId
+      value: 4073322438662
+      objectReference: {fileID: 0}
+    - target: {fileID: 3332263531862417898, guid: 0a8e6b8f173a0497eaf1a527cda14c4f, type: 3}
+      propertyPath: m_StringReference.m_TableReference.m_TableCollectionName
+      value: GUID:7ea67ff4d163a481d99ec8bd956123cd
+      objectReference: {fileID: 0}
     - target: {fileID: 4893801357058860924, guid: 0a8e6b8f173a0497eaf1a527cda14c4f, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -991,10 +999,11 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 6191068025938537084, guid: 0a8e6b8f173a0497eaf1a527cda14c4f, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 4893801357058860924, guid: 0a8e6b8f173a0497eaf1a527cda14c4f, type: 3}
-      insertIndex: 0
+      insertIndex: -1
       addedObject: {fileID: 4812697714033998521}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0a8e6b8f173a0497eaf1a527cda14c4f, type: 3}
@@ -1022,6 +1031,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 8712780452500569059}
     m_Modifications:
+    - target: {fileID: 3332263531862417898, guid: 0a8e6b8f173a0497eaf1a527cda14c4f, type: 3}
+      propertyPath: m_StringReference.m_TableEntryReference.m_KeyId
+      value: 4073322438661
+      objectReference: {fileID: 0}
+    - target: {fileID: 3332263531862417898, guid: 0a8e6b8f173a0497eaf1a527cda14c4f, type: 3}
+      propertyPath: m_StringReference.m_TableReference.m_TableCollectionName
+      value: GUID:7ea67ff4d163a481d99ec8bd956123cd
+      objectReference: {fileID: 0}
     - target: {fileID: 4893801357058860924, guid: 0a8e6b8f173a0497eaf1a527cda14c4f, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1142,6 +1159,14 @@ PrefabInstance:
     - target: {fileID: 377025695417876806, guid: c64f8733bd2774ab5bce6973826d98a7, type: 3}
       propertyPath: m_Name
       value: Logo
+      objectReference: {fileID: 0}
+    - target: {fileID: 2378708087907018798, guid: c64f8733bd2774ab5bce6973826d98a7, type: 3}
+      propertyPath: m_StringReference.m_TableEntryReference.m_KeyId
+      value: 4073322438663
+      objectReference: {fileID: 0}
+    - target: {fileID: 2378708087907018798, guid: c64f8733bd2774ab5bce6973826d98a7, type: 3}
+      propertyPath: m_StringReference.m_TableReference.m_TableCollectionName
+      value: GUID:7ea67ff4d163a481d99ec8bd956123cd
       objectReference: {fileID: 0}
     - target: {fileID: 3874724952982312868, guid: c64f8733bd2774ab5bce6973826d98a7, type: 3}
       propertyPath: m_Pivot.x

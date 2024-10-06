@@ -10,16 +10,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 97269afb30aa84742ae3f3342603618a, type: 3}
-  m_Name: Assets_en
+  m_Name: AssetsTable_pt
   m_EditorClassIdentifier: 
   m_LocaleId:
-    m_Code: en
-  m_SharedData: {fileID: 11400000, guid: 57febe273305f42c8ac9a670975e9bbe, type: 2}
+    m_Code: pt
+  m_SharedData: {fileID: 11400000, guid: 321747040274341f2b2511d09b6f960a, type: 2}
   m_Metadata:
     m_Items: []
   m_TableData:
-  - m_Id: 2007845822464
-    m_Localized: 939ef0d5735bd4bbea0bd8e411c6eeeb
+  - m_Id: 41082150912
+    m_Localized: 1b4672fbb481141a5bf4fed93e20adcb
+    m_Metadata:
+      m_Items: []
+  - m_Id: 299726871191552
+    m_Localized: 1b4672fbb481141a5bf4fed93e20adcb[pt]
     m_Metadata:
       m_Items: []
   references:

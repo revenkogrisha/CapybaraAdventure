@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4db626ad063b13545924a9839ac5fa83, type: 3}
-  m_Name: Assets
+  m_Name: AssetsTable
   m_EditorClassIdentifier: 
-  m_SharedTableData: {fileID: 11400000, guid: 24a7ad9c3ead2445ea9a416c9beb8fc2, type: 2}
+  m_SharedTableData: {fileID: 11400000, guid: 321747040274341f2b2511d09b6f960a, type: 2}
   m_Tables:
-  - {fileID: 11400000, guid: d242635a781f143749681beefe049016, type: 2}
-  - {fileID: 11400000, guid: e5087ad81aa7940698e813cd5655fb71, type: 2}
-  - {fileID: 11400000, guid: 2ca2ccd3b2be54daf9ace92028828a7c, type: 2}
-  - {fileID: 11400000, guid: 9df84b0eb69954653a6206bbf293e684, type: 2}
-  - {fileID: 11400000, guid: aed05fa034c82440682c01a44c7c778c, type: 2}
+  - {fileID: 11400000, guid: 4cba30859abdf45fc92d2f6ace6de526, type: 2}
+  - {fileID: 11400000, guid: 4824aa3acbb1e4c82a3e6d4bceb235ee, type: 2}
+  - {fileID: 11400000, guid: 2f0c1c1aab0324e4dba8fae07b4880da, type: 2}
+  - {fileID: 11400000, guid: 8cb220a499ff44ecea990b47eb77b390, type: 2}
+  - {fileID: 11400000, guid: 3aac5ac55f02f4f9694a6196a991a648, type: 2}
   m_Extensions: []
   m_Group: Asset Table
   references:

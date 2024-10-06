@@ -10,37 +10,55 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
-  m_Name: Assets Shared Data
+  m_Name: AssetsTable Shared Data
   m_EditorClassIdentifier: 
-  m_TableCollectionName: Assets
-  m_TableCollectionNameGuidString: 24a7ad9c3ead2445ea9a416c9beb8fc2
+  m_TableCollectionName: AssetsTable
+  m_TableCollectionNameGuidString: 321747040274341f2b2511d09b6f960a
   m_Entries:
-  - m_Id: 2007845822464
-    m_Key: Flags
+  - m_Id: 41082150912
+    m_Key: Language
+    m_Metadata:
+      m_Items: []
+  - m_Id: 299726871191552
+    m_Key: Flag
     m_Metadata:
       m_Items: []
   m_Metadata:
     m_Items:
-    - rid: 231701381610471435
+    - rid: 6253502192263364617
+    - rid: 6253502210944008194
   m_KeyGenerator:
-    rid: 231701381610471432
+    rid: 6253502192263364616
   references:
     version: 2
     RefIds:
-    - rid: 231701381610471432
+    - rid: 6253502192263364616
       type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
       data:
-        m_CustomEpoch: 1696789534084
-    - rid: 231701381610471435
+        m_CustomEpoch: 1728121768588
+    - rid: 6253502192263364617
       type: {class: AssetTypeMetadata, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
       data:
         m_Entries:
-        - m_KeyId: 2007845822464
+        - m_KeyId: 41082150912
           m_TableCodes:
           - en
           - pt
           - ru
           - es
           - uk-UA
+        m_TypeString: UnityEngine.Texture2D, UnityEngine.CoreModule, Version=0.0.0.0,
+          Culture=neutral, PublicKeyToken=null
+    - rid: 6253502210944008194
+      type: {class: AssetTypeMetadata, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_Entries:
+        - m_KeyId: 299726871191552
+          m_TableCodes:
+          - en
+          - es
+          - uk-UA
+          - ru
+          - pt
         m_TypeString: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null

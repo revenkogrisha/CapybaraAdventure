@@ -10,131 +10,131 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
-  m_Name: Texts Shared Data
+  m_Name: TextsTable Shared Data
   m_EditorClassIdentifier: 
-  m_TableCollectionName: Texts
-  m_TableCollectionNameGuidString: 1dae8e34e58154e9b9e49f998f8cf55d
+  m_TableCollectionName: TextsTable
+  m_TableCollectionNameGuidString: 7ea67ff4d163a481d99ec8bd956123cd
   m_Entries:
-  - m_Id: 380525654040576
+  - m_Id: 4073309855744
     m_Key: General
     m_Metadata:
       m_Items: []
-  - m_Id: 380525666623488
+  - m_Id: 4073318244352
     m_Key: GeneralMenu
     m_Metadata:
       m_Items: []
-  - m_Id: 380525666623489
+  - m_Id: 4073322438656
     m_Key: GeneralBack
     m_Metadata:
       m_Items: []
-  - m_Id: 380525666623490
+  - m_Id: 4073322438657
     m_Key: Cutscene
     m_Metadata:
       m_Items: []
-  - m_Id: 380525666623491
+  - m_Id: 4073322438658
     m_Key: CutsceneSkip
     m_Metadata:
       m_Items: []
-  - m_Id: 380525666623492
+  - m_Id: 4073322438659
     m_Key: CutsceneDarkbara
     m_Metadata:
       m_Items: []
-  - m_Id: 380525666623493
+  - m_Id: 4073322438660
     m_Key: Menu
     m_Metadata:
       m_Items: []
-  - m_Id: 380525666623494
+  - m_Id: 4073322438661
     m_Key: MenuPlay
     m_Metadata:
       m_Items: []
-  - m_Id: 380525666623495
+  - m_Id: 4073322438662
     m_Key: MenuHero
     m_Metadata:
       m_Items: []
-  - m_Id: 380525666623496
+  - m_Id: 4073322438663
     m_Key: MenuHighScore
     m_Metadata:
       m_Items: []
-  - m_Id: 380525666623497
+  - m_Id: 4073322438664
     m_Key: Hero
     m_Metadata:
       m_Items: []
-  - m_Id: 380525666623498
+  - m_Id: 4073322438665
     m_Key: HeroLabel
     m_Metadata:
       m_Items: []
-  - m_Id: 380525666623499
+  - m_Id: 4073322438666
     m_Key: HeroFoodBonus
     m_Metadata:
       m_Items: []
-  - m_Id: 466924206022656
+  - m_Id: 4073322438667
     m_Key: HeroJumpDistance
     m_Metadata:
       m_Items: []
-  - m_Id: 380525666623501
+  - m_Id: 4073322438668
     m_Key: HeroGetCoins
     m_Metadata:
       m_Items: []
-  - m_Id: 380525666623502
+  - m_Id: 4073322438669
     m_Key: Pause
     m_Metadata:
       m_Items: []
-  - m_Id: 380525666623503
+  - m_Id: 4073322438670
     m_Key: PauseLabel
     m_Metadata:
       m_Items: []
-  - m_Id: 380525666623504
+  - m_Id: 4073322438671
     m_Key: PauseBack
     m_Metadata:
       m_Items: []
-  - m_Id: 380525666623505
+  - m_Id: 4073322438672
     m_Key: Game Over
     m_Metadata:
       m_Items: []
-  - m_Id: 380525666623506
+  - m_Id: 4073322438673
     m_Key: GameOverLabel
     m_Metadata:
       m_Items: []
-  - m_Id: 380525666623507
+  - m_Id: 4073322438674
     m_Key: GameOverContinue
     m_Metadata:
       m_Items: []
-  - m_Id: 380525666623508
+  - m_Id: 4073322438675
     m_Key: Game
     m_Metadata:
       m_Items: []
-  - m_Id: 380525666623509
+  - m_Id: 4073322438676
     m_Key: GameGetSword
     m_Metadata:
       m_Items: []
-  - m_Id: 380525666623510
+  - m_Id: 4073322438677
     m_Key: Tutorial
     m_Metadata:
       m_Items: []
-  - m_Id: 380525670817792
+  - m_Id: 4073322438678
     m_Key: TutorialJump
     m_Metadata:
       m_Items: []
-  - m_Id: 380525670817793
+  - m_Id: 4073322438679
     m_Key: TutorialJumpForce
     m_Metadata:
       m_Items: []
-  - m_Id: 380525670817794
+  - m_Id: 4073322438680
     m_Key: TutorialHurryUp
     m_Metadata:
       m_Items: []
-  - m_Id: 380525670817795
+  - m_Id: 4073322438681
     m_Key: TutorialFood
     m_Metadata:
       m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
-    rid: 231701325190529048
+    rid: 6253502191991259138
   references:
     version: 2
     RefIds:
-    - rid: 231701325190529048
+    - rid: 6253502191991259138
       type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
       data:
-        m_CustomEpoch: 1696569067283
+        m_CustomEpoch: 1728120676240

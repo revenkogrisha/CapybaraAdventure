@@ -10,92 +10,92 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
-  m_Name: Texts_es
+  m_Name: TextsTable_es
   m_EditorClassIdentifier: 
   m_LocaleId:
     m_Code: es
-  m_SharedData: {fileID: 11400000, guid: 57febe273305f42c8ac9a670975e9bbe, type: 2}
+  m_SharedData: {fileID: 11400000, guid: 7ea67ff4d163a481d99ec8bd956123cd, type: 2}
   m_Metadata:
     m_Items: []
   m_TableData:
-  - m_Id: 380525666623488
+  - m_Id: 4073318244352
     m_Localized: "Men\xFA"
     m_Metadata:
       m_Items: []
-  - m_Id: 380525666623489
+  - m_Id: 4073322438656
     m_Localized: Volver
     m_Metadata:
       m_Items: []
-  - m_Id: 380525666623491
+  - m_Id: 4073322438658
     m_Localized: Saltar
     m_Metadata:
       m_Items: []
-  - m_Id: 380525666623492
+  - m_Id: 4073322438659
     m_Localized: Carpincho Oscuro
     m_Metadata:
       m_Items: []
-  - m_Id: 380525666623494
+  - m_Id: 4073322438661
     m_Localized: Jugar
     m_Metadata:
       m_Items: []
-  - m_Id: 380525666623495
+  - m_Id: 4073322438662
     m_Localized: "H\xE9roe"
     m_Metadata:
       m_Items: []
-  - m_Id: 380525666623496
+  - m_Id: 4073322438663
     m_Localized: "Puntuaci\xF3n Alta: {0}"
     m_Metadata:
       m_Items: []
-  - m_Id: 380525666623498
+  - m_Id: 4073322438665
     m_Localized: Hero Upgrade
     m_Metadata:
       m_Items: []
-  - m_Id: 380525666623499
+  - m_Id: 4073322438666
     m_Localized: Bono de comida
     m_Metadata:
       m_Items: []
-  - m_Id: 380525666623501
-    m_Localized: Llegar hasta 50
+  - m_Id: 4073322438667
+    m_Localized: Distancia de salto
     m_Metadata:
       m_Items: []
-  - m_Id: 380525666623503
-    m_Localized: Detenido
+  - m_Id: 4073322438668
+    m_Localized: Llega hasta 50
     m_Metadata:
       m_Items: []
-  - m_Id: 380525666623504
+  - m_Id: 4073322438670
+    m_Localized: En pausa
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4073322438671
     m_Localized: Volver al juego
     m_Metadata:
       m_Items: []
-  - m_Id: 380525666623506
+  - m_Id: 4073322438673
     m_Localized: "\xA1Juego terminado!"
     m_Metadata:
       m_Items: []
-  - m_Id: 380525666623507
+  - m_Id: 4073322438674
     m_Localized: Continuar
     m_Metadata:
       m_Items: []
-  - m_Id: 380525666623509
-    m_Localized: "\xA1Consigue la espada!"
+  - m_Id: 4073322438676
+    m_Localized: "\xA1Consigue espada!"
     m_Metadata:
       m_Items: []
-  - m_Id: 380525670817792
-    m_Localized: "\xA1Toque para saltar!"
+  - m_Id: 4073322438678
+    m_Localized: "\xA1Toca para saltar!"
     m_Metadata:
       m_Items: []
-  - m_Id: 380525670817793
+  - m_Id: 4073322438679
     m_Localized: "\xA1Tu fuerza de salto!"
     m_Metadata:
       m_Items: []
-  - m_Id: 380525670817794
-    m_Localized: "\xA1Apres\xFArate! \xA1S\xE1lvale!"
+  - m_Id: 4073322438680
+    m_Localized: "\xA1Apres\xFArate! \xA1S\xE1lvala!"
     m_Metadata:
       m_Items: []
-  - m_Id: 380525670817795
-    m_Localized: "\xA1Comida para aliviar el salto!"
-    m_Metadata:
-      m_Items: []
-  - m_Id: 466924206022656
-    m_Localized: Saltar distancia
+  - m_Id: 4073322438681
+    m_Localized: "\xA1Alimentos para facilitar el salto!"
     m_Metadata:
       m_Items: []
   references:
