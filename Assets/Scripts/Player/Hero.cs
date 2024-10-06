@@ -22,12 +22,16 @@ namespace CapybaraAdventure.Player
 
         [Header("Fight")]
         [SerializeField] private GameObject _sword;
-        [SerializeField] private float _kickForce = 7f;
+        [SerializeField] private float _kickForce = 8f;
 
         [Header("Jump Settings")]
         [SerializeField] private float _duration = 0.8f;
-        [SerializeField] private LayerMask _ground;
         [SerializeField] private AnimationCurve _jumpCurve;
+        
+        [Header("*NEW* Ground Check Settings")]
+        [SerializeField] private LayerMask _ground;
+        [SerializeField] private Transform _groundCheckTransform;
+        [SerializeField] private float _groundCheckRadius = 0.35f;
 
         [Header("Audio")]
         [SerializeField] private HeroAudioPlayer _audioPlayer;
@@ -164,7 +168,12 @@ namespace CapybaraAdventure.Player
 
         private void InitFields()
         {
-            var heightTestService = new HeightCheckService(_collider, _ground, HeightTestRadius);
+            HeightCheckService heightTestService = new(_collider,
+                _ground,
+                HeightTestRadius,
+                _groundCheckTransform,
+                _groundCheckRadius);
+            
             Jump = new HeroJump(
                 this,
                 _jumpCurve,

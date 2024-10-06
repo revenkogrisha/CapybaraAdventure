@@ -527,6 +527,37 @@ Transform:
   - {fileID: 268484404056518972}
   m_Father: {fileID: 2330286183833923376}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &3030732083718484961
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2841136293037561116}
+  m_Layer: 0
+  m_Name: GroundCheckTransform
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2841136293037561116
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3030732083718484961}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.036, y: -0.847, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7266856433574884411}
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!1 &3306130114814149691
 GameObject:
   m_ObjectHideFlags: 0
@@ -1774,6 +1805,7 @@ Transform:
   - {fileID: 1958151402100894485}
   - {fileID: 3899846993888888249}
   - {fileID: 4148465564835750813}
+  - {fileID: 2841136293037561116}
   - {fileID: 2330286183833923376}
   - {fileID: 5539980561904371440}
   - {fileID: 5535790811561811333}
@@ -1882,9 +1914,6 @@ MonoBehaviour:
   _sword: {fileID: 7785680583913415663}
   _kickForce: 8
   _duration: 0.45
-  _ground:
-    serializedVersion: 2
-    m_Bits: 64
   _jumpCurve:
     serializedVersion: 2
     m_Curve:
@@ -1918,6 +1947,11 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  _ground:
+    serializedVersion: 2
+    m_Bits: 64
+  _groundCheckTransform: {fileID: 2841136293037561116}
+  _groundCheckRadius: 0.35
   _audioPlayer: {fileID: 5823925977909884908}
 --- !u!114 &1330678292238878236
 MonoBehaviour:
