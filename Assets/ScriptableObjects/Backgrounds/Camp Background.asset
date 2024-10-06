@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b1a4b420faca4675a43b607ca26fc4d, type: 3}
+  m_Name: Camp Background
+  m_EditorClassIdentifier: 
+  _layer0: {fileID: 21300000, guid: a509c55ef6a3447518a3142c89fd18ea, type: 3}
+  _layer1: {fileID: 21300000, guid: f8a938254e5b14a5db41c4bb7bf69b36, type: 3}
+  _layer2: {fileID: 21300000, guid: 7538701ad3e9543e58f8e1e48eea4985, type: 3}
+  _layer3: {fileID: 21300000, guid: 96836502facaa484989e661d1c24e878, type: 3}
+  _undercoverColor: {r: 0.19215688, g: 0.5803922, b: 0.7725491, a: 1}

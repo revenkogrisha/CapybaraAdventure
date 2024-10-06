@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b1a4b420faca4675a43b607ca26fc4d, type: 3}
+  m_Name: Sands Background
+  m_EditorClassIdentifier: 
+  _layer0: {fileID: 21300000, guid: c7cec0ee132eb4455a4a1a9cf240eccd, type: 3}
+  _layer1: {fileID: 21300000, guid: 2e3df0798279749cc93519373ff26b15, type: 3}
+  _layer2: {fileID: 21300000, guid: bb70b3af29f444ddd810a216b39d8943, type: 3}
+  _layer3: {fileID: 21300000, guid: 8e2f04ac37a5a4a35b56ba5928880084, type: 3}
+  _undercoverColor: {r: 0.7490196, g: 0.5686275, b: 0.34117648, a: 1}
