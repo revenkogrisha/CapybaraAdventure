@@ -1450,7 +1450,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1e3ce32bd674425f9caea36a749410f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _heroPrefab: {fileID: 7266856433574884409, guid: a7f1f35584d7f40b6bd9cc2f762c0b1a, type: 3}
+  _heroPrefab: {fileID: 18405716993754696, guid: 3a35253487ec346f19b98cc2c6738e3f, type: 3}
   _mainCamera: {fileID: 445784920}
   _deadlyYBorder: {fileID: 181085798}
   _scoreText: {fileID: 6286053544499736605}
