@@ -1022,6 +1022,30 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8380110261911295129, guid: 610f63cf3e8144979bc24ab8bf98c111, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 13.8954
+      objectReference: {fileID: 0}
+    - target: {fileID: 8380110261911295130, guid: 610f63cf3e8144979bc24ab8bf98c111, type: 3}
+      propertyPath: m_Type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8380110261911295130, guid: 610f63cf3e8144979bc24ab8bf98c111, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 1d5cb729593f0462cbea30cb1653e16d, type: 3}
+    - target: {fileID: 8380110261911295130, guid: 610f63cf3e8144979bc24ab8bf98c111, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8380110261911295130, guid: 610f63cf3e8144979bc24ab8bf98c111, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8380110261911295130, guid: 610f63cf3e8144979bc24ab8bf98c111, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
