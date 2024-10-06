@@ -53,8 +53,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fdb54be4aace84c3eaad70bd32acecd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _restartButton: {fileID: 8451906648049685771}
-  _continueButton: {fileID: 4457197686076248513}
+  _restartButton: {fileID: 4457197686076248513}
+  _continueButton: {fileID: 8451906648049685771}
   _logoText: {fileID: 2660487269680322940}
   _UIShowDuration: 0.3
   _interstitialAd: {fileID: 5719466777131685920}
@@ -84,7 +84,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c9f1d0f2a9024701adb19e9667024ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _showButton: {fileID: 0}
+  _showButton: {fileID: 8451906648049685771}
 --- !u!1 &2660487269598813082
 GameObject:
   m_ObjectHideFlags: 0
@@ -309,9 +309,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_StringReference:
     m_TableReference:
-      m_TableCollectionName: GUID:1dae8e34e58154e9b9e49f998f8cf55d
+      m_TableCollectionName: GUID:7ea67ff4d163a481d99ec8bd956123cd
     m_TableEntryReference:
-      m_KeyId: 380525666623506
+      m_KeyId: 4073322438673
       m_Key: 
     m_FallbackState: 0
     m_WaitForCompletion: 0
