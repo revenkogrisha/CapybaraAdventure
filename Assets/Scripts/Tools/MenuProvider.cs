@@ -9,7 +9,8 @@ namespace CapybaraAdventure.UI
 {
     public class MenuProvider : LocalAssetLoader
     {
-        public const string GameMenu = nameof(GameMenu);
+        //NEW
+        public const string MainMenu = nameof(MainMenu);
         
         private readonly Canvas _canvas;
         private readonly GameStartup _gameStartup;
@@ -35,7 +36,7 @@ namespace CapybaraAdventure.UI
         public async Task<GameMenu> Load()
         {
             Transform canvasTransform = _canvas.transform;
-            GameMenu menu = await LoadInternal<GameMenu>(GameMenu, canvasTransform);
+            GameMenu menu = await LoadInternal<GameMenu>(MainMenu, canvasTransform);
 
             menu.Init(
                 _gameStartup, 
