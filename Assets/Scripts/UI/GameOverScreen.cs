@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityTools.Buttons;
 using TMPro;
 using CapybaraAdventure.Other;
 using CapybaraAdventure.Ad;
@@ -64,7 +63,7 @@ namespace CapybaraAdventure.UI
         }
 
         public void BlockContinuing() => 
-            _continueButton.Lock();
+            _continueButton.Interactable = false;
 
         private async void RestartGame()
         {

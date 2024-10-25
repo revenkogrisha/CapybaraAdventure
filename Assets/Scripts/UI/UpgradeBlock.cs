@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityTools.Buttons;
 using TMPro;
 
 namespace CapybaraAdventure.UI

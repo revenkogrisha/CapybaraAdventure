@@ -2,7 +2,6 @@ using Zenject;
 using CapybaraAdventure.Other;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityTools.Buttons;
 using CapybaraAdventure.Game;
 using CapybaraAdventure.Ad;
 using UnityTools;

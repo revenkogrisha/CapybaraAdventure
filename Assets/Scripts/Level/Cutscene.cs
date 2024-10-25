@@ -2,9 +2,9 @@ using CapybaraAdventure.Other;
 using CapybaraAdventure.Player;
 using UnityEngine;
 using Zenject;
-using UnityTools.Buttons;
 using Cysharp.Threading.Tasks;
 using System.Threading;
+using CapybaraAdventure.UI;
 
 namespace CapybaraAdventure.Level
 {

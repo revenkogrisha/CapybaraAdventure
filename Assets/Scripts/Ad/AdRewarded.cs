@@ -1,7 +1,7 @@
 using System;
+using CapybaraAdventure.UI;
 using UnityEngine;
 using UnityEngine.Advertisements;
-using UnityTools.Buttons;
 
 namespace CapybaraAdventure.Ad
 {
@@ -44,7 +44,7 @@ namespace CapybaraAdventure.Ad
             Advertisement.Show(_adID, this);
         }
 
-        private void SwitchButtonStatus(bool value) => _showButton.IsInteractable = value;
+        private void SwitchButtonStatus(bool value) => _showButton.Interactable = value;
 
         #region Callbacks
         public void OnUnityAdsAdLoaded(string placementId)

@@ -1,7 +1,6 @@
 using System;
 using CapybaraAdventure.UI;
 using UnityEngine;
-using UnityTools.Buttons;
 using TMPro;
 using CapybaraAdventure.Player;
 using CapybaraAdventure.Other;

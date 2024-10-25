@@ -1,5 +1,4 @@
 using System;
-using TriInspector;
 using UnityEngine;
 
 namespace Core.Audio
@@ -8,6 +7,6 @@ namespace Core.Audio
     public struct NamedAudio
     {
         public AudioName Name;
-        [Required] public AudioClip Clip; 
+        public AudioClip Clip; 
     }
 }
