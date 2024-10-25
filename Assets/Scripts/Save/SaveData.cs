@@ -1,4 +1,5 @@
 using System;
+using Core.Player;
 
 namespace CapybaraAdventure.Save
 {
@@ -13,5 +14,7 @@ namespace CapybaraAdventure.Save
         public int FoodUpgradeCost = 15;
         public bool IsCutsceneWatched = false;
         public int LanguageIndex = 0;
+        public SkinName BoughtHeroSkins = SkinName.Capybuddy;
+        public SkinName CurrentHeroSkin = SkinName.Capybuddy;
     }
 }

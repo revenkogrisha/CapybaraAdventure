@@ -6,6 +6,7 @@ using CapybaraAdventure.UI;
 using System;
 using CapybaraAdventure.Level;
 using System.Threading.Tasks;
+using Core.Player;
 
 namespace CapybaraAdventure.Game
 {
@@ -43,6 +44,7 @@ namespace CapybaraAdventure.Game
         private HeroPresenter _heroPresenter;
         private CoinsPresenter _coinsPresenter;
         private QuestPresenter _questPresenter;
+        private HeroSkins _heroSkins;
 
         #region MonoBehaviour
 
@@ -79,7 +81,8 @@ namespace CapybaraAdventure.Game
             PauseManager pauseManager,
             GameUI gameUI,
             GameOverScreenProvider gameOverScreenProvider,
-            PlayerData playerData)
+            PlayerData playerData,
+            HeroSkins heroSkins)
         {
             _menuProvider = menuProvider;
             _score = score;
@@ -89,6 +92,7 @@ namespace CapybaraAdventure.Game
             _gameUI = gameUI;
             _gameOverScreenProvider = gameOverScreenProvider;
             _playerData = playerData;
+            _heroSkins = heroSkins;
         }
 
         public void StartGame()
@@ -138,7 +142,7 @@ namespace CapybaraAdventure.Game
             Vector3 spawnPosition = spawnMarkerTransform.position;
             
             var heroFactory = 
-                new HeroFactory(_heroPrefab, spawnPosition);
+                new HeroFactory(_heroPrefab, spawnPosition, _heroSkins);
                 
             return heroFactory.Create();
         }

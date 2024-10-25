@@ -6,6 +6,7 @@ using UnityTools;
 using CapybaraAdventure.Game;
 using CapybaraAdventure.Level;
 using CapybaraAdventure.Other;
+using Core.Player;
 
 namespace CapybaraAdventure.Player
 {
@@ -19,6 +20,7 @@ namespace CapybaraAdventure.Player
         [SerializeField] private Collider2D _collider;
         [Tooltip("Optional (Can be null)")]
         [SerializeField] private ParticlesPlayer _jumpParticlesPlayer;
+        [SerializeField] private HeroSkinSetter _heroSkinSetter;
 
         [Header("Fight")]
         [SerializeField] private GameObject _sword;
@@ -48,6 +50,7 @@ namespace CapybaraAdventure.Player
         public bool ShouldPlayParticles => _jumpParticlesPlayer != null;
         public Transform Transform => transform;
         public Rigidbody2D Rigidbody2D => _rigidBody2D;
+        public HeroSkinSetter SkinSetter => _heroSkinSetter;
 
         public event Action OnDeath;
         public event Action OnFoodEaten;

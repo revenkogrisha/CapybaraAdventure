@@ -3,6 +3,7 @@ using CapybaraAdventure.Player;
 using Cysharp.Threading.Tasks;
 using CapybaraAdventure.Other;
 using CapybaraAdventure.Game;
+using Core.Player;
 using Zenject;
 
 namespace CapybaraAdventure.Save
@@ -16,6 +17,7 @@ namespace CapybaraAdventure.Save
         private PlayerData _playerData;
         private ISaveSystem _saveSystem;
         private LocalizationManager _localization;
+        private HeroSkins _heroSkins;
 
         #region MonoBehaviour
 
@@ -36,11 +38,13 @@ namespace CapybaraAdventure.Save
         private void Construct(
             ISaveSystem saveSystem, 
             PlayerData playerData,
-            LocalizationManager localization)
+            LocalizationManager localization,
+            HeroSkins heroSkins)
         {
-            _saveSystem = saveSystem;
             _playerData = playerData;
             _localization = localization;
+            _saveSystem = saveSystem;
+            _heroSkins = heroSkins;
         }
 
         public void ResetProcess()
@@ -61,7 +65,9 @@ namespace CapybaraAdventure.Save
                 FoodBonus = _playerData.FoodBonus,
                 FoodUpgradeCost = _playerData.FoodUpgradeCost,
                 IsCutsceneWatched = _playerData.IsCutsceneWatched,
-                LanguageIndex = _localization.CurrentLanguageIndex
+                LanguageIndex = _localization.CurrentLanguageIndex,
+                BoughtHeroSkins = _heroSkins.BoughtSkins,
+                CurrentHeroSkin = _heroSkins.Current.Name
             };
 
             _saveSystem.Save(data);
@@ -73,6 +79,7 @@ namespace CapybaraAdventure.Save
 
             _playerData.LoadData(data);
             _score.LoadHighScore(data.HighScore);
+            _heroSkins.Load(data);
             await _localization.SetLanguage(data.LanguageIndex);
         }
         

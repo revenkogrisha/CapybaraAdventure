@@ -17,6 +17,11 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: 8cad49224b4eb41838da8b4d4c504526
   m_SerializeEntries:
+  - m_GUID: 03c3bee72bb304aadbb994b6dd00b574
+    m_Address: HeroMenu
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0632404c64a1741d784267e7669c1a73
     m_Address: PauseScreen
     m_ReadOnly: 0
