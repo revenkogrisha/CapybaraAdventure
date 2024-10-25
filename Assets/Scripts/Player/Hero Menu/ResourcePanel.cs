@@ -1,0 +1,35 @@
+using CapybaraAdventure.Player;
+using TMPro;
+using UnityEngine;
+using Zenject;
+
+namespace CapybaraAdventure.UI
+{
+    public class ResourcePanel : MonoBehaviour
+    {
+        [Header("General")]
+        [SerializeField] private TMP_Text _coinsTMP;
+        [SerializeField] private TMP_Text _foodTMP;
+        
+        private PlayerData _playerData;
+
+        #region MonoBehaviour
+
+        private void OnEnable()
+        {
+            DisplayResources();
+        }
+
+        #endregion
+
+        [Inject]
+        private void Construct(PlayerData playerData) =>
+            _playerData = playerData;
+
+        public void DisplayResources()
+        {
+            _coinsTMP.SetText(_playerData.CoinsAmount.ToString());
+            _foodTMP.SetText(_playerData.FoodAmount.ToString());
+        }
+    }
+}
