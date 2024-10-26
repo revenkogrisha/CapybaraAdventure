@@ -21,9 +21,8 @@ namespace CapybaraAdventure.UI
         }
 
         #endregion
-
-        [Inject]
-        private void Construct(PlayerData playerData) =>
+        
+        public void Init(PlayerData playerData) =>
             _playerData = playerData;
 
         public void DisplayResources()

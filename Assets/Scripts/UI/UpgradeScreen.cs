@@ -96,9 +96,11 @@ namespace CapybaraAdventure.UI
             _saveService = saveService;
             _heroSkins = heroSkins;
             _audioHandler = audioHandler;
+            
+            _resourcePanel.Init(_playerData);
 
-            _jumpDistanceUpgrade.Init(_playerData.DistanceUpgradeCost);
-            _foodBonusUpgrade.Init(_playerData.FoodUpgradeCost);
+            // _jumpDistanceUpgrade.Init(_playerData.DistanceUpgradeCost);
+            // _foodBonusUpgrade.Init(_playerData.FoodUpgradeCost);
             // _resetService.Init(
             //     saveService,
             //     loadingScreenProvider);

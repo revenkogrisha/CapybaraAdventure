@@ -44,6 +44,8 @@ namespace CapybaraAdventure.Other
             UpgradeScreen screen = await LoadInternal<UpgradeScreen>(HeroMenu, canvasTransform);
 
             screen.Init(_playerData, _saveService, _loadingScreenProvider, _heroSkins, _audioHandler);
+            screen.gameObject.SetActive(true);
+            
             return screen;
         }
 
