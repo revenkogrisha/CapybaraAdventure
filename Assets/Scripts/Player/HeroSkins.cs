@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using System.Linq;
 using CapybaraAdventure.Player;
 using CapybaraAdventure.Save;
@@ -31,7 +30,6 @@ namespace Core.Player
         public void SetCurrent(SkinPreset preset)
         {
             Current = preset;
-            _saveService.Save();
         }
 
         public SkinPreset[] GetSortedPresets()
@@ -47,9 +45,7 @@ namespace Core.Player
         {
             _boughtSkins |= preset.Name;
 
-            _playerData.RemoveFood(preset.FoodCost);
-
-            _saveService.Save();
+            _playerData.TrySubstractFood(preset.FoodCost);
         }
 
         public SkinAvailability GetAvailability(SkinName skinName)
@@ -63,7 +59,7 @@ namespace Core.Player
         }
 
         public bool CanBuy(SkinPreset preset) =>
-            preset.FoodCost <= _playerData.FoodAmount;
+            preset.FoodCost <= _playerData.Food;
 
         public SkinPreset GetByName(SkinName skinName) => 
             _skins.Presets.Single(preset => preset.Name == skinName);

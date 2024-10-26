@@ -14,6 +14,7 @@ namespace CapybaraAdventure.Player
         public const float FoodBonusLimit = 1f;
 
         public int Coins { get; private set; }
+        public int Food { get; private set; }
         public float MaxDistance { get; private set; }
         public float FoodBonus { get; private set; }
         public int FoodUpgradeCost { get; private set; }
@@ -26,10 +27,12 @@ namespace CapybaraAdventure.Player
         }
 
         public event Action<int> OnCoinsChanged;
+        public event Action<int> OnFoodChanged;
 
         public void LoadData(SaveData data)
         {
             Coins = data.Coins;
+            Food = data.Food;
             MaxDistance = data.MaxDistance;
             FoodBonus = data.FoodBonus;
             DistanceUpgradeCost = data.DistanceUpgradeCost;
@@ -103,6 +106,17 @@ namespace CapybaraAdventure.Player
                 return;
 
             FoodBonus = increased;
+        }
+        
+        public bool TrySubstractFood(int amount)
+        {
+            if (Food < amount)
+                return false;
+
+            Food -= amount;
+
+            OnFoodChanged?.Invoke(Food);
+            return true;
         }
 
         private bool TrySubstractCoins(int amount)

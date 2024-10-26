@@ -28,8 +28,8 @@ namespace CapybaraAdventure.UI
 
         public void DisplayResources()
         {
-            _coinsTMP.SetText(_playerData.CoinsAmount.ToString());
-            _foodTMP.SetText(_playerData.FoodAmount.ToString());
+            _coinsTMP.SetText(_playerData.Coins.ToString());
+            _foodTMP.SetText(_playerData.Food.ToString());
         }
     }
 }

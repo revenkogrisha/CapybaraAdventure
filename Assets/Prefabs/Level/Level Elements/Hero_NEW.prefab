@@ -1781,6 +1781,7 @@ GameObject:
   - component: {fileID: 821845916949743017}
   - component: {fileID: 18405716993754696}
   - component: {fileID: 1330678292238878236}
+  - component: {fileID: 3171539016227664586}
   m_Layer: 0
   m_Name: Hero_NEW
   m_TagString: Untagged
@@ -1911,6 +1912,7 @@ MonoBehaviour:
   _rigidBody2D: {fileID: 5901292342845428291}
   _collider: {fileID: 7266856433574884422}
   _jumpParticlesPlayer: {fileID: 1330678292238878236}
+  _heroSkinSetter: {fileID: 3171539016227664586}
   _sword: {fileID: 7785680583913415663}
   _kickForce: 8
   _duration: 0.45
@@ -1967,6 +1969,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _particlesPrefab: {fileID: 3955791022282053891, guid: 325f9973346c94e5cbb5328a21b0d618, type: 3}
   _spawnTransform: {fileID: 4148465564835750813}
+--- !u!114 &3171539016227664586
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7266856433574884410}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7dcd3f622fb14a9f8fc10407b546a56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _head: {fileID: 1287095940830183860}
+  _body: {fileID: 1440997082269932433}
+  _leftArm: {fileID: 2634702797950258663}
+  _rightArm: {fileID: 8684368077590230840}
+  _leftLeg: {fileID: 9202130884262782929}
+  _rightLeg: {fileID: 1334809941764558628}
+  _sword: {fileID: 3064719943449707496}
 --- !u!1 &7785680583913415663
 GameObject:
   m_ObjectHideFlags: 0

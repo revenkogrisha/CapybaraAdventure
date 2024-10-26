@@ -60,6 +60,7 @@ namespace CapybaraAdventure.Save
             {
                 HighScore = _score.HighScore,
                 Coins = _playerData.Coins,
+                Food = _playerData.Food,
                 MaxDistance = _playerData.MaxDistance,
                 DistanceUpgradeCost = _playerData.DistanceUpgradeCost,
                 FoodBonus = _playerData.FoodBonus,

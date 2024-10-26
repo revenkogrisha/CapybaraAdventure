@@ -1,6 +1,8 @@
 using CapybaraAdventure.Game;
 using CapybaraAdventure.Player;
 using CapybaraAdventure.Save;
+using Core.Audio;
+using Core.Player;
 using UnityEngine;
 using Zenject;
 
@@ -11,6 +13,10 @@ namespace CapybaraAdventure.Installers
         [SerializeField] private Score _score;
         [SerializeField] private SaveService _saveService;
         
+        [Space]
+        [SerializeField] private SkinsCollection _skinsCollection;
+        [SerializeField] private UnityAudioHandler _unityAudioHandler;
+        
         public override void InstallBindings()
         {
             BindSaveSystem();
@@ -19,6 +25,10 @@ namespace CapybaraAdventure.Installers
             BindPlayerData();
             BindLocalizationManager();
             BindSaveService();
+            
+            // NEW
+            BindHeroSkins();
+            BindAudioHandler();
         }
 
         private void BindSaveSystem()
@@ -74,6 +84,26 @@ namespace CapybaraAdventure.Installers
                 .FromInstance(_saveService)
                 .AsSingle()
                 .NonLazy();
+        }
+
+        private void BindHeroSkins()
+        {
+            Container
+                .Bind<HeroSkins>()
+                .FromNew()
+                .AsSingle()
+                .WithArguments(_skinsCollection)
+                .NonLazy();
+        }
+        
+        private void BindAudioHandler()
+        {
+            Container
+                .Bind<IAudioHandler>()
+                .To<UnityAudioHandler>()
+                .FromInstance(_unityAudioHandler)
+                .AsSingle()
+                .Lazy();
         }
     }
 }

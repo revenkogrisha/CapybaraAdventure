@@ -760,39 +760,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 5940683987411615226, guid: eab7ee69b31044626ba7c0507f1a7249, type: 3}
   m_PrefabInstance: {fileID: 5940683988103369002}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1025898974 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6286053544972817205, guid: 109617763e44e4f7d8e2bbded161c39a, type: 3}
-  m_PrefabInstance: {fileID: 6286053544499736604}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c3e238943c28f4662bd691a7d1119afe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1074881240 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6286053543385468965, guid: 109617763e44e4f7d8e2bbded161c39a, type: 3}
-  m_PrefabInstance: {fileID: 6286053544499736604}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c9f1d0f2a9024701adb19e9667024ef, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1074881241 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6286053543385468968, guid: 109617763e44e4f7d8e2bbded161c39a, type: 3}
-  m_PrefabInstance: {fileID: 6286053544499736604}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2ab1f9b4956c6ae4888d0a318be777b6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1093666426
 GameObject:
   m_ObjectHideFlags: 0
@@ -1206,17 +1173,6 @@ Transform:
   - {fileID: 1334937654}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1644761239 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6286053543270517468, guid: 109617763e44e4f7d8e2bbded161c39a, type: 3}
-  m_PrefabInstance: {fileID: 6286053544499736604}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 552230e7121364b3db2b7bb20e0c29bc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!224 &1684789819 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6286053543888955943, guid: 109617763e44e4f7d8e2bbded161c39a, type: 3}
@@ -1600,26 +1556,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1363624443}
     m_Modifications:
-    - target: {fileID: 6286053543409763713, guid: 109617763e44e4f7d8e2bbded161c39a, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6286053543888955936, guid: 109617763e44e4f7d8e2bbded161c39a, type: 3}
-      propertyPath: _giveSwordButton
-      value: 
-      objectReference: {fileID: 1074881241}
-    - target: {fileID: 6286053543888955936, guid: 109617763e44e4f7d8e2bbded161c39a, type: 3}
-      propertyPath: _swordAdRewarded
-      value: 
-      objectReference: {fileID: 1074881240}
-    - target: {fileID: 6286053543888955936, guid: 109617763e44e4f7d8e2bbded161c39a, type: 3}
-      propertyPath: <JumpButton>k__BackingField
-      value: 
-      objectReference: {fileID: 1025898974}
-    - target: {fileID: 6286053543888955936, guid: 109617763e44e4f7d8e2bbded161c39a, type: 3}
-      propertyPath: <JumpSlider>k__BackingField
-      value: 
-      objectReference: {fileID: 1644761239}
     - target: {fileID: 6286053543888955942, guid: 109617763e44e4f7d8e2bbded161c39a, type: 3}
       propertyPath: m_Name
       value: GameUI
@@ -1631,10 +1567,6 @@ PrefabInstance:
     - target: {fileID: 6286053543888955943, guid: 109617763e44e4f7d8e2bbded161c39a, type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6286053543888955943, guid: 109617763e44e4f7d8e2bbded161c39a, type: 3}
-      propertyPath: m_RootOrder
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6286053543888955943, guid: 109617763e44e4f7d8e2bbded161c39a, type: 3}
       propertyPath: m_AnchorMax.x
@@ -1706,10 +1638,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6286053543888955943, guid: 109617763e44e4f7d8e2bbded161c39a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6286053543409763713, guid: c3dc9d04412d94c82852e0ed2b0284fa, type: 3}
-      propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

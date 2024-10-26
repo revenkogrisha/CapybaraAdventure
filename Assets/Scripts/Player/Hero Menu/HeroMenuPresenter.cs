@@ -1,3 +1,4 @@
+using System;
 using CapybaraAdventure.Player;
 using CapybaraAdventure.UI;
 using Core.Player;
@@ -62,16 +63,21 @@ namespace Core.UI
             }
         }
 
-        public void ResetUpgradeCost() => 
-            _playerData.ResetCost();
+        [Obsolete]
+        public void UpgradeHero(bool force = false)
+        {
+        } 
 
-        public void UpgradeHero(bool force = false) => 
-            _playerData.UpgradeHero(force);
+        [Obsolete]
+        public void OnUpdateLevelData()
+        {
+            // _view.UpdateLevelData(_playerData.Cost, _playerData.HeroLevel);
+        }
 
-        public void OnUpdateLevelData() => 
-            _view.UpdateLevelData(_playerData.Cost, _playerData.HeroLevel);
-
-        public void ValidateUpgradeButton() =>
-            _view.UpdateUpgradeButton(_playerData.CanUpgradeHero);
+        [Obsolete]
+        public void ValidateUpgradeButton()
+        {
+            // _view.UpdateUpgradeButton(_playerData.CanUpgradeHero);
+        }
     }
 }
