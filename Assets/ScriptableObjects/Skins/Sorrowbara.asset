@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e275c032b6c2f4ad9ac5beea8665ef65, type: 3}
+  m_Name: Sorrowbara
+  m_EditorClassIdentifier: 
+  _name: 128
+  _menuItem: {fileID: 1969311795, guid: d92664366390d4a49a49f73448bb4205, type: 3}
+  _accentColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  _foodCost: 15
+  _head: {fileID: 1969311795, guid: d92664366390d4a49a49f73448bb4205, type: 3}
+  _body: {fileID: 600591636, guid: d92664366390d4a49a49f73448bb4205, type: 3}
+  _leftArm: {fileID: -1732202905, guid: d92664366390d4a49a49f73448bb4205, type: 3}
+  _rightArm: {fileID: -632400797, guid: d92664366390d4a49a49f73448bb4205, type: 3}
+  _leg: {fileID: 780475699, guid: d92664366390d4a49a49f73448bb4205, type: 3}
+  _sword: {fileID: -2054834327, guid: 432073e9bcecf4764b7d700a1e528d87, type: 3}
