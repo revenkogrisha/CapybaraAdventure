@@ -140,6 +140,8 @@ namespace CapybaraAdventure.Player
 
         public void GetSword()
         {
+            _heroAnimator.DoHit();
+            
             if (_hasSword == true)
                 return;
 
@@ -260,7 +262,9 @@ namespace CapybaraAdventure.Player
 
         private void PerformDeath()
         {
+            _heroAnimator.PerformDeath();
             _audioPlayer.PlayGameOver();
+            
             DisableRigidbody();
             _isDead = true;
 
@@ -304,6 +308,7 @@ namespace CapybaraAdventure.Player
         private void OpenChest<T>(T chest)
             where T : Chest
         {
+            _heroAnimator.DoHit();
             _audioPlayer.PlayCollected();
             chest.Open();
         }
