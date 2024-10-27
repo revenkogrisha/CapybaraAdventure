@@ -170,6 +170,7 @@ namespace CapybaraAdventure.Player
 
         public void Revive()
         {
+            _heroAnimator.SetDeath(false);
             transform.position = Jump.LastJump;
             _isDead = false;
             EnableRigidbody();
@@ -264,7 +265,7 @@ namespace CapybaraAdventure.Player
 
         private void PerformDeath()
         {
-            _heroAnimator.PerformDeath();
+            _heroAnimator.SetDeath(true);
             _audioPlayer.PlayGameOver();
             
             DisableRigidbody();

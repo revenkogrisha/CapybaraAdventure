@@ -30,6 +30,6 @@ namespace CapybaraAdventure.Player
 
         public void DoHit() => _animator.SetTrigger(_hitHash);
         public void EatFood() => _animator.SetTrigger(_eatHash);
-        public void PerformDeath() => _animator.SetTrigger(_deadHash);
+        public void SetDeath(bool value) => _animator.SetBool(_deadHash, value);
     }
 }
