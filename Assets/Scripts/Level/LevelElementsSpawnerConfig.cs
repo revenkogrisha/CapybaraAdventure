@@ -19,11 +19,15 @@ namespace CapybaraAdventure.Level
         [Header("Chest Spawn Settings")]
         [SerializeField, Range(0, 101)] private int _swordChestSpawnChance = 20;
 
+        [Header("Chest Spawn Settings")] [SerializeField]
+        private Vector2 _backgroundSpawnPosition = new(0f, 2.5f); 
+
         public Food FoodPrefab => _foodPrefab;
         public SimpleChest ChestPrefab => _chestPrefab;
         public TreasureChest TreasureChestPrefab => _treasureChestPrefab;
         public SwordChest SwordChestPrefab => _swordChestPrefab;
         public Enemy EnemyPrefab => _enemyPrefab;
         public int SwordChestSpawnChance => _swordChestSpawnChance;
+        public Vector2 BackgroundSpawnPosition => _backgroundSpawnPosition;
     }
 }

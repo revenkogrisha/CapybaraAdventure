@@ -29,7 +29,10 @@ namespace Core.Level
             _backgroundInstance = Object.Instantiate(_backgroundPrefab);
             
             _backgroundInstance.transform.SetParent(_root);
-            _backgroundInstance.transform.localPosition = startPosition;
+            
+            Vector3 position3 = startPosition;
+            position3.z = _backgroundInstance.transform.position.z;
+            _backgroundInstance.transform.localPosition = position3;
             
             _backgroundInstance.ApplyPreset(preset);
 

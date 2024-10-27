@@ -985,6 +985,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: a37416050a48340b9914df28409e1c92, type: 2}
   - {fileID: 11400000, guid: e4d75053081974959be5657c9e3c6b4e, type: 2}
   - {fileID: 11400000, guid: 7bc02c26ebc0b4073969ca17ac10bbec, type: 2}
+  _backgroundPrefab: {fileID: 1260117884632274307, guid: 2dcd61005a8a647eb8888d897c9b983d, type: 3}
 --- !u!1 &1334937653
 GameObject:
   m_ObjectHideFlags: 0
@@ -1001,7 +1002,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1334937654
 Transform:
   m_ObjectHideFlags: 0

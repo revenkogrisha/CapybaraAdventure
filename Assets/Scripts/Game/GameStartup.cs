@@ -62,6 +62,8 @@ namespace CapybaraAdventure.Game
 
         private async void Start()
         {
+            _levelGenerator.CreateBackground();
+            
             await LoadAndRevealMenu();
             _menu.OnMenuWorkHasOver += UnloadMenu;
 

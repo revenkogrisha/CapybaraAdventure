@@ -27,3 +27,4 @@ MonoBehaviour:
   - {fileID: -6293920189038187168, guid: 21db26adf15df4746aa4a65099e8dcd0, type: 3}
   - {fileID: -6293920189038187168, guid: 197dd6839770041bf9d27df96e783424, type: 3}
   - {fileID: 2136358286600949718, guid: 3c9dc12606a894683bec71e28632b97a, type: 3}
+  _backgroundPreset: {fileID: 11400000, guid: 0990166c9b5d64afeb1b540322172ae6, type: 2}

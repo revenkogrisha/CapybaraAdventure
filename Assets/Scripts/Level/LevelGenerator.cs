@@ -8,6 +8,7 @@ using Random = UnityEngine.Random;
 using Cysharp.Threading.Tasks;
 using System.Threading;
 using CapybaraAdventure.Other;
+using Core.Level;
 using TMPro;
 
 namespace CapybaraAdventure.Level
@@ -33,9 +34,13 @@ namespace CapybaraAdventure.Level
         [SerializeField] private SimplePlatform _startPlatform;
         [SerializeField] private SpecialPlatform _questPlatform;
         [SerializeField] private Location[] _locations;
+        
+        [Header("Platforms")]
+        [SerializeField] private Background _backgroundPrefab;
 
         private readonly Queue<Platform> _platformsOnLevel = new();
         private Camera _camera;
+        private BackgroundHandler _backgroundHandler;
         private LevelElementsSpawner _spawner;
         private Transform _heroTransform;
         private bool _heroIsInitialized = false;
@@ -99,6 +104,7 @@ namespace CapybaraAdventure.Level
         {
             _lastGeneratedPlatformX = _XstartPoint;
             _camera = Camera.main;
+            _backgroundHandler = new(_backgroundPrefab);
             _spawner = new(_config);
             _cancellationToken = this.GetCancellationTokenOnDestroy();
 
@@ -121,6 +127,11 @@ namespace CapybaraAdventure.Level
         {
             for (var i = 0; i < _platformsAmountToGenerate; i++)
                 GenerateRandomPlatform();
+        }
+
+        public void CreateBackground()
+        {
+            _backgroundHandler.CreateBackground(_config.BackgroundSpawnPosition, CurrentLocation.BackgroundPreset);
         }
 
         public void InitHeroTransform(Hero hero)
@@ -155,7 +166,7 @@ namespace CapybaraAdventure.Level
             if (IsNowLocationChangeTurn == true)
             {
                 ChangeLocation();
-                ChangeBackgroundColor();
+                // ChangeBackgroundColor();
             }
  
             Location currentLocation = CurrentLocation;
@@ -187,6 +198,7 @@ namespace CapybaraAdventure.Level
                 _locationNumber = _locations.GetRandomIndex();
         }
 
+        [Obsolete]
         private void ChangeBackgroundColor()
         {
             Location currentLocation = CurrentLocation;
