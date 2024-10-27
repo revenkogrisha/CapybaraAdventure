@@ -424,7 +424,7 @@ MonoBehaviour:
   m_enableAutoSizing: 1
   m_fontSizeMin: 32
   m_fontSizeMax: 88
-  m_fontStyle: 17
+  m_fontStyle: 16
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -691,7 +691,7 @@ MonoBehaviour:
   m_enableAutoSizing: 1
   m_fontSizeMin: 32
   m_fontSizeMax: 88
-  m_fontStyle: 17
+  m_fontStyle: 16
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -3290,6 +3290,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4722415054773195112}
     m_Modifications:
+    - target: {fileID: 2876304608863672430, guid: aa66bd2463c3643beb3485b9fbc725a9, type: 3}
+      propertyPath: _normalSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: f18494a28020c4f11870d04373220d43, type: 3}
     - target: {fileID: 4976447482627161834, guid: aa66bd2463c3643beb3485b9fbc725a9, type: 3}
       propertyPath: m_Type
       value: 1

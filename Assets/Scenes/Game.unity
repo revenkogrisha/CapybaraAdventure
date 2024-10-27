@@ -1449,6 +1449,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Coins
       objectReference: {fileID: 0}
+    - target: {fileID: 5940683987411615205, guid: eab7ee69b31044626ba7c0507f1a7249, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5940683987411615226, guid: eab7ee69b31044626ba7c0507f1a7249, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1557,6 +1561,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1363624443}
     m_Modifications:
+    - target: {fileID: 6286053543409763713, guid: 109617763e44e4f7d8e2bbded161c39a, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6286053543888955942, guid: 109617763e44e4f7d8e2bbded161c39a, type: 3}
       propertyPath: m_Name
       value: GameUI
