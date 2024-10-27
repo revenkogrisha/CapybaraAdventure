@@ -30,6 +30,7 @@ namespace CapybaraAdventure.Player
         [Header("Jump Settings")]
         [SerializeField] private float _duration = 0.8f;
         [SerializeField] private AnimationCurve _jumpCurve;
+        [SerializeField] private AnimationCurve _jumpXAccelCurve;
         
         [Header("*NEW* Ground Check Settings")]
         [SerializeField] private LayerMask _ground;
@@ -185,6 +186,7 @@ namespace CapybaraAdventure.Player
             Jump = new HeroJump(
                 this,
                 _jumpCurve,
+                _jumpXAccelCurve,
                 heightTestService,
                 _duration);
 

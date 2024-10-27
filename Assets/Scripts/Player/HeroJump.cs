@@ -9,6 +9,7 @@ namespace CapybaraAdventure.Player
 
         private readonly Rigidbody2D _rigidBody2D;
         private readonly AnimationCurve _jumpCurve;
+        private readonly AnimationCurve _jumpXAccelCurve;
         private readonly Transform _transform;
         private readonly float _duration;
         private HeightCheckService _heightTestService;
@@ -27,12 +28,14 @@ namespace CapybaraAdventure.Player
         public HeroJump(
             IPhysicalObject hero,
             AnimationCurve jumpCurve,
+            AnimationCurve jumpXAccelCurve,
             HeightCheckService heightTestService,
             float duration)
         {
             _rigidBody2D = hero.Rigidbody2D;
             _transform = hero.Transform;
             _jumpCurve = jumpCurve;
+            _jumpXAccelCurve = jumpXAccelCurve;
             _heightTestService = heightTestService;
             _duration = duration;
         }
@@ -62,8 +65,8 @@ namespace CapybaraAdventure.Player
 
             _expiredJumpTime += Time.deltaTime;
 
-            float xAxis = XJumpAxis;
-            float yAxis = GetYByCurve(_jumpCurve);
+            float xAxis = GetForceByCurve(_jumpXAccelCurve);;
+            float yAxis = GetForceByCurve(_jumpCurve);
 
             var jumpVelocity = new Vector2(xAxis, yAxis);
             _rigidBody2D.velocity = jumpVelocity;
@@ -78,7 +81,7 @@ namespace CapybaraAdventure.Player
             _expiredJumpTime = 0f;
         }
 
-        private float GetYByCurve(AnimationCurve jumpCurve)
+        private float GetForceByCurve(AnimationCurve jumpCurve)
         {
             float progress = _expiredJumpTime / _duration;
             float curveValue = jumpCurve.Evaluate(progress);

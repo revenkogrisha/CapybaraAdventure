@@ -76,6 +76,16 @@ namespace CapybaraAdventure.Player
             OnCoinsChanged?.Invoke(Coins);
         }
 
+        public void AddSimpleMelon()
+        {
+            int amount = MelonChest.SimpleAmount;
+
+            if (amount <= 0)
+                throw new ArgumentException("Wrong amount was given!");
+
+            Food += amount;
+        }
+
         public bool TrySubstractCoins(UpgradeBlock block)
         {
             int cost = block.Cost;

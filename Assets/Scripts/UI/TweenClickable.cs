@@ -18,7 +18,6 @@ namespace CapybaraAdventure.UI
             if (_isTweeningScale == false && _isTweenClickable == true)
             {
                 _isTweeningScale = true;
-                Debug.Log(1);
                 transform.DOScale(ClickScale, ClickTweenDuration);
             }
         }
@@ -28,7 +27,6 @@ namespace CapybaraAdventure.UI
             if (_isTweeningScale == true && _isTweenClickable == true)
             {
                 transform.DOScale(1f, ClickTweenDuration);
-                Debug.Log(2);
                 _isTweeningScale = false;
             }
         }
