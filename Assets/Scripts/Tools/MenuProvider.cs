@@ -3,6 +3,7 @@ using CapybaraAdventure.Game;
 using System.Threading.Tasks;
 using UnityEngine;
 using CapybaraAdventure.Player;
+using Core.Audio;
 using Zenject;
 
 namespace CapybaraAdventure.UI
@@ -17,6 +18,7 @@ namespace CapybaraAdventure.UI
         private UpgradeScreenProvider _upgradeScreenProvider;
         private readonly Score _score;
         private readonly LocalizationManager _localization;
+        private readonly IAudioHandler _audioHandler;
 
         [Inject]
         public MenuProvider(
@@ -24,13 +26,15 @@ namespace CapybaraAdventure.UI
             UpgradeScreenProvider upgradeScreenProvider,
             GameStartup gameStartup,
             Score score,
-            LocalizationManager localization)
+            LocalizationManager localization,
+            IAudioHandler audioHandler)
         {
             _canvas = canvas;
             _upgradeScreenProvider = upgradeScreenProvider;
             _gameStartup = gameStartup;
             _score = score;
             _localization = localization;
+            _audioHandler = audioHandler;
         }
 
         public async Task<GameMenu> Load()
@@ -43,6 +47,8 @@ namespace CapybaraAdventure.UI
                 _upgradeScreenProvider, 
                 _score,
                 _localization);
+            
+            menu.InitAudioHandler(_audioHandler);
 
             return menu;
         }

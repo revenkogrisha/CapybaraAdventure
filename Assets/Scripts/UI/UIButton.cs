@@ -31,7 +31,7 @@ namespace CapybaraAdventure.UI
         [SerializeField] private Color _textNormalColor = Color.white;
         [SerializeField] private Color _textDisabledColor = Color.grey;
 
-        private IAudioHandler _audioHandler;
+        public IAudioHandler AudioHandler { get; set; }
 
         public TMP_Text TMP => _tmp;
 
@@ -67,7 +67,7 @@ namespace CapybaraAdventure.UI
 
         [Inject]
         private void Construct(IAudioHandler audioHandler) =>
-            _audioHandler = audioHandler;
+            AudioHandler = audioHandler;
 
         public override void OnPointerDown(PointerEventData eventData)
         {
@@ -99,8 +99,8 @@ namespace CapybaraAdventure.UI
 
         private void PerformClick()
         {
-            if (_audioHandler != null && _playSound == true)
-                _audioHandler.PlaySound(AudioName.Button, true);
+            if (AudioHandler != null && _playSound == true)
+                AudioHandler.PlaySound(AudioName.Button, true);
             
             OnClicked?.Invoke();
         }
