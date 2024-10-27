@@ -59,6 +59,24 @@ namespace CapybaraAdventure.Level
                 chest.transform.position = position;
             }
         }
+        public void SpawnMelonChests(Platform platformInGame)
+        {
+            MelonChestSpawnMarker[] markers = platformInGame.MelonChestMarkers;
+            foreach (var marker in markers)
+            {
+                bool isChanceSucceeded = Tools.GetChance(marker.SpawnChance);
+                if (isChanceSucceeded == false || marker.HasActiveObject == true)
+                    continue;
+
+                MelonChest chest = DIContainerRef.Container
+                    .InstantiatePrefabForComponent<MelonChest>(_config.MelonChestPrefab);
+
+                Vector3 position = marker.Position;
+                marker.SpawnedObject = chest.gameObject;
+                chest.transform.SetParent(platformInGame.transform);
+                chest.transform.position = position;
+            }
+        }
 
         public void SpawnFood(Platform platformInGame)
         {

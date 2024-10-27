@@ -261,6 +261,7 @@ namespace CapybaraAdventure.Level
             _spawner.SpawnFood(platform);
             _spawner.SpawnChests(platform);
             _spawner.SpawnTreasureChests(platform);
+            _spawner.SpawnMelonChests(platform);
             _spawner.SpawnEnemies(platform);
         }
 

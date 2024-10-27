@@ -3,7 +3,7 @@ guid: 432073e9bcecf4764b7d700a1e528d87
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
-  serializedVersion: 12
+  serializedVersion: 13
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -20,11 +20,12 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
+    flipGreenChannel: 0
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
-  ignoreMasterTextureLimit: 0
+  ignoreMipmapLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -63,6 +64,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  swizzle: 50462976
   cookieLightType: 0
   platformSettings:
   - serializedVersion: 3
@@ -75,6 +77,7 @@ TextureImporter:
     crunchedCompression: 1
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -87,6 +90,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -99,6 +103,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -111,6 +116,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -123,6 +129,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
@@ -654,27 +661,6 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ground_4
-      rect:
-        serializedVersion: 2
-        x: 1355
-        y: 28
-        width: 400
-        height: 149
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 607660f4068924572b7d359fdccbf36e
-      internalID: 38570329
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: Flowers
       rect:
         serializedVersion: 2
@@ -788,7 +774,7 @@ TextureImporter:
         width: 148
         height: 152
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -796,6 +782,27 @@ TextureImporter:
       bones: []
       spriteID: 479c308b9c8b247ac912ae78d0899139
       internalID: 1057914844
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MelonChest
+      rect:
+        serializedVersion: 2
+        x: 1340
+        y: 20
+        width: 162
+        height: 171
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4eb0e4c9bbbfe4003b310d870b22f273
+      internalID: 550392480
       vertices: []
       indices: 
       edges: []
@@ -811,55 +818,55 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      General sprite sheet_33: 1302353361
-      General sprite sheet_23: -1834160719
-      Leg_2: -108928689
-      General sprite sheet_17: 1724671911
-      Ground_0: -829426331
-      Cactus_3: 740217172
-      Arm_2: -1578619826
-      Sword_2: -352737727
-      Hero_body: 1421904575
-      Hero_arm_0: 730471894
-      Hero_leg: 589431262
-      General sprite sheet_11: -1399798020
-      General sprite sheet_32: -1141357900
-      Cactus_4: -141575678
-      General sprite sheet_28: -316729991
-      General sprite sheet_34: -706910794
-      Cactus_2: 1332998729
-      Leg_0: -1917255575
-      General sprite sheet_26: -1000986735
-      Sword_0: -1050457108
-      Cactus_1: 176930170
-      General sprite sheet_14: -2040336138
-      Leg_1: 513500128
-      General sprite sheet_27: -1919360915
-      General sprite sheet_18: 1065069752
-      Ground_3: -506073200
-      Flowers: 332286436
-      Arm_1: 545172540
-      Ground_4: 38570329
-      Chest_simple: -1923124446
-      SwordChest: 1057914844
-      Leg_3: 1093640960
-      General sprite sheet_16: -467461171
-      General sprite sheet_19: -94444500
-      General sprite sheet_15: 1355005871
-      Ground_2: 1727452925
       Arm_0: -2063056377
-      General sprite sheet_30: -1124530878
-      Sword_1: -2054834327
+      Arm_1: 545172540
+      Arm_2: -1578619826
       Cactus_0: 1606668948
-      General sprite sheet_6: 560388843
-      Leg_4: 2135391650
+      Cactus_1: 176930170
+      Cactus_2: 1332998729
+      Cactus_3: 740217172
+      Cactus_4: -141575678
       Chest_fantastic: 604060544
-      Hero_arm_1: 1787958803
-      Hero_head: -1502508099
+      Chest_simple: -1923124446
+      Flowers: 332286436
+      General sprite sheet_11: -1399798020
+      General sprite sheet_14: -2040336138
+      General sprite sheet_15: 1355005871
+      General sprite sheet_16: -467461171
+      General sprite sheet_17: 1724671911
+      General sprite sheet_18: 1065069752
+      General sprite sheet_19: -94444500
+      General sprite sheet_23: -1834160719
+      General sprite sheet_26: -1000986735
+      General sprite sheet_27: -1919360915
+      General sprite sheet_28: -316729991
+      General sprite sheet_30: -1124530878
+      General sprite sheet_32: -1141357900
+      General sprite sheet_33: 1302353361
+      General sprite sheet_34: -706910794
+      General sprite sheet_6: 560388843
+      Ground_0: -829426331
       Ground_1: -706223541
-  spritePackingTag: 
+      Ground_2: 1727452925
+      Ground_3: -506073200
+      Ground_4: 38570329
+      Hero_arm_0: 730471894
+      Hero_arm_1: 1787958803
+      Hero_body: 1421904575
+      Hero_head: -1502508099
+      Hero_leg: 589431262
+      Leg_0: -1917255575
+      Leg_1: 513500128
+      Leg_2: -108928689
+      Leg_3: 1093640960
+      Leg_4: 2135391650
+      MelonChest: 550392480
+      SwordChest: 1057914844
+      Sword_0: -1050457108
+      Sword_1: -2054834327
+      Sword_2: -352737727
+  mipmapLimitGroupName: 
   pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 

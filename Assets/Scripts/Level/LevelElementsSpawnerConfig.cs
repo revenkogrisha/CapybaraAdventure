@@ -12,6 +12,7 @@ namespace CapybaraAdventure.Level
         [SerializeField] public Food _foodPrefab;
         [SerializeField] public SimpleChest _chestPrefab;
         [SerializeField] public TreasureChest _treasureChestPrefab;
+        [SerializeField] public MelonChest _melonChestPrefab;
         [SerializeField] public SwordChest _swordChestPrefab;
         [SerializeField] public Enemy _enemyPrefab;
 
@@ -25,6 +26,7 @@ namespace CapybaraAdventure.Level
         public Food FoodPrefab => _foodPrefab;
         public SimpleChest ChestPrefab => _chestPrefab;
         public TreasureChest TreasureChestPrefab => _treasureChestPrefab;
+        public MelonChest MelonChestPrefab => _melonChestPrefab;
         public SwordChest SwordChestPrefab => _swordChestPrefab;
         public Enemy EnemyPrefab => _enemyPrefab;
         public int SwordChestSpawnChance => _swordChestSpawnChance;

@@ -421,6 +421,7 @@ MonoBehaviour:
   _foodMarkers: []
   _chestMarkers: []
   _treasureChestMarkers: []
+  _melonChestMarkers: []
   _enemyMarkers: []
 --- !u!1 &3718515251751804272
 GameObject:

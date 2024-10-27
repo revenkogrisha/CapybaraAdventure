@@ -15,6 +15,8 @@ MonoBehaviour:
   _foodPrefab: {fileID: 8408874472059896616, guid: 3c511301140134fc2b4ef96bb943f641, type: 3}
   _chestPrefab: {fileID: 9104171104501049455, guid: 96345f0777e6b43579dca4b56f7be954, type: 3}
   _treasureChestPrefab: {fileID: 3464928910149792557, guid: c9a50f07a6ed94d2298cfc39a76b4eb1, type: 3}
+  _melonChestPrefab: {fileID: 6108499929522538587, guid: ebfe76c795e124abcb5349a25c6bfccc, type: 3}
   _swordChestPrefab: {fileID: -7780956765906762808, guid: ed82b7ff78d164555b2f88dbe99f3991, type: 3}
   _enemyPrefab: {fileID: 5067633634680072084, guid: 60051f938269b4a03b7add09834f5f65, type: 3}
   _swordChestSpawnChance: 20
+  _backgroundSpawnPosition: {x: 0, y: 2.5}
