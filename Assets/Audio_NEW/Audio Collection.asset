@@ -12,4 +12,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21c0a9ce403b34e1bbf09fe479ce7fef, type: 3}
   m_Name: Audio Collection
   m_EditorClassIdentifier: 
-  _audio: []
+  _audio:
+  - Name: 0
+    Clip: {fileID: 8300000, guid: 91eb20218f1944f0382cb26a6223a5a3, type: 3}
+  - Name: 1
+    Clip: {fileID: 8300000, guid: 31e73eedc56fe4bbc86ef567a3674f80, type: 3}
+  - Name: 3
+    Clip: {fileID: 8300000, guid: 07fc4b0510de343038121f993cb2d87a, type: 3}
+  - Name: 10
+    Clip: {fileID: 8300000, guid: 77e78d80c7f66424fb5b53ffd3aad716, type: 3}
+  - Name: 11
+    Clip: {fileID: 8300000, guid: 4568f3f73d1ce40b9a70672e2d99a939, type: 3}
+  - Name: 2
+    Clip: {fileID: 8300000, guid: 775c0a697182a4de4bb7276f078830dc, type: 3}
+  - Name: 8
+    Clip: {fileID: 8300000, guid: 7a37c427fdb9f4036985d272c233f767, type: 3}
+  - Name: 7
+    Clip: {fileID: 8300000, guid: fd42117dd5e9e4bb28907058bfa92de3, type: 3}
+  - Name: 4
+    Clip: {fileID: 8300000, guid: 2b2505f6e939e4c75b2842a5e6cc2f3c, type: 3}
+  - Name: 5
+    Clip: {fileID: 8300000, guid: 4bc3e2d2bee6d4a639b6444045ab72a9, type: 3}
+  - Name: 9
+    Clip: {fileID: 8300000, guid: 4874d91c5954f4c6d87f31b546d0d69b, type: 3}
+  - Name: 6
+    Clip: {fileID: 8300000, guid: a73795e4218c24d85b22e6a1c7361cad, type: 3}
+  - Name: 12
+    Clip: {fileID: 8300000, guid: 8dec978da7d1049118fe3702b4f4a0be, type: 3}

@@ -22,7 +22,7 @@ namespace Core.Audio
 
         private Dictionary<AudioName, AudioClip> _clips;
 
-        public void Initialize()
+        private void Awake()
         {
             _clips = _collection.Audio.ToDictionary(audio => audio.Name, audio => audio.Clip);
 
@@ -32,6 +32,9 @@ namespace Core.Audio
 
         public void StartMusic(AudioName name)
         {
+            if (_musicSource.isPlaying == true) 
+                return;
+            
             _musicSource.clip = _clips[name];
             _musicSource.Play();
         }
@@ -49,7 +52,6 @@ namespace Core.Audio
 
         public void SetMusicVolume(float volume) => 
             _musicGroup.audioMixer.SetFloat(_musicGroup.name, volume);
-
 
         public void SetSoundsVolume(float volume) => 
             _soundsGroup.audioMixer.SetFloat(_soundsGroup.name, volume);

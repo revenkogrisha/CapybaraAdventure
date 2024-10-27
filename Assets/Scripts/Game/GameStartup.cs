@@ -6,6 +6,7 @@ using CapybaraAdventure.UI;
 using System;
 using CapybaraAdventure.Level;
 using System.Threading.Tasks;
+using Core.Audio;
 using Core.Player;
 
 namespace CapybaraAdventure.Game
@@ -45,6 +46,7 @@ namespace CapybaraAdventure.Game
         private CoinsPresenter _coinsPresenter;
         private QuestPresenter _questPresenter;
         private HeroSkins _heroSkins;
+        private IAudioHandler _audioHandler;
 
         #region MonoBehaviour
 
@@ -62,6 +64,8 @@ namespace CapybaraAdventure.Game
 
         private async void Start()
         {
+            _audioHandler.StartMusic(AudioName.MainTheme);
+            
             _levelGenerator.CreateBackground();
             
             await LoadAndRevealMenu();
@@ -84,7 +88,8 @@ namespace CapybaraAdventure.Game
             GameUI gameUI,
             GameOverScreenProvider gameOverScreenProvider,
             PlayerData playerData,
-            HeroSkins heroSkins)
+            HeroSkins heroSkins,
+            IAudioHandler audioHandler)
         {
             _menuProvider = menuProvider;
             _score = score;
@@ -95,6 +100,7 @@ namespace CapybaraAdventure.Game
             _gameOverScreenProvider = gameOverScreenProvider;
             _playerData = playerData;
             _heroSkins = heroSkins;
+            _audioHandler = audioHandler;
         }
 
         public void StartGame()

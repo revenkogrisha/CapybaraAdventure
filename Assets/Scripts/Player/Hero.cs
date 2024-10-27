@@ -6,6 +6,7 @@ using UnityTools;
 using CapybaraAdventure.Game;
 using CapybaraAdventure.Level;
 using CapybaraAdventure.Other;
+using Core.Audio;
 using Core.Player;
 
 namespace CapybaraAdventure.Player
@@ -44,6 +45,7 @@ namespace CapybaraAdventure.Player
         private bool _hasJumped = false;
         private bool _hasSword = false;
         private Enemy _enemyToKick = null;
+        private IAudioHandler _audioHandler;
 
         public HeroJump Jump { get; private set; }
         public bool IsPaused => _pauseManager.IsPaused;
@@ -122,9 +124,10 @@ namespace CapybaraAdventure.Player
         #endregion
         
         [Inject]
-        private void Construct(PauseManager pauseManager)
+        private void Construct(PauseManager pauseManager, IAudioHandler audioHandler)
         {
             _pauseManager = pauseManager;
+            _audioHandler = audioHandler;
         }
 
         public void SetPaused(bool isPaused)
@@ -184,6 +187,8 @@ namespace CapybaraAdventure.Player
                 _duration);
 
             _heroAnimator = new HeroAnimator(_animator);
+            
+            _audioPlayer.AudioHandler = _audioHandler;
         }
 
         private void HasLanded()
