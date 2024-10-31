@@ -531,3 +531,6 @@ FodyWeavers.xsd
 
 # Publishing-related files/secrets
 *.keystore
+
+# Firebaes x86_64
+Assets/Firebase/Plugins/x86_64/
