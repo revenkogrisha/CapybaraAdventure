@@ -1,4 +1,5 @@
 using CapybaraAdventure.Other;
+using Core.Common.ThirdParty;
 using UnityEngine;
 using Zenject;
 
@@ -10,6 +11,9 @@ namespace CapybaraAdventure.Game
 
         private async void Start()
         {
+            // NEW
+            FirebaseService.Initialize();
+            
             Application.targetFrameRate = 60;
 
             await _loaderProvider.LoadPregameCutsceneAsync();
