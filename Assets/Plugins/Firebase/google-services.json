@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "971854100836",
+    "project_id": "capybara-adventure-31621",
+    "storage_bucket": "capybara-adventure-31621.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:971854100836:android:68077a76890a7a05032271",
+        "android_client_info": {
+          "package_name": "com.Revenko.org.CapybaraAdventure"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDE6ZtqSwpD-6aDIP0aSoXMy7GaRiUmrrA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
