@@ -78,7 +78,7 @@
     },
     "com.unity.2d.spriteshape": {
       "version": "9.0.3",
-      "depth": 0,
+      "depth": 1,
       "source": "registry",
       "dependencies": {
         "com.unity.2d.common": "8.0.2",
