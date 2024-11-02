@@ -5,7 +5,7 @@ namespace CapybaraAdventure.Other
 {
     public class ScreenTweener
     {
-        private const float DefaultLogoTargetY = 350f;
+        private const float DefaultLogoTargetY = 285f;
 
         private readonly float _logoShowDuration = 0.5f;
         private readonly float _buttonsDelay = 0.3f;

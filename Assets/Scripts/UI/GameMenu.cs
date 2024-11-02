@@ -34,6 +34,10 @@ namespace CapybaraAdventure.Game
 
         private void OnEnable()
         {
+            _playButton.SetActive(false);
+            _updgradeButton.SetActive(false);
+            _languageButton.SetActive(false);
+            
             _playButton.OnClicked += StartGame;
             _updgradeButton.OnClicked += LoadAndRevealUpgradeScreen;
             _languageButton.OnClicked += ChangeLanguage;
@@ -66,6 +70,10 @@ namespace CapybaraAdventure.Game
         public override void Reveal()
         {
             base.Reveal();
+            
+            _playButton.SetActive(true);
+            _updgradeButton.SetActive(true);
+            _languageButton.SetActive(true);
             TweenElements();
         }
 
