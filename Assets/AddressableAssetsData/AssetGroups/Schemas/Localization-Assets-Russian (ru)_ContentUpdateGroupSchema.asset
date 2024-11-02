@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5834b5087d578d24c926ce20cd31e6d6, type: 3}
   m_Name: Localization-Assets-Russian (ru)_ContentUpdateGroupSchema
   m_EditorClassIdentifier: 
-  m_Group: {fileID: 11400000, guid: c8b1d7cb9d4cc4798b0c2b68a03f876c, type: 2}
+  m_Group: {fileID: 11400000, guid: 1d9fd5587fc50440a8ba6b12b3e3a33f, type: 2}
   m_StaticContent: 0

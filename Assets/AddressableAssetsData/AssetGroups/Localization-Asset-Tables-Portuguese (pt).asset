@@ -15,7 +15,7 @@ MonoBehaviour:
   m_GroupName: Localization-Asset-Tables-Portuguese (pt)
   m_Data:
     m_SerializedData: []
-  m_GUID: 452d76035716a4743828a0b51590ff5b
+  m_GUID: 3804b80866fc642d3a295793c0c9a547
   m_SerializeEntries:
   - m_GUID: 4824aa3acbb1e4c82a3e6d4bceb235ee
     m_Address: AssetsTable_pt
@@ -26,4 +26,6 @@ MonoBehaviour:
   m_ReadOnly: 1
   m_Settings: {fileID: 11400000, guid: 8d06babe51c5d4018a46dea98910cd82, type: 2}
   m_SchemaSet:
-    m_Schemas: []
+    m_Schemas:
+    - {fileID: 11400000, guid: 13d24ac3d242c4e7e8b9879e80e329b4, type: 2}
+    - {fileID: 11400000, guid: 92c2a5b654a8d413d98b201cfc7c753d, type: 2}

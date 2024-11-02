@@ -15,7 +15,7 @@ MonoBehaviour:
   m_GroupName: Localization-Assets-Ukrainian (Ukraine) (uk-UA)
   m_Data:
     m_SerializedData: []
-  m_GUID: 3ef9adab2550540b8be6da19dec1b293
+  m_GUID: 8c8a6fa3ec68543289c705d003cc76b9
   m_SerializeEntries:
   - m_GUID: b9e0e7d201abd410db4dfcddd3e7cd9a
     m_Address: ua
@@ -26,4 +26,6 @@ MonoBehaviour:
   m_ReadOnly: 1
   m_Settings: {fileID: 11400000, guid: 8d06babe51c5d4018a46dea98910cd82, type: 2}
   m_SchemaSet:
-    m_Schemas: []
+    m_Schemas:
+    - {fileID: 11400000, guid: 4456beb9a24884d8c98db2f709bac0bc, type: 2}
+    - {fileID: 11400000, guid: fcee79346fe1e4b1f855c75090fef34d, type: 2}

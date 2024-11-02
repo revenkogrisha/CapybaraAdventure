@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5d17a21594effb4e9591490b009e7aa, type: 3}
   m_Name: Localization-Asset-Tables-Spanish (es)_BundledAssetGroupSchema
   m_EditorClassIdentifier: 
-  m_Group: {fileID: 11400000, guid: 2a7db241f73254622b6c07ce8cce3bf9, type: 2}
+  m_Group: {fileID: 11400000, guid: d30e3183ee35748d6a5b1f94599d555d, type: 2}
   m_InternalBundleIdMode: 1
   m_Compression: 1
   m_IncludeAddressInCatalog: 1

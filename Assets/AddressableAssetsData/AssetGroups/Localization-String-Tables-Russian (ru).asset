@@ -15,7 +15,7 @@ MonoBehaviour:
   m_GroupName: Localization-String-Tables-Russian (ru)
   m_Data:
     m_SerializedData: []
-  m_GUID: 9502ec28c492d4951a2c5240d846dfee
+  m_GUID: 0f8e51c64b97a4f04987715692fcf8d8
   m_SerializeEntries:
   - m_GUID: cc28f3be9862d464a9e323169f624cad
     m_Address: TextsTable_ru
@@ -26,4 +26,6 @@ MonoBehaviour:
   m_ReadOnly: 1
   m_Settings: {fileID: 11400000, guid: 8d06babe51c5d4018a46dea98910cd82, type: 2}
   m_SchemaSet:
-    m_Schemas: []
+    m_Schemas:
+    - {fileID: 11400000, guid: 7a573cd6078654430be72bcf7bc95416, type: 2}
+    - {fileID: 11400000, guid: 65ba591a0f7d743d0864f39de4a1acad, type: 2}

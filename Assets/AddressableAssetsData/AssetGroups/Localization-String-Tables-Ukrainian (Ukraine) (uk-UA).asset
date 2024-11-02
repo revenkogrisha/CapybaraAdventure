@@ -15,7 +15,7 @@ MonoBehaviour:
   m_GroupName: Localization-String-Tables-Ukrainian (Ukraine) (uk-UA)
   m_Data:
     m_SerializedData: []
-  m_GUID: 31bc6d04d142144f198fb6089090b4c9
+  m_GUID: 05033a50c96b94c30b0371bd3e846607
   m_SerializeEntries:
   - m_GUID: 5b7ffb9e0379a4c4b86f3e50a4ff9b34
     m_Address: TextsTable_uk-UA
@@ -26,4 +26,6 @@ MonoBehaviour:
   m_ReadOnly: 1
   m_Settings: {fileID: 11400000, guid: 8d06babe51c5d4018a46dea98910cd82, type: 2}
   m_SchemaSet:
-    m_Schemas: []
+    m_Schemas:
+    - {fileID: 11400000, guid: d7b242e124a314ac5ad025304c0400fa, type: 2}
+    - {fileID: 11400000, guid: 33add10b4be67412ea7a665a1a509bd4, type: 2}

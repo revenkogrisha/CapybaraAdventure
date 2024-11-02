@@ -15,15 +15,11 @@ MonoBehaviour:
   m_GroupName: Localization-Asset-Tables-Ukrainian (Ukraine) (uk-UA)
   m_Data:
     m_SerializedData: []
-  m_GUID: 00e3943142d284c33838f13d8d21137a
-  m_SerializeEntries:
-  - m_GUID: 3aac5ac55f02f4f9694a6196a991a648
-    m_Address: AssetsTable_uk-UA
-    m_ReadOnly: 1
-    m_SerializedLabels:
-    - Locale-uk-UA
-    FlaggedDuringContentUpdateRestriction: 0
+  m_GUID: 2914f4e4ca6b947b5aa95bcc88d84a66
+  m_SerializeEntries: []
   m_ReadOnly: 1
   m_Settings: {fileID: 11400000, guid: 8d06babe51c5d4018a46dea98910cd82, type: 2}
   m_SchemaSet:
-    m_Schemas: []
+    m_Schemas:
+    - {fileID: 11400000, guid: 416d0b83175ac4faaa9c6476cb2d953d, type: 2}
+    - {fileID: 11400000, guid: 8ed70e2a8fb1e41d09f0487241eab159, type: 2}

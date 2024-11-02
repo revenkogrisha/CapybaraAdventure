@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5834b5087d578d24c926ce20cd31e6d6, type: 3}
   m_Name: Localization-Assets-Ukrainian (Ukraine) (uk-UA)_ContentUpdateGroupSchema
   m_EditorClassIdentifier: 
-  m_Group: {fileID: 11400000, guid: 254c558158cf94740bd361d6de80a318, type: 2}
+  m_Group: {fileID: 11400000, guid: 94f471575db104d8d8f52c7fcee2fedc, type: 2}
   m_StaticContent: 0

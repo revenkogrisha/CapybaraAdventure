@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5d17a21594effb4e9591490b009e7aa, type: 3}
   m_Name: Localization-Asset-Tables-Ukrainian (Ukraine) (uk-UA)_BundledAssetGroupSchema
   m_EditorClassIdentifier: 
-  m_Group: {fileID: 11400000, guid: 83bad646ebe5b407db056c24fc319f63, type: 2}
+  m_Group: {fileID: 11400000, guid: 0d348840b94ae45babe39d6f6bf571a2, type: 2}
   m_InternalBundleIdMode: 1
   m_Compression: 1
   m_IncludeAddressInCatalog: 1

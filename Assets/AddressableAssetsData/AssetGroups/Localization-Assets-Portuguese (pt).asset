@@ -15,7 +15,7 @@ MonoBehaviour:
   m_GroupName: Localization-Assets-Portuguese (pt)
   m_Data:
     m_SerializedData: []
-  m_GUID: f7f7a95c00e33452fa9fb7cec05a279a
+  m_GUID: c65a5293e9fcb4722be2e19b3f3cba00
   m_SerializeEntries:
   - m_GUID: 1b4672fbb481141a5bf4fed93e20adcb
     m_Address: pt
@@ -26,4 +26,6 @@ MonoBehaviour:
   m_ReadOnly: 1
   m_Settings: {fileID: 11400000, guid: 8d06babe51c5d4018a46dea98910cd82, type: 2}
   m_SchemaSet:
-    m_Schemas: []
+    m_Schemas:
+    - {fileID: 11400000, guid: d066131f8001445839b573ad5eeb3ea4, type: 2}
+    - {fileID: 11400000, guid: fe7fc9893e03e4b4dbdbc53bd6536819, type: 2}
