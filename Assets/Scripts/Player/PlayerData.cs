@@ -12,6 +12,10 @@ namespace CapybaraAdventure.Player
         private const float LerpSpeedDecrease = 0.08f;
         private const float FoodBonusIncrease = 0.125f;
         public const float FoodBonusLimit = 1f;
+        
+        // NEW
+        public const float MaxDistanceConst = 21f;
+        public const float FoodBonusConst = 1.125f;
 
         public int Coins { get; private set; }
         public int Food { get; private set; }
@@ -33,8 +37,14 @@ namespace CapybaraAdventure.Player
         {
             Coins = data.Coins;
             Food = data.Food;
-            MaxDistance = data.MaxDistance;
-            FoodBonus = data.FoodBonus;
+            // MaxDistance = data.MaxDistance;
+            // FoodBonus = data.FoodBonus;
+            
+            // NEW
+            MaxDistance = MaxDistanceConst;
+            FoodBonus = FoodBonusConst;
+            // –––
+            
             DistanceUpgradeCost = data.DistanceUpgradeCost;
             FoodUpgradeCost = data.FoodUpgradeCost;
             IsCutsceneWatched = data.IsCutsceneWatched;
