@@ -60,8 +60,9 @@ namespace CapybaraAdventure.Level
             _initialLocalPosition = transform.localPosition;
             MoveDownSmoothly(token).Forget();
 
-            await MyUniTask.Delay(_delayBeforeFalling, token);
-            StartFalling(token).Forget();
+            // NEW
+            // await MyUniTask.Delay(_delayBeforeFalling, token);
+            // StartFalling(token).Forget();
         }
 
         private void TryPlayParticles()
