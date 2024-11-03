@@ -25,6 +25,12 @@ namespace CapybaraAdventure.Other
             _buttonsScaleDuration = commonShowDuration;
         }
 
+        public void FadeIn(CanvasGroup canvasGroup)
+        {
+            canvasGroup.alpha = 0;
+            canvasGroup.DOFade(1, _logoShowDuration);
+        }
+
         public void TweenLogo(
             Transform logo,
             float logoTargetY = DefaultLogoTargetY)

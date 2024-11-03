@@ -13,6 +13,7 @@ namespace CapybaraAdventure.UI
         [SerializeField] private UIButton _restartButton;
         [SerializeField] private UIButton _continueButton;
         [SerializeField] private Transform _logoText;
+        [SerializeField] private CanvasGroup _backgroundCanvasGroup;
 
         [Header("UI Settings")]
         [SerializeField] private float _UIShowDuration = 0.3f;
@@ -60,6 +61,8 @@ namespace CapybaraAdventure.UI
             tweener.ScaleTweenLogo(_logoText);
             tweener.TweenButtonWithoutDelay(_restartButton.transform);
             tweener.TweenButtonWithoutDelay(_continueButton.transform);
+
+            tweener.FadeIn(_backgroundCanvasGroup);
         }
 
         public void BlockContinuing() => 
