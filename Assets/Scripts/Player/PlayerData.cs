@@ -53,10 +53,6 @@ namespace CapybaraAdventure.Player
         public void AddSimpleChestCoins()
         { 
             int amount = SimpleChest.CoinsInsideAmount;
-
-            if (amount <= 0)
-                throw new ArgumentException("Wrong amount was given!");
-
             Coins += amount;
 
             OnCoinsChanged?.Invoke(Coins);
@@ -65,10 +61,6 @@ namespace CapybaraAdventure.Player
         public void AddTreasureChestCoins()
         { 
             int amount = TreasureChest.CoinsInsideAmount;
-
-            if (amount <= 0)
-                throw new ArgumentException("Wrong amount was given!");
-
             Coins += amount;
 
             OnCoinsChanged?.Invoke(Coins);
@@ -90,10 +82,9 @@ namespace CapybaraAdventure.Player
         {
             int amount = MelonChest.SimpleAmount;
 
-            if (amount <= 0)
-                throw new ArgumentException("Wrong amount was given!");
-
             Food += amount;
+            
+            OnFoodChanged?.Invoke(Food);
         }
 
         public bool TrySubstractCoins(UpgradeBlock block)
