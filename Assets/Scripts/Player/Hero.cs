@@ -13,7 +13,7 @@ namespace CapybaraAdventure.Player
 {
     public class Hero : MonoBehaviour, IPhysicalObject, IPauseHandler
     {
-        private const float HeightTestRadius = 0.05f;
+        private const float HeightTestRadius = 0.03f;
 
         [Header("Components")]
         [SerializeField] private Animator _animator;

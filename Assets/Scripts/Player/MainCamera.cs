@@ -5,7 +5,7 @@ namespace CapybaraAdventure.Player
 {
     public class MainCamera : MonoBehaviour
     {
-        public const float DefaultFOV = 5.75f;
+        public const float DefaultFOV = 5.25f;
         
         [SerializeField] private CinemachineVirtualCamera _cinemachine;
         
@@ -41,7 +41,6 @@ namespace CapybaraAdventure.Player
                 return;
             }
             
-            print("+ lerp");
             _targetFOV = fov;
             _lerpStartTime = Time.time;
             _lerpDuration = duration;
@@ -55,12 +54,10 @@ namespace CapybaraAdventure.Player
             {
                 _cinemachine.m_Lens.OrthographicSize = _targetFOV;
                 _isLerping = false;
-                print("- lerp");
                 return;
             }
             
             _cinemachine.m_Lens.OrthographicSize = Mathf.Lerp(_cinemachine.m_Lens.OrthographicSize, _targetFOV, timeDelta);
-            print("lerp: " + _cinemachine.m_Lens.OrthographicSize);
         }
     }
 }
