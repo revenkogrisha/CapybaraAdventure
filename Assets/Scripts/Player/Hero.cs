@@ -37,6 +37,11 @@ namespace CapybaraAdventure.Player
         [SerializeField] private Transform _groundCheckTransform;
         [SerializeField] private float _groundCheckRadius = 0.35f;
 
+        [Header("*NEW* Main Camera")]
+        [SerializeField] private float _jumpFOV = 6.25f;
+        [SerializeField] private float _landingFOV = MainCamera.DefaultFOV;
+        [SerializeField] private float _fovLerpDuration = 0.25f;
+
         [Header("Audio")]
         [SerializeField] private HeroAudioPlayer _audioPlayer;
         
@@ -47,6 +52,7 @@ namespace CapybaraAdventure.Player
         private bool _hasSword = false;
         private Enemy _enemyToKick = null;
         private IAudioHandler _audioHandler;
+        private MainCamera _mainCamera;
 
         public HeroJump Jump { get; private set; }
         public bool IsPaused => _pauseManager.IsPaused;
@@ -66,13 +72,20 @@ namespace CapybaraAdventure.Player
             InitFields();
         }
 
+        private void Start()
+        {
+            _mainCamera.SetFollow(transform);
+        }
+
         private void OnEnable()
         {
             _pauseManager.Register(this);
             Jump.OnJumped += AnimateJump;
+            Jump.OnJumped += HandleCameraOnJump;
             Jump.OnJumped += PlayJumpSound;
             Jump.OnLanded += AnimateJumpEnd;
             Jump.OnLanded += HasLanded;
+            Jump.OnLanded += HandleCameraOnLanding;
             Jump.OnJumped += RemoveParent;
 
             if (ShouldPlayParticles == true)
@@ -83,9 +96,11 @@ namespace CapybaraAdventure.Player
         {
             _pauseManager.Unregister(this);
             Jump.OnJumped -= AnimateJump;
+            Jump.OnJumped -= HandleCameraOnJump;
             Jump.OnJumped -= PlayJumpSound;
             Jump.OnLanded -= AnimateJumpEnd;
             Jump.OnLanded -= HasLanded;
+            Jump.OnLanded -= HandleCameraOnLanding;
             Jump.OnJumped -= RemoveParent;
 
             if (ShouldPlayParticles == true)
@@ -125,10 +140,11 @@ namespace CapybaraAdventure.Player
         #endregion
         
         [Inject]
-        private void Construct(PauseManager pauseManager, IAudioHandler audioHandler)
+        private void Construct(PauseManager pauseManager, IAudioHandler audioHandler, MainCamera mainCamera)
         {
             _pauseManager = pauseManager;
             _audioHandler = audioHandler;
+            _mainCamera = mainCamera;
         }
 
         public void SetPaused(bool isPaused)
@@ -194,6 +210,8 @@ namespace CapybaraAdventure.Player
             _heroAnimator = new HeroAnimator(_animator);
             
             _audioPlayer.AudioHandler = _audioHandler;
+
+            _mainCamera.SetDefaultFOV();
         }
 
         private void HasLanded()
@@ -218,6 +236,20 @@ namespace CapybaraAdventure.Player
         private void AnimateJump()
         {
             _heroAnimator.SetAsJumping();
+        }
+
+        private void HandleCameraOnJump()
+        {
+            print("jump hero");
+            if (_mainCamera != null)
+                _mainCamera.SetLerpFOV(_jumpFOV, _fovLerpDuration);
+        }
+        
+        private void HandleCameraOnLanding()
+        {
+            print("land hero");
+            if (_mainCamera != null)
+                _mainCamera.SetLerpFOV(_landingFOV, _fovLerpDuration);
         }
         
         private void AnimateJumpEnd()

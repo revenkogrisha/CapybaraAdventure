@@ -1984,6 +1984,9 @@ MonoBehaviour:
     m_Bits: 64
   _groundCheckTransform: {fileID: 2841136293037561116}
   _groundCheckRadius: 0.35
+  _jumpFOV: 5.6
+  _landingFOV: 5.25
+  _fovLerpDuration: 0.6
   _audioPlayer: {fileID: 5823925977909884908}
 --- !u!114 &1330678292238878236
 MonoBehaviour:

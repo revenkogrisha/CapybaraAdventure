@@ -17,9 +17,6 @@ namespace CapybaraAdventure.Game
         [Header("Prefabs")]
         [SerializeField] private Hero _heroPrefab;
 
-        [Header("Camera")]
-        [SerializeField] private CinemachineVirtualCamera _mainCamera;
-
         [Header("Level Elements")]
         [SerializeField] private FollowerObject _deadlyYBorder;
 
@@ -110,8 +107,7 @@ namespace CapybaraAdventure.Game
             _heroPresenter = new HeroPresenter(hero, _gameUI);
                  
             _heroPresenter.Enable();
-
-            SetupCamera(hero);
+            
             SetupScore(hero);
 
             _deadlyYBorder.Init(hero.transform);
@@ -153,12 +149,6 @@ namespace CapybaraAdventure.Game
                 new HeroFactory(_heroPrefab, spawnPosition, _heroSkins);
                 
             return heroFactory.Create();
-        }
-
-        private void SetupCamera(Hero hero)
-        {
-            Transform heroTransform = hero.transform;
-            _mainCamera.Follow = heroTransform;
         }
 
         private void SetupScore(Hero hero)

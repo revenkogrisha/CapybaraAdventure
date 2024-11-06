@@ -17,6 +17,7 @@ namespace CapybaraAdventure.Player
         private float _expiredJumpTime = 0f;
         private float _jumpForce;
         private bool _shouldSaveLastJump = true;
+        private bool _shouldSendJumpEvent = true;
 
         public float XJumpAxis => _jumpForce / JumpXDivider;
         public bool IsNotGrounded => _heightTestService.IsNotGrounded;
@@ -46,7 +47,15 @@ namespace CapybaraAdventure.Player
                 EndJump();
 
             if (_shouldJump == true)
+            {
+                if (_shouldSendJumpEvent == true)
+                {
+                    OnJumped?.Invoke();
+                    _shouldSendJumpEvent = false;
+                }
+                
                 PerformJump();
+            }
         }
 
         public void SayShouldJump() => _shouldJump = true;
@@ -55,8 +64,6 @@ namespace CapybaraAdventure.Player
 
         private void PerformJump()
         {
-            OnJumped?.Invoke();
-
             if (_shouldSaveLastJump == true)
             {
                 LastJump = _transform.position;
@@ -78,6 +85,7 @@ namespace CapybaraAdventure.Player
             
             _shouldJump = false;
             _shouldSaveLastJump = true;
+            _shouldSendJumpEvent = true;
             _expiredJumpTime = 0f;
         }
 

@@ -395,6 +395,7 @@ GameObject:
   m_Component:
   - component: {fileID: 445784921}
   - component: {fileID: 445784920}
+  - component: {fileID: 445784922}
   m_Layer: 0
   m_Name: CM vcam1
   m_TagString: Untagged
@@ -457,6 +458,19 @@ Transform:
   - {fileID: 385646204}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &445784922
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 445784919}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 574af0f12ca740fd9348fa7ce89cfa87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _cinemachine: {fileID: 445784920}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -851,6 +865,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _heroSpawnMarker: {fileID: 767027683}
+  _mainCamera: {fileID: 445784922}
 --- !u!114 &1093666432
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1408,7 +1423,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _heroPrefab: {fileID: 18405716993754696, guid: 3a35253487ec346f19b98cc2c6738e3f, type: 3}
-  _mainCamera: {fileID: 445784920}
   _deadlyYBorder: {fileID: 181085798}
   _scoreText: {fileID: 6286053544499736605}
   _coinsUIContainer: {fileID: 5940683988103369003}
