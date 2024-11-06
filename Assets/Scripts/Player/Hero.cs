@@ -170,11 +170,11 @@ namespace CapybaraAdventure.Player
         public void Kick()
         {
             if (_enemyToKick == null)
-                throw new Exception("_enemyToKick is null!");
+                return;
 
             var force = Vector2.right * _kickForce;
             _enemyToKick.GetKicked(force);
-            _audioPlayer.PlaySword();
+            _audioHandler.PlaySound(AudioName.EnemyDeath);
 
             _enemyToKick = null;
         }
@@ -240,14 +240,12 @@ namespace CapybaraAdventure.Player
 
         private void HandleCameraOnJump()
         {
-            print("jump hero");
             if (_mainCamera != null)
                 _mainCamera.SetLerpFOV(_jumpFOV, _fovLerpDuration);
         }
         
         private void HandleCameraOnLanding()
         {
-            print("land hero");
             if (_mainCamera != null)
                 _mainCamera.SetLerpFOV(_landingFOV, _fovLerpDuration);
         }
