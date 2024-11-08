@@ -21,8 +21,11 @@ namespace CapybaraAdventure.Installers
         {
             BindSaveSystem();
             BindPauseManager();
+            // NEW
+            BindLevelPlaythrough();
             BindScore();
             BindPlayerData();
+            
             BindLocalizationManager();
             BindSaveService();
             
@@ -45,6 +48,15 @@ namespace CapybaraAdventure.Installers
         {
             Container
                 .Bind<PauseManager>()
+                .FromNew()
+                .AsSingle()
+                .Lazy();
+        }
+        
+        private void BindLevelPlaythrough()
+        {
+            Container
+                .Bind<LevelPlaythrough>()
                 .FromNew()
                 .AsSingle()
                 .Lazy();

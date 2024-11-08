@@ -33,7 +33,9 @@ namespace CapybaraAdventure.Game
         private PauseManager _pauseManager;
         private GameUI _gameUI;
         private GameOverScreenProvider _gameOverScreenProvider;
+        private GameFinishedScreenProvider _gameFinishedScreenProvider;
         private PlayerData _playerData;
+        private LevelPlaythrough _levelPlaythrough;
         #endregion
 
         private ScorePresenter _scorePresenter;
@@ -84,8 +86,10 @@ namespace CapybaraAdventure.Game
             PauseManager pauseManager,
             GameUI gameUI,
             GameOverScreenProvider gameOverScreenProvider,
+            GameFinishedScreenProvider gameFinishedScreenProvider,
             PlayerData playerData,
             HeroSkins heroSkins,
+            LevelPlaythrough levelPlaythrough,
             IAudioHandler audioHandler)
         {
             _menuProvider = menuProvider;
@@ -95,13 +99,17 @@ namespace CapybaraAdventure.Game
             _pauseManager = pauseManager;
             _gameUI = gameUI;
             _gameOverScreenProvider = gameOverScreenProvider;
+            _gameFinishedScreenProvider = gameFinishedScreenProvider;
             _playerData = playerData;
             _heroSkins = heroSkins;
+            _levelPlaythrough = levelPlaythrough;
             _audioHandler = audioHandler;
         }
 
         public void StartGame()
         {
+            _levelPlaythrough.Clear();
+            
             Hero hero = CreateHero();
 
             _heroPresenter = new HeroPresenter(hero, _gameUI);
@@ -188,6 +196,7 @@ namespace CapybaraAdventure.Game
                 _gameOverHandler,
                 _gameUI,
                 _gameOverScreenProvider,
+                _gameFinishedScreenProvider,
                 _score);
 
             _gameOverHandlerPresenter.Enable();

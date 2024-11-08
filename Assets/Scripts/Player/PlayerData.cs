@@ -1,12 +1,14 @@
 using System;
 using CapybaraAdventure.Save;
 using CapybaraAdventure.UI;
+using Zenject;
 using Random = UnityEngine.Random;
 
 namespace CapybaraAdventure.Player
 {
     public class PlayerData
     {
+        private readonly LevelPlaythrough _levelPlaythrough;
         private const float MaxDistanceUpgradeLimit = 22f;
         private const float MaxDistanceUpgradeIncrease = 1f;
         private const float LerpSpeedDecrease = 0.08f;
@@ -33,6 +35,12 @@ namespace CapybaraAdventure.Player
         public event Action<int> OnCoinsChanged;
         public event Action<int> OnFoodChanged;
 
+        [Inject]
+        private PlayerData(LevelPlaythrough levelPlaythrough)
+        {
+            _levelPlaythrough = levelPlaythrough;
+        }
+
         public void LoadData(SaveData data)
         {
             Coins = data.Coins;
@@ -54,14 +62,20 @@ namespace CapybaraAdventure.Player
         { 
             int amount = SimpleChest.CoinsInsideAmount;
             Coins += amount;
-
+            _levelPlaythrough.CoinsCollected += amount;
+            
             OnCoinsChanged?.Invoke(Coins);
         }
 
-        public void AddTreasureChestCoins()
+        public void AddTreasureChestReward()
         { 
-            int amount = TreasureChest.CoinsInsideAmount;
-            Coins += amount;
+            int coins = TreasureChest.CoinsInsideAmount;
+            int food = TreasureChest.FoodInsideAmount;
+            Coins += coins;
+            Food += food;
+            
+            _levelPlaythrough.CoinsRewarded += coins;
+            _levelPlaythrough.FoodRewarded += food;
 
             OnCoinsChanged?.Invoke(Coins);
         }
@@ -81,8 +95,8 @@ namespace CapybaraAdventure.Player
         public void AddSimpleMelon()
         {
             int amount = MelonChest.SimpleAmount;
-
             Food += amount;
+            _levelPlaythrough.FoodCollected += amount;
             
             OnFoodChanged?.Invoke(Food);
         }
