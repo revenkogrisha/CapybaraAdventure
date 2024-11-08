@@ -53,8 +53,6 @@ namespace CapybaraAdventure.UI
 
         public override void Reveal()
         {
-            _interstitialAd.TryShowWithChance();
-
             base.Reveal();
 
             var tweener = new ScreenTweener(_UIShowDuration);
@@ -71,6 +69,10 @@ namespace CapybaraAdventure.UI
         private async void RestartGame()
         {
             _saveService.Save();
+            
+            if (_interstitialAd.TryShowWithChance() == true)
+                return;
+            
             await _loadingScreenProvider.LoadGameAsync();
         }
 

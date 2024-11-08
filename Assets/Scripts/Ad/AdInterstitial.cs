@@ -20,17 +20,24 @@ namespace CapybaraAdventure.Ad
             Advertisement.Load(_adID, this);
         }
 
-        public void TryShowWithChance()
+        public bool TryShowWithChance()
         {
             if (_adTimer.CanShowAd == false)
             {
                 print("Ad blocked by timer!");
-                return;
+                return false;
             }
 
             int randomChance = Random.Range(0, 101);
             if (randomChance <= _showChance)
+            {
                 Show();
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         public void Show()
