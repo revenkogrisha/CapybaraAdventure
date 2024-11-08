@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5539980561904371440}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: LeftLeg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41,7 +41,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6741928347193269121}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: RightArm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -74,7 +74,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1958151402100894485}
   - component: {fileID: 8836314981861172948}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Trail Renderer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -218,7 +218,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4148465564835750813}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: JumpParticles Spawn Marker
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -250,7 +250,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5375220385124586559}
   - component: {fileID: 2968066959330910755}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: GameObject (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -385,7 +385,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2330286183833923376}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -421,7 +421,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2386325055449909818}
   - component: {fileID: 1440997082269932433}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Hero_body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -504,7 +504,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2442312231037731219}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -536,7 +536,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2841136293037561116}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: GroundCheckTransform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -568,7 +568,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2110245410798813094}
   - component: {fileID: 7138384829525785259}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: GameObject (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -704,7 +704,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7782995176953670266}
   - component: {fileID: 7480912928034929247}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -840,7 +840,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6679723835881516403}
   - component: {fileID: 9202130884262782929}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Hero_leg_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -924,7 +924,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8257429011904005733}
   - component: {fileID: 1091224281411119693}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Slash
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1008,7 +1008,7 @@ GameObject:
   m_Component:
   - component: {fileID: 271826110050219741}
   - component: {fileID: 1334809941764558628}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Hero_leg_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1097,7 +1097,7 @@ GameObject:
   - component: {fileID: 4127008000154649700}
   - component: {fileID: 3815362922160915545}
   - component: {fileID: 8739684745984026961}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: AudioPlayer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1625,7 +1625,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3899846993888888249}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Wind
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1660,7 +1660,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5535790811561811333}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: RightLeg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1698,7 +1698,7 @@ GameObject:
   - component: {fileID: 18405716993754696}
   - component: {fileID: 1330678292238878236}
   - component: {fileID: 3171539016227664586}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Hero_NEW
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1987,6 +1987,7 @@ MonoBehaviour:
   _jumpFOV: 5.6
   _landingFOV: 5.25
   _fovLerpDuration: 0.6
+  _focusFOV: 2.5
   _audioPlayer: {fileID: 5823925977909884908}
 --- !u!114 &1330678292238878236
 MonoBehaviour:
@@ -2031,7 +2032,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5898650631166746761}
   - component: {fileID: 3064719943449707496}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Sword
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2115,7 +2116,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7445190261047151376}
   - component: {fileID: 2634702797950258663}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Hero_arm_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2200,7 +2201,7 @@ GameObject:
   m_Component:
   - component: {fileID: 268484404056518972}
   - component: {fileID: 1287095940830183860}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Hero_head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2284,7 +2285,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2426523839601880918}
   - component: {fileID: 5701800423227703811}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: GameObject (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2419,7 +2420,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8937638097015050762}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: LeftArm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2452,7 +2453,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8029394253301282024}
   - component: {fileID: 8684368077590230840}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Hero_arm_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2537,7 +2538,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6488987297150056631}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Hook Fire Point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2567,6 +2568,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 8029394253301282024}
     m_Modifications:
+    - target: {fileID: 1428567465659520649, guid: 3c511301140134fc2b4ef96bb943f641, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 3943632797405315795, guid: 3c511301140134fc2b4ef96bb943f641, type: 3}
       propertyPath: m_Color.a
       value: 0
@@ -2582,6 +2587,10 @@ PrefabInstance:
     - target: {fileID: 3943632797405315795, guid: 3c511301140134fc2b4ef96bb943f641, type: 3}
       propertyPath: m_SortingLayerID
       value: 1942819485
+      objectReference: {fileID: 0}
+    - target: {fileID: 4908402611112071238, guid: 3c511301140134fc2b4ef96bb943f641, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 7238892370293412056, guid: 3c511301140134fc2b4ef96bb943f641, type: 3}
       propertyPath: m_Color.a
@@ -2650,6 +2659,14 @@ PrefabInstance:
     - target: {fileID: 8408874472059896623, guid: 3c511301140134fc2b4ef96bb943f641, type: 3}
       propertyPath: m_Name
       value: Food
+      objectReference: {fileID: 0}
+    - target: {fileID: 8408874472059896623, guid: 3c511301140134fc2b4ef96bb943f641, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 8408874473051756323, guid: 3c511301140134fc2b4ef96bb943f641, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 8408874473051756333, guid: 3c511301140134fc2b4ef96bb943f641, type: 3}
       propertyPath: m_Color.a
