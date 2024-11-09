@@ -15,11 +15,11 @@ namespace CapybaraAdventure.Level
 {
     public class LevelGenerator : MonoBehaviour
     {
-        private const float HeroPositionCheckFrequency = 1.5f;
-        private const int SpecialPlatformSequentialNumber = 4;
-        private const int LocationChangeSequentialNumber = 10;
-        private const int QuestPlatformSequentialNumber = 16;
-        private const float BackgroundLerpDuration = 3.5f;
+        public const float HeroPositionCheckFrequency = 0.5f;
+        public const int SpecialPlatformSequentialNumber = 4;
+        public const int LocationChangeSequentialNumber = 10;
+        public const int QuestPlatformSequentialNumber = 16;
+        public const float BackgroundLerpDuration = 3.5f;
 
         [Header("Components")]
         [SerializeField] private LevelElementsSpawnerConfig _config;

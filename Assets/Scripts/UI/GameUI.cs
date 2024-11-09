@@ -52,8 +52,8 @@ namespace CapybaraAdventure.UI
             bool isSucceeded = Tools.GetChance(GiveSwordButtonShowChance);
             if (isSucceeded == true)
                 ShowGiveSwordButton();
-                
-            StartPeriodicallyShowQuestBar();
+            
+            TweenQuestBar();
         }
 
         #endregion
@@ -104,9 +104,9 @@ namespace CapybaraAdventure.UI
             _giveSwordButton.gameObject.SetActive(false);
         }
 
-        private void StartPeriodicallyShowQuestBar()
+        private void TweenQuestBar()
         {
-            _tweener.DisplayQuestBarForPeriod(_questBar.transform);
+            _tweener.DisplayQuestBar(_questBar.transform);
         }
     }
 }

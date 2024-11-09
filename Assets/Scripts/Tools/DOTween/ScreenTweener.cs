@@ -14,7 +14,7 @@ namespace CapybaraAdventure.Other
         private readonly float _swordButtonFadeDelay = 4f;
         private readonly float _questBarScaleDuration = 0.4f;
         private readonly float _questBarDisplayDuration = 7f;
-        private readonly float _questBarDisplayInterval = 25f;
+        private readonly float _questBarDisplayInterval = 10f;
         private bool _isQuestBarDisplaying = false;
 
         public ScreenTweener() {  }
@@ -74,7 +74,7 @@ namespace CapybaraAdventure.Other
                 .AppendCallback(() => button.gameObject.SetActive(false));
         }
 
-        public void DisplayQuestBarForPeriod(Transform bar)
+        public void DisplayQuestBar(Transform bar)
         {
             if (_isQuestBarDisplaying == true || bar == null)
                 return;
@@ -83,16 +83,8 @@ namespace CapybaraAdventure.Other
             bar.localScale = Vector2.zero;
             bar.gameObject.SetActive(true);
 
-            DOTween.Sequence()
-                .Append(bar.DOScale(Vector2.one, _questBarScaleDuration))
-                .AppendInterval(_questBarDisplayDuration)
-                .Append(bar.DOScale(Vector2.zero, _questBarScaleDuration))
-                .AppendCallback(() => bar.gameObject.SetActive(false))
-                .AppendCallback(() => _isQuestBarDisplaying = false)
-                .AppendInterval(_questBarDisplayInterval)
-                .AppendCallback(() => DisplayQuestBarForPeriod(bar));
-
-
+            // NEW
+            bar.DOScale(Vector2.one, _questBarScaleDuration);
         }
     }
 }

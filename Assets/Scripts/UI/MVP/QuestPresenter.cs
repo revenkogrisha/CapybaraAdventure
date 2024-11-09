@@ -29,7 +29,7 @@ namespace CapybaraAdventure.UI
 
         private void InitSliderValues()
         {
-            float max = _levelGenerator.QuestPlatformXPosition;
+            float max = LevelGenerator.SpecialPlatformSequentialNumber * Platform.Length;
             _gameUI.InitQuestBarValues(0f, max);
             _isQuestBarInitialized = true;
         }
