@@ -13,8 +13,11 @@ namespace CapybaraAdventure.Player
         private float _targetFOV = 5f;
         private float _lerpStartTime;
         private float _lerpDuration;
+        private float _initialFOV;
 
         public bool IsLerping => _isLerping;
+        
+        private float FOV { get => _cinemachine.m_Lens.OrthographicSize; set => _cinemachine.m_Lens.OrthographicSize = value; }
 
         private void Update()
         {
@@ -24,7 +27,7 @@ namespace CapybaraAdventure.Player
 
         public void SetDefaultFOV()
         {
-            _cinemachine.m_Lens.OrthographicSize = DefaultFOV;
+            FOV = DefaultFOV;
         }
 
         public void SetFollow(Transform target)
@@ -40,7 +43,8 @@ namespace CapybaraAdventure.Player
                 SetLerpFOV(fov, duration);
                 return;
             }
-            
+
+            _initialFOV = FOV; 
             _targetFOV = fov;
             _lerpStartTime = Time.time;
             _lerpDuration = duration;
@@ -52,12 +56,12 @@ namespace CapybaraAdventure.Player
             float timeDelta = (Time.time - _lerpStartTime) / _lerpDuration;
             if (timeDelta >= 0.99f || forceFinish == true)
             {
-                _cinemachine.m_Lens.OrthographicSize = _targetFOV;
+                FOV = _targetFOV;
                 _isLerping = false;
                 return;
             }
             
-            _cinemachine.m_Lens.OrthographicSize = Mathf.Lerp(_cinemachine.m_Lens.OrthographicSize, _targetFOV, timeDelta);
+            FOV = Mathf.Lerp(_initialFOV, _targetFOV, timeDelta);
         }
     }
 }
