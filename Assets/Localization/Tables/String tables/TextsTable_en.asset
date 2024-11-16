@@ -98,6 +98,18 @@ MonoBehaviour:
     m_Localized: Food to Ease the Jump!
     m_Metadata:
       m_Items: []
+  - m_Id: 15257616635650048
+    m_Localized: 'Collected:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15257616635650049
+    m_Localized: 'Reward:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15257616635650050
+    m_Localized: 'Defeated:'
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

@@ -98,6 +98,18 @@ MonoBehaviour:
     m_Localized: Comida para facilitar o salto!
     m_Metadata:
       m_Items: []
+  - m_Id: 15257616635650048
+    m_Localized: 'Coletado:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15257616635650049
+    m_Localized: 'Recompensa:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15257616635650050
+    m_Localized: 'Derrotado:'
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

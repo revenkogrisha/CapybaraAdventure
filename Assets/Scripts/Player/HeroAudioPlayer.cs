@@ -13,6 +13,12 @@ namespace CapybaraAdventure.Player
         
         public IAudioHandler AudioHandler { get; set; }
 
+        // NEW
+        public void PlayGameFinished()
+        {
+            AudioHandler.PlaySound(AudioName.GameWin);
+        }
+        
         public void PlayJump()
         {
             // if (_jumpSound == null || _jumpSound.isPlaying == true)

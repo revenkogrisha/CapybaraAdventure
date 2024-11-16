@@ -127,6 +127,22 @@ MonoBehaviour:
     m_Key: TutorialFood
     m_Metadata:
       m_Items: []
+  - m_Id: 15257616631455744
+    m_Key: Win
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15257616635650048
+    m_Key: WinCollected
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15257616635650049
+    m_Key: WinReward
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15257616635650050
+    m_Key: WinDefeated
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

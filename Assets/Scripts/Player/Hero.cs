@@ -8,12 +8,14 @@ using CapybaraAdventure.Level;
 using CapybaraAdventure.Other;
 using Core.Audio;
 using Core.Player;
+using Cysharp.Threading.Tasks;
 
 namespace CapybaraAdventure.Player
 {
     public class Hero : MonoBehaviour, IPhysicalObject, IPauseHandler
     {
         private const float HeightTestRadius = 0.03f;
+        private const float GameFinishedDelay = 7f;
 
         [Header("Components")]
         [SerializeField] private Animator _animator;
@@ -46,6 +48,8 @@ namespace CapybaraAdventure.Player
         [SerializeField] private float _jumpFOV = 6.25f;
         [SerializeField] private float _landingFOV = MainCamera.DefaultFOV;
         [SerializeField] private float _fovLerpDuration = 0.25f;
+        [SerializeField] private float _focusFOV = 2.5f;
+        [SerializeField] private float _focusFOVLerpDuration = 5f;
 
         [Header("Audio")]
         [SerializeField] private HeroAudioPlayer _audioPlayer;
@@ -67,6 +71,7 @@ namespace CapybaraAdventure.Player
         public HeroSkinSetter SkinSetter => _heroSkinSetter;
 
         public event Action OnDeath;
+        public event Action<float> OnLevelFinished;
         public event Action OnFoodEaten;
 
         #region MonoBehaviour
@@ -353,18 +358,45 @@ namespace CapybaraAdventure.Player
         {
             _heroAnimator.DoHit();
             _audioPlayer.PlayCollected();
+            
             chest.Open();
+
+            // NEW
+            if (chest is TreasureChest)
+            {
+                HandleTreasureChest();
+            }
         }
 
         private void LandOnFallingIsland(FallingIsland island)
         {
             transform.SetParent(island.transform, true);
-            island.TriggerFalling();
+            island.TriggerFalling().Forget();
         }
 
         private void RemoveParent()
         {
             transform.SetParent(null, true);
+        }
+
+        // NEW
+        private void HandleTreasureChest()
+        {
+            OnLevelFinished?.Invoke(GameFinishedDelay);
+            _audioPlayer.PlayGameFinished();
+            
+            // DisableRigidbody();
+            
+            _mainCamera.SetLerpFOV(_focusFOV, _focusFOVLerpDuration);
+            
+            Invoke(nameof(HandleFinishAnim), _handleFinishDelay);
+        }
+
+        private void HandleFinishAnim()
+        {
+            _mainCamera.SetFollow(default);
+            _rigidBody2D.AddForce(_animForceOnFinish, ForceMode2D.Impulse);
+            _heroAnimator.SetFinished();
         }
     }
 }

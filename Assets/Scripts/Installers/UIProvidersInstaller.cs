@@ -16,6 +16,7 @@ namespace CapybaraAdventure.Installers
         {
             BindUpgradeScreenProvider();
             BindGameOverScreenProvider();
+            BindGameFinishedScreenProvider();
             BindPauseScreenProvider();
             BindMenuProvider();
         }
@@ -32,6 +33,14 @@ namespace CapybaraAdventure.Installers
         {
             Container
                 .Bind<GameOverScreenProvider>()
+                .FromNew()
+                .AsSingle();
+        }
+        
+        private void BindGameFinishedScreenProvider()
+        {
+            Container
+                .Bind<GameFinishedScreenProvider>()
                 .FromNew()
                 .AsSingle();
         }

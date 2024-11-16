@@ -8,7 +8,8 @@ namespace CapybaraAdventure.UI
     {
         private readonly GameOverHandler _gameOverHandler;
         private readonly GameUI _gameUI;
-        private readonly GameOverScreenProvider _screenProvider;
+        private readonly GameOverScreenProvider _overScreenProvider;
+        private readonly GameFinishedScreenProvider _finishedScreenProvider;
         private readonly Score _score;
         private GameOverScreen _screen;
 
@@ -18,22 +19,28 @@ namespace CapybaraAdventure.UI
             GameOverHandler handler,
             GameUI inGameUI,
             GameOverScreenProvider screenProvider,
+            GameFinishedScreenProvider screenProvider2,
             Score score)
         {
             _gameOverHandler = handler;
             _gameUI = inGameUI;
-            _screenProvider = screenProvider;
+            _overScreenProvider = screenProvider;
+            _finishedScreenProvider = screenProvider2;
             _score = score;
         }
 
         public void Enable()
         {
             _gameOverHandler.OnGameHasOver += OnGameHasOverHandler;
+            _gameOverHandler.OnGameFinished += OnGameFinishedHandler;
+            _gameOverHandler.OnGameUIConcealPrompted += ConcealGameUI;
         }
 
         public void Disable()
         {
             _gameOverHandler.OnGameHasOver -= OnGameHasOverHandler;
+            _gameOverHandler.OnGameFinished -= OnGameFinishedHandler;
+            _gameOverHandler.OnGameUIConcealPrompted -= ConcealGameUI;
 
             if (_screen != null)
                 _screen.OnGameContinued -= OnGameHasContinuedHandler;
@@ -43,18 +50,31 @@ namespace CapybaraAdventure.UI
         {
             _gameUI.Conceal();
             _score.StopCount();
-            await LoadScreen();
+            await LoadOverScreen();
 
-            if (WasGameContinuedBefore)
+            if (WasGameContinuedBefore == true)
                 _screen.BlockContinuing();
         }
 
-        private async Task LoadScreen()
+        private async void OnGameFinishedHandler()
         {
-            _screen = await _screenProvider.Load();
+            // _gameUI.Conceal();
+            _score.StopCount();
+            await LoadFinishedScreen();
+        }
+
+        private async Task LoadOverScreen()
+        {
+            _screen = await _overScreenProvider.Load();
             _screen.Reveal();
 
             _screen.OnGameContinued += OnGameHasContinuedHandler;
+        }
+        
+        private async Task LoadFinishedScreen()
+        {
+            var screen = await _finishedScreenProvider.Load();
+            screen.Reveal();
         }
 
         private void OnGameHasContinuedHandler()
@@ -64,10 +84,15 @@ namespace CapybaraAdventure.UI
 
             _gameUI.Reveal();
             _score.StartCount();
-            _screenProvider.Unload();
+            _overScreenProvider.Unload();
             _gameOverHandler.HandleHeroRevival();
 
             _screen.OnGameContinued -= OnGameHasContinuedHandler;
+        }
+
+        private void ConcealGameUI()
+        {
+            _gameUI.Conceal();
         }
     }
 }

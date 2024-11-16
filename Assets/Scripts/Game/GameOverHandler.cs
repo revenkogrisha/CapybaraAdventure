@@ -1,5 +1,6 @@
 using System;
 using CapybaraAdventure.Player;
+using Cysharp.Threading.Tasks;
 
 namespace CapybaraAdventure.Game
 {
@@ -12,6 +13,8 @@ namespace CapybaraAdventure.Game
         public bool WasGameContinuedBefore { get; private set; } = false;
  
         public event Action OnGameHasOver;
+        public event Action OnGameFinished;
+        public event Action OnGameUIConcealPrompted;
 
         public GameOverHandler(Hero hero, PauseManager pause)
         {
@@ -22,11 +25,13 @@ namespace CapybaraAdventure.Game
         public void Enable()
         {
             _hero.OnDeath += HandleHeroDeath;
+            _hero.OnLevelFinished += HandleHeroFinished;
         }
 
         public void Disable()
         {
             _hero.OnDeath -= HandleHeroDeath;
+            _hero.OnLevelFinished -= HandleHeroFinished;
         }
 
         public void HandleHeroRevival()
@@ -44,6 +49,23 @@ namespace CapybaraAdventure.Game
                 _pauseManager.SetPaused(true);
 
             OnGameHasOver?.Invoke();
+        }
+        
+        private void HandleHeroFinished(float delay)
+        {
+            OnGameUIConcealPrompted?.Invoke();
+            
+            HandleHeroFinishedAsync(delay).Forget();
+        }
+
+        private async UniTask HandleHeroFinishedAsync(float delay)
+        {
+            await UniTask.Delay(TimeSpan.FromSeconds(delay));
+            
+            if (IsPaused == false)
+                _pauseManager.SetPaused(true);
+            
+            OnGameFinished?.Invoke();
         }
     }
 }
