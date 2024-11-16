@@ -37,6 +37,11 @@ namespace CapybaraAdventure.Player
         [SerializeField] private Transform _groundCheckTransform;
         [SerializeField] private float _groundCheckRadius = 0.35f;
 
+        [Header("*NEW* Anim Force")]
+        [SerializeField] private Vector2 _animJumpForce = new(0f, 2f);
+        [SerializeField] private Vector2 _animForceOnFinish = new (-8f, 0f);
+        [SerializeField] private float _handleFinishDelay = 1.5f;
+
         [Header("*NEW* Main Camera")]
         [SerializeField] private float _jumpFOV = 6.25f;
         [SerializeField] private float _landingFOV = MainCamera.DefaultFOV;
@@ -190,6 +195,11 @@ namespace CapybaraAdventure.Player
             transform.position = Jump.LastJump;
             _isDead = false;
             EnableRigidbody();
+        }
+
+        public void AddRigidbodyForceUp()
+        {
+            _rigidBody2D.AddForce(_animJumpForce, ForceMode2D.Impulse);
         }
 
         private void InitFields()

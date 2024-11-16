@@ -34,10 +34,8 @@ namespace CapybaraAdventure.Ad
                 Show();
                 return true;
             }
-            else
-            {
-                return false;
-            }
+
+            return false;
         }
 
         public void Show()

@@ -1984,6 +1984,9 @@ MonoBehaviour:
     m_Bits: 64
   _groundCheckTransform: {fileID: 2841136293037561116}
   _groundCheckRadius: 0.35
+  _animJumpForce: {x: 0, y: 15}
+  _animForceOnFinish: {x: -8, y: 0}
+  _handleFinishDelay: 1.5
   _jumpFOV: 5.6
   _landingFOV: 5.25
   _fovLerpDuration: 0.6
