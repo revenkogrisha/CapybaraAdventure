@@ -62,6 +62,7 @@ namespace CapybaraAdventure.Player
         private Enemy _enemyToKick = null;
         private IAudioHandler _audioHandler;
         private MainCamera _mainCamera;
+        private PlayerData _playerData;
 
         public HeroJump Jump { get; private set; }
         public bool IsPaused => _pauseManager.IsPaused;
@@ -150,11 +151,12 @@ namespace CapybaraAdventure.Player
         #endregion
         
         [Inject]
-        private void Construct(PauseManager pauseManager, IAudioHandler audioHandler, MainCamera mainCamera)
+        private void Construct(PauseManager pauseManager, IAudioHandler audioHandler, MainCamera mainCamera, PlayerData playerData)
         {
             _pauseManager = pauseManager;
             _audioHandler = audioHandler;
             _mainCamera = mainCamera;
+            _playerData = playerData;
         }
 
         public void SetPaused(bool isPaused)
@@ -187,6 +189,8 @@ namespace CapybaraAdventure.Player
             _audioHandler.PlaySound(AudioName.EnemyDeath);
 
             _enemyToKick = null;
+            
+            _playerData.AddEnemyDefeatedReward();
         }
 
         public void ActivateSwordObject()

@@ -35,6 +35,7 @@ namespace CapybaraAdventure.Player
         public int FoodCollected { get; set; }
         public int CoinsRewarded { get; set; }
         public int FoodRewarded { get; set; }
+        public int CoinsDefeated { get; set; }
 
         public Reward[] GetRewards()
         {
@@ -44,7 +45,9 @@ namespace CapybaraAdventure.Player
                 new(RewardType.Collected, ResourceType.Food, FoodCollected),
                 new(RewardType.Reward, ResourceType.Coins, CoinsRewarded),
                 new(RewardType.Reward, ResourceType.Food, FoodRewarded),
+                new(RewardType.Defeated, ResourceType.Coins, CoinsDefeated),
             };
+            
             return rewards;
         }
         
@@ -54,6 +57,7 @@ namespace CapybaraAdventure.Player
             FoodCollected = default;
             CoinsRewarded = default;
             FoodRewarded = default;
+            CoinsDefeated = default;
         }
 
         public void LogAll()

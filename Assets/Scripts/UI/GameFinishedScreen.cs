@@ -57,10 +57,17 @@ namespace CapybaraAdventure.UI
         {
             _levelPlaythrough.LogAll();
             LevelPlaythrough.Reward[] rewards = _levelPlaythrough.GetRewards();
+            Transform[] blocks = new Transform[rewards.Length];
+
+            int i = 0;
             foreach (LevelPlaythrough.Reward reward in rewards)
             {
                 RewardBlock block = Instantiate(_rewardBlockPrefab, _rewardsLayout);
+                block.gameObject.SetActive(false);
                 block.Initialize(reward);
+                
+                blocks[i] = block.transform;
+                i++;
             }
 
             rewards = null;
@@ -72,6 +79,8 @@ namespace CapybaraAdventure.UI
             tweener.TweenButtonWithoutDelay(_restartButton.transform);
 
             tweener.FadeIn(_backgroundCanvasGroup);
+            
+            tweener.TweenRewardBlocks(blocks);
         }
 
         private async void RestartGame()

@@ -1,4 +1,5 @@
 using System;
+using CapybaraAdventure.Level;
 using CapybaraAdventure.Save;
 using CapybaraAdventure.UI;
 using Zenject;
@@ -56,6 +57,15 @@ namespace CapybaraAdventure.Player
             DistanceUpgradeCost = data.DistanceUpgradeCost;
             FoodUpgradeCost = data.FoodUpgradeCost;
             IsCutsceneWatched = data.IsCutsceneWatched;
+        }
+
+        public void AddEnemyDefeatedReward()
+        {
+            int amount = Enemy.DefeatRewardCoins;
+            Coins += amount;
+            _levelPlaythrough.CoinsDefeated += amount;
+            
+            OnCoinsChanged?.Invoke(amount);
         }
 
         public void AddSimpleChestCoins()

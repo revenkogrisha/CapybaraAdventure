@@ -23,6 +23,10 @@ namespace CapybaraAdventure.UI
         [Header("Settings")]
         [SerializeField] private Sprite _coinSprite;
         [SerializeField] private Sprite _foodSprite;
+        
+        [Header("Settings")]
+        [SerializeField] private Color _neutralColor;
+        [SerializeField] private Color _positiveColor;
 
         private readonly Dictionary<LevelPlaythrough.RewardType, LocalizedString> _rewardTypeAliases = new();
         private readonly Dictionary<LevelPlaythrough.ResourceType, Sprite> _resourceTypeSprites = new();
@@ -44,6 +48,14 @@ namespace CapybaraAdventure.UI
             
             _amountTMP.SetText(reward.Amount.ToString());
             _resourceImage.sprite = _resourceTypeSprites[reward.Resource];
+
+            if (reward.Amount <= 0)
+            {
+                _amountTMP.color = _neutralColor;
+                return;
+            }
+            
+            _amountTMP.color = _positiveColor;
         }
     }
 }

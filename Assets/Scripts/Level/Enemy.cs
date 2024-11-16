@@ -5,6 +5,7 @@ namespace CapybaraAdventure.Level
 {
     public class Enemy : MonoBehaviour
     {
+        public const int DefeatRewardCoins = 10;
         private const string DeadEnemy = nameof(DeadEnemy);
 
         [Header("Components")]

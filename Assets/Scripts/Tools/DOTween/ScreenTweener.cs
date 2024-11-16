@@ -1,5 +1,6 @@
 using DG.Tweening;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace CapybaraAdventure.Other
 {
@@ -15,7 +16,11 @@ namespace CapybaraAdventure.Other
         private readonly float _questBarScaleDuration = 0.4f;
         private readonly float _questBarDisplayDuration = 7f;
         private readonly float _questBarDisplayInterval = 10f;
+        
         private bool _isQuestBarDisplaying = false;
+        
+        private readonly float _rewardsInterval = .8f;
+        private readonly float _rewardsScaleDuration = .8f;
 
         public ScreenTweener() {  }
 
@@ -23,6 +28,27 @@ namespace CapybaraAdventure.Other
         {
             _logoShowDuration = commonShowDuration;
             _buttonsScaleDuration = commonShowDuration;
+        }
+
+        public void TweenRewardBlocks(Transform[] blocks)
+        {
+            float preferredHeight = blocks[0].GetComponent<LayoutElement>().preferredHeight;
+            float preferredWidth = blocks[0].GetComponent<LayoutElement>().preferredWidth;
+            
+            foreach (var block in blocks)
+            {
+                block.GetComponent<LayoutElement>().preferredWidth = 0f;
+            }
+            
+            Sequence sequence = DOTween.Sequence();
+            Vector2 preferredSize = new(preferredWidth, preferredHeight);
+            foreach (var block in blocks)
+            {
+                block.gameObject.SetActive(true);
+                sequence
+                    .Append(block.GetComponent<LayoutElement>().DOPreferredSize(preferredSize, _rewardsScaleDuration).SetEase(Ease.OutBounce))
+                    .AppendInterval(_rewardsInterval);
+            }
         }
 
         public void FadeIn(CanvasGroup canvasGroup)
