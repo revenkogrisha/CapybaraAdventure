@@ -16,6 +16,7 @@ namespace CapybaraAdventure.Player
     {
         private const float HeightTestRadius = 0.03f;
         private const float GameFinishedDelay = 7f;
+        private const float DisableFOVAnimationOnDistance = 100f;
 
         [Header("Components")]
         [SerializeField] private Animator _animator;
@@ -259,13 +260,13 @@ namespace CapybaraAdventure.Player
 
         private void HandleCameraOnJump()
         {
-            if (_mainCamera != null)
+            if (_mainCamera != null && transform.position.x < DisableFOVAnimationOnDistance)
                 _mainCamera.SetLerpFOV(_jumpFOV, _fovLerpDuration);
         }
         
         private void HandleCameraOnLanding()
         {
-            if (_mainCamera != null)
+            if (_mainCamera != null && transform.position.x < DisableFOVAnimationOnDistance)
                 _mainCamera.SetLerpFOV(_landingFOV, _fovLerpDuration);
         }
         
@@ -391,6 +392,7 @@ namespace CapybaraAdventure.Player
             
             // DisableRigidbody();
             
+            print(1);
             _mainCamera.SetLerpFOV(_focusFOV, _focusFOVLerpDuration);
             
             Invoke(nameof(HandleFinishAnim), _handleFinishDelay);
