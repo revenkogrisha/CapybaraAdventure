@@ -1286,6 +1286,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ScoreText
       objectReference: {fileID: 0}
+    - target: {fileID: 406781654614214164, guid: d5305f97370974b368627bdc39ecf468, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 406781654614214165, guid: d5305f97370974b368627bdc39ecf468, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
