@@ -10,6 +10,7 @@ using System.Threading;
 using CapybaraAdventure.Other;
 using Core.Level;
 using TMPro;
+using Zenject;
 
 namespace CapybaraAdventure.Level
 {
@@ -46,13 +47,19 @@ namespace CapybaraAdventure.Level
         private bool _heroIsInitialized = false;
         private int _platformNumber = 0;
         private float _lastGeneratedPlatformX = 0f;
-        private int _locationNumber = 0;
         private Color _defaultBackground;
         private bool _isQuestCompleted = false;
         private CancellationToken _cancellationToken;
+        private LevelNumberHolder _levelNumberHolder;
+
+        private int LocationNumber
+        {
+            get => _levelNumberHolder.LocationNumber;
+            set => _levelNumberHolder.LocationNumber = value;
+        }
 
         private string PlatformName => $"Platform №{_platformNumber}";
-        private Location CurrentLocation => _locations[_locationNumber];
+        private Location CurrentLocation => _locations[LocationNumber];
         public float QuestPlatformXPosition => Platform.Length * QuestPlatformSequentialNumber;
         private float HeroX => _heroTransform.position.x;
         private bool IsNowSpecialPlatformTurn 
@@ -109,13 +116,46 @@ namespace CapybaraAdventure.Level
             _cancellationToken = this.GetCancellationTokenOnDestroy();
 
             _defaultBackground = _camera.backgroundColor;
+            
+            // NEW
+            if (_levelNumberHolder.Level <= 1 || _levelNumberHolder.AreLocationsInitialized == true)
+            {
+                _levelNumberHolder.AreLocationsInitialized = true;
+                return;
+            }
+            
+            for (int i = 0; i < _levelNumberHolder.Level - 1; i++)
+                OnNextLevel(i);
+            
+            _levelNumberHolder.AreLocationsInitialized = true;
+        }
+
+        private void OnEnable()
+        {
+            _levelNumberHolder.OnLevelChanged += OnNextLevel;
+        }
+        
+        private void OnDisable()
+        {
+            _levelNumberHolder.OnLevelChanged -= OnNextLevel;
         }
 
         private void Start()
         {
-            ChangeBackgroundColor();
+            // ChangeBackgroundColor();
 
             CheckPlayerPosition().Forget();
+        }
+
+        [Inject]
+        private void Construct(LevelNumberHolder levelNumberHolder)
+        {
+            _levelNumberHolder = levelNumberHolder;
+        }
+        
+        public void OnNextLevel(int _)
+        {
+            ChangeLocation();
         }
 
         public void SpawnStartPlatform()
@@ -165,7 +205,8 @@ namespace CapybaraAdventure.Level
         {
             if (IsNowLocationChangeTurn == true)
             {
-                ChangeLocation();
+                // NEW
+                // ChangeLocation();
                 // ChangeBackgroundColor();
             }
  
@@ -191,11 +232,12 @@ namespace CapybaraAdventure.Level
 
         private void ChangeLocation()
         {
-            _locationNumber++;
+            print("location changed");
+            LocationNumber++;
                 
             int locationsLength = _locations.Length;
-            if (_locationNumber >= locationsLength)
-                _locationNumber = _locations.GetRandomIndex();
+            if (LocationNumber >= locationsLength)
+                LocationNumber = _locations.GetRandomIndex();
         }
 
         [Obsolete]

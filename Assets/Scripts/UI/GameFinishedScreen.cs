@@ -3,6 +3,7 @@ using TMPro;
 using CapybaraAdventure.Other;
 using CapybaraAdventure.Ad;
 using System;
+using CapybaraAdventure.Level;
 using CapybaraAdventure.Player;
 using CapybaraAdventure.Save;
 
@@ -28,6 +29,7 @@ namespace CapybaraAdventure.UI
         private SaveService _saveService;
         private LoadingScreenProvider _loadingScreenProvider;
         private LevelPlaythrough _levelPlaythrough;
+        private LevelNumberHolder _levelNumberHolder;
 
         #region MonoBehaviour
 
@@ -46,11 +48,13 @@ namespace CapybaraAdventure.UI
         public void Init(
             SaveService saveService,
             LoadingScreenProvider loadingScreenProvider,
-            LevelPlaythrough levelPlaythrough)
+            LevelPlaythrough levelPlaythrough,
+            LevelNumberHolder levelNumberHolder)
         {
             _saveService = saveService;
             _loadingScreenProvider = loadingScreenProvider;
             _levelPlaythrough = levelPlaythrough;
+            _levelNumberHolder = levelNumberHolder;
         }
 
         public override void Reveal()
@@ -85,12 +89,15 @@ namespace CapybaraAdventure.UI
 
         private async void RestartGame()
         {
-            _saveService.Save();
-
-            if (_interstitialAd.TryShowWithChance() == true)
-                return;
             
-            // TODO: level ++?
+            if (_interstitialAd.TryShowWithChance() == true)
+            {
+                _saveService.Save();
+                return;
+            }
+            
+            _levelNumberHolder.NextLevel();
+            _saveService.Save();
             
             await _loadingScreenProvider.LoadGameAsync();
         }

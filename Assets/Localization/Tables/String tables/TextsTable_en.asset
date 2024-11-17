@@ -43,7 +43,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 4073322438663
-    m_Localized: 'High Score: {0}'
+    m_Localized: 'Level: {0}'
     m_Metadata:
       m_Items: []
   - m_Id: 4073322438665

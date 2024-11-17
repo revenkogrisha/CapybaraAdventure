@@ -1,4 +1,5 @@
 using System;
+using CapybaraAdventure.Level;
 using CapybaraAdventure.UI;
 using UnityEngine;
 using TMPro;
@@ -27,6 +28,7 @@ namespace CapybaraAdventure.Game
         private Score _score;
         private LocalizationManager _localization;
         private bool _isInitialized = false;
+        private LevelNumberHolder _levelNumberHolder;
 
         public event Action OnMenuWorkHasOver;
 
@@ -58,13 +60,15 @@ namespace CapybaraAdventure.Game
             GameStartup gameStartup,
             UpgradeScreenProvider upgradeScreenProvider,
             Score score,
-            LocalizationManager localization)
+            LocalizationManager localization,
+            LevelNumberHolder levelNumberHolder)
         {
             _gameStartup = gameStartup;
             _upgradeScreenProvider = upgradeScreenProvider;
             _isInitialized = true;
             _score = score;
             _localization = localization;
+            _levelNumberHolder = levelNumberHolder;
         }
 
         public override void Reveal()
@@ -81,8 +85,12 @@ namespace CapybaraAdventure.Game
         {
             // TODO: remake with MVP
             await UniTask.WaitUntil(() => _score != null);
-            int highScore = _score.HighScore;
-            _highScoreText.text = string.Format(text, highScore);
+            // int highScore = _score.HighScore;
+            // _highScoreText.text = string.Format(text, highScore);
+            
+            // NEW
+            int levelNumber = _levelNumberHolder.Level;
+            _highScoreText.text = string.Format(text, levelNumber);
         }
 
         private void TweenElements()

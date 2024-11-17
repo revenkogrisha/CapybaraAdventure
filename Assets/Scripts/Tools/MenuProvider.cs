@@ -1,6 +1,7 @@
 using CapybaraAdventure.Other;
 using CapybaraAdventure.Game;
 using System.Threading.Tasks;
+using CapybaraAdventure.Level;
 using UnityEngine;
 using CapybaraAdventure.Player;
 using Core.Audio;
@@ -19,6 +20,7 @@ namespace CapybaraAdventure.UI
         private readonly Score _score;
         private readonly LocalizationManager _localization;
         private readonly IAudioHandler _audioHandler;
+        private readonly LevelNumberHolder _levelNumberHolder;
 
         [Inject]
         public MenuProvider(
@@ -27,6 +29,7 @@ namespace CapybaraAdventure.UI
             GameStartup gameStartup,
             Score score,
             LocalizationManager localization,
+            LevelNumberHolder levelNumberHolder,
             IAudioHandler audioHandler)
         {
             _canvas = canvas;
@@ -34,6 +37,7 @@ namespace CapybaraAdventure.UI
             _gameStartup = gameStartup;
             _score = score;
             _localization = localization;
+            _levelNumberHolder = levelNumberHolder;
             _audioHandler = audioHandler;
         }
 
@@ -46,7 +50,8 @@ namespace CapybaraAdventure.UI
                 _gameStartup, 
                 _upgradeScreenProvider, 
                 _score,
-                _localization);
+                _localization,
+                _levelNumberHolder);
             
             menu.InitAudioHandler(_audioHandler);
 

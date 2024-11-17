@@ -1,4 +1,5 @@
 using CapybaraAdventure.Game;
+using CapybaraAdventure.Level;
 using CapybaraAdventure.Player;
 using CapybaraAdventure.Save;
 using Core.Audio;
@@ -19,6 +20,9 @@ namespace CapybaraAdventure.Installers
         
         public override void InstallBindings()
         {
+            // NEW
+            BindLevelNumberHolder();
+            
             BindSaveSystem();
             BindPauseManager();
             // NEW
@@ -42,6 +46,15 @@ namespace CapybaraAdventure.Installers
                 .FromNew()
                 .AsSingle()
                 .Lazy();
+        }
+
+        private void BindLevelNumberHolder()
+        {
+            Container
+                .Bind<LevelNumberHolder>()
+                .FromNew()
+                .AsSingle()
+                .NonLazy();
         }
 
         private void BindPauseManager()

@@ -1,4 +1,5 @@
 using System.Threading.Tasks;
+using CapybaraAdventure.Level;
 using CapybaraAdventure.Other;
 using CapybaraAdventure.Player;
 using CapybaraAdventure.Save;
@@ -16,6 +17,7 @@ namespace CapybaraAdventure.UI
         private readonly LoadingScreenProvider _loadingScreenProvider;
         private readonly SaveService _saveService;
         private readonly LevelPlaythrough _levelPlaythrough;
+        private readonly LevelNumberHolder _levelNumberHolder;
         private readonly IAudioHandler _audioHandler;
 
         [Inject]
@@ -24,12 +26,14 @@ namespace CapybaraAdventure.UI
             LoadingScreenProvider loadingScreenProvider,
             SaveService saveService,
             LevelPlaythrough levelPlaythrough,
+            LevelNumberHolder levelNumberHolder,
             IAudioHandler audioHandler)
         {
             _canvas = canvas;
             _loadingScreenProvider = loadingScreenProvider;
             _saveService = saveService;
             _levelPlaythrough = levelPlaythrough;
+            _levelNumberHolder = levelNumberHolder;
             _audioHandler = audioHandler;
         }
 
@@ -39,7 +43,7 @@ namespace CapybaraAdventure.UI
             GameFinishedScreen gameOverScreen = await 
                 LoadInternal<GameFinishedScreen>(GameFinishedScreen, canvasTransform);
 
-            gameOverScreen.Init(_saveService, _loadingScreenProvider, _levelPlaythrough);
+            gameOverScreen.Init(_saveService, _loadingScreenProvider, _levelPlaythrough, _levelNumberHolder);
             gameOverScreen.InitAudioHandler(_audioHandler);
 
             return gameOverScreen;
