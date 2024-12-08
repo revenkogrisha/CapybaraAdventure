@@ -17,7 +17,7 @@ namespace CapybaraAdventure.Level
     public class LevelGenerator : MonoBehaviour
     {
         public const float HeroPositionCheckFrequency = 0.5f;
-        public const int SpecialPlatformSequentialNumber = 4;
+        public const int SpecialPlatformSequentialNumber = 6;
         public const int LocationChangeSequentialNumber = 10;
         public const int QuestPlatformSequentialNumber = 16;
         public const float BackgroundLerpDuration = 3.5f;
@@ -153,9 +153,10 @@ namespace CapybaraAdventure.Level
             _levelNumberHolder = levelNumberHolder;
         }
         
-        public void OnNextLevel(int _)
+        public void OnNextLevel(int levelNumber)
         {
-            ChangeLocation();
+            if (CurrentLocation.LevelsToComplete > levelNumber)
+                ChangeLocation();
         }
 
         public void SpawnStartPlatform()
