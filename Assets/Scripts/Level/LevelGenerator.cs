@@ -161,7 +161,7 @@ namespace CapybaraAdventure.Level
 
         public void SpawnStartPlatform()
         {
-            GeneratePlatform(_startPlatform);
+            GeneratePlatform(CurrentLocation.StartPlatform);
         }
         
         public void GenerateDefaultAmount()
