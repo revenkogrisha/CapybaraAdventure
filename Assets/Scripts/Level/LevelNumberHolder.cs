@@ -7,6 +7,7 @@ namespace CapybaraAdventure.Level
     {
         private int _level = 1;
         private int _locationNumber = 0;
+        private int _levelsToComplete = 0;
         
         public int Level => _level;
 
@@ -14,6 +15,12 @@ namespace CapybaraAdventure.Level
         {
             get => _locationNumber;
             set => _locationNumber = value;
+        }
+
+        public int LevelsToComplete
+        {
+            get => _levelsToComplete;
+            set => _levelsToComplete = value;
         }
 
         public bool AreLocationsInitialized { get; set; } = false;

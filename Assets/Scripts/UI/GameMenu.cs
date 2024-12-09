@@ -8,6 +8,7 @@ using CapybaraAdventure.Other;
 using UnityEngine.Localization.Components;
 using Cysharp.Threading.Tasks;
 using UnityEngine.Localization.Settings;
+using UnityEngine.UI;
 
 namespace CapybaraAdventure.Game
 {
@@ -19,8 +20,13 @@ namespace CapybaraAdventure.Game
 
         [Space]
         [SerializeField] private TextMeshProUGUI _highScoreText;
+        [SerializeField] private TextMeshProUGUI _levelNumberText;
         [SerializeField] private Transform _logo;
         [SerializeField] private LocalizeStringEvent _highScoreLocalization;
+        
+        [Header("Level Progression")]
+        [SerializeField] private TMP_Text _levelsToCompleteText;
+        [SerializeField] private Slider _locationProgressBar;
 
         private GameStartup _gameStartup;
         private UpgradeScreenProvider _upgradeScreenProvider;
@@ -74,6 +80,12 @@ namespace CapybaraAdventure.Game
         public override void Reveal()
         {
             base.Reveal();
+            
+            _levelsToCompleteText.text = _levelNumberHolder.LevelsToComplete.ToString();
+            _locationProgressBar.maxValue = _levelNumberHolder.LevelsToComplete;
+            _locationProgressBar.value = _levelNumberHolder.Level - 1;
+            if (_levelNumberText != null)
+                _levelNumberText.text = (_levelNumberHolder.Level - 1).ToString();
             
             _playButton.SetActive(true);
             _updgradeButton.SetActive(true);

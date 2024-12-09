@@ -118,6 +118,7 @@ namespace CapybaraAdventure.Level
             _defaultBackground = _camera.backgroundColor;
             
             // NEW
+            // TODO: optimize!!!
             if (_levelNumberHolder.Level <= 1 || _levelNumberHolder.AreLocationsInitialized == true)
             {
                 _levelNumberHolder.AreLocationsInitialized = true;
@@ -155,8 +156,11 @@ namespace CapybaraAdventure.Level
         
         public void OnNextLevel(int levelNumber)
         {
-            if (CurrentLocation.LevelsToComplete > levelNumber)
+            if (CurrentLocation.LevelsToComplete < levelNumber)
+            {
                 ChangeLocation();
+                _levelNumberHolder.LevelsToComplete = CurrentLocation.LevelsToComplete;
+            }
         }
 
         public void SpawnStartPlatform()
@@ -233,7 +237,6 @@ namespace CapybaraAdventure.Level
 
         private void ChangeLocation()
         {
-            print("location changed");
             LocationNumber++;
                 
             int locationsLength = _locations.Length;
