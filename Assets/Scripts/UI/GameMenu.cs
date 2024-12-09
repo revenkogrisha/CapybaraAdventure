@@ -79,13 +79,13 @@ namespace CapybaraAdventure.Game
 
         public override void Reveal()
         {
-            base.Reveal();
-            
             _levelsToCompleteText.text = _levelNumberHolder.LevelsToComplete.ToString();
             _locationProgressBar.maxValue = _levelNumberHolder.LevelsToComplete;
             _locationProgressBar.value = _levelNumberHolder.Level - 1;
             if (_levelNumberText != null)
                 _levelNumberText.text = (_levelNumberHolder.Level - 1).ToString();
+            
+            base.Reveal();
             
             _playButton.SetActive(true);
             _updgradeButton.SetActive(true);
