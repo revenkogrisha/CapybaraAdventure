@@ -27,6 +27,9 @@ namespace CapybaraAdventure.Game
         [Header("Level Progression")]
         [SerializeField] private TMP_Text _levelsToCompleteText;
         [SerializeField] private Slider _locationProgressBar;
+        
+        [Header("Location Presentations")]
+        [SerializeField] private LocationsCollection _locations;
 
         private GameStartup _gameStartup;
         private UpgradeScreenProvider _upgradeScreenProvider;

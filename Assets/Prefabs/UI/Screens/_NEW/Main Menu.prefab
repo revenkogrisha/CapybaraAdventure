@@ -219,7 +219,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -0.00009346, y: 49.559}
+  m_AnchoredPosition: {x: -4.9992, y: 49.559}
   m_SizeDelta: {x: 877.74, y: 99.1171}
   m_Pivot: {x: 0.49999988, y: 0.5}
 --- !u!222 &4455763881351302059
@@ -827,8 +827,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -433.87, y: -285}
-  m_SizeDelta: {x: 867.7414, y: 108.4677}
+  m_AnchoredPosition: {x: -433.87, y: -264.71124}
+  m_SizeDelta: {x: 867.7414, y: 67.8902}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &3973511864885753782
 MonoBehaviour:
@@ -1105,6 +1105,7 @@ MonoBehaviour:
   _highScoreLocalization: {fileID: 9067687080219205924}
   _levelsToCompleteText: {fileID: 7957381489854154373}
   _locationProgressBar: {fileID: 3973511864885753782}
+  _locations: {fileID: 11400000, guid: 6c1d1866af95746b884fa1ac6312c6d0, type: 2}
 --- !u!1 &5933284780304594891
 GameObject:
   m_ObjectHideFlags: 0

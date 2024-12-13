@@ -996,10 +996,7 @@ MonoBehaviour:
   _platformsY: -2
   _startPlatform: {fileID: 2883049585238784193, guid: 7d8832a9aacf248aca9b5135e6f660b7, type: 3}
   _questPlatform: {fileID: 2136358286600949718, guid: f7e7842d947c7436eadb7d654fb59aff, type: 3}
-  _locations:
-  - {fileID: 11400000, guid: a37416050a48340b9914df28409e1c92, type: 2}
-  - {fileID: 11400000, guid: e4d75053081974959be5657c9e3c6b4e, type: 2}
-  - {fileID: 11400000, guid: 7bc02c26ebc0b4073969ca17ac10bbec, type: 2}
+  _locations: {fileID: 11400000, guid: 6c1d1866af95746b884fa1ac6312c6d0, type: 2}
   _backgroundPrefab: {fileID: 1260117884632274307, guid: 2dcd61005a8a647eb8888d897c9b983d, type: 3}
 --- !u!1 &1334937653
 GameObject:

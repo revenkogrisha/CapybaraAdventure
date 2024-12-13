@@ -34,7 +34,7 @@ namespace CapybaraAdventure.Level
         [Header("Platforms")]
         [SerializeField] private SimplePlatform _startPlatform;
         [SerializeField] private SpecialPlatform _questPlatform;
-        [SerializeField] private Location[] _locations;
+        [SerializeField] private LocationsCollection _locations;
         
         [Header("Platforms")]
         [SerializeField] private Background _backgroundPrefab;
@@ -59,7 +59,7 @@ namespace CapybaraAdventure.Level
         }
 
         private string PlatformName => $"Platform №{_platformNumber}";
-        private Location CurrentLocation => _locations[LocationNumber];
+        private Location CurrentLocation => _locations.Collection[LocationNumber];
         public float QuestPlatformXPosition => Platform.Length * QuestPlatformSequentialNumber;
         private float HeroX => _heroTransform.position.x;
         private bool IsNowSpecialPlatformTurn 
@@ -242,9 +242,9 @@ namespace CapybaraAdventure.Level
         {
             LocationNumber++;
                 
-            int locationsLength = _locations.Length;
+            int locationsLength = _locations.Collection.Length;
             if (LocationNumber >= locationsLength)
-                LocationNumber = _locations.GetRandomIndex();
+                LocationNumber = _locations.Collection.GetRandomIndex();
         }
 
         [Obsolete]
