@@ -118,16 +118,17 @@ namespace CapybaraAdventure.Level
             _defaultBackground = _camera.backgroundColor;
             
             // NEW
+            
             _levelNumberHolder.LevelsToComplete = CurrentLocation.LevelsToComplete;
             
             // TODO: optimize!!!
-            if (_levelNumberHolder.Level <= 1 || _levelNumberHolder.AreLocationsInitialized == true)
+            if (_levelNumberHolder.Level < 2 || _levelNumberHolder.AreLocationsInitialized == true)
             {
                 _levelNumberHolder.AreLocationsInitialized = true;
                 return;
             }
             
-            for (int i = 0; i < _levelNumberHolder.Level - 1; i++)
+            for (int i = 2; i <= _levelNumberHolder.Level; i++)
                 OnNextLevel(i);
             
             _levelNumberHolder.AreLocationsInitialized = true;
