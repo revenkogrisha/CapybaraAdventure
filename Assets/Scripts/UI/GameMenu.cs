@@ -30,6 +30,7 @@ namespace CapybaraAdventure.Game
         
         [Header("Location Presentations")]
         [SerializeField] private LocationsCollection _locations;
+        [SerializeField] private Transform _presentationsContainer;
 
         private GameStartup _gameStartup;
         private UpgradeScreenProvider _upgradeScreenProvider;
@@ -38,6 +39,7 @@ namespace CapybaraAdventure.Game
         private LocalizationManager _localization;
         private bool _isInitialized = false;
         private LevelNumberHolder _levelNumberHolder;
+        private bool _locationPresented = false;
 
         public event Action OnMenuWorkHasOver;
 
@@ -87,6 +89,15 @@ namespace CapybaraAdventure.Game
             _locationProgressBar.value = _levelNumberHolder.Level - 1;
             if (_levelNumberText != null)
                 _levelNumberText.text = (_levelNumberHolder.Level - 1).ToString();
+
+            if (_locationPresented == false)
+            {
+                LocationPresentation locationPresentation =
+                    _locations.Collection[_levelNumberHolder.LocationNumber].LocationMenuPresentationPrefab;
+                
+                Instantiate(locationPresentation, _presentationsContainer);
+                _locationPresented = true;
+            }
             
             base.Reveal();
             
