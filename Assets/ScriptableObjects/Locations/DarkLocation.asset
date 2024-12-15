@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _useDefaultBackground: 1
   _backgroundColor: {r: 0.26593092, g: 0.42865324, b: 0.6792453, a: 0}
-  _levelsToComplete: 20
+  _levelsToComplete: 25
   _startPlatform: {fileID: 2883049585238784193, guid: 7d8832a9aacf248aca9b5135e6f660b7, type: 3}
   _simplePlatforms:
   - {fileID: -7841068184548764235, guid: df580e0a5be394c93bf38aecd17c74ec, type: 3}

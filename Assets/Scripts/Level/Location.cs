@@ -17,7 +17,7 @@ namespace CapybaraAdventure.Level
         [SerializeField] private BackgroundPreset _backgroundPreset;
 
         [Space]
-        [SerializeField] private GameObject _locationMenuPresentationPrefab;
+        [SerializeField] private LocationPresentation _locationMenuPresentationPrefab;
 
         public bool UseDefaultBackground => _useDefaultBackground;
         public Color BackgroundColor => _backgroundColor;
@@ -27,6 +27,6 @@ namespace CapybaraAdventure.Level
         public int LevelsToComplete => _levelsToComplete;
         public SimplePlatform StartPlatform => _startPlatform;
 
-        public GameObject LocationMenuPresentationPrefab => _locationMenuPresentationPrefab;
+        public LocationPresentation LocationMenuPresentationPrefab => _locationMenuPresentationPrefab;
     }
 }

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _useDefaultBackground: 1
   _backgroundColor: {r: 0, g: 0, b: 0, a: 0}
-  _levelsToComplete: 4
+  _levelsToComplete: 2
   _startPlatform: {fileID: 2883049585238784193, guid: 7d8832a9aacf248aca9b5135e6f660b7, type: 3}
   _simplePlatforms:
   - {fileID: -7841068184548764235, guid: faf8218739d6c4e688811592da06e509, type: 3}
@@ -29,5 +29,5 @@ MonoBehaviour:
   - {fileID: -6293920189038187168, guid: 21db26adf15df4746aa4a65099e8dcd0, type: 3}
   - {fileID: -6293920189038187168, guid: 197dd6839770041bf9d27df96e783424, type: 3}
   - {fileID: 2136358286600949718, guid: 3c9dc12606a894683bec71e28632b97a, type: 3}
-  _backgroundPreset: {fileID: 11400000, guid: 0990166c9b5d64afeb1b540322172ae6, type: 2}
-  _locationMenuPresentationPrefab: {fileID: 0}
+  _backgroundPreset: {fileID: 11400000, guid: be16bf9bc4e4f4eb9b0461201dfdc532, type: 2}
+  _locationMenuPresentationPrefab: {fileID: 2837530242948514466, guid: 713202b36841647409fb4e6b20e978c8, type: 3}
