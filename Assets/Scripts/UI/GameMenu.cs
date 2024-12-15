@@ -127,6 +127,10 @@ namespace CapybaraAdventure.Game
             tweener.TweenButton(_playButton.transform);
             tweener.TweenButton(_updgradeButton.transform);
             tweener.TweenButton(_languageButton.transform);
+            
+            // NEW
+            tweener.TweenButton(_presentationsContainer.transform);
+            tweener.TweenProgressBar(_locationProgressBar.transform);
         }
 
         private async void LoadAndRevealUpgradeScreen()

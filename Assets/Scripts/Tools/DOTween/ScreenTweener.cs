@@ -11,6 +11,7 @@ namespace CapybaraAdventure.Other
         private readonly float _logoShowDuration = 0.5f;
         private readonly float _buttonsDelay = 0.3f;
         private readonly float _buttonsScaleDuration = 0.4f;
+        private readonly float _barScaleDuration = 0.6f;
         private readonly float _swordButtonFadeDuration = 4f;
         private readonly float _swordButtonFadeDelay = 4f;
         private readonly float _questBarScaleDuration = 0.4f;
@@ -111,6 +112,15 @@ namespace CapybaraAdventure.Other
 
             // NEW
             bar.DOScale(Vector2.one, _questBarScaleDuration);
+        }
+
+        public void TweenProgressBar(Transform transform)
+        {
+            transform.localScale = Vector2.zero;
+
+            DOTween.Sequence()
+                .AppendInterval(_buttonsDelay)
+                .Append(transform.DOScale(Vector2.one, _barScaleDuration).SetEase(Ease.OutBounce));
         }
     }
 }
