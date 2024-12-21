@@ -8,6 +8,7 @@ using CapybaraAdventure.Other;
 using UnityEngine.Localization.Components;
 using Cysharp.Threading.Tasks;
 using UnityEngine.Localization.Settings;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 namespace CapybaraAdventure.Game
@@ -15,7 +16,8 @@ namespace CapybaraAdventure.Game
     public class GameMenu : UIBase
     {
         [SerializeField] private UIButton _playButton;
-        [SerializeField] private UIButton _updgradeButton;
+        [FormerlySerializedAs("_updgradeButton")] [SerializeField] private UIButton _upgradeButton;
+        [SerializeField] private UIButton _shopButton;
         [SerializeField] private UIButton _languageButton;
 
         [Space]
@@ -34,7 +36,9 @@ namespace CapybaraAdventure.Game
 
         private GameStartup _gameStartup;
         private UpgradeScreenProvider _upgradeScreenProvider;
+        private ShopScreenProvider _shopScreenProvider;
         private UpgradeScreen _upgradeScreen;
+        private ShopMenuScreen _shopScreen;
         private Score _score;
         private LocalizationManager _localization;
         private bool _isInitialized = false;
@@ -48,11 +52,13 @@ namespace CapybaraAdventure.Game
         private void OnEnable()
         {
             _playButton.SetActive(false);
-            _updgradeButton.SetActive(false);
+            _upgradeButton.SetActive(false);
             _languageButton.SetActive(false);
+            _shopButton.SetActive(false);
             
             _playButton.OnClicked += StartGame;
-            _updgradeButton.OnClicked += LoadAndRevealUpgradeScreen;
+            _upgradeButton.OnClicked += LoadAndRevealUpgradeScreen;
+            _shopButton.OnClicked += LoadAndRevealShopScreen;
             _languageButton.OnClicked += ChangeLanguage;
             _highScoreLocalization.OnUpdateString.AddListener(SetupScoreText);
         }
@@ -60,7 +66,8 @@ namespace CapybaraAdventure.Game
         private void OnDisable()
         {
             _playButton.OnClicked -= StartGame;
-            _updgradeButton.OnClicked -= LoadAndRevealUpgradeScreen;
+            _upgradeButton.OnClicked -= LoadAndRevealUpgradeScreen;
+            _shopButton.OnClicked -= LoadAndRevealShopScreen;
             _languageButton.OnClicked -= ChangeLanguage;
             _highScoreLocalization.OnUpdateString.RemoveListener(SetupScoreText);
         }
@@ -70,12 +77,14 @@ namespace CapybaraAdventure.Game
         public void Init(
             GameStartup gameStartup,
             UpgradeScreenProvider upgradeScreenProvider,
+            ShopScreenProvider shopScreenProvider,
             Score score,
             LocalizationManager localization,
             LevelNumberHolder levelNumberHolder)
         {
             _gameStartup = gameStartup;
             _upgradeScreenProvider = upgradeScreenProvider;
+            _shopScreenProvider = shopScreenProvider;
             _isInitialized = true;
             _score = score;
             _localization = localization;
@@ -102,8 +111,9 @@ namespace CapybaraAdventure.Game
             base.Reveal();
             
             _playButton.SetActive(true);
-            _updgradeButton.SetActive(true);
+            _upgradeButton.SetActive(true);
             _languageButton.SetActive(true);
+            _shopButton.SetActive(true);
             TweenElements();
         }
 
@@ -125,11 +135,12 @@ namespace CapybaraAdventure.Game
             
             tweener.TweenLogo(_logo);
             tweener.TweenButton(_playButton.transform);
-            tweener.TweenButton(_updgradeButton.transform);
+            tweener.TweenButton(_upgradeButton.transform);
             tweener.TweenButton(_languageButton.transform);
             
             // NEW
             tweener.TweenButton(_presentationsContainer.transform);
+            tweener.TweenButton(_shopButton.transform);
             tweener.TweenProgressBar(_locationProgressBar.transform);
         }
 
@@ -140,11 +151,26 @@ namespace CapybaraAdventure.Game
 
             Conceal();
         }
+        
+        private async void LoadAndRevealShopScreen()
+        {
+            _shopScreen = await _shopScreenProvider.Load();
+            _shopScreen.OnScreenClosed += HandleOnShopScreenClosed;
+
+            Conceal();
+        }
 
         private void HandleOnUpgradeScreenClosed()
         {
             _upgradeScreen.OnScreenClosed -= HandleOnUpgradeScreenClosed;
             _upgradeScreenProvider.Unload();
+            Reveal();
+        }
+        
+        private void HandleOnShopScreenClosed()
+        {
+            _shopScreen.OnScreenClosed -= HandleOnShopScreenClosed;
+            _shopScreenProvider.Unload();
             Reveal();
         }
 

@@ -21,11 +21,13 @@ namespace CapybaraAdventure.UI
         private readonly LocalizationManager _localization;
         private readonly IAudioHandler _audioHandler;
         private readonly LevelNumberHolder _levelNumberHolder;
+        private readonly ShopScreenProvider _shopScreenProvider;
 
         [Inject]
         public MenuProvider(
             Canvas canvas,
             UpgradeScreenProvider upgradeScreenProvider,
+            ShopScreenProvider shopScreenProvider,
             GameStartup gameStartup,
             Score score,
             LocalizationManager localization,
@@ -34,6 +36,7 @@ namespace CapybaraAdventure.UI
         {
             _canvas = canvas;
             _upgradeScreenProvider = upgradeScreenProvider;
+            _shopScreenProvider = shopScreenProvider;
             _gameStartup = gameStartup;
             _score = score;
             _localization = localization;
@@ -48,7 +51,8 @@ namespace CapybaraAdventure.UI
 
             menu.Init(
                 _gameStartup, 
-                _upgradeScreenProvider, 
+                _upgradeScreenProvider,
+                _shopScreenProvider,
                 _score,
                 _localization,
                 _levelNumberHolder);

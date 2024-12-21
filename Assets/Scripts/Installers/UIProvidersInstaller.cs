@@ -15,6 +15,7 @@ namespace CapybaraAdventure.Installers
         public override void InstallBindings()
         {
             BindUpgradeScreenProvider();
+            BindShopScreenProvider();
             BindGameOverScreenProvider();
             BindGameFinishedScreenProvider();
             BindPauseScreenProvider();
@@ -25,6 +26,14 @@ namespace CapybaraAdventure.Installers
         {
             Container
                 .Bind<UpgradeScreenProvider>()
+                .FromNew()
+                .AsSingle();
+        }
+        
+        private void BindShopScreenProvider()
+        {
+            Container
+                .Bind<ShopScreenProvider>()
                 .FromNew()
                 .AsSingle();
         }
