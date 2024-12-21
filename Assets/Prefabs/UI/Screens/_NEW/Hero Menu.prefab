@@ -888,6 +888,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4974950833782294290}
   - component: {fileID: 4295708267453556331}
+  - component: {fileID: 2781477808928669812}
   m_Layer: 5
   m_Name: Skins Panel
   m_TagString: Untagged
@@ -932,6 +933,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _itemPrefab: {fileID: 5036737268128744533, guid: 4966930475bfa4bcb908b9f46f95b70a, type: 3}
   _itemsRoot: {fileID: 8596849612812886643}
+--- !u!114 &2781477808928669812
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2855576032333219999}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2138620dbcacc485a81b9971c3b01ac0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _image: {fileID: 210029190747261225}
+  _scollDirection: {x: -0.5, y: -1}
+  _speedMultiplier: 0.004
 --- !u!1 &3037190510557350099
 GameObject:
   m_ObjectHideFlags: 0
