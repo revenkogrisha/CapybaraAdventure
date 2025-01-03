@@ -1,3 +1,4 @@
+using CapybaraAdventure.Ad;
 using UnityEngine;
 using CapybaraAdventure.Player;
 using Cysharp.Threading.Tasks;
@@ -9,6 +10,7 @@ using Zenject;
 
 namespace CapybaraAdventure.Save
 {
+    [DefaultExecutionOrder(1)]
     public class SaveService : MonoBehaviour
     {
         private const float AutoSaveIntervalInSeconds = 10f;
@@ -73,7 +75,9 @@ namespace CapybaraAdventure.Save
                 LanguageIndex = _localization.CurrentLanguageIndex,
                 BoughtHeroSkins = _heroSkins.BoughtSkins,
                 CurrentHeroSkin = _heroSkins.Current.Name,
-                Level = _levelNumberHolder.Level
+                Level = _levelNumberHolder.Level,
+                // TODO PurchaseManager
+                NoAds = false
             };
 
             _saveSystem.Save(data);
@@ -88,6 +92,7 @@ namespace CapybaraAdventure.Save
             // NEW
             _heroSkins.Load(data);
             _levelNumberHolder.Load(data);
+            AdTimer.Instance.SetNoAds(data.NoAds);
             // ––––
             await _localization.SetLanguage(data.LanguageIndex);
         }

@@ -20,5 +20,7 @@ namespace CapybaraAdventure.Save
         public SkinName BoughtHeroSkins = SkinName.Capybuddy;
         public SkinName CurrentHeroSkin = SkinName.Capybuddy;
         public int Level = 1;
+
+        public bool NoAds = false;
     }
 }

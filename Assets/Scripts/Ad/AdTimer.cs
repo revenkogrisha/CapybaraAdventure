@@ -6,6 +6,7 @@ using UnityEngine;
 
 namespace CapybaraAdventure.Ad
 {
+    [DefaultExecutionOrder(0)]
     public class AdTimer : MonoBehaviour
     {
         public const int StartBlockPeriodInSeconds = 30;
@@ -39,6 +40,11 @@ namespace CapybaraAdventure.Ad
         public void BlockAdForPeriod(int blockPeriod = BlockPeriodInSeconds)
         {
             BlockAd(blockPeriod, _cancellationToken).Forget();
+        }
+
+        public void SetNoAds(bool noAds)
+        {
+            _noAds = noAds;
         }
 
         private async UniTask BlockAd(int period, CancellationToken token)
