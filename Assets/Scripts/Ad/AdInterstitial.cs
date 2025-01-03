@@ -24,7 +24,7 @@ namespace CapybaraAdventure.Ad
         {
             if (_adTimer.CanShowAd == false)
             {
-                print("Ad blocked by timer!");
+                print("Ad blocked by timer or No Ads!");
                 return false;
             }
 
@@ -38,7 +38,7 @@ namespace CapybaraAdventure.Ad
             return false;
         }
 
-        public void Show()
+        private void Show()
         {
             Advertisement.Show(_adID, this);
         }

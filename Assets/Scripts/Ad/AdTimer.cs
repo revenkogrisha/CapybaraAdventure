@@ -14,9 +14,10 @@ namespace CapybaraAdventure.Ad
         public static AdTimer Instance { get; private set; }
 
         private bool _canShowAd = true;
+        private bool _noAds = false;
         private CancellationToken _cancellationToken;
 
-        public bool CanShowAd => _canShowAd;
+        public bool CanShowAd => _noAds == false && _canShowAd == true;
 
         private void Awake()
         {
