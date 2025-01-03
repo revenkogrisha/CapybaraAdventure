@@ -7,7 +7,6 @@ using CapybaraAdventure.Player;
 using CapybaraAdventure.Other;
 using UnityEngine.Localization.Components;
 using Cysharp.Threading.Tasks;
-using UnityEngine.Localization.Settings;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
 

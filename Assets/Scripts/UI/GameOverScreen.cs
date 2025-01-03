@@ -1,5 +1,4 @@
 using UnityEngine;
-using TMPro;
 using CapybaraAdventure.Other;
 using CapybaraAdventure.Ad;
 using System;

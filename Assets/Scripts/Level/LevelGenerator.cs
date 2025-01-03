@@ -9,7 +9,6 @@ using Cysharp.Threading.Tasks;
 using System.Threading;
 using CapybaraAdventure.Other;
 using Core.Level;
-using TMPro;
 using Zenject;
 
 namespace CapybaraAdventure.Level

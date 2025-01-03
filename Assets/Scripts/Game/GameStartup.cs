@@ -1,7 +1,6 @@
 using CapybaraAdventure.Player;
 using UnityEngine;
 using Zenject;
-using Cinemachine;
 using CapybaraAdventure.UI;
 using System;
 using CapybaraAdventure.Level;

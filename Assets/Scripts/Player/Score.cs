@@ -2,7 +2,6 @@ using System;
 using System.Threading;
 using CapybaraAdventure.Game;
 using CapybaraAdventure.Other;
-using CapybaraAdventure.Save;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 using Zenject;

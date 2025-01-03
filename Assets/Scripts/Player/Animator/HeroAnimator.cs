@@ -1,9 +1,7 @@
 using Cysharp.Threading.Tasks;
 using UnityEngine;
-using System;
 using CapybaraAdventure.Player;
 using DG.Tweening;
-using UnityEngine.UI;
 
 namespace Core.Player
 {

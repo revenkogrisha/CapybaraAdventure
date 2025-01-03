@@ -1,4 +1,3 @@
-using System;
 using System.Threading;
 using CapybaraAdventure.Other;
 using Cysharp.Threading.Tasks;

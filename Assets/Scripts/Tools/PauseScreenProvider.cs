@@ -3,7 +3,6 @@ using CapybaraAdventure.UI;
 using CapybaraAdventure.Game;
 using Core.Audio;
 using Zenject;
-using UnityEditor;
 using UnityEngine;
 
 namespace CapybaraAdventure.Other

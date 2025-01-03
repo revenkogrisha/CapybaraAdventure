@@ -1,7 +1,6 @@
 using CapybaraAdventure.Player;
 using TMPro;
 using UnityEngine;
-using Zenject;
 
 namespace CapybaraAdventure.UI
 {

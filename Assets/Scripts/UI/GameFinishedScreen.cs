@@ -1,8 +1,6 @@
 using UnityEngine;
-using TMPro;
 using CapybaraAdventure.Other;
 using CapybaraAdventure.Ad;
-using System;
 using CapybaraAdventure.Level;
 using CapybaraAdventure.Player;
 using CapybaraAdventure.Save;
