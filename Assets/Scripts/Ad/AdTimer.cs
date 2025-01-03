@@ -15,10 +15,10 @@ namespace CapybaraAdventure.Ad
         public static AdTimer Instance { get; private set; }
 
         private bool _canShowAd = true;
-        private bool _noAds = false;
         private CancellationToken _cancellationToken;
 
-        public bool CanShowAd => _noAds == false && _canShowAd == true;
+        public bool NoAds { get; private set; } = false;
+        public bool CanShowAd => NoAds == false && _canShowAd == true;
 
         private void Awake()
         {
@@ -44,7 +44,7 @@ namespace CapybaraAdventure.Ad
 
         public void SetNoAds(bool noAds)
         {
-            _noAds = noAds;
+            NoAds = noAds;
         }
 
         private async UniTask BlockAd(int period, CancellationToken token)

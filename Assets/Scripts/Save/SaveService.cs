@@ -76,8 +76,7 @@ namespace CapybaraAdventure.Save
                 BoughtHeroSkins = _heroSkins.BoughtSkins,
                 CurrentHeroSkin = _heroSkins.Current.Name,
                 Level = _levelNumberHolder.Level,
-                // TODO PurchaseManager
-                NoAds = false
+                NoAds = AdTimer.Instance.NoAds
             };
 
             _saveSystem.Save(data);

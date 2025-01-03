@@ -123,6 +123,7 @@ Transform:
   - {fileID: 812959532703145724}
   - {fileID: 6382093595040530718}
   - {fileID: 6536677573749412648}
+  - {fileID: 4620332436869695514}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8304896586256948911
@@ -166,10 +167,66 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24843d64346c34f02aa06b06bc754b56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _purchaseManager: {fileID: 4861845654678086076}
   _score: {fileID: 5792928317269331969}
   _saveService: {fileID: 4492778364014580891}
   _skinsCollection: {fileID: 11400000, guid: fecd6b47c6d1f4efda36a8824556b096, type: 2}
   _unityAudioHandler: {fileID: 1742405580621965447}
+--- !u!1 &5627132909492195833
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4620332436869695514}
+  - component: {fileID: 4861845654678086076}
+  m_Layer: 0
+  m_Name: PurchaseManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4620332436869695514
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5627132909492195833}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7153509754822291945}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4861845654678086076
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5627132909492195833}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aab21269bebb4b84833ccd27ce1a0a0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _consumablePurchase:
+    Name: Melons
+    ID: melons_30
+    Description: Get 30 Melons to purchase skins
+    Price: 1.99
+    Amount: 30
+  _nonConsumablePurchase:
+    Name: No Ads
+    ID: no_ads
+    Description: Remove ads forever
+    Price: 1.99
 --- !u!1 &7574754073181888534
 GameObject:
   m_ObjectHideFlags: 0

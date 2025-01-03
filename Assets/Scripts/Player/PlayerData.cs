@@ -9,7 +9,6 @@ namespace CapybaraAdventure.Player
 {
     public class PlayerData
     {
-        private readonly LevelPlaythrough _levelPlaythrough;
         private const float MaxDistanceUpgradeLimit = 22f;
         private const float MaxDistanceUpgradeIncrease = 1f;
         private const float LerpSpeedDecrease = 0.08f;
@@ -20,6 +19,8 @@ namespace CapybaraAdventure.Player
         public const float MaxDistanceConst = 21f;
         public const float FoodBonusConst = 1.125f;
 
+        private readonly LevelPlaythrough _levelPlaythrough;
+        
         public int Coins { get; private set; }
         public int Food { get; private set; }
         public float MaxDistance { get; private set; }
@@ -107,6 +108,13 @@ namespace CapybaraAdventure.Player
             int amount = MelonChest.SimpleAmount;
             Food += amount;
             _levelPlaythrough.FoodCollected += amount;
+            
+            OnFoodChanged?.Invoke(Food);
+        }
+        
+        public void AddPurchasedMelons(int amount)
+        { 
+            Food += amount;
             
             OnFoodChanged?.Invoke(Food);
         }

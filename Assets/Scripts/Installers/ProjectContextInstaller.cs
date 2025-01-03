@@ -11,6 +11,10 @@ namespace CapybaraAdventure.Installers
 {
     public class ProjectContextInstaller : MonoInstaller
     {
+        // NEW
+        [SerializeField] private PurchaseManager _purchaseManager;
+        
+        [Space]
         [SerializeField] private Score _score;
         [SerializeField] private SaveService _saveService;
         
@@ -21,14 +25,15 @@ namespace CapybaraAdventure.Installers
         public override void InstallBindings()
         {
             // NEW
+            BindLevelPlaythrough();
             BindLevelNumberHolder();
+            BindPlayerData();
+            BindPurchaseManager();
             
             BindSaveSystem();
             BindPauseManager();
             // NEW
-            BindLevelPlaythrough();
             BindScore();
-            BindPlayerData();
             
             BindLocalizationManager();
             BindSaveService();
@@ -53,6 +58,15 @@ namespace CapybaraAdventure.Installers
             Container
                 .Bind<LevelNumberHolder>()
                 .FromNew()
+                .AsSingle()
+                .NonLazy();
+        }
+        
+        private void BindPurchaseManager()
+        {
+            Container
+                .Bind<PurchaseManager>()
+                .FromInstance(_purchaseManager)
                 .AsSingle()
                 .NonLazy();
         }
