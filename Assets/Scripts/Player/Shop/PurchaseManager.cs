@@ -33,6 +33,9 @@ namespace CapybaraAdventure.Player
         
         private IStoreController _storeController;
         private PlayerData _playerData;
+        
+        public bool IsFullInitialized => _storeController != null;
+        public bool HasReceiptNonConsumable { get; private set; } = false;
 
         [Inject]
         private void Construct(PlayerData playerData)
@@ -72,7 +75,9 @@ namespace CapybaraAdventure.Player
         private void CheckNonConsumable()
         {
             var product = _storeController.products.WithID(_nonConsumablePurchase.ID);
-            AdTimer.Instance.SetNoAds(product.hasReceipt);
+            HasReceiptNonConsumable = product.hasReceipt;
+            
+            AdTimer.Instance.SetNoAds(HasReceiptNonConsumable);
         }
 
         private void ProcessConsumable()

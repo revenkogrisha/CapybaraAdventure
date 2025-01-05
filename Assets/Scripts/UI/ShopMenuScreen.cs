@@ -10,9 +10,19 @@ namespace CapybaraAdventure.UI
         [SerializeField] private UIButton _consumableButton;
         [SerializeField] private UIButton _nonConsumableButton;
         [SerializeField] private ResourcePanel _resourcePanel;
-        
+
         private PlayerData _playerData;
         private PurchaseManager _purchaseManager;
+
+        private bool ConsumablePurchasable =>
+            Application.internetReachability != NetworkReachability.NotReachable &&
+            (_purchaseManager != null && _purchaseManager.IsFullInitialized == true);
+                                              
+        private bool NonConsumablePurchasable =>
+            _purchaseManager != null &&
+            _purchaseManager.HasReceiptNonConsumable == false &&
+            Application.internetReachability != NetworkReachability.NotReachable &&
+            _purchaseManager.IsFullInitialized == true;
 
         public event Action OnScreenClosed;
 
@@ -23,6 +33,9 @@ namespace CapybaraAdventure.UI
 
         private void OnEnable()
         {
+            _consumableButton.Interactable = ConsumablePurchasable;
+            _nonConsumableButton.Interactable = NonConsumablePurchasable;
+            
             _backButton.OnClicked += OnBackButtonClickedHandler;
             _consumableButton.OnClicked += OnConsumablePurchaseHandler;
             _nonConsumableButton.OnClicked += OnNonConsumablePurchaseHandler;
