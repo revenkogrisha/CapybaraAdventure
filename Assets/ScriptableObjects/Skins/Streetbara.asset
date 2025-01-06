@@ -15,7 +15,7 @@ MonoBehaviour:
   _name: 32
   _menuItem: {fileID: -706347043, guid: c86753f294eae46f8a80029c3f512b97, type: 3}
   _accentColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
-  _foodCost: 15
+  _foodCost: 35
   _head: {fileID: -706347043, guid: c86753f294eae46f8a80029c3f512b97, type: 3}
   _body: {fileID: -34807063, guid: c86753f294eae46f8a80029c3f512b97, type: 3}
   _leftArm: {fileID: -598417987, guid: c86753f294eae46f8a80029c3f512b97, type: 3}
