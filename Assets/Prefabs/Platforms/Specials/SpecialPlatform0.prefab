@@ -232,13 +232,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _foodMarkers:
   - {fileID: 4084133150316561761}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   _chestMarkers:
   - {fileID: 4155760388576318275}
-  - {fileID: 0}
-  _treasureChestMarkers: []
+  _treasureChestMarkers:
+  - {fileID: 3941396350170165722}
   _melonChestMarkers: []
   _enemyMarkers: []
 --- !u!1 &4835745986864139792
