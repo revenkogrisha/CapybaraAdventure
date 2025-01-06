@@ -112,7 +112,7 @@ namespace CapybaraAdventure.Game
             _playButton.SetActive(true);
             _upgradeButton.SetActive(true);
             _languageButton.SetActive(true);
-            _shopButton.SetActive(true);
+            // _shopButton.SetActive(true);
             TweenElements();
         }
 
@@ -139,7 +139,7 @@ namespace CapybaraAdventure.Game
             
             // NEW
             tweener.TweenButton(_presentationsContainer.transform);
-            tweener.TweenButton(_shopButton.transform);
+            // tweener.TweenButton(_shopButton.transform);
             tweener.TweenProgressBar(_locationProgressBar.transform);
         }
 

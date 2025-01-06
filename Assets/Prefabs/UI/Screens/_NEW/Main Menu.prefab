@@ -2349,7 +2349,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6638240458759770542, guid: aa66bd2463c3643beb3485b9fbc725a9, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -347
+      value: -139
       objectReference: {fileID: 0}
     - target: {fileID: 6638240458759770542, guid: aa66bd2463c3643beb3485b9fbc725a9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -2559,7 +2559,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7246862364528364959, guid: aa66bd2463c3643beb3485b9fbc725a9, type: 3}
       propertyPath: m_Name
-      value: Button_NEW
+      value: temp_SettingsButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 7246862364528364959, guid: aa66bd2463c3643beb3485b9fbc725a9, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2876304608863672430, guid: 08e78e0dbe3d84bd1a2bde32e00807a7, type: 3}
       propertyPath: _tmp
@@ -2746,7 +2750,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6638240458759770542, guid: aa66bd2463c3643beb3485b9fbc725a9, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 591
+      value: 540.13
       objectReference: {fileID: 0}
     - target: {fileID: 6638240458759770542, guid: aa66bd2463c3643beb3485b9fbc725a9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -2918,11 +2922,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6638240458759770542, guid: aa66bd2463c3643beb3485b9fbc725a9, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0.037996
+      value: -0.22604
       objectReference: {fileID: 0}
     - target: {fileID: 6638240458759770542, guid: aa66bd2463c3643beb3485b9fbc725a9, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 354
+      value: 306.8
       objectReference: {fileID: 0}
     - target: {fileID: 6638240458759770542, guid: aa66bd2463c3643beb3485b9fbc725a9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -3135,7 +3139,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7246862364528364959, guid: aa66bd2463c3643beb3485b9fbc725a9, type: 3}
       propertyPath: m_Name
-      value: Button_NEW (2)
+      value: Shop Button
+      objectReference: {fileID: 0}
+    - target: {fileID: 7246862364528364959, guid: aa66bd2463c3643beb3485b9fbc725a9, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4976447482627161834, guid: 08e78e0dbe3d84bd1a2bde32e00807a7, type: 3}
       propertyPath: m_Color.b
