@@ -8,6 +8,10 @@ using CapybaraAdventure.Ad;
 using Core.Audio;
 using Core.Player;
 using Core.UI;
+using TMPro;
+using UnityEngine.Localization.Components;
+using UnityEngine.Serialization;
+using UnityEngine.UI;
 
 namespace CapybaraAdventure.UI
 {
@@ -15,8 +19,11 @@ namespace CapybaraAdventure.UI
     {
         [Header("UI Elements")]
         [SerializeField] private UIButton _backButton;
-        [SerializeField] private UpgradeBlock _jumpDistanceUpgrade;
-        [SerializeField] private UpgradeBlock _foodBonusUpgrade;
+        [SerializeField] private UpgradeBlock _commonUpgrade;
+        [SerializeField] private Slider _levelUpgradeSlider;
+        [SerializeField] private Slider _nextLevelSlider;
+        [SerializeField] private LocalizeStringEvent _levelLocalizeEvent;
+        [SerializeField] private TMP_Text _levelTMP;
         // [SerializeField] private ResetProgressService _resetService;
         
         [Header("Skins Components")]
@@ -51,9 +58,10 @@ namespace CapybaraAdventure.UI
         {
             _backButton.OnClicked += OnBackButtonClickedHandler;
             _rewardedCoins.OnRewardGotten += AddRewardedCoins;
+            _levelLocalizeEvent.OnUpdateString.AddListener(UpdateLevelText);
 
             // _jumpDistanceUpgrade.Button.OnClicked += TryUpdgradeJumpDistance;
-            // _foodBonusUpgrade.Button.OnClicked += TryUpgradeFoodBonus;
+            _commonUpgrade.Button.OnClicked += TryCommonUpgrade;
 
             // NEW
             _skinsPanel.ItemDisplayCommand += DisplayItem;
@@ -61,6 +69,10 @@ namespace CapybaraAdventure.UI
             _skinPlacement.SelectButtonCommand += OnSelectButtonClicked;
             
             // –––––Reveal–––––
+            
+            _commonUpgrade.Init(_playerData.CommonUpgradeCost);
+            ValidateCommonUpgradeButton();
+            UpdateLevelInfo();
             
             _presenter.OnViewReveal();
             _presenter.SetPanelsByAvailability(_displayedSkin.Name);
@@ -73,9 +85,10 @@ namespace CapybaraAdventure.UI
         {
             _backButton.OnClicked -= OnBackButtonClickedHandler;
             _rewardedCoins.OnRewardGotten -= AddRewardedCoins;
+            _levelLocalizeEvent.OnUpdateString.RemoveListener(UpdateLevelText);
 
             // _jumpDistanceUpgrade.Button.OnClicked -= TryUpdgradeJumpDistance;
-            // _foodBonusUpgrade.Button.OnClicked -= TryUpgradeFoodBonus;
+            _commonUpgrade.Button.OnClicked -= TryCommonUpgrade;
             
             // NEW
             _skinsPanel.ItemDisplayCommand -= DisplayItem;
@@ -119,38 +132,47 @@ namespace CapybaraAdventure.UI
             _playerData.AddRandomAdCoins(minInclusive, maxExclusive);
         }
 
-        private void TryUpdgradeJumpDistance()
+        private void TryCommonUpgrade()
         {
             bool isOperationSucceeded = _playerData
-                .TrySubstractCoins(_jumpDistanceUpgrade);
+                .TrySubstractCoins(_commonUpgrade);
 
             if (isOperationSucceeded == false)
                 return;
 
-            _jumpDistanceUpgrade.HandleUpgrade();
-            _playerData.UpgradeJumpDistance(_jumpDistanceUpgrade);
-
-            HandleUpgrade();
-        }
-
-        private void TryUpgradeFoodBonus()
-        {
-            bool isOperationSucceeded = _playerData
-                .TrySubstractCoins(_foodBonusUpgrade);
-
-            if (isOperationSucceeded == false)
-                return;
-
-            _foodBonusUpgrade.HandleUpgrade();
-            _playerData.UpgradeFoodBonus(_foodBonusUpgrade);
+            _commonUpgrade.HandleUpgrade();
+            _playerData.UpgradeFoodBonus(_commonUpgrade);
 
             HandleUpgrade();
         }
 
         private void HandleUpgrade()
         {
+            UpdateLevelInfo();
+            
+            ValidateCommonUpgradeButton();
+            
+            _levelLocalizeEvent.RefreshString();
+            
             _saveService.Save();
             _interstitialAd.TryShowWithChance();
+        }
+
+        private void UpdateLevelInfo()
+        {
+            _levelUpgradeSlider.value = _playerData.CurrentLevel;
+            _nextLevelSlider.value = _playerData.CurrentLevel + 1;
+        }
+
+        private void UpdateLevelText(string text)
+        {
+            _levelTMP.text = string.Format(text, _playerData.CurrentLevel);
+        }
+
+        private void ValidateCommonUpgradeButton()
+        {
+            if (_playerData.Coins < _commonUpgrade.Cost)
+                _commonUpgrade.BlockButton();
         }
         
         // –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––

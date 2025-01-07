@@ -17,12 +17,18 @@ namespace CapybaraAdventure.UI
         {
             Cost = cost;
             UpdateCostText();
+            _button.Interactable = true;
         }
 
         public void HandleUpgrade()
         {
             Cost += CostIncrease;
             UpdateCostText();
+        }
+
+        public void BlockButton()
+        {
+            _button.Interactable = false;
         }
 
         private void UpdateCostText() => _costText.text = $"{Cost}";

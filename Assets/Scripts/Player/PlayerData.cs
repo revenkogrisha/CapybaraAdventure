@@ -2,6 +2,7 @@ using System;
 using CapybaraAdventure.Level;
 using CapybaraAdventure.Save;
 using CapybaraAdventure.UI;
+using UnityEngine;
 using Zenject;
 using Random = UnityEngine.Random;
 
@@ -12,8 +13,8 @@ namespace CapybaraAdventure.Player
         private const float MaxDistanceUpgradeLimit = 22f;
         private const float MaxDistanceUpgradeIncrease = 1f;
         private const float LerpSpeedDecrease = 0.08f;
-        private const float FoodBonusIncrease = 0.125f;
-        public const float FoodBonusLimit = 1f;
+        private const float FoodBonusIncrease = 0.0625f;
+        private const int MaxLevel = 20;
         
         // NEW
         public const float MaxDistanceConst = 21f;
@@ -25,7 +26,7 @@ namespace CapybaraAdventure.Player
         public int Food { get; private set; }
         public float MaxDistance { get; private set; }
         public float FoodBonus { get; private set; }
-        public int FoodUpgradeCost { get; private set; }
+        public int CommonUpgradeCost { get; private set; }
         public int DistanceUpgradeCost { get; private set; }
         public bool IsCutsceneWatched { get; set; }
 
@@ -33,6 +34,9 @@ namespace CapybaraAdventure.Player
         {
             get => LerpSpeedDecrease + (LerpSpeedDecrease * FoodBonus);
         }
+
+        public int CurrentLevel => Mathf.RoundToInt((FoodBonus - 0.25f) / FoodBonusIncrease) + 1;
+        public bool CanUpgrade => CurrentLevel < MaxLevel;
 
         public event Action<int> OnCoinsChanged;
         public event Action<int> OnFoodChanged;
@@ -48,15 +52,15 @@ namespace CapybaraAdventure.Player
             Coins = data.Coins;
             Food = data.Food;
             // MaxDistance = data.MaxDistance;
-            // FoodBonus = data.FoodBonus;
+            FoodBonus = data.FoodBonusNEW;
             
             // NEW
             MaxDistance = MaxDistanceConst;
-            FoodBonus = FoodBonusConst;
+            // FoodBonus = FoodBonusConst;
             // –––
             
             DistanceUpgradeCost = data.DistanceUpgradeCost;
-            FoodUpgradeCost = data.FoodUpgradeCost;
+            CommonUpgradeCost = data.CommonUpgradeCost;
             IsCutsceneWatched = data.IsCutsceneWatched;
         }
 
@@ -140,12 +144,12 @@ namespace CapybaraAdventure.Player
 
         public void UpgradeFoodBonus(UpgradeBlock block)
         {
-            FoodUpgradeCost = block.Cost;
+            CommonUpgradeCost = block.Cost;
 
             float increased = FoodBonus += FoodBonusIncrease;
-            //  It is supposed to work like this.
-            //  It makes illusion of unlimited upgrading for player
-            if (increased > FoodBonusLimit)
+            
+            int level = Mathf.RoundToInt((increased - 0.25f) / FoodBonusIncrease) + 1;
+            if (MaxLevel >= level)
                 return;
 
             FoodBonus = increased;
