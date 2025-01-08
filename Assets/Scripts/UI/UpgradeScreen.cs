@@ -10,7 +10,6 @@ using Core.Player;
 using Core.UI;
 using TMPro;
 using UnityEngine.Localization.Components;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 namespace CapybaraAdventure.UI
@@ -139,6 +138,8 @@ namespace CapybaraAdventure.UI
 
             if (isOperationSucceeded == false)
                 return;
+            
+            _audioHandler.PlaySound(AudioName.CoinsSpent);
 
             _commonUpgrade.HandleUpgrade();
             _playerData.UpgradeFoodBonus(_commonUpgrade);

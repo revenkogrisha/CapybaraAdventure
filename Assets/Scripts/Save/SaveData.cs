@@ -1,6 +1,5 @@
 using System;
 using Core.Player;
-using UnityEngine.Serialization;
 
 namespace CapybaraAdventure.Save
 {
