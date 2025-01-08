@@ -530,7 +530,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2134459864794151477}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 56eb0353ae6e5124bb35b17aff880f16, type: 3}
   m_Name: 
@@ -539,7 +539,7 @@ MonoBehaviour:
     m_TableReference:
       m_TableCollectionName: GUID:7ea67ff4d163a481d99ec8bd956123cd
     m_TableEntryReference:
-      m_KeyId: 4073322438681
+      m_KeyId: 34542913219190784
       m_Key: 
     m_FallbackState: 0
     m_WaitForCompletion: 0
@@ -1549,7 +1549,7 @@ MonoBehaviour:
     m_TableReference:
       m_TableCollectionName: GUID:7ea67ff4d163a481d99ec8bd956123cd
     m_TableEntryReference:
-      m_KeyId: 4073322438681
+      m_KeyId: 34542913219190785
       m_Key: 
     m_FallbackState: 0
     m_WaitForCompletion: 0

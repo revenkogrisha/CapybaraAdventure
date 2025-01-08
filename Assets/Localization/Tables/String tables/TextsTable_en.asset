@@ -51,11 +51,11 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 4073322438666
-    m_Localized: Food Bonus
+    m_Localized: Upgrade
     m_Metadata:
       m_Items: []
   - m_Id: 4073322438667
-    m_Localized: Jump Distance
+    m_Localized: Get Hero
     m_Metadata:
       m_Items: []
   - m_Id: 4073322438668
@@ -71,7 +71,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 4073322438673
-    m_Localized: Game Over!
+    m_Localized: Oh... Just try again!
     m_Metadata:
       m_Items: []
   - m_Id: 4073322438674
@@ -108,6 +108,24 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 15257616635650050
     m_Localized: 'Defeated:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 34481851258101760
+    m_Localized: Complete levels to discover new regions
+    m_Metadata:
+      m_Items: []
+  - m_Id: 34481851266490368
+    m_Localized: Nice one! Wanna repeat?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 34542913219190784
+    m_Localized: 'You can jump with different force: perform "light" jump when force
+      is green'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 34542913219190785
+    m_Localized: Try to perform moderate or far jump when force is yellow or red,
+      don't fall down
     m_Metadata:
       m_Items: []
   references:

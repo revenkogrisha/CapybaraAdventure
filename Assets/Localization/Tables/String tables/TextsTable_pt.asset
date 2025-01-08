@@ -51,11 +51,11 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 4073322438666
-    m_Localized: "B\xF4nus Alimentar"
+    m_Localized: Atualizar
     m_Metadata:
       m_Items: []
   - m_Id: 4073322438667
-    m_Localized: "Dist\xE2ncia do salto"
+    m_Localized: "Obtenha her\xF3i"
     m_Metadata:
       m_Items: []
   - m_Id: 4073322438668
@@ -71,7 +71,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 4073322438673
-    m_Localized: Game Over!
+    m_Localized: Ah... Tente novamente!
     m_Metadata:
       m_Items: []
   - m_Id: 4073322438674
@@ -108,6 +108,24 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 15257616635650050
     m_Localized: 'Derrotado:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 34481851258101760
+    m_Localized: "Complete n\xEDveis para descobrir novas regi\xF5es"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 34481851266490368
+    m_Localized: "Agrad\xE1vel! Quer repetir?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 34542913219190784
+    m_Localized: "Voc\xEA pode pular com for\xE7a diferente: execute um salto \"leve\"
+      quando a for\xE7a estiver verde"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 34542913219190785
+    m_Localized: "Tente realizar um salto moderado ou distante quando a for\xE7a
+      estiver amarela ou vermelha, n\xE3o caia"
     m_Metadata:
       m_Items: []
   references:

@@ -51,11 +51,11 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 4073322438666
-    m_Localized: Bono de comida
+    m_Localized: Mejora
     m_Metadata:
       m_Items: []
   - m_Id: 4073322438667
-    m_Localized: Distancia de salto
+    m_Localized: "Obtener h\xE9roe"
     m_Metadata:
       m_Items: []
   - m_Id: 4073322438668
@@ -71,7 +71,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 4073322438673
-    m_Localized: "\xA1Juego terminado!"
+    m_Localized: "Oh... \xA1Int\xE9ntalo de nuevo!"
     m_Metadata:
       m_Items: []
   - m_Id: 4073322438674
@@ -108,6 +108,24 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 15257616635650050
     m_Localized: 'Derrotado:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 34481851258101760
+    m_Localized: Completa niveles para descubrir nuevas regiones.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 34481851266490368
+    m_Localized: "\xA1Bonita! \xBFQuieres repetir?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 34542913219190784
+    m_Localized: 'Puedes saltar con diferente fuerza: realiza un salto "ligero" cuando
+      la fuerza sea verde'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 34542913219190785
+    m_Localized: Intenta realizar un salto moderado o de larga distancia cuando la
+      fuerza sea amarilla o roja, no te caigas.
     m_Metadata:
       m_Items: []
   references:

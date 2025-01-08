@@ -143,6 +143,22 @@ MonoBehaviour:
     m_Key: WinDefeated
     m_Metadata:
       m_Items: []
+  - m_Id: 34481851258101760
+    m_Key: MenuRegions
+    m_Metadata:
+      m_Items: []
+  - m_Id: 34481851266490368
+    m_Key: WinLable
+    m_Metadata:
+      m_Items: []
+  - m_Id: 34542913219190784
+    m_Key: TutorialJumpLight
+    m_Metadata:
+      m_Items: []
+  - m_Id: 34542913219190785
+    m_Key: TutorialJumpStrong
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
