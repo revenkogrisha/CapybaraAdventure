@@ -23,4 +23,4 @@ MonoBehaviour:
   _specialPlatforms:
   - {fileID: -6293920189038187168, guid: 21db26adf15df4746aa4a65099e8dcd0, type: 3}
   _backgroundPreset: {fileID: 11400000, guid: be16bf9bc4e4f4eb9b0461201dfdc532, type: 2}
-  _locationMenuPresentationPrefab: {fileID: 2837530242948514466, guid: 713202b36841647409fb4e6b20e978c8, type: 3}
+  _locationMenuPresentationPrefab: {fileID: 2837530242948514466, guid: 76227bb3bc71f45ba9415d8705e5ee6e, type: 3}
