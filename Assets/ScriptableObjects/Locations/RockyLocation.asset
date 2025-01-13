@@ -17,17 +17,11 @@ MonoBehaviour:
   _levelsToComplete: 12
   _startPlatform: {fileID: 2883049585238784193, guid: 7d8832a9aacf248aca9b5135e6f660b7, type: 3}
   _simplePlatforms:
-  - {fileID: -7841068184548764235, guid: faf8218739d6c4e688811592da06e509, type: 3}
-  - {fileID: 3154565652104204545, guid: e6cdb5e39ef524b4e8efc37728d03629, type: 3}
-  - {fileID: -7841068184548764235, guid: acf864b920f504ee88e48c6a59b5e896, type: 3}
-  - {fileID: 3154565652104204545, guid: 3478ed26303484b1d81717301792700d, type: 3}
-  - {fileID: -7841068184548764235, guid: b89fcbc7f8986417484e35e73f6c0b41, type: 3}
-  - {fileID: 4323019035991690519, guid: 29b0a0fc144f442fe932042a97a85427, type: 3}
-  - {fileID: -7841068184548764235, guid: fb4991b58c6e342509cd3bed7a34cf6c, type: 3}
-  - {fileID: -7841068184548764235, guid: 14fb245fb9c5c4141b84fa6c4d7ff8b2, type: 3}
+  - {fileID: -7841068184548764235, guid: 347a2f9d951074943b2ac3177c2c1854, type: 3}
+  - {fileID: -7841068184548764235, guid: be4e998881f43410289dca64cb3874ab, type: 3}
+  - {fileID: -7841068184548764235, guid: 3a7ccc38574ac43beb2e94c5899c2e6c, type: 3}
+  - {fileID: -7841068184548764235, guid: 5b500f09d56b1409fa5bede160a31211, type: 3}
   _specialPlatforms:
-  - {fileID: -6293920189038187168, guid: 21db26adf15df4746aa4a65099e8dcd0, type: 3}
-  - {fileID: -6293920189038187168, guid: 197dd6839770041bf9d27df96e783424, type: 3}
-  - {fileID: 2136358286600949718, guid: 3c9dc12606a894683bec71e28632b97a, type: 3}
+  - {fileID: -6293920189038187168, guid: ef04491cf218e499e95bf4b3444e31d8, type: 3}
   _backgroundPreset: {fileID: 11400000, guid: 0990166c9b5d64afeb1b540322172ae6, type: 2}
   _locationMenuPresentationPrefab: {fileID: 279936773017812193, guid: 06b44db2b5afa42c39bf62ce2fe22749, type: 3}
