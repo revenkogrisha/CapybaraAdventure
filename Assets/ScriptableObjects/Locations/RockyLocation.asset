@@ -23,5 +23,6 @@ MonoBehaviour:
   - {fileID: -7841068184548764235, guid: 5b500f09d56b1409fa5bede160a31211, type: 3}
   _specialPlatforms:
   - {fileID: -6293920189038187168, guid: ef04491cf218e499e95bf4b3444e31d8, type: 3}
+  - {fileID: -6293920189038187168, guid: ba630491092ff4348bcb530bf64f1525, type: 3}
   _backgroundPreset: {fileID: 11400000, guid: 0990166c9b5d64afeb1b540322172ae6, type: 2}
   _locationMenuPresentationPrefab: {fileID: 279936773017812193, guid: 06b44db2b5afa42c39bf62ce2fe22749, type: 3}
