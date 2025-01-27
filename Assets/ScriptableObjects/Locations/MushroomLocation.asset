@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0b08a659b2cb448e9e99c11f11ced32, type: 3}
+  m_Name: MushroomLocation
+  m_EditorClassIdentifier: 
+  _useDefaultBackground: 1
+  _backgroundColor: {r: 0.75686276, g: 0.70980394, b: 0.5254902, a: 0}
+  _levelsToComplete: 20
+  _startPlatform: {fileID: 2883049585238784193, guid: 7d8832a9aacf248aca9b5135e6f660b7, type: 3}
+  _simplePlatforms:
+  - {fileID: -7841068184548764235, guid: e0de176c1f1114f9e8acbebf29f0c7f1, type: 3}
+  - {fileID: -7841068184548764235, guid: 0186c2bbbdf0b47769a7e8f2fcba95a4, type: 3}
+  - {fileID: 4323019035991690519, guid: 934df3e0e8900466b8f1fd8073ba2a23, type: 3}
+  _specialPlatforms:
+  - {fileID: 2136358286600949718, guid: 4996248d8be2e48778bc8789378f50ba, type: 3}
+  _backgroundPreset: {fileID: 11400000, guid: 9dd35dfdb921f4559b01dad0ddb0b4d6, type: 2}
+  _locationMenuPresentationPrefab: {fileID: 6756741470085284497, guid: e113723f090a74bba87c84e8d13beaa2, type: 3}
