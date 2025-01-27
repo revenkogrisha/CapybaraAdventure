@@ -3,6 +3,7 @@ using CapybaraAdventure.Other;
 using Cysharp.Threading.Tasks;
 using NTC.Global.Pool;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityTools;
 
 namespace CapybaraAdventure.Level
@@ -15,7 +16,9 @@ namespace CapybaraAdventure.Level
         [Header("Trigger Chance")]
         [SerializeField, Range(0, 101)] private int _triggerChance = 40;
 
+        [FormerlySerializedAs("_moveDirection")]
         [Header("Falling Settings")]
+        [SerializeField] private Vector3 _moveDirectionVector = Vector3.down;
         [SerializeField] private float _delayBeforeFalling = 1.7f;
         [SerializeField] private float _delayBeforeRigidbodyFreeze = 2f;
         [SerializeField] private float _fallSpeed = 10f;
@@ -75,7 +78,7 @@ namespace CapybaraAdventure.Level
         private async UniTask MoveDownSmoothly(CancellationToken token)
         {
             float elapsedTime = 0f;
-            Vector3 targetPosition = transform.localPosition + Vector3.down * _moveDownDistance;
+            Vector3 targetPosition = transform.localPosition + _moveDirectionVector * _moveDownDistance;
 
             while (elapsedTime < _moveDownDuration)
             {
