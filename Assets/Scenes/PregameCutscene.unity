@@ -3002,6 +3002,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1363624443}
     m_Modifications:
+    - target: {fileID: 3332263531862417898, guid: 0a8e6b8f173a0497eaf1a527cda14c4f, type: 3}
+      propertyPath: m_StringReference.m_TableEntryReference.m_KeyId
+      value: 4073322438658
+      objectReference: {fileID: 0}
     - target: {fileID: 4893801357058860924, guid: 0a8e6b8f173a0497eaf1a527cda14c4f, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -9884,6 +9888,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _rigidBody2D: {fileID: 609232392886367384}
   _triggerChance: 1
+  _moveDirectionVector: {x: 0, y: -1, z: 0}
   _delayBeforeFalling: 2
   _delayBeforeRigidbodyFreeze: 2
   _fallSpeed: 10
@@ -11151,7 +11156,7 @@ Animator:
   m_GameObject: {fileID: 4623909659537643747}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: ecbc0d180b59347fc87a9e94e83c605b, type: 2}
+  m_Controller: {fileID: 9100000, guid: 0b6ea159dfd38440280f423b38c8a0a3, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

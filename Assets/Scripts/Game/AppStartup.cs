@@ -23,7 +23,7 @@ namespace CapybaraAdventure.Game
             
             Application.targetFrameRate = 60;
 
-            await _loaderProvider.LoadPregameCutsceneAsync();
+            await _loaderProvider.LoadGameAsync();
         }
 
         [Inject]
