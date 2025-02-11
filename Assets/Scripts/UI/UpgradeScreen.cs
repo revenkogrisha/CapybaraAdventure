@@ -129,6 +129,7 @@ namespace CapybaraAdventure.UI
             int maxExclusive = _minMaxRewardedCoins.y;
 
             _playerData.AddRandomAdCoins(minInclusive, maxExclusive);
+            _resourcePanel.DisplayResources();
         }
 
         private void TryCommonUpgrade()
@@ -154,6 +155,8 @@ namespace CapybaraAdventure.UI
             ValidateCommonUpgradeButton();
             
             _levelLocalizeEvent.RefreshString();
+            
+            _resourcePanel.DisplayResources();
             
             _saveService.Save();
             _interstitialAd.TryShowWithChance();
