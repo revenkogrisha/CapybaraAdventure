@@ -25,6 +25,9 @@ namespace CapybaraAdventure.Level
             ChestSpawnMarker[] markers = platformInGame.ChestMarkers;
             foreach (var marker in markers)
             {
+                if (marker == null)
+                    return;
+                
                 bool isChanceSucceeded = Tools.GetChance(marker.SpawnChance);
                 if (isChanceSucceeded == false || marker.HasActiveObject == true)
                     continue;
@@ -46,6 +49,9 @@ namespace CapybaraAdventure.Level
             TreasureChestSpawnMarker[] markers = platformInGame.TreasureChestMarkers;
             foreach (var marker in markers)
             {
+                if (marker == null)
+                    return;
+                
                 bool isChanceSucceeded = Tools.GetChance(marker.SpawnChance);
                 if (isChanceSucceeded == false || marker.HasActiveObject == true)
                     continue;
@@ -64,6 +70,9 @@ namespace CapybaraAdventure.Level
             MelonChestSpawnMarker[] markers = platformInGame.MelonChestMarkers;
             foreach (var marker in markers)
             {
+                if (marker == null)
+                    return;
+                
                 bool isChanceSucceeded = Tools.GetChance(marker.SpawnChance);
                 if (isChanceSucceeded == false || marker.HasActiveObject == true)
                     continue;
@@ -83,6 +92,9 @@ namespace CapybaraAdventure.Level
             FoodSpawnMarker[] markers = platformInGame.FoodMarkers;
             foreach (var marker in markers)
             {
+                if (marker == null)
+                    return;
+                
                 bool isChanceSucceeded = Tools.GetChance(marker.SpawnChance);
                 if (isChanceSucceeded == false || marker.HasActiveObject == true)
                     continue;
@@ -100,6 +112,9 @@ namespace CapybaraAdventure.Level
             EnemySpawnMarker[] markers = platformInGame.EnemyMarkers;
             foreach (var marker in markers)
             {
+                if (marker == null)
+                    return;
+                
                 bool isChanceSucceeded = Tools.GetChance(marker.SpawnChance);
                 if (isChanceSucceeded == false || marker.HasActiveObject == true)
                     continue;

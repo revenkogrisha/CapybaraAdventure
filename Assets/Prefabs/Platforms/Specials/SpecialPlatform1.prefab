@@ -231,7 +231,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _foodMarkers:
   - {fileID: 2666533897444694454}
-  - {fileID: 0}
   _chestMarkers: []
   _treasureChestMarkers:
   - {fileID: 262893148618241408}
@@ -689,6 +688,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _rigidBody2D: {fileID: 3249400221533570808}
   _triggerChance: 25
+  _moveDirectionVector: {x: 0, y: -1, z: 0}
   _delayBeforeFalling: 1.7
   _delayBeforeRigidbodyFreeze: 2
   _fallSpeed: 10
